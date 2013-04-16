@@ -1,0 +1,21 @@
+
+
+
+GUI - MainGuiFrame per getter und setter überall verfügbar machen
+
+Automatische Gruppenerstellung berücksichtigen (GUI)
+Archivieren einbinden in GUI
+
+GroupFileReader noch ungenutzt
+MemberListSize / GroupListSize etc nutzlos beim Einlesen?
+FileCopy vereinfachen?
+	
+TXT Optional anbieten mit TXT in Namen
+
+Archiv löschen von Ordnern Alter + einer Woche etc (in Optionen angebbar)
+	Archive einlesen und wiedergeben?
+	
+	
+Print job aufräumen und closen nach print
+
+Prüfen welche lib Dateien wirklich gebraucht werden
