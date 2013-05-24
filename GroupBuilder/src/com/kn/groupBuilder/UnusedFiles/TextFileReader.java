@@ -88,6 +88,7 @@ public class TextFileReader {
 			in.close();
 			br.close();
 		} catch (IOException e) {
+			// nothing to do.
 		}
 	}
 }

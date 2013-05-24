@@ -68,6 +68,8 @@ public class MemberListReader {
 			}
 
 		} catch (IOException e) {
+			// nothing to do.
+
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {

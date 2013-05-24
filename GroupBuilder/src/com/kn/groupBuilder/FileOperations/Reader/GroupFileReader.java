@@ -70,6 +70,7 @@ public class GroupFileReader {
 			}
 
 		} catch (IOException e) {
+			// nothing to do.
 		} catch (SAXException e) {
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {

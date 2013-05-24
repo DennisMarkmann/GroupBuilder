@@ -25,6 +25,7 @@ public class FileCleaner {
 			}
 			filePath.delete();
 		} catch (java.lang.NullPointerException e) {
+			// nothing to do.
 		}
 	}
 }

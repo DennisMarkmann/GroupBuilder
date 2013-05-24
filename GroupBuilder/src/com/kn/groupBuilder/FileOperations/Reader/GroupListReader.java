@@ -69,6 +69,7 @@ public class GroupListReader {
 			}
 
 		} catch (IOException e) {
+			// nothing to do.
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {

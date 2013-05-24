@@ -28,10 +28,6 @@ public class GroupListSorter {
 
 	public boolean hasFixSize(Group group) {
 
-		if (group.getFixSize() != 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return group.getFixSize() != 0;
 	}
 }

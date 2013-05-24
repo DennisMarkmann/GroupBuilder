@@ -78,24 +78,28 @@ public class PrintJob implements Printable {
 		// Calculate Start and End of the pages and store in pageBorders
 		// And split text in passages and store in textPassages
 		try {
-			for (int i = 0; i < numberOfPages; i++)
+			for (int i = 0; i < numberOfPages; i++) {
 				pageBorders[i][0] = textareaForPrint.getLineStartOffset(i
 						* linesMaxOnPage);
-			for (int i = 0; i < numberOfPages - 1; i++)
+			}
+			for (int i = 0; i < numberOfPages - 1; i++) {
 				pageBorders[i][1] = pageBorders[i + 1][0] - 1;
-			pageBorders[numberOfPages - 1][1] = textareaForPrint
-					.getLineEndOffset(linesTotal - 1);
-			for (int i = 0; i < numberOfPages; i++)
+				pageBorders[numberOfPages - 1][1] = textareaForPrint
+						.getLineEndOffset(linesTotal - 1);
+			}
+			for (int i = 0; i < numberOfPages; i++) {
 				textPassages.add(textareaForPrint.getText(pageBorders[i][0],
 						pageBorders[i][1] - pageBorders[i][0]));
+			}
 		} catch (BadLocationException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public boolean printPage(int page) {
-		if (page < 0 | page > numberOfPages - 1)
+		if (page < 0 | page > numberOfPages - 1) {
 			return false;
+		}
 		printerJob.setPrintable(this, pageFormat);
 		textPassage = textPassages.get(page);
 		try {
@@ -109,15 +113,16 @@ public class PrintJob implements Printable {
 
 	public void printAllPages() {
 		printerJob.setPrintable(this, pageFormat);
-		for (int i = 0; i < numberOfPages; i++)
+		for (int i = 0; i < numberOfPages; i++) {
 			printPage(i);
+		}
 	}
 
 	public int print(Graphics g, PageFormat pFormat, int pageIndex)
 			throws PrinterException {
-		if (pageIndex > 0)
+		if (pageIndex > 0) {
 			return Printable.NO_SUCH_PAGE;
-
+		}
 		Graphics2D g2 = (Graphics2D) g;
 
 		g2.translate((int) pFormat.getImageableX(),
