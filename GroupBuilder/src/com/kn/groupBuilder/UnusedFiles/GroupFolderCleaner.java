@@ -3,7 +3,7 @@ package com.kn.groupBuilder.UnusedFiles;
 import java.io.File;
 
 public class GroupFolderCleaner {
-	public boolean cleanGroupFolder(String defaultPath) {
+	public final boolean cleanGroupFolder(final String defaultPath) {
 		File path = new File(defaultPath + "\\GroupsXML\\");
 		try {
 			for (File file : path.listFiles()) {
