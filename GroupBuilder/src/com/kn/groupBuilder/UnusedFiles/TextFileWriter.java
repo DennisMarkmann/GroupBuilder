@@ -32,9 +32,9 @@ public class TextFileWriter {
 		}
 	}
 
-	public void writeTextFile(ArrayList<Member> memberList,
-			ArrayList<Group> groupList, String fileName, String path,
-			Group group) throws IOException {
+	public final void writeTextFile(final ArrayList<Member> memberList,
+			final ArrayList<Group> groupList, final String fileName,
+			final String path, final Group group) throws IOException {
 
 		FileWriter writer = null;
 		File file = new File(path);
