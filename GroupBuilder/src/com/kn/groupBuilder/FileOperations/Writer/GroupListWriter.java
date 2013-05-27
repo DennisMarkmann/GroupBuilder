@@ -20,81 +20,78 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class GroupListWriter {
 
-	public void createXmlFile(Pojo pojo) {
+    public final void createXmlFile(final Pojo pojo) {
 
-		try {
+        try {
 
-			int groupNumber = 0;
+            int groupNumber = 0;
 
-			DocumentBuilderFactory factory = DocumentBuilderFactory
-					.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.newDocument();
+            final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            final DocumentBuilder builder = factory.newDocumentBuilder();
+            final Document doc = builder.newDocument();
 
-			// member elements
-			Element groupListElement = doc.createElement("GroupList");
-			Element groupListSizeElement = doc.createElement("GroupListSize");
+            // member elements
+            final Element groupListElement = doc.createElement("GroupList");
+            final Element groupListSizeElement = doc.createElement("GroupListSize");
 
-			doc.appendChild(groupListElement);
+            doc.appendChild(groupListElement);
 
-			groupListSizeElement.appendChild(doc.createTextNode(pojo
-					.getGroupList().size() + ""));
-			groupListElement.appendChild(groupListSizeElement);
+            groupListSizeElement.appendChild(doc.createTextNode(pojo.getGroupList().size() + ""));
+            groupListElement.appendChild(groupListSizeElement);
 
-			for (Group group : pojo.getGroupList()) {
+            for (final Group group : pojo.getGroupList()) {
 
-				String groupName = group.getName();
-				int fixSize = group.getFixSize();
-				String description = group.getDescription();
+                final String groupName = group.getName();
+                final int fixSize = group.getFixSize();
+                final String description = group.getDescription();
 
-				Element groupElement = doc.createElement("Group");
-				groupListElement.appendChild(groupElement);
+                final Element groupElement = doc.createElement("Group");
+                groupListElement.appendChild(groupElement);
 
-				// set attribute to group element
-				Attr attr = doc.createAttribute("id");
-				attr.setValue(groupNumber + "");
-				groupElement.setAttributeNode(attr);
+                // set attribute to group element
+                final Attr attr = doc.createAttribute("id");
+                attr.setValue(groupNumber + "");
+                groupElement.setAttributeNode(attr);
 
-				// groupName elements
-				Element groupNameElement = doc.createElement("GroupName");
-				groupNameElement.appendChild(doc.createTextNode(groupName));
-				groupElement.appendChild(groupNameElement);
+                // groupName elements
+                final Element groupNameElement = doc.createElement("GroupName");
+                groupNameElement.appendChild(doc.createTextNode(groupName));
+                groupElement.appendChild(groupNameElement);
 
-				// fixSize elements
-				Element fixSizeElement = doc.createElement("FixSize");
-				fixSizeElement.appendChild(doc.createTextNode(fixSize + ""));
-				groupElement.appendChild(fixSizeElement);
+                // fixSize elements
+                final Element fixSizeElement = doc.createElement("FixSize");
+                fixSizeElement.appendChild(doc.createTextNode(fixSize + ""));
+                groupElement.appendChild(fixSizeElement);
 
-				// description elements
-				Element descriptionElement = doc.createElement("Description");
-				descriptionElement.appendChild(doc.createTextNode(description));
-				groupElement.appendChild(descriptionElement);
+                // description elements
+                final Element descriptionElement = doc.createElement("Description");
+                descriptionElement.appendChild(doc.createTextNode(description));
+                groupElement.appendChild(descriptionElement);
 
-				groupNumber++;
+                groupNumber++;
 
-			}
+            }
 
-			// write the content into xml file
-			TransformerFactory transformerFactory = TransformerFactory
-					.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();
-			DOMSource source = new DOMSource(doc);
+            // write the content into xml file
+            final TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            final Transformer transformer = transformerFactory.newTransformer();
+            final DOMSource source = new DOMSource(doc);
 
-			File file = new File(pojo.getDefaultPath());
-			file.mkdirs();
+            File file = new File(pojo.getDefaultPath());
+            file.mkdirs();
 
-			file = new File(pojo.getDefaultPath() + "//GroupList" + ".xml");
+            file = new File(pojo.getDefaultPath() + "//GroupList" + ".xml");
 
-			StreamResult result = new StreamResult(file);
-			transformer.transform(source, result);
+            final StreamResult result = new StreamResult(file);
+            transformer.transform(source, result);
 
-			// Output to console for testing
-			// StreamResult result = new StreamResult(System.out);
+            // Output to console for testing
+            // StreamResult result = new StreamResult(System.out);
 
-		} catch (ParserConfigurationException pce) {
-			pce.printStackTrace();
-		} catch (TransformerException tfe) {
-			tfe.printStackTrace();
-		}
-	}
+        } catch (final ParserConfigurationException pce) {
+            pce.printStackTrace();
+        } catch (final TransformerException tfe) {
+            tfe.printStackTrace();
+        }
+    }
 }

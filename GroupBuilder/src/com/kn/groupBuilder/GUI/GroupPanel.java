@@ -12,29 +12,28 @@ import com.kn.groupBuilder.Storage.Group;
 
 public class GroupPanel {
 
-	public GroupPanel(JTabbedPane tabBar, ArrayList<Group> groupList) {
+    public GroupPanel(final JTabbedPane tabBar, final ArrayList<Group> groupList) {
 
-		JPanel groupPanel = new JPanel();
-		JPanel leftPanel = new JPanel();
-		JPanel rightPanel = new JPanel();
+        final JPanel groupPanel = new JPanel();
+        final JPanel leftPanel = new JPanel();
+        final JPanel rightPanel = new JPanel();
 
-		groupPanel.setLayout(new BoxLayout(groupPanel, BoxLayout.PAGE_AXIS));
-		groupPanel.add(leftPanel);
+        groupPanel.setLayout(new BoxLayout(groupPanel, BoxLayout.PAGE_AXIS));
+        groupPanel.add(leftPanel);
 
-		JTextArea textArea = new JTextArea(50, 25);
-		this.fillTextArea(textArea, groupList);
-		groupPanel.add(textArea);
-		groupPanel.add(new JButton("Button des groupPanels"));
-		tabBar.addTab("Groups", groupPanel);
+        final JTextArea textArea = new JTextArea(50, 25);
+        this.fillTextArea(textArea, groupList);
+        groupPanel.add(textArea);
+        groupPanel.add(new JButton("Button des groupPanels"));
+        tabBar.addTab("Groups", groupPanel);
 
-	}
+    }
 
-	public void fillTextArea(JTextArea textArea, ArrayList<Group> groupList) {
+    public final void fillTextArea(final JTextArea textArea, final ArrayList<Group> groupList) {
 
-		for (Group group : groupList) {
-			textArea.append(group.getName()
-					+ System.getProperty("line.separator"));
-		}
+        for (final Group group : groupList) {
+            textArea.append(group.getName() + System.getProperty("line.separator"));
+        }
 
-	}
+    }
 }

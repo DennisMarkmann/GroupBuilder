@@ -8,44 +8,45 @@ import java.nio.channels.ByteChannel;
 import java.nio.channels.FileChannel;
 
 public class FileCopy {
-	private long chunckSizeInBytes = 1024 * 1024;
 
-	public void copy(String source, String destination) {
-		try {
+    private final long chunckSizeInBytes = 1024 * 1024;
 
-			File sourceFile = new File(source);
-			File copiedFile = new File(destination);
+    public final void copy(final String source, final String destination) {
+        try {
 
-			FileInputStream fileInputStream = new FileInputStream(sourceFile);
-			FileOutputStream fileOutputStream = new FileOutputStream(copiedFile);
-			FileChannel inputChannel = fileInputStream.getChannel();
-			FileChannel outputChannel = fileOutputStream.getChannel();
-			transfer(inputChannel, outputChannel, sourceFile.length(), false);
-			fileInputStream.close();
-			fileOutputStream.close();
-			copiedFile.setLastModified(sourceFile.lastModified());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+            final File sourceFile = new File(source);
+            final File copiedFile = new File(destination);
 
-	public void transfer(FileChannel fileChannel, ByteChannel byteChannel,
-			long lengthInBytes, boolean verbose) throws IOException {
-		long overallBytesTransfered = 0L;
-		while (overallBytesTransfered < lengthInBytes) {
-			long bytesTransfered = 0L;
-			bytesTransfered = fileChannel.transferTo(
-					overallBytesTransfered,
-					Math.min(chunckSizeInBytes, lengthInBytes
-							- overallBytesTransfered), byteChannel);
-			overallBytesTransfered += bytesTransfered;
-			if (verbose) {
-				System.out.println("overall bytes transfered: "
-						+ overallBytesTransfered
-						+ " progress "
-						+ (Math.round(overallBytesTransfered
-								/ ((double) lengthInBytes) * 100.0)) + "%");
-			}
-		}
-	}
+            final FileInputStream fileInputStream = new FileInputStream(sourceFile);
+            final FileOutputStream fileOutputStream = new FileOutputStream(copiedFile);
+            final FileChannel inputChannel = fileInputStream.getChannel();
+            final FileChannel outputChannel = fileOutputStream.getChannel();
+            this.transfer(inputChannel, outputChannel, sourceFile.length(), false);
+            fileInputStream.close();
+            fileOutputStream.close();
+            copiedFile.setLastModified(sourceFile.lastModified());
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public final void transfer(
+            final FileChannel fileChannel,
+            final ByteChannel byteChannel,
+            final long lengthInBytes,
+            final boolean verbose) throws IOException {
+        long overallBytesTransfered = 0L;
+        while (overallBytesTransfered < lengthInBytes) {
+            long bytesTransfered = 0L;
+            bytesTransfered = fileChannel.transferTo(
+                    overallBytesTransfered,
+                    Math.min(this.chunckSizeInBytes, lengthInBytes - overallBytesTransfered),
+                    byteChannel);
+            overallBytesTransfered += bytesTransfered;
+            if (verbose) {
+                System.out.println("overall bytes transfered: " + overallBytesTransfered + " progress "
+                        + (Math.round(overallBytesTransfered / ((double) lengthInBytes) * 100.0)) + "%");
+            }
+        }
+    }
 }

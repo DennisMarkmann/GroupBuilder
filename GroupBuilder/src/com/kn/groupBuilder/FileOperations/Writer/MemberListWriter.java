@@ -20,81 +20,78 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class MemberListWriter {
 
-	public void createXmlFile(Pojo pojo) {
+    public final void createXmlFile(final Pojo pojo) {
 
-		try {
+        try {
 
-			int memberNumber = 0;
+            int memberNumber = 0;
 
-			DocumentBuilderFactory factory = DocumentBuilderFactory
-					.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.newDocument();
+            final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            final DocumentBuilder builder = factory.newDocumentBuilder();
+            final Document doc = builder.newDocument();
 
-			// member elements
-			Element memberListElement = doc.createElement("MemberList");
-			Element memberListSizeElement = doc.createElement("MemberListSize");
+            // member elements
+            final Element memberListElement = doc.createElement("MemberList");
+            final Element memberListSizeElement = doc.createElement("MemberListSize");
 
-			doc.appendChild(memberListElement);
+            doc.appendChild(memberListElement);
 
-			memberListSizeElement.appendChild(doc.createTextNode(pojo
-					.getMemberList().size() + ""));
-			memberListElement.appendChild(memberListSizeElement);
+            memberListSizeElement.appendChild(doc.createTextNode(pojo.getMemberList().size() + ""));
+            memberListElement.appendChild(memberListSizeElement);
 
-			for (Member member : pojo.getMemberList()) {
+            for (final Member member : pojo.getMemberList()) {
 
-				String firstName = member.getFirstName();
-				String lastName = member.getLastName();
-				String emailAdress = member.getEMailAdress();
+                final String firstName = member.getFirstName();
+                final String lastName = member.getLastName();
+                final String emailAdress = member.getEMailAdress();
 
-				Element memberElement = doc.createElement("Member");
-				memberListElement.appendChild(memberElement);
+                final Element memberElement = doc.createElement("Member");
+                memberListElement.appendChild(memberElement);
 
-				// set attribute to member element
-				Attr attr = doc.createAttribute("id");
-				attr.setValue(memberNumber + "");
-				memberElement.setAttributeNode(attr);
+                // set attribute to member element
+                final Attr attr = doc.createAttribute("id");
+                attr.setValue(memberNumber + "");
+                memberElement.setAttributeNode(attr);
 
-				// firstname elements
-				Element firstNameElement = doc.createElement("FirstName");
-				firstNameElement.appendChild(doc.createTextNode(firstName));
-				memberElement.appendChild(firstNameElement);
+                // firstname elements
+                final Element firstNameElement = doc.createElement("FirstName");
+                firstNameElement.appendChild(doc.createTextNode(firstName));
+                memberElement.appendChild(firstNameElement);
 
-				// lastname elements
-				Element lastNameElement = doc.createElement("LastName");
-				lastNameElement.appendChild(doc.createTextNode(lastName));
-				memberElement.appendChild(lastNameElement);
+                // lastname elements
+                final Element lastNameElement = doc.createElement("LastName");
+                lastNameElement.appendChild(doc.createTextNode(lastName));
+                memberElement.appendChild(lastNameElement);
 
-				// email elements
-				Element emailElement = doc.createElement("EmailAdress");
-				emailElement.appendChild(doc.createTextNode(emailAdress));
-				memberElement.appendChild(emailElement);
+                // email elements
+                final Element emailElement = doc.createElement("EmailAdress");
+                emailElement.appendChild(doc.createTextNode(emailAdress));
+                memberElement.appendChild(emailElement);
 
-				memberNumber++;
+                memberNumber++;
 
-			}
+            }
 
-			// write the content into xml file
-			TransformerFactory transformerFactory = TransformerFactory
-					.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();
-			DOMSource source = new DOMSource(doc);
+            // write the content into xml file
+            final TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            final Transformer transformer = transformerFactory.newTransformer();
+            final DOMSource source = new DOMSource(doc);
 
-			File file = new File(pojo.getDefaultPath());
-			file.mkdirs();
+            File file = new File(pojo.getDefaultPath());
+            file.mkdirs();
 
-			file = new File(pojo.getDefaultPath() + "//MemberList" + ".xml");
+            file = new File(pojo.getDefaultPath() + "//MemberList" + ".xml");
 
-			StreamResult result = new StreamResult(file);
-			transformer.transform(source, result);
+            final StreamResult result = new StreamResult(file);
+            transformer.transform(source, result);
 
-			// Output to console for testing
-			// StreamResult result = new StreamResult(System.out);
+            // Output to console for testing
+            // StreamResult result = new StreamResult(System.out);
 
-		} catch (ParserConfigurationException pce) {
-			pce.printStackTrace();
-		} catch (TransformerException tfe) {
-			tfe.printStackTrace();
-		}
-	}
+        } catch (final ParserConfigurationException pce) {
+            pce.printStackTrace();
+        } catch (final TransformerException tfe) {
+            tfe.printStackTrace();
+        }
+    }
 }

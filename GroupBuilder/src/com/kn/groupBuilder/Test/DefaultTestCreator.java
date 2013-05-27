@@ -4,10 +4,10 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class DefaultTestCreator {
 
-	public void startTests(Pojo pojo) {
+    public final void startTests(final Pojo pojo) {
 
-		new ArrayTest().testArrays(pojo);
-		new SortingTest().testGroupLists(pojo.getGroupList());
+        new ArrayTest().testArrays(pojo);
+        new SortingTest().testGroupLists(pojo.getGroupList());
 
-	}
+    }
 }

@@ -4,28 +4,28 @@ import java.io.File;
 
 public class FileCleaner {
 
-	public void cleanFiles(String defaultPath) {
+    public final void cleanFiles(final String defaultPath) {
 
-		new File(defaultPath + "GroupList.xml").delete();
-		new File(defaultPath + "MemberList.xml").delete();
+        new File(defaultPath + "GroupList.xml").delete();
+        new File(defaultPath + "MemberList.xml").delete();
 
-		this.cleanFolder(defaultPath + "\\Groups\\");
-	}
+        this.cleanFolder(defaultPath + "\\Groups\\");
+    }
 
-	public void cleanFolder(String path) {
+    public final void cleanFolder(final String path) {
 
-		File filePath = new File(path);
-		try {
-			for (File file : filePath.listFiles()) {
-				if (!file.isDirectory()) {
-					file.delete();
-				} else {
-					cleanFolder(file.getAbsolutePath());
-				}
-			}
-			filePath.delete();
-		} catch (java.lang.NullPointerException e) {
-			// nothing to do.
-		}
-	}
+        final File filePath = new File(path);
+        try {
+            for (final File file : filePath.listFiles()) {
+                if (!file.isDirectory()) {
+                    file.delete();
+                } else {
+                    this.cleanFolder(file.getAbsolutePath());
+                }
+            }
+            filePath.delete();
+        } catch (final java.lang.NullPointerException e) {
+            // nothing to do.
+        }
+    }
 }

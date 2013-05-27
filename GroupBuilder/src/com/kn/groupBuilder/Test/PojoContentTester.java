@@ -6,32 +6,32 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class PojoContentTester {
 
-	public void initializeDefaultTest(Pojo pojo) {
+    public final void initializeDefaultTest(final Pojo pojo) {
 
-		TestDataCreator testListCreator = new TestDataCreator();
-		testListCreator.fillTestMemberList(pojo);
-		testListCreator.fillTestGroupList(pojo);
-		this.testLists(pojo);
+        final TestDataCreator testListCreator = new TestDataCreator();
+        testListCreator.fillTestMemberList(pojo);
+        testListCreator.fillTestGroupList(pojo);
+        this.testLists(pojo);
 
-	}
+    }
 
-	public void testLists(Pojo pojo) {
+    public final void testLists(final Pojo pojo) {
 
-		System.out.println("---ListTest---");
-		System.out.println("Groups: ");
+        System.out.println("---ListTest---");
+        System.out.println("Groups: ");
 
-		for (Group group : pojo.getGroupList()) {
-			System.out.println(group.getName());
-		}
+        for (final Group group : pojo.getGroupList()) {
+            System.out.println(group.getName());
+        }
 
-		System.out.println("");
-		System.out.println("Member: ");
+        System.out.println("");
+        System.out.println("Member: ");
 
-		for (Member member : pojo.getMemberList()) {
-			System.out.print(member.getFirstName() + ".");
-			System.out.println(member.getLastName());
-		}
+        for (final Member member : pojo.getMemberList()) {
+            System.out.print(member.getFirstName() + ".");
+            System.out.println(member.getLastName());
+        }
 
-		System.out.println("---------------\n");
-	}
+        System.out.println("---------------\n");
+    }
 }

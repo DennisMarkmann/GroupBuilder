@@ -10,56 +10,53 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class GroupBuilder {
 
-	private int memberIndex = 0;
+    private int memberIndex = 0;
 
-	public void buildGroups(Pojo pojo) {
+    public final void buildGroups(final Pojo pojo) {
 
-		new GroupListSorter().sortArrayList(pojo);
-		ArrayList<Member> memberList = this.mixMemberList(pojo.getMemberList());
-		this.assignGroups(memberList, pojo.getGroupList());
-		new GroupFileWriter().initializeXMLPrint(pojo.getGroupList(),
-				pojo.getDefaultPath());
-	}
+        new GroupListSorter().sortArrayList(pojo);
+        final ArrayList<Member> memberList = this.mixMemberList(pojo.getMemberList());
+        this.assignGroups(memberList, pojo.getGroupList());
+        new GroupFileWriter().initializeXMLPrint(pojo.getGroupList(), pojo.getDefaultPath());
+    }
 
-	private ArrayList<Member> mixMemberList(ArrayList<Member> memberList) {
+    private ArrayList<Member> mixMemberList(final ArrayList<Member> memberList) {
 
-		Collections.shuffle(memberList);
-		return memberList;
+        Collections.shuffle(memberList);
+        return memberList;
 
-	}
+    }
 
-	private void assignGroups(ArrayList<Member> memberList,
-			ArrayList<Group> groupList) {
+    private void assignGroups(final ArrayList<Member> memberList, final ArrayList<Group> groupList) {
 
-		for (Group group : groupList) {
+        for (final Group group : groupList) {
 
-			int fixSize = group.getFixSize();
+            final int fixSize = group.getFixSize();
 
-			if (this.memberIndex < memberList.size()) {
+            if (this.memberIndex < memberList.size()) {
 
-				this.addMemberToGroup(group, memberList, fixSize);
+                this.addMemberToGroup(group, memberList, fixSize);
 
-			} else {
-				return;
-			}
+            } else {
+                return;
+            }
 
-		}
-		this.assignGroups(memberList, groupList);
+        }
+        this.assignGroups(memberList, groupList);
 
-	}
+    }
 
-	private void addMemberToGroup(Group group, ArrayList<Member> memberList,
-			int fixSize) {
+    private void addMemberToGroup(final Group group, final ArrayList<Member> memberList, final int fixSize) {
 
-		if (fixSize == 0 || group.getMemberList().size() < fixSize) {
-			group.getMemberList().add(memberList.get(this.memberIndex));
-			memberList.get(this.memberIndex).getGroupList().add(group);
-			this.memberIndex++;
+        if (fixSize == 0 || group.getMemberList().size() < fixSize) {
+            group.getMemberList().add(memberList.get(this.memberIndex));
+            memberList.get(this.memberIndex).getGroupList().add(group);
+            this.memberIndex++;
 
-			if (group.getMemberList().size() < fixSize) {
-				addMemberToGroup(group, memberList, fixSize);
-			}
+            if (group.getMemberList().size() < fixSize) {
+                this.addMemberToGroup(group, memberList, fixSize);
+            }
 
-		}
-	}
+        }
+    }
 }

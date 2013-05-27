@@ -4,33 +4,33 @@ import java.util.ArrayList;
 
 public class Pojo {
 
-	private String defaultPath = System.getProperty("user.home")
-			+ "\\Desktop\\" + "\\GroupBuilder\\";
+    private String defaultPath = System.getProperty("user.home") + "\\Desktop\\" + "\\GroupBuilder\\";
 
-	private ArrayList<Member> memberList = new ArrayList<Member>();;
-	private ArrayList<Group> groupList = new ArrayList<Group>();
+    private ArrayList<Member> memberList = new ArrayList<Member>();;
+    private ArrayList<Group> groupList = new ArrayList<Group>();
 
-	public String getDefaultPath() {
-		return defaultPath;
-	}
+    public final String getDefaultPath() {
+        return this.defaultPath;
+    }
 
-	public void setDefaultPath(String defaultPath) {
-		this.defaultPath = defaultPath;
-	}
+    public final void setDefaultPath(final String defaultPath) {
+        this.defaultPath = defaultPath;
+    }
 
-	public ArrayList<Member> getMemberList() {
-		return memberList;
-	}
+    public final ArrayList<Member> getMemberList() {
+        return this.memberList;
+    }
 
-	public void setMemberList(ArrayList<Member> memberList) {
-		this.memberList = memberList;
-	}
+    public final void setMemberList(final ArrayList<Member> memberList) {
+        this.memberList = memberList;
+    }
 
-	public ArrayList<Group> getGroupList() {
-		return groupList;
-	}
+    public final void setGroupList(final ArrayList<Group> groupList) {
+        this.groupList = groupList;
 
-	public void setGroupList(ArrayList<Group> groupList) {
-		this.groupList = groupList;
-	}
+    }
+
+    public ArrayList<Group> getGroupList() {
+        return this.groupList;
+    }
 }

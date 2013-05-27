@@ -15,66 +15,53 @@ import org.xml.sax.SAXException;
 
 public class GroupFileReader {
 
-	public void readFiles(String path) {
+    public final void readFiles(final String path) {
 
-		try {
+        try {
 
-			File[] files = new File(path).listFiles();
+            final File[] files = new File(path).listFiles();
 
-			for (File file : files) {
+            for (final File file : files) {
 
-				DocumentBuilderFactory dbFactory = DocumentBuilderFactory
-						.newInstance();
-				DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-				Document doc = dBuilder.parse(file);
-				doc.getDocumentElement().normalize();
+                final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                final Document doc = dBuilder.parse(file);
+                doc.getDocumentElement().normalize();
 
-				NodeList list = doc.getElementsByTagName("Group");
-				Node node = list.item(0);
-				if (node.getNodeType() == Node.ELEMENT_NODE) {
+                final NodeList list = doc.getElementsByTagName("Group");
+                final Node node = list.item(0);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
 
-					Element element = (Element) node;
+                    final Element element = (Element) node;
 
-					String groupName = element
-							.getElementsByTagName("GroupName").item(0)
-							.getTextContent();
-					String groupSize = element
-							.getElementsByTagName("GroupSize").item(0)
-							.getTextContent();
-					String description = element
-							.getElementsByTagName("Description").item(0)
-							.getTextContent();
+                    final String groupName = element.getElementsByTagName("GroupName").item(0).getTextContent();
+                    final String groupSize = element.getElementsByTagName("GroupSize").item(0).getTextContent();
+                    final String description = element.getElementsByTagName("Description").item(0).getTextContent();
 
-				}
+                }
 
-				NodeList nList = doc.getElementsByTagName("Member");
-				for (int temp = 0; temp < nList.getLength(); temp++) {
+                final NodeList nList = doc.getElementsByTagName("Member");
+                for (int temp = 0; temp < nList.getLength(); temp++) {
 
-					Node nNode = nList.item(temp);
+                    final Node nNode = nList.item(temp);
 
-					if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-						Element eElement = (Element) nNode;
+                    if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                        final Element eElement = (Element) nNode;
 
-						String memberID = eElement.getAttribute("id");
-						String firstName = eElement
-								.getElementsByTagName("FirstName").item(0)
-								.getTextContent();
-						String lastName = eElement
-								.getElementsByTagName("LastName").item(0)
-								.getTextContent();
-						String eMailAdress = eElement
-								.getElementsByTagName("EmailAdress").item(0)
-								.getTextContent();
-					}
-				}
-			}
+                        final String memberID = eElement.getAttribute("id");
+                        final String firstName = eElement.getElementsByTagName("FirstName").item(0).getTextContent();
+                        final String lastName = eElement.getElementsByTagName("LastName").item(0).getTextContent();
+                        final String eMailAdress = eElement.getElementsByTagName("EmailAdress").item(0).getTextContent();
+                    }
+                }
+            }
 
-		} catch (IOException e) {
-			// nothing to do.
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		}
-	}
+        } catch (final IOException e) {
+            // nothing to do.
+        } catch (final SAXException e) {
+            e.printStackTrace();
+        } catch (final ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+    }
 }

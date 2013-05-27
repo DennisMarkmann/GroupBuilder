@@ -13,82 +13,73 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class TextFileReader {
 
-	public void readDefaultLists(Pojo pojo) {
+    public final void readDefaultLists(final Pojo pojo) {
 
-		try {
-			this.readTextFile(pojo, "GroupList.txt");
-		} catch (IOException e) {
-			System.out
-					.println("An error occured reading the file: \"GroupList.txt\"");
-		}
-		try {
-			this.readTextFile(pojo, "MemberList.txt");
-		} catch (IOException e) {
-			System.out
-					.println("An error occured reading the file: \"MemberList.txt\"");
-		}
-	}
+        try {
+            this.readTextFile(pojo, "GroupList.txt");
+        } catch (final IOException e) {
+            System.out.println("An error occured reading the file: \"GroupList.txt\"");
+        }
+        try {
+            this.readTextFile(pojo, "MemberList.txt");
+        } catch (final IOException e) {
+            System.out.println("An error occured reading the file: \"MemberList.txt\"");
+        }
+    }
 
-	public void readTextFile(Pojo pojo, String fileName) throws IOException {
+    public final void readTextFile(final Pojo pojo, final String fileName) throws IOException {
 
-		try {
+        try {
 
-			DataInputStream in = new DataInputStream(new FileInputStream(
-					pojo.getDefaultPath() + fileName));
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			String strLine = "";
+            final DataInputStream in = new DataInputStream(new FileInputStream(pojo.getDefaultPath() + fileName));
+            final BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String strLine = "";
 
-			if (fileName.equals("GroupList.txt")) {
+            if (fileName.equals("GroupList.txt")) {
 
-				ArrayList<Group> groupList = new ArrayList<Group>();
+                final ArrayList<Group> groupList = new ArrayList<Group>();
 
-				while ((strLine = br.readLine()) != null) {
+                while ((strLine = br.readLine()) != null) {
 
-					if (strLine.contains(", ")) {
-						String groupName = strLine.substring(0,
-								strLine.indexOf(", "));
-						int groupSize = 0;
-						try {
-							groupSize = Integer.parseInt(strLine.substring(
-									strLine.indexOf(", ") + 2,
-									strLine.indexOf(", ") + 3));
-						} catch (Exception e) {
-							System.out
-									.println("An error occured writing the file: \"GroupList.txt\"");
-							System.err.print(e);
-						}
-						groupList.add(new Group(groupName, groupSize));
-					} else {
-						groupList.add(new Group(strLine));
-					}
+                    if (strLine.contains(", ")) {
+                        final String groupName = strLine.substring(0, strLine.indexOf(", "));
+                        int groupSize = 0;
+                        try {
+                            groupSize = Integer.parseInt(strLine.substring(strLine.indexOf(", ") + 2, strLine.indexOf(", ") + 3));
+                        } catch (final Exception e) {
+                            System.out.println("An error occured writing the file: \"GroupList.txt\"");
+                            System.err.print(e);
+                        }
+                        groupList.add(new Group(groupName, groupSize));
+                    } else {
+                        groupList.add(new Group(strLine));
+                    }
 
-				}
-				pojo.setGroupList(groupList);
+                }
+                pojo.setGroupList(groupList);
 
-			} else if (fileName.equals("MemberList.txt")) {
+            } else if (fileName.equals("MemberList.txt")) {
 
-				ArrayList<Member> memberList = new ArrayList<Member>();
+                final ArrayList<Member> memberList = new ArrayList<Member>();
 
-				while ((strLine = br.readLine()) != null) {
+                while ((strLine = br.readLine()) != null) {
 
-					String firstName = strLine.substring(0,
-							(strLine.indexOf(".")));
-					String lastName = strLine.substring(
-							(strLine.indexOf(".") + 1), (strLine.length()));
+                    final String firstName = strLine.substring(0, (strLine.indexOf(".")));
+                    final String lastName = strLine.substring((strLine.indexOf(".") + 1), (strLine.length()));
 
-					memberList.add(new Member(firstName, lastName));
-				}
+                    memberList.add(new Member(firstName, lastName));
+                }
 
-				pojo.setMemberList(memberList);
+                pojo.setMemberList(memberList);
 
-			} else {
+            } else {
 
-				System.out.println("Unknown file. No operations defined.");
-			}
-			in.close();
-			br.close();
-		} catch (IOException e) {
-			// nothing to do.
-		}
-	}
+                System.out.println("Unknown file. No operations defined.");
+            }
+            in.close();
+            br.close();
+        } catch (final IOException e) {
+            // nothing to do.
+        }
+    }
 }

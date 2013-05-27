@@ -5,16 +5,15 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class MemberCreator {
 
-	public void createMember(String firstName, String lastName, Pojo pojo) {
+    public final void createMember(final String firstName, final String lastName, final Pojo pojo) {
 
-		pojo.getMemberList().add(new Member(firstName, lastName));
+        pojo.getMemberList().add(new Member(firstName, lastName));
 
-	}
+    }
 
-	public void createMember(String firstName, String lastName,
-			String eMailAdress, Pojo pojo) {
+    public final void createMember(final String firstName, final String lastName, final String eMailAdress, final Pojo pojo) {
 
-		pojo.getMemberList().add(new Member(firstName, lastName, eMailAdress));
+        pojo.getMemberList().add(new Member(firstName, lastName, eMailAdress));
 
-	}
+    }
 }

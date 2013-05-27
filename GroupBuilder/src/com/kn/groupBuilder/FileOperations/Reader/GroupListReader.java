@@ -18,62 +18,54 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class GroupListReader {
 
-	public void readXmlFile(Pojo pojo) {
+    public final void readXmlFile(final Pojo pojo) {
 
-		try {
+        try {
 
-			File file = new File(pojo.getDefaultPath() + "GroupList.xml");
+            final File file = new File(pojo.getDefaultPath() + "GroupList.xml");
 
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
-					.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(file);
-			doc.getDocumentElement().normalize();
+            final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            final Document doc = dBuilder.parse(file);
+            doc.getDocumentElement().normalize();
 
-			NodeList list = doc.getElementsByTagName("GroupList");
-			Node node = list.item(0);
-			if (node.getNodeType() == Node.ELEMENT_NODE) {
+            final NodeList list = doc.getElementsByTagName("GroupList");
+            final Node node = list.item(0);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
 
-				Element element = (Element) node;
+                final Element element = (Element) node;
 
-				@SuppressWarnings("unused")
-				String groupListSize = element
-						.getElementsByTagName("GroupListSize").item(0)
-						.getTextContent();
-			}
+                @SuppressWarnings("unused")
+                final String groupListSize = element.getElementsByTagName("GroupListSize").item(0).getTextContent();
+            }
 
-			String groupName = "";
-			int fixSize = 0;
-			String description = "";
-			GroupCreator creator = new GroupCreator();
+            String groupName = "";
+            int fixSize = 0;
+            String description = "";
+            final GroupCreator creator = new GroupCreator();
 
-			NodeList nList = doc.getElementsByTagName("Group");
-			for (int temp = 0; temp < nList.getLength(); temp++) {
+            final NodeList nList = doc.getElementsByTagName("Group");
+            for (int temp = 0; temp < nList.getLength(); temp++) {
 
-				Node nNode = nList.item(temp);
+                final Node nNode = nList.item(temp);
 
-				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-					Element eElement = (Element) nNode;
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    final Element eElement = (Element) nNode;
 
-					groupName = eElement.getElementsByTagName("GroupName")
-							.item(0).getTextContent();
-					fixSize = Integer.parseInt(eElement
-							.getElementsByTagName("FixSize").item(0)
-							.getTextContent());
-					description = eElement.getElementsByTagName("Description")
-							.item(0).getTextContent();
+                    groupName = eElement.getElementsByTagName("GroupName").item(0).getTextContent();
+                    fixSize = Integer.parseInt(eElement.getElementsByTagName("FixSize").item(0).getTextContent());
+                    description = eElement.getElementsByTagName("Description").item(0).getTextContent();
 
-					creator.createGroupsManually(groupName, fixSize,
-							description, pojo);
-				}
-			}
+                    creator.createGroupsManually(groupName, fixSize, description, pojo);
+                }
+            }
 
-		} catch (IOException e) {
-			// nothing to do.
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		}
-	}
+        } catch (final IOException e) {
+            // nothing to do.
+        } catch (final ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (final SAXException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -8,11 +8,11 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class GroupMixingPanel {
 
-	public GroupMixingPanel(JTabbedPane tabBar, Pojo pojo) {
+    public GroupMixingPanel(final JTabbedPane tabBar, final Pojo pojo) {
 
-		JPanel groupsMixingPanel = new JPanel();
-		groupsMixingPanel.add(new JButton("Button des groupMixingPanels"));
-		tabBar.addTab("GroupMixingPanel", groupsMixingPanel);
+        final JPanel groupsMixingPanel = new JPanel();
+        groupsMixingPanel.add(new JButton("Button des groupMixingPanels"));
+        tabBar.addTab("GroupMixingPanel", groupsMixingPanel);
 
-	}
+    }
 }

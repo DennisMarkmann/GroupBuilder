@@ -4,59 +4,59 @@ import java.util.ArrayList;
 
 public class Group {
 
-	private String name = "";
-	private ArrayList<Member> memberList = new ArrayList<Member>();
-	private int fixSize = 0;
-	private String description = "";
+    private String name = "";
+    private ArrayList<Member> memberList = new ArrayList<Member>();
+    private int fixSize = 0;
+    private String description = "";
 
-	public Group(String name) {
-		this.name = name;
-	}
+    public Group(final String name) {
+        this.name = name;
+    }
 
-	public Group(String name, int fixSize) {
-		this(name);
-		this.fixSize = fixSize;
-	}
+    public Group(final String name, final int fixSize) {
+        this(name);
+        this.fixSize = fixSize;
+    }
 
-	public Group(String name, String description) {
-		this(name);
-		this.description = description;
-	}
+    public Group(final String name, final String description) {
+        this(name);
+        this.description = description;
+    }
 
-	public Group(String name, int fixSize, String descrition) {
-		this(name, fixSize);
-		this.description = descrition;
-	}
+    public Group(final String name, final int fixSize, final String descrition) {
+        this(name, fixSize);
+        this.description = descrition;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public final String getName() {
+        return this.name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public final void setName(final String name) {
+        this.name = name;
+    }
 
-	public ArrayList<Member> getMemberList() {
-		return memberList;
-	}
+    public final ArrayList<Member> getMemberList() {
+        return this.memberList;
+    }
 
-	public void setMemberList(ArrayList<Member> memberList) {
-		this.memberList = memberList;
-	}
+    public final void setMemberList(final ArrayList<Member> memberList) {
+        this.memberList = memberList;
+    }
 
-	public int getFixSize() {
-		return fixSize;
-	}
+    public final int getFixSize() {
+        return this.fixSize;
+    }
 
-	public void setFixSize(int fixSize) {
-		this.fixSize = fixSize;
-	}
+    public final void setFixSize(final int fixSize) {
+        this.fixSize = fixSize;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public final String getDescription() {
+        return this.description;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public final void setDescription(final String description) {
+        this.description = description;
+    }
 }

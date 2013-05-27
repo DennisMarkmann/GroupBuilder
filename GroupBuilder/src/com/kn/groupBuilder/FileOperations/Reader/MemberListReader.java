@@ -18,62 +18,56 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class MemberListReader {
 
-	public void readXmlFile(Pojo pojo) {
+    public final void readXmlFile(final Pojo pojo) {
 
-		try {
+        try {
 
-			File file = new File(pojo.getDefaultPath() + "MemberList.xml");
+            final File file = new File(pojo.getDefaultPath() + "MemberList.xml");
 
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory
-					.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(file);
-			doc.getDocumentElement().normalize();
+            final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            final Document doc = dBuilder.parse(file);
+            doc.getDocumentElement().normalize();
 
-			NodeList list = doc.getElementsByTagName("MemberList");
-			Node node = list.item(0);
-			if (node.getNodeType() == Node.ELEMENT_NODE) {
+            final NodeList list = doc.getElementsByTagName("MemberList");
+            final Node node = list.item(0);
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
 
-				Element element = (Element) node;
+                final Element element = (Element) node;
 
-				@SuppressWarnings("unused")
-				String memberListSize = element
-						.getElementsByTagName("MemberListSize").item(0)
-						.getTextContent();
+                @SuppressWarnings("unused")
+                final String memberListSize = element.getElementsByTagName("MemberListSize").item(0).getTextContent();
 
-			}
-			String firstName = "";
-			String lastName = "";
-			String eMailAdress = "";
-			MemberCreator creator = new MemberCreator();
+            }
+            String firstName = "";
+            String lastName = "";
+            String eMailAdress = "";
+            final MemberCreator creator = new MemberCreator();
 
-			NodeList nList = doc.getElementsByTagName("Member");
-			for (int temp = 0; temp < nList.getLength(); temp++) {
+            final NodeList nList = doc.getElementsByTagName("Member");
+            for (int temp = 0; temp < nList.getLength(); temp++) {
 
-				Node nNode = nList.item(temp);
+                final Node nNode = nList.item(temp);
 
-				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-					Element eElement = (Element) nNode;
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    final Element eElement = (Element) nNode;
 
-					firstName = eElement.getElementsByTagName("FirstName")
-							.item(0).getTextContent();
-					lastName = eElement.getElementsByTagName("LastName")
-							.item(0).getTextContent();
-					eMailAdress = eElement.getElementsByTagName("EmailAdress")
-							.item(0).getTextContent();
+                    firstName = eElement.getElementsByTagName("FirstName").item(0).getTextContent();
+                    lastName = eElement.getElementsByTagName("LastName").item(0).getTextContent();
+                    eMailAdress = eElement.getElementsByTagName("EmailAdress").item(0).getTextContent();
 
-					creator.createMember(firstName, lastName, eMailAdress, pojo);
+                    creator.createMember(firstName, lastName, eMailAdress, pojo);
 
-				}
-			}
+                }
+            }
 
-		} catch (IOException e) {
-			// nothing to do.
+        } catch (final IOException e) {
+            // nothing to do.
 
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		}
-	}
+        } catch (final ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (final SAXException e) {
+            e.printStackTrace();
+        }
+    }
 }

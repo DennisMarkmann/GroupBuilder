@@ -4,51 +4,51 @@ import java.util.ArrayList;
 
 public class Member {
 
-	private String firstName = "";
-	private String lastName = "";
-	private ArrayList<Group> groupList = new ArrayList<Group>();
-	private String eMailAdress = "";
+    private String firstName = "";
+    private String lastName = "";
+    private ArrayList<Group> groupList = new ArrayList<Group>();
+    private String eMailAdress = "";
 
-	public Member(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
+    public Member(final String firstName, final String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
-	public Member(String firstName, String lastName, String eMailAdress) {
-		this(firstName, lastName);
-		this.eMailAdress = eMailAdress;
-	}
+    public Member(final String firstName, final String lastName, final String eMailAdress) {
+        this(firstName, lastName);
+        this.eMailAdress = eMailAdress;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public final String getFirstName() {
+        return this.firstName;
+    }
 
-	public void setFirstName(String name) {
-		this.firstName = name;
-	}
+    public final void setFirstName(final String name) {
+        this.firstName = name;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public final String getLastName() {
+        return this.lastName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public final void setLastName(final String lastName) {
+        this.lastName = lastName;
+    }
 
-	public ArrayList<Group> getGroupList() {
-		return groupList;
-	}
+    public final ArrayList<Group> getGroupList() {
+        return this.groupList;
+    }
 
-	public void setGroupList(ArrayList<Group> groupList) {
-		this.groupList = groupList;
-	}
+    public final void setGroupList(final ArrayList<Group> groupList) {
+        this.groupList = groupList;
+    }
 
-	public String getEMailAdress() {
-		return eMailAdress;
-	}
+    public final String getEMailAdress() {
+        return this.eMailAdress;
+    }
 
-	public void setEMailAdress(String eMailAdress) {
-		this.eMailAdress = eMailAdress;
-	}
+    public final void setEMailAdress(final String eMailAdress) {
+        this.eMailAdress = eMailAdress;
+    }
 
 }
