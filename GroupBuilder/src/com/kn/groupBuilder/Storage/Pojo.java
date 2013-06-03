@@ -30,7 +30,7 @@ public class Pojo {
 
     }
 
-    public ArrayList<Group> getGroupList() {
+    public final ArrayList<Group> getGroupList() {
         return this.groupList;
     }
 }
