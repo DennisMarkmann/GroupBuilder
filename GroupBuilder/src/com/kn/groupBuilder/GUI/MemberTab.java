@@ -1,25 +1,25 @@
 package com.kn.groupBuilder.GUI;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 
 import com.kn.groupBuilder.Storage.Member;
 
-public class MemberPanel {
+public class MemberTab extends JPanel {
 
-    public MemberPanel(final JTabbedPane tabBar, final ArrayList<Member> memberList) {
+    private static final long serialVersionUID = 3210114640051532404L;
 
-        final JPanel memberPanel = new JPanel();
-        final JTextArea textArea = new JTextArea(50, 25);
-        this.fillTextArea(textArea, memberList);
-        memberPanel.add(textArea);
+    public MemberTab(final ArrayList<Member> memberList) {
 
-        memberPanel.add(new JButton("Button des memberPanels"));
-        tabBar.addTab("Member", memberPanel);
+        this.setLayout(new GridBagLayout());
+        final GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.insets = new Insets(5, 5, 5, 5);
 
     }
 

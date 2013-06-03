@@ -6,9 +6,9 @@ import javax.swing.JTabbedPane;
 
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class GroupMixingPanel {
+public class GroupMixingTab {
 
-    public GroupMixingPanel(final JTabbedPane tabBar, final Pojo pojo) {
+    public GroupMixingTab(final JTabbedPane tabBar, final Pojo pojo) {
 
         final JPanel groupsMixingPanel = new JPanel();
         groupsMixingPanel.add(new JButton("Button des groupMixingPanels"));

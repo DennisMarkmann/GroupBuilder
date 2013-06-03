@@ -8,7 +8,7 @@ import com.kn.groupBuilder.FileOperations.Reader.GroupListReader;
 import com.kn.groupBuilder.FileOperations.Reader.MemberListReader;
 import com.kn.groupBuilder.FileOperations.Writer.GroupListWriter;
 import com.kn.groupBuilder.FileOperations.Writer.MemberListWriter;
-import com.kn.groupBuilder.GUI.MainGuiFrame;
+import com.kn.groupBuilder.GUI.GuiMainFrame;
 import com.kn.groupBuilder.Jobs.GroupBuilder;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Test.DefaultTestCreator;
@@ -39,7 +39,7 @@ public class Main {
 
         // new FileCleaner().cleanFolder(pojo.getDefaultPath() + "\\Archive\\");
 
-        new MainGuiFrame().createGui(pojo);
+        new GuiMainFrame().createGui(pojo);
 
         // System.out.println("Das Programm wird beedent.");
         // System.exit(0);
