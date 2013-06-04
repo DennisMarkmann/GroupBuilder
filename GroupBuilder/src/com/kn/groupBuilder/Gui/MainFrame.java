@@ -25,8 +25,10 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // adds menu
-        final JMenu menu = new JMenu("Menu");
+        final JMenu menu = new JMenu("Extras");
         menu.add(new JMenuItem("Settings"));
+        menu.add(new JMenuItem("E-Mail"));
+        menu.add(new JMenuItem("Print"));
         menu.add(new JMenuItem("Help"));
         menu.add(new JMenuItem("About"));
 

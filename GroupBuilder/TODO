@@ -1,10 +1,12 @@
 
 
 
-GUI - MainGuiFrame per getter und setter überall verfügbar machen
+GUI
 
 Automatische Gruppenerstellung berücksichtigen (GUI)
 Archivieren einbinden in GUI
+
+Settings
 
 GroupFileReader noch ungenutzt
 MemberListSize / GroupListSize etc nutzlos beim Einlesen?
