@@ -35,7 +35,7 @@ public class Main {
         new DefaultTestCreator().startTests(pojo);
         new GroupFileArchiver().archivGroupFiles(pojo.getDefaultPath());
         // new EmailJob().initializeEmailSending(pojo);
-        // new PrintTool(null).printAllGroups(pojo);
+        // new PrintJobHelper().printAllGroups(pojo);
 
         // new FileCleaner().cleanFolder(pojo.getDefaultPath() + "\\Archive\\");
 

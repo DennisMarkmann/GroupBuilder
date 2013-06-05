@@ -1,14 +1,8 @@
-
-
-
 GUI
 
 Automatische Gruppenerstellung berücksichtigen (GUI)
-Archivieren einbinden in GUI
 
-Settings
-
-GroupFileReader noch ungenutzt
+GroupFileReader noch ungenutzt 
 MemberListSize / GroupListSize etc nutzlos beim Einlesen?
 FileCopy vereinfachen?
 	
@@ -20,6 +14,8 @@ Archiv löschen von Ordnern Alter + einer Woche etc (in Optionen angebbar)
 	
 Print job aufräumen und closen nach print
 
-Prüfen welche lib Dateien wirklich gebraucht werden
+
+	Print Job + Email Job Helper Klasse gemeinsam
+
 
 Exceptions abfangen
