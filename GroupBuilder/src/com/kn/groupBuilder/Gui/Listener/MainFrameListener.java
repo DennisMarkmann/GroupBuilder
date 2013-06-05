@@ -8,10 +8,14 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import com.kn.groupBuilder.Gui.SettingsFrame;
+import com.kn.groupBuilder.Storage.Pojo;
 
 public class MainFrameListener extends MouseAdapter {
 
-    public MainFrameListener(final JMenu menu) {
+    private final Pojo pojo;
+
+    public MainFrameListener(final JMenu menu, final Pojo pojo) {
+        this.pojo = pojo;
         for (final Component component : menu.getMenuComponents()) {
             component.addMouseListener(this);
         }
@@ -22,8 +26,7 @@ public class MainFrameListener extends MouseAdapter {
         final JMenuItem menuItem = (JMenuItem) event.getSource();
 
         if (menuItem.getText().equals("Settings")) {
-            new SettingsFrame();
-            System.out.println("test");
+            new SettingsFrame(this.pojo);
         }
     }
 }

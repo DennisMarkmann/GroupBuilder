@@ -8,6 +8,8 @@ public class Pojo {
 
     private ArrayList<Member> memberList = new ArrayList<Member>();;
     private ArrayList<Group> groupList = new ArrayList<Group>();
+    private final String[] languageList = { "German", "English" };
+    private final String[] formatList = { "XML", "TXT" };
 
     public final String getDefaultPath() {
         return this.defaultPath;
@@ -32,5 +34,13 @@ public class Pojo {
 
     public final ArrayList<Group> getGroupList() {
         return this.groupList;
+    }
+
+    public String[] getLanguageList() {
+        return languageList;
+    }
+
+    public String[] getFormatList() {
+        return formatList;
     }
 }

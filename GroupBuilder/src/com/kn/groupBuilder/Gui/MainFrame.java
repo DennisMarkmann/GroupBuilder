@@ -40,8 +40,8 @@ public class MainFrame extends JFrame {
         this.addPane("Member", new MemberTab(pojo.getMemberList()));
 
         this.add(this.tabBar);
-        new MainFrameListener(menu);
         this.setVisible(true);
+        new MainFrameListener(menu, pojo);
 
     }
 
