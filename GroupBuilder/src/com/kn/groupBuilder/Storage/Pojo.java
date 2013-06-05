@@ -37,19 +37,19 @@ public class Pojo {
         return this.groupList;
     }
 
-    public String[] getLanguageList() {
+    public final String[] getLanguageList() {
         return this.languageList;
     }
 
-    public String[] getFormatList() {
+    public final String[] getFormatList() {
         return this.formatList;
     }
 
-    public boolean isBestaetigt() {
+    public final boolean isBestaetigt() {
         return this.bestaetigt;
     }
 
-    public void setBestaetigt(final boolean bestaetigt) {
+    public final void setBestaetigt(final boolean bestaetigt) {
         this.bestaetigt = bestaetigt;
     }
 

@@ -80,12 +80,12 @@ public class EmailJob {
         }
     }
 
-    class MailAuthenticator extends Authenticator {
+    private class MailAuthenticator extends Authenticator {
 
         private final String user;
         private final String password;
 
-        public MailAuthenticator(final String user, final String password) {
+        private MailAuthenticator(final String user, final String password) {
             this.user = user;
             this.password = password;
         }

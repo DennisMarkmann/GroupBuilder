@@ -10,7 +10,7 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class TextFileWriter {
+class TextFileWriter {
 
     public final void writeDefaultFiles(final Pojo pojo) {
 
@@ -28,7 +28,7 @@ public class TextFileWriter {
         }
     }
 
-    public final void writeTextFile(
+    final void writeTextFile(
             final ArrayList<Member> memberList,
             final ArrayList<Group> groupList,
             final String fileName,

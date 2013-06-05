@@ -10,8 +10,8 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class BestaetigenFrameListener implements ActionListener {
 
-    final BestaetigenFrame bestaetigenFrame;
-    final Pojo pojo;
+    private final BestaetigenFrame bestaetigenFrame;
+    private final Pojo pojo;
 
     public BestaetigenFrameListener(final BestaetigenFrame bestaetigenFrame, final Pojo pojo) {
         this.bestaetigenFrame = bestaetigenFrame;
@@ -19,18 +19,16 @@ public class BestaetigenFrameListener implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(final ActionEvent event) {
+    public final void actionPerformed(final ActionEvent event) {
 
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getText().compareTo("Bestätigen") == 0) {
             this.pojo.setBestaetigt(true);
-            this.bestaetigenFrame.dispose();
-
         } else if (buttonClicked.getText().compareTo("Abbrechen") == 0) {
             this.pojo.setBestaetigt(false);
-            this.bestaetigenFrame.dispose();
-
         }
+        this.bestaetigenFrame.dispose();
+
     }
 }

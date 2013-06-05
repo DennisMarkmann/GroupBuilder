@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class GroupListSorter {
+class GroupListSorter {
 
-    public final void sortArrayList(final Pojo pojo) {
+    final void sortArrayList(final Pojo pojo) {
         boolean hasFixSize = false;
         final ArrayList<Group> groupList = pojo.getGroupList();
         final ArrayList<Group> tempGroupList = new ArrayList<Group>();
@@ -26,7 +26,7 @@ public class GroupListSorter {
         pojo.setGroupList(groupList);
     }
 
-    public final boolean hasFixSize(final Group group) {
+    private final boolean hasFixSize(final Group group) {
 
         return group.getFixSize() != 0;
     }

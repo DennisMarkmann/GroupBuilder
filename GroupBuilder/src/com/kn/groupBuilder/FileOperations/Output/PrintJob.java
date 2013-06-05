@@ -19,7 +19,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.Utilities;
 
-public class PrintJob implements Printable {
+class PrintJob implements Printable {
 
     private final PageFormat pageFormat;
     private final Font fontForPrint;
@@ -38,7 +38,7 @@ public class PrintJob implements Printable {
 
     private final PrinterJob printerJob = PrinterJob.getPrinterJob();
 
-    public PrintJob(final String printText) {
+    PrintJob(final String printText) {
 
         this.fontForPrint = new Font("Arial", Font.PLAIN, 16 * CONS);
         this.pageFormat = new PageFormat();
@@ -91,7 +91,7 @@ public class PrintJob implements Printable {
         }
     }
 
-    public final boolean printPage(final int page) {
+    private final boolean printPage(final int page) {
         if (page < 0 | page > this.numberOfPages - 1) {
             return false;
         }
@@ -106,7 +106,7 @@ public class PrintJob implements Printable {
         return true;
     }
 
-    public final void printAllPages() {
+    final void printAllPages() {
         this.printerJob.setPrintable(this, this.pageFormat);
         for (int i = 0; i < this.numberOfPages; i++) {
             this.printPage(i);

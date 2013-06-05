@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.nio.channels.ByteChannel;
 import java.nio.channels.FileChannel;
 
-public class FileCopy {
+class FileCopy {
 
     private final long chunckSizeInBytes = 1024 * 1024;
 
-    public final void copy(final String source, final String destination) {
+    final void copy(final String source, final String destination) {
         try {
 
             final File sourceFile = new File(source);
@@ -30,7 +30,7 @@ public class FileCopy {
         }
     }
 
-    public final void transfer(
+    private final void transfer(
             final FileChannel fileChannel,
             final ByteChannel byteChannel,
             final long lengthInBytes,

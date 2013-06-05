@@ -12,11 +12,11 @@ import javax.swing.JTextArea;
 import com.kn.groupBuilder.Gui.Listener.GroupTabListener;
 import com.kn.groupBuilder.Storage.Group;
 
-public class GroupTab extends JPanel {
+class GroupTab extends JPanel {
 
     private static final long serialVersionUID = 1673516265342795696L;
 
-    public GroupTab(final ArrayList<Group> groupList) {
+    GroupTab(final ArrayList<Group> groupList) {
 
         this.setLayout(new GridBagLayout());
         final GridBagConstraints c = new GridBagConstraints();
@@ -39,7 +39,7 @@ public class GroupTab extends JPanel {
 
     }
 
-    public final void fillTextArea(final JTextArea textArea, final ArrayList<Group> groupList) {
+    private final void fillTextArea(final JTextArea textArea, final ArrayList<Group> groupList) {
 
         for (final Group group : groupList) {
             textArea.append(group.getName() + System.getProperty("line.separator"));
