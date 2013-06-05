@@ -5,13 +5,13 @@ public class Settings {
     private String defaultPath;
 
     // german or english
-    private Enum language;
+    private String language;
 
     private boolean archive;
     private int archivingDays;
 
     // txt or xml
-    private Enum ausgabeFormat;
+    private String ausgabeFormat;
 
     private boolean sendMailAutomatically;
     private boolean printAutomatically;
