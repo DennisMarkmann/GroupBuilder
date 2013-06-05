@@ -10,6 +10,7 @@ public class Pojo {
     private ArrayList<Group> groupList = new ArrayList<Group>();
     private final String[] languageList = { "German", "English" };
     private final String[] formatList = { "XML", "TXT" };
+    private boolean bestaetigt = false;
 
     public final String getDefaultPath() {
         return this.defaultPath;
@@ -37,10 +38,19 @@ public class Pojo {
     }
 
     public String[] getLanguageList() {
-        return languageList;
+        return this.languageList;
     }
 
     public String[] getFormatList() {
-        return formatList;
+        return this.formatList;
     }
+
+    public boolean isBestaetigt() {
+        return this.bestaetigt;
+    }
+
+    public void setBestaetigt(final boolean bestaetigt) {
+        this.bestaetigt = bestaetigt;
+    }
+
 }

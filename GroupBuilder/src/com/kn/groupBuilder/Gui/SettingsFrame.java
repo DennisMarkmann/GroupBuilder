@@ -21,6 +21,7 @@ public class SettingsFrame extends JFrame {
 
     public SettingsFrame(final Pojo pojo) {
 
+        this.setTitle("GroupBuilder");
         this.setLayout(new GridBagLayout());
         final GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.VERTICAL;

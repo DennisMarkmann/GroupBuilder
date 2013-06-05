@@ -19,7 +19,7 @@ public class MainFrame extends JFrame {
     public final void createGui(final Pojo pojo) {
 
         // basic attributes
-        this.setName("GroupBuilder");
+        this.setTitle("GroupBuilder");
         this.setSize(800, 800);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
