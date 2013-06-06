@@ -91,7 +91,7 @@ class PrintJob implements Printable {
         }
     }
 
-    private final boolean printPage(final int page) {
+    private boolean printPage(final int page) {
         if (page < 0 | page > this.numberOfPages - 1) {
             return false;
         }

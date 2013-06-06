@@ -30,7 +30,7 @@ class FileCopy {
         }
     }
 
-    private final void transfer(
+    private void transfer(
             final FileChannel fileChannel,
             final ByteChannel byteChannel,
             final long lengthInBytes,

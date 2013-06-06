@@ -36,7 +36,7 @@ class MemberTab extends JPanel {
 
     }
 
-    private final void fillTextArea(final JTextArea textArea, final ArrayList<Member> memberList) {
+    private void fillTextArea(final JTextArea textArea, final ArrayList<Member> memberList) {
 
         for (final Member member : memberList) {
             textArea.append(member.getFirstName() + " " + member.getLastName() + System.getProperty("line.separator"));

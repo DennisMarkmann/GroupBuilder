@@ -31,7 +31,7 @@ public class GroupFileWriter {
 
     }
 
-    private final void createXmlFile(final Group group, final String defaultPath) {
+    private void createXmlFile(final Group group, final String defaultPath) {
 
         try {
 

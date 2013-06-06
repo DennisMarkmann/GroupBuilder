@@ -14,7 +14,14 @@ import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Test.DefaultTestCreator;
 import com.kn.groupBuilder.Test.PojoContentTester;
 
-public class Main {
+public final class Main {
+
+    private Main() {
+        // final Prevent instantiation
+        // Optional: throw an exception e.g. AssertionError
+        // if this ever *is* called
+        throw new AssertionError("Instantiating utility class");
+    }
 
     public static void main(final String[] args) throws IOException {
 

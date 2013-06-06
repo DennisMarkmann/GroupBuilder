@@ -39,7 +39,7 @@ class GroupTab extends JPanel {
 
     }
 
-    private final void fillTextArea(final JTextArea textArea, final ArrayList<Group> groupList) {
+    private void fillTextArea(final JTextArea textArea, final ArrayList<Group> groupList) {
 
         for (final Group group : groupList) {
             textArea.append(group.getName() + System.getProperty("line.separator"));

@@ -80,7 +80,7 @@ public class EmailJob {
         }
     }
 
-    private class MailAuthenticator extends Authenticator {
+    private final class MailAuthenticator extends Authenticator {
 
         private final String user;
         private final String password;

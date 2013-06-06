@@ -12,7 +12,7 @@ public class FileCleaner {
         this.cleanFolder(defaultPath + "\\Groups\\");
     }
 
-    private final void cleanFolder(final String path) {
+    private void cleanFolder(final String path) {
 
         final File filePath = new File(path);
         try {
