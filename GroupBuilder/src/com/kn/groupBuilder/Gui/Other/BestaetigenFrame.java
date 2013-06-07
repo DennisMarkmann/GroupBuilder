@@ -1,4 +1,4 @@
-package com.kn.groupBuilder.Gui;
+package com.kn.groupBuilder.Gui.Other;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import com.kn.groupBuilder.Gui.Listener.BestaetigenFrameListener;
+import com.kn.groupBuilder.Gui.Other.Listener.BestaetigenFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class BestaetigenFrame extends JFrame {

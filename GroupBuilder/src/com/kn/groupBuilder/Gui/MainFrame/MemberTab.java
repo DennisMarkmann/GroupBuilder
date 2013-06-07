@@ -1,4 +1,4 @@
-package com.kn.groupBuilder.Gui;
+package com.kn.groupBuilder.Gui.MainFrame;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

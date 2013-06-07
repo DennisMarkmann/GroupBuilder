@@ -1,11 +1,11 @@
-package com.kn.groupBuilder.Gui.Listener;
+package com.kn.groupBuilder.Gui.Other.Listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.kn.groupBuilder.Gui.BestaetigenFrame;
+import com.kn.groupBuilder.Gui.Other.BestaetigenFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class BestaetigenFrameListener implements ActionListener {

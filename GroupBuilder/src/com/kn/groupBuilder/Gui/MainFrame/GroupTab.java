@@ -1,4 +1,4 @@
-package com.kn.groupBuilder.Gui;
+package com.kn.groupBuilder.Gui.MainFrame;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import com.kn.groupBuilder.Gui.Listener.GroupTabListener;
+import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
 import com.kn.groupBuilder.Storage.Group;
 
 class GroupTab extends JPanel {

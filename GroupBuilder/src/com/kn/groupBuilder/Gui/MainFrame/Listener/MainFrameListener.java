@@ -1,4 +1,4 @@
-package com.kn.groupBuilder.Gui.Listener;
+package com.kn.groupBuilder.Gui.MainFrame.Listener;
 
 import java.awt.Component;
 import java.awt.event.MouseAdapter;

@@ -8,7 +8,7 @@ import com.kn.groupBuilder.FileOperations.Reader.GroupListReader;
 import com.kn.groupBuilder.FileOperations.Reader.MemberListReader;
 import com.kn.groupBuilder.FileOperations.Writer.GroupListWriter;
 import com.kn.groupBuilder.FileOperations.Writer.MemberListWriter;
-import com.kn.groupBuilder.Gui.MainFrame;
+import com.kn.groupBuilder.Gui.MainFrame.MainFrame;
 import com.kn.groupBuilder.Jobs.GroupBuilder;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Test.DefaultTestCreator;

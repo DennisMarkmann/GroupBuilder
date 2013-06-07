@@ -1,4 +1,4 @@
-package com.kn.groupBuilder.Gui;
+package com.kn.groupBuilder.Gui.MainFrame;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,7 +8,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
-import com.kn.groupBuilder.Gui.Listener.MainFrameListener;
+import com.kn.groupBuilder.Gui.MainFrame.Listener.MainFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class MainFrame extends JFrame {
