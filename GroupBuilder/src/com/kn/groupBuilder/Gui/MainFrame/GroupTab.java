@@ -7,9 +7,11 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 
 import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
+import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
 import com.kn.groupBuilder.Storage.Group;
 
 class GroupTab extends JPanel {
@@ -23,12 +25,13 @@ class GroupTab extends JPanel {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(5, 5, 5, 5);
 
-        final JTextArea groupArea = new JTextArea(40, 40);
+        final JTextArea groupArea = new JTextArea(40, 40); // unused
         final JButton addButton = new JButton("Add group");
+        final JTable groupTable = new JTable(new GroupTableModel(groupList));
 
         c.gridx = 0;
         c.gridy = 0;
-        this.add(groupArea, c);
+        this.add(groupTable, c);
 
         c.gridx = 0;
         c.gridy = 5;
