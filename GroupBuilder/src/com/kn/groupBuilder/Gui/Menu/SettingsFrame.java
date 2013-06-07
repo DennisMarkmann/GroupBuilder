@@ -1,4 +1,4 @@
-package com.kn.groupBuilder.Gui;
+package com.kn.groupBuilder.Gui.Menu;
 
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;

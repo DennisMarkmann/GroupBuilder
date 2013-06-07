@@ -7,7 +7,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
-import com.kn.groupBuilder.Gui.SettingsFrame;
+import com.kn.groupBuilder.Gui.Menu.SettingsFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class MainFrameListener extends MouseAdapter {
