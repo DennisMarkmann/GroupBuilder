@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
@@ -25,10 +26,12 @@ class MemberTab extends JPanel {
 
         final JTable memberTable = new JTable(new MemberTableModel(memberList));
         final JButton addButton = new JButton("Add member");
+        final JScrollPane scrollPane = new JScrollPane(memberTable);
+        memberTable.setFillsViewportHeight(true);
 
         c.gridx = 0;
         c.gridy = 0;
-        this.add(memberTable, c);
+        this.add(scrollPane, c);
 
         c.gridx = 0;
         c.gridy = 5;

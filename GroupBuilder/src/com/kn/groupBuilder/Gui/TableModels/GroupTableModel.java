@@ -9,7 +9,7 @@ import com.kn.groupBuilder.Storage.Group;
 public final class GroupTableModel extends AbstractTableModel {
 
     private static final long serialVersionUID = -3758449082711896808L;
-    ArrayList<Group> groupList;
+    private final ArrayList<Group> groupList;
     private final String[] cols = { "GroupName", "Description", "Size" };
 
     public GroupTableModel(final ArrayList<Group> groupList) {

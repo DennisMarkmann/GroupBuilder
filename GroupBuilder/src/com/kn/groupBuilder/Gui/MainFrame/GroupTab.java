@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
@@ -26,10 +27,12 @@ class GroupTab extends JPanel {
 
         final JButton addButton = new JButton("Add group");
         final JTable groupTable = new JTable(new GroupTableModel(groupList));
+        final JScrollPane scrollPane = new JScrollPane(groupTable);
+        groupTable.setFillsViewportHeight(true);
 
         c.gridx = 0;
         c.gridy = 0;
-        this.add(groupTable, c);
+        this.add(scrollPane, c);
 
         c.gridx = 0;
         c.gridy = 5;

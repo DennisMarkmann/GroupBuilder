@@ -11,7 +11,7 @@ import com.kn.groupBuilder.Storage.Member;
 public final class MemberTableModel extends AbstractTableModel {
 
     private static final long serialVersionUID = -3758449082711896808L;
-    ArrayList<Member> memberList;
+    private final ArrayList<Member> memberList;
     private final String[] cols = { "FirstName", "LastName", "E-Mail", "Groups", "Edit" };
 
     public MemberTableModel(final ArrayList<Member> memberList) {
@@ -51,7 +51,7 @@ public final class MemberTableModel extends AbstractTableModel {
         } else if (columnIndex == 4) {
             return new JButton("Edit");
         }
-        return "";
+        return null;
     }
 
     private String buildGroupList(final int index) {
