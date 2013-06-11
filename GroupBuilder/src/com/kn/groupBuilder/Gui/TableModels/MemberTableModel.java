@@ -36,8 +36,10 @@ public final class MemberTableModel extends AbstractTableModel {
         String content = "";
         if (columnIndex == 0) {
             content = this.memberList.get(rowIndex).getFirstName();
+
         } else if (columnIndex == 1) {
             content = this.memberList.get(rowIndex).getLastName();
+
         } else if (columnIndex == 2) {
             content = this.memberList.get(rowIndex).getEMailAdress();
         }

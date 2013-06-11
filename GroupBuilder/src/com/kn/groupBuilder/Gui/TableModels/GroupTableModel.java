@@ -14,6 +14,7 @@ public final class GroupTableModel extends AbstractTableModel {
 
     public GroupTableModel(final ArrayList<Group> groupList) {
         this.groupList = groupList;
+
     }
 
     @Override
@@ -38,7 +39,7 @@ public final class GroupTableModel extends AbstractTableModel {
             content = this.groupList.get(rowIndex).getName();
         } else if (columnIndex == 1) {
             content = this.groupList.get(rowIndex).getDescription();
-        } else if (columnIndex == 1) {
+        } else if (columnIndex == 2) {
             content = this.groupList.get(rowIndex).getFixSize() + "";
         }
         return content;
