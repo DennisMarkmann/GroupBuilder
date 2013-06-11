@@ -2,15 +2,17 @@ package com.kn.groupBuilder.Gui.TableModels;
 
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
+import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 
 public final class MemberTableModel extends AbstractTableModel {
 
     private static final long serialVersionUID = -3758449082711896808L;
     ArrayList<Member> memberList;
-    private final String[] cols = { "FirstName", "LastName", "E-Mail" };
+    private final String[] cols = { "FirstName", "LastName", "E-Mail", "Groups", "Edit" };
 
     public MemberTableModel(final ArrayList<Member> memberList) {
         this.memberList = memberList;
@@ -33,17 +35,36 @@ public final class MemberTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(final int rowIndex, final int columnIndex) {
-        String content = "";
+
         if (columnIndex == 0) {
-            content = this.memberList.get(rowIndex).getFirstName();
+            return (this.memberList.get(rowIndex).getFirstName());
 
         } else if (columnIndex == 1) {
-            content = this.memberList.get(rowIndex).getLastName();
+            return (this.memberList.get(rowIndex).getLastName());
 
         } else if (columnIndex == 2) {
-            content = this.memberList.get(rowIndex).getEMailAdress();
-        }
-        return content;
+            return (this.memberList.get(rowIndex).getEMailAdress());
 
+        } else if (columnIndex == 3) {
+            return this.buildGroupList(rowIndex);
+
+        } else if (columnIndex == 4) {
+            return new JButton("Edit");
+        }
+        return "";
+    }
+
+    private String buildGroupList(final int index) {
+
+        final StringBuilder text = new StringBuilder();
+        final ArrayList<Group> groupList = this.memberList.get(index).getGroupList();
+
+        for (final Group group : groupList) {
+            if (text.length() != 0) {
+                text.append(", ");
+            }
+            text.append(groupList.get(groupList.indexOf(group)).getName());
+        }
+        return text.toString();
     }
 }
