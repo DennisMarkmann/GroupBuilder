@@ -3,8 +3,8 @@ package com.kn.groupBuilder.Gui.Popups;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Gui.Popups.Listener.BestaetigenFrameListener;
-import com.kn.groupBuilder.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class BestaetigenFrame extends JFrame {

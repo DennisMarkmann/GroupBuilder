@@ -13,15 +13,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class SettingsFrame extends JFrame {
 
     private static final long serialVersionUID = 3141095634381522203L;
+    private final GuiFrameBuilder builder = new GuiFrameBuilder();
+    private static final int TEXT_FIELD_SIZE = 5;
 
     public SettingsFrame(final Pojo pojo) {
 
+        this.builder.setDefaultFrameSettings(this);
         this.setTitle("GroupBuilder");
+        this.setSize(600, 600);
         this.setLayout(new GridBagLayout());
         final GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.VERTICAL;
@@ -106,7 +111,6 @@ public class SettingsFrame extends JFrame {
         c.gridy = 5;
         this.add(closePanel, c);
 
-        this.setSize(600, 600);
         this.setVisible(true);
     }
 }

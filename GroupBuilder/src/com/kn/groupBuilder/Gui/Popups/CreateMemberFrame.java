@@ -1,14 +1,12 @@
 package com.kn.groupBuilder.Gui.Popups;
 
-import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Gui.Popups.Listener.CreateMemberListener;
-import com.kn.groupBuilder.HelperClasses.GuiFrameBuilder;
-import com.kn.groupBuilder.Storage.Member;
+import com.kn.groupBuilder.Storage.Pojo;
 
 public class CreateMemberFrame extends JFrame {
 
@@ -16,7 +14,7 @@ public class CreateMemberFrame extends JFrame {
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
     private static final int TEXT_FIELD_SIZE = 5;
 
-    public CreateMemberFrame(final ArrayList<Member> memberList) {
+    public CreateMemberFrame(final Pojo pojo) {
 
         this.builder.setDefaultFrameSettings(this);
 
@@ -37,7 +35,7 @@ public class CreateMemberFrame extends JFrame {
 
         final CreateMemberListener listener = new CreateMemberListener(
                 this,
-                memberList,
+                pojo,
                 firstNameField,
                 lastNameField,
                 eMailField,

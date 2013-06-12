@@ -1,14 +1,12 @@
 package com.kn.groupBuilder.Gui.Popups;
 
-import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Gui.Popups.Listener.CreateGroupListener;
-import com.kn.groupBuilder.HelperClasses.GuiFrameBuilder;
-import com.kn.groupBuilder.Storage.Group;
+import com.kn.groupBuilder.Storage.Pojo;
 
 public class CreateGroupFrame extends JFrame {
 
@@ -16,7 +14,7 @@ public class CreateGroupFrame extends JFrame {
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
     private static final int TEXT_FIELD_SIZE = 5;
 
-    public CreateGroupFrame(final ArrayList<Group> groupList) {
+    public CreateGroupFrame(final Pojo pojo) {
 
         this.builder.setDefaultFrameSettings(this);
 
@@ -33,12 +31,7 @@ public class CreateGroupFrame extends JFrame {
 
         this.pack();
 
-        final CreateGroupListener listener = new CreateGroupListener(
-                this,
-                groupList,
-                groupNameField,
-                groupDescField,
-                groupSizeField);
+        final CreateGroupListener listener = new CreateGroupListener(this, pojo, groupNameField, groupDescField, groupSizeField);
 
         bestaetigenButton.addActionListener(listener);
         abbrechenButton.addActionListener(listener);

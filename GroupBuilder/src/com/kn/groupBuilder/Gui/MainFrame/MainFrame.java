@@ -36,8 +36,8 @@ public class MainFrame extends JFrame {
         menuBar.add(menu);
         this.setJMenuBar(menuBar);
 
-        this.addPane("Groups", new GroupTab(pojo.getGroupList()));
-        this.addPane("Member", new MemberTab(pojo.getMemberList()));
+        this.addPane("Groups", new GroupTab(pojo));
+        this.addPane("Member", new MemberTab(pojo));
 
         this.add(this.tabBar);
         this.setVisible(true);

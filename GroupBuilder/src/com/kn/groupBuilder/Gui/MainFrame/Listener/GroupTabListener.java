@@ -2,19 +2,18 @@ package com.kn.groupBuilder.Gui.MainFrame.Listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 
 import com.kn.groupBuilder.Gui.Popups.CreateGroupFrame;
-import com.kn.groupBuilder.Storage.Group;
+import com.kn.groupBuilder.Storage.Pojo;
 
 public class GroupTabListener implements ActionListener {
 
-    private final ArrayList<Group> groupList;
+    private final Pojo pojo;
 
-    public GroupTabListener(final ArrayList<Group> groupList) {
-        this.groupList = groupList;
+    public GroupTabListener(final Pojo pojo) {
+        this.pojo = pojo;
     }
 
     @Override
@@ -23,7 +22,7 @@ public class GroupTabListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("addButton") == 0) {
-            new CreateGroupFrame(this.groupList);
+            new CreateGroupFrame(this.pojo);
         }
     }
 }

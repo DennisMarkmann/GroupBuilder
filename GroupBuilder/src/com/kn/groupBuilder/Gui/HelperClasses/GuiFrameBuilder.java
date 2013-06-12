@@ -1,4 +1,4 @@
-package com.kn.groupBuilder.HelperClasses;
+package com.kn.groupBuilder.Gui.HelperClasses;
 
 import java.awt.Component;
 import java.awt.Dimension;

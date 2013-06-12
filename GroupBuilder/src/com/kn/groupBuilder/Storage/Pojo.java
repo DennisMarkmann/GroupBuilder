@@ -46,6 +46,10 @@ public class Pojo {
     }
 
     public final boolean isBestaetigt() {
+        if (this.bestaetigt) {
+            this.setBestaetigt(false);
+            return true;
+        }
         return this.bestaetigt;
     }
 
