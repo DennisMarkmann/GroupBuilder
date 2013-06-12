@@ -23,11 +23,12 @@ public class GuiFrameBuilder {
     }
 
     public void setDefaultFrameSettings(final JFrame frame) {
+
         frame.setTitle("GroupBuilder");
-        frame.setSize(new Dimension(400, 200));
-        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(new Dimension(400, 200));
         frame.setLayout(new GridBagLayout());
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
@@ -46,7 +47,6 @@ public class GuiFrameBuilder {
     }
 
     public JLabel createLabel(final JFrame frame, final String labelText, final int gridxValue, final int gridyValue) {
-
         final JLabel label = new JLabel(labelText);
         this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, label);
 
@@ -54,7 +54,6 @@ public class GuiFrameBuilder {
     }
 
     public JTextField createTextField(final JFrame frame, final int textFieldSize, final int gridxValue, final int gridyValue) {
-
         final JTextField textField = new JTextField(textFieldSize);
         this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, textField);
 

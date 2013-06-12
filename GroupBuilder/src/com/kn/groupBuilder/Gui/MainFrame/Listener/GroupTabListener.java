@@ -21,6 +21,7 @@ public class GroupTabListener implements ActionListener {
     public final void actionPerformed(final ActionEvent event) {
 
         final JButton buttonClicked = (JButton) event.getSource();
+
         if (buttonClicked.getName().compareTo("addButton") == 0) {
             new CreateGroupFrame(this.groupList);
         }
