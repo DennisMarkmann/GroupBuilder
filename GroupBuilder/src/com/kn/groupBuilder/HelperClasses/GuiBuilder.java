@@ -40,14 +40,12 @@ public class GuiBuilder {
 
     public JTextField createTextField(
             final JFrame frame,
-            final String textFieldName,
-            final String textFieldText,
+            final int textFieldSize,
             final GridBagConstraints c,
             final int gridxValue,
             final int gridyValue) {
 
-        final JTextField textField = new JTextField(textFieldText);
-        this.setName(textField, textFieldName);
+        final JTextField textField = new JTextField(textFieldSize);
         this.setPosition(frame, c, gridxValue, gridyValue, textField);
 
         return textField;

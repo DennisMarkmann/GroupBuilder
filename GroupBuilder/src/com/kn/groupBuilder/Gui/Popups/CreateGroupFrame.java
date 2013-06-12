@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Popups.Listener.CreateGroupListener;
@@ -19,6 +18,7 @@ public class CreateGroupFrame extends JFrame {
 
     private static final long serialVersionUID = -2620743685703998617L;
     private final GuiBuilder builder = new GuiBuilder();
+    private static final int TEXT_FIELD_SIZE = 3;
 
     public CreateGroupFrame(final ArrayList<Group> groupList) {
         // basic attributes
@@ -34,45 +34,25 @@ public class CreateGroupFrame extends JFrame {
         this.setLayout(new GridBagLayout());
 
         this.builder.createLabel(this, "GroupName", c, 0, 1);
-        final JLabel groupNameLabel = new JLabel("GroupName");
-        final JLabel groupDescLabel = new JLabel("Description");
-        final JLabel groupSizeLabel = new JLabel("Size");
+        this.builder.createLabel(this, "Description", c, 0, 2);
+        this.builder.createLabel(this, "Size", c, 0, 3);
 
-        final JTextField groupNameField = new JTextField(5);
-        final JTextField groupDescField = new JTextField(5);
-        final JTextField groupSizeField = new JTextField(5);
+        final JTextField groupNameField = this.builder.createTextField(this, TEXT_FIELD_SIZE, c, 1, 1);
+        final JTextField groupDescField = this.builder.createTextField(this, TEXT_FIELD_SIZE, c, 1, 2);
+        final JTextField groupSizeField = this.builder.createTextField(this, TEXT_FIELD_SIZE, c, 1, 3);
 
         final JButton bestaetigenButton = this.builder.createButton(this, "bestaetigenButton", "Bestätigen", c, 0, 4);
         final JButton abbrechenButton = this.builder.createButton(this, "abbrechenButton", "Abbrechen", c, 1, 4);
 
-        c.gridx = 0;
-        c.gridy = 1;
-        this.add(groupNameLabel, c);
-
-        c.gridx = 1;
-        c.gridy = 1;
-        this.add(groupNameField, c);
-
-        c.gridx = 0;
-        c.gridy = 2;
-        this.add(groupDescLabel, c);
-
-        c.gridx = 1;
-        c.gridy = 2;
-        this.add(groupDescField, c);
-
-        c.gridx = 0;
-        c.gridy = 3;
-        this.add(groupSizeLabel, c);
-
-        c.gridx = 1;
-        c.gridy = 3;
-        this.add(groupSizeField, c);
-
         this.setVisible(true);
         this.pack();
 
-        final CreateGroupListener listener = new CreateGroupListener(this, groupList);
+        final CreateGroupListener listener = new CreateGroupListener(
+                this,
+                groupList,
+                groupNameField,
+                groupDescField,
+                groupSizeField);
 
         bestaetigenButton.addActionListener(listener);
         abbrechenButton.addActionListener(listener);
