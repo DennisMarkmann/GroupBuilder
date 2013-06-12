@@ -2,6 +2,7 @@ package com.kn.groupBuilder.HelperClasses;
 
 import java.awt.Component;
 import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,43 +11,41 @@ import javax.swing.JTextField;
 
 public class GuiBuilder {
 
+    private final GridBagConstraints gridBagConstraints = new GridBagConstraints();
+
+    public GuiBuilder() {
+
+        this.gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        this.gridBagConstraints.fill = GridBagConstraints.BOTH;
+        this.gridBagConstraints.weightx = 2;
+    }
+
     public JButton createButton(
             final JFrame frame,
             final String buttonName,
             final String buttonText,
-            final GridBagConstraints c,
             final int gridxValue,
             final int gridyValue) {
 
         final JButton button = new JButton(buttonText);
         this.setName(button, buttonName);
-        this.setPosition(frame, c, gridxValue, gridyValue, button);
+        this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, button);
 
         return button;
     }
 
-    public JLabel createLabel(
-            final JFrame frame,
-            final String labelText,
-            final GridBagConstraints c,
-            final int gridxValue,
-            final int gridyValue) {
+    public JLabel createLabel(final JFrame frame, final String labelText, final int gridxValue, final int gridyValue) {
 
         final JLabel label = new JLabel(labelText);
-        this.setPosition(frame, c, gridxValue, gridyValue, label);
+        this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, label);
 
         return label;
     }
 
-    public JTextField createTextField(
-            final JFrame frame,
-            final int textFieldSize,
-            final GridBagConstraints c,
-            final int gridxValue,
-            final int gridyValue) {
+    public JTextField createTextField(final JFrame frame, final int textFieldSize, final int gridxValue, final int gridyValue) {
 
         final JTextField textField = new JTextField(textFieldSize);
-        this.setPosition(frame, c, gridxValue, gridyValue, textField);
+        this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, textField);
 
         return textField;
     }
@@ -65,5 +64,10 @@ public class GuiBuilder {
         c.gridx = gridxValue;
         c.gridy = gridyValue;
         frame.add(object, c);
+    }
+
+    public GridBagConstraints getGridBagConstraints() {
+        return this.gridBagConstraints;
+
     }
 }
