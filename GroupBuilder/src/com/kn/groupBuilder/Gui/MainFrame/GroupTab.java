@@ -25,10 +25,11 @@ class GroupTab extends JPanel {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.insets = new Insets(5, 5, 5, 5);
 
-        final JButton addButton = new JButton("Add group");
         final JTable groupTable = new JTable(new GroupTableModel(groupList));
         final JScrollPane scrollPane = new JScrollPane(groupTable);
         groupTable.setFillsViewportHeight(true);
+        final JButton addButton = new JButton("Add group");
+        addButton.setName("addButton");
 
         c.gridx = 0;
         c.gridy = 0;
@@ -38,7 +39,7 @@ class GroupTab extends JPanel {
         c.gridy = 5;
         this.add(addButton, c);
 
-        addButton.addActionListener(new GroupTabListener());
+        addButton.addActionListener(new GroupTabListener(groupList));
 
     }
 }

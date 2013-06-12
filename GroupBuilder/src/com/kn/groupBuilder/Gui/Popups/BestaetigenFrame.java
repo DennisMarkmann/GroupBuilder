@@ -1,4 +1,4 @@
-package com.kn.groupBuilder.Gui.Other;
+package com.kn.groupBuilder.Gui.Popups;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import com.kn.groupBuilder.Gui.Other.Listener.BestaetigenFrameListener;
+import com.kn.groupBuilder.Gui.Popups.Listener.BestaetigenFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class BestaetigenFrame extends JFrame {
@@ -31,7 +31,9 @@ public class BestaetigenFrame extends JFrame {
         this.setLayout(new GridBagLayout());
 
         final JButton bestaetigenButton = new JButton("Bestätigen");
+        bestaetigenButton.setName("bestaetigenButton");
         final JButton abbrechenButton = new JButton("Abbrechen");
+        abbrechenButton.setName("abbrechenButton");
         final JLabel frageLabel = new JLabel("Wollen Sie wirklich ...?");
 
         final JTextField kundenNummerField = new JTextField();
