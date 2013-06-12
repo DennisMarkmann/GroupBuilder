@@ -18,7 +18,7 @@ import com.kn.groupBuilder.Storage.Group;
 public class CreateGroupFrame extends JFrame {
 
     private static final long serialVersionUID = -2620743685703998617L;
-    GuiBuilder builder = new GuiBuilder();
+    private final GuiBuilder builder = new GuiBuilder();
 
     public CreateGroupFrame(final ArrayList<Group> groupList) {
         // basic attributes
@@ -33,6 +33,7 @@ public class CreateGroupFrame extends JFrame {
         c.weightx = 2;
         this.setLayout(new GridBagLayout());
 
+        this.builder.createLabel(this, "GroupName", c, 0, 1);
         final JLabel groupNameLabel = new JLabel("GroupName");
         final JLabel groupDescLabel = new JLabel("Description");
         final JLabel groupSizeLabel = new JLabel("Size");

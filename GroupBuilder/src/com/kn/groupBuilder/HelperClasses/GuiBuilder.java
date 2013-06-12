@@ -6,6 +6,7 @@ import java.awt.GridBagConstraints;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class GuiBuilder {
 
@@ -26,17 +27,30 @@ public class GuiBuilder {
 
     public JLabel createLabel(
             final JFrame frame,
-            final String labelName,
             final String labelText,
             final GridBagConstraints c,
             final int gridxValue,
             final int gridyValue) {
 
         final JLabel label = new JLabel(labelText);
-        this.setName(label, labelName);
         this.setPosition(frame, c, gridxValue, gridyValue, label);
 
         return label;
+    }
+
+    public JTextField createTextField(
+            final JFrame frame,
+            final String textFieldName,
+            final String textFieldText,
+            final GridBagConstraints c,
+            final int gridxValue,
+            final int gridyValue) {
+
+        final JTextField textField = new JTextField(textFieldText);
+        this.setName(textField, textFieldName);
+        this.setPosition(frame, c, gridxValue, gridyValue, textField);
+
+        return textField;
     }
 
     private void setName(final Component object, final String objectName) {

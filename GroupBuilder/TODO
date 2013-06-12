@@ -1,3 +1,9 @@
+Finish GuiBuilder. 		(Auslagerung der Gridlayout Erstellung hier -> Erstellung und Mitgabe über da Pojo
+						implement other objects,
+						implement functionality for tabs
+						use it everywhere possible
+						make it abstract and non-implementable)
+
 GUI
 
 Automatische Gruppenerstellung berücksichtigen (GUI)
