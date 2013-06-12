@@ -1,5 +1,7 @@
-Finish GuiBuilder. 		(use it everywhere possible
-						implement functionality for tabs)
+Finish GuiBuilder. 		use it everywhere possible
+						implement functionality for tabs
+						
+						Einzelne GUI Komponenten nicht mitgeben, sondern aus dem gesamten Frame ziehen?(Alle Listener)
 
 GUI
 

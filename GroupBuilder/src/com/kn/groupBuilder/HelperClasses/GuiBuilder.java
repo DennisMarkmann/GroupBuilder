@@ -1,7 +1,9 @@
 package com.kn.groupBuilder.HelperClasses;
 
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.JButton;
@@ -32,6 +34,15 @@ public class GuiBuilder {
         this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, button);
 
         return button;
+    }
+
+    public void setDefaultFrameSettings(final JFrame frame) {
+        frame.setTitle("GroupBuilder");
+        frame.setSize(new Dimension(400, 200));
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setLayout(new GridBagLayout());
+        frame.setVisible(true);
     }
 
     public JLabel createLabel(final JFrame frame, final String labelText, final int gridxValue, final int gridyValue) {
