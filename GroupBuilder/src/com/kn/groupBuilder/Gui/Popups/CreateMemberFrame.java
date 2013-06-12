@@ -7,13 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Popups.Listener.CreateMemberListener;
-import com.kn.groupBuilder.HelperClasses.GuiBuilder;
+import com.kn.groupBuilder.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Storage.Member;
 
 public class CreateMemberFrame extends JFrame {
 
     private static final long serialVersionUID = -2620743685703998617L;
-    private final GuiBuilder builder = new GuiBuilder();
+    private final GuiFrameBuilder builder = new GuiFrameBuilder();
     private static final int TEXT_FIELD_SIZE = 5;
 
     public CreateMemberFrame(final ArrayList<Member> memberList) {
