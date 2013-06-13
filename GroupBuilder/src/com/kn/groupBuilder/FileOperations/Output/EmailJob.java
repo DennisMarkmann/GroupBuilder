@@ -35,7 +35,7 @@ public class EmailJob {
         new EmailJob().sendMail(smtpHost, username, password, senderAddress, subject, pojo);
     }
 
-    public final void sendMail(
+    private final void sendMail(
             final String smtpHost,
             final String username,
             final String password,

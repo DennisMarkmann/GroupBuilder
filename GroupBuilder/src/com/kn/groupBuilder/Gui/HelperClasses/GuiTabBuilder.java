@@ -26,7 +26,7 @@ public class GuiTabBuilder {
         this.gridBagConstraints.weightx = 2;
     }
 
-    public JButton createButton(
+    public final JButton createButton(
             final JPanel jPanel,
             final String buttonName,
             final String buttonText,
@@ -40,17 +40,16 @@ public class GuiTabBuilder {
         return button;
     }
 
-    public JScrollPane createTable(final JPanel jPanel, final int gridxValue, final int gridyValue, final JTable jTable) {
+    private final JScrollPane createTable(final JPanel jPanel, final int gridxValue, final int gridyValue, final JTable jTable) {
 
         final JScrollPane scrollPane = new JScrollPane(jTable);
         jTable.setFillsViewportHeight(true);
         this.setPosition(jPanel, this.gridBagConstraints, gridxValue, gridyValue, scrollPane);
-
         return scrollPane;
 
     }
 
-    public JScrollPane createGroupTable(
+    public final JScrollPane createGroupTable(
             final ArrayList<Group> tableContent,
             final JPanel jPanel,
             final int gridxValue,
@@ -62,7 +61,7 @@ public class GuiTabBuilder {
         return scrollPane;
     }
 
-    public JScrollPane createMemberTable(
+    public final JScrollPane createMemberTable(
             final ArrayList<Member> tableContent,
             final JPanel jPanel,
             final int gridxValue,
@@ -90,7 +89,7 @@ public class GuiTabBuilder {
         jPanel.add(object, c);
     }
 
-    public GridBagConstraints getGridBagConstraints() {
+    public final GridBagConstraints getGridBagConstraints() {
         return this.gridBagConstraints;
 
     }

@@ -22,7 +22,7 @@ public class GuiFrameBuilder {
         this.gridBagConstraints.weightx = 2;
     }
 
-    public void setDefaultFrameSettings(final JFrame frame) {
+    public final void setDefaultFrameSettings(final JFrame frame) {
 
         frame.setTitle("GroupBuilder");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -32,7 +32,7 @@ public class GuiFrameBuilder {
         frame.setVisible(true);
     }
 
-    public JButton createButton(
+    public final JButton createButton(
             final JFrame frame,
             final String buttonName,
             final String buttonText,
@@ -46,14 +46,18 @@ public class GuiFrameBuilder {
         return button;
     }
 
-    public JLabel createLabel(final JFrame frame, final String labelText, final int gridxValue, final int gridyValue) {
+    public final JLabel createLabel(final JFrame frame, final String labelText, final int gridxValue, final int gridyValue) {
         final JLabel label = new JLabel(labelText);
         this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, label);
 
         return label;
     }
 
-    public JTextField createTextField(final JFrame frame, final int textFieldSize, final int gridxValue, final int gridyValue) {
+    public final JTextField createTextField(
+            final JFrame frame,
+            final int textFieldSize,
+            final int gridxValue,
+            final int gridyValue) {
         final JTextField textField = new JTextField(textFieldSize);
         this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, textField);
 
@@ -76,7 +80,7 @@ public class GuiFrameBuilder {
         frame.add(object, c);
     }
 
-    public GridBagConstraints getGridBagConstraints() {
+    public final GridBagConstraints getGridBagConstraints() {
         return this.gridBagConstraints;
     }
 }

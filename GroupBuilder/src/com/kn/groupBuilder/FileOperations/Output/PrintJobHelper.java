@@ -6,7 +6,7 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class PrintJobHelper {
 
-    public final String generateGroupText(final Group group) {
+    private final String generateGroupText(final Group group) {
 
         String printText = "GroupName: " + group.getName() + "\r\n" + "GroupSize: " + group.getMemberList().size() + "\r\n"
                 + "Decription: " + group.getDescription() + "\r\n" + "\r\n" + "Member:" + "\r\n";
@@ -26,7 +26,7 @@ public class PrintJobHelper {
         }
     }
 
-    public final void printGroup(final Group group) {
+    private final void printGroup(final Group group) {
         final String printText = this.generateGroupText(group);
         final PrintJob pt = new PrintJob(printText);
         pt.printAllPages();

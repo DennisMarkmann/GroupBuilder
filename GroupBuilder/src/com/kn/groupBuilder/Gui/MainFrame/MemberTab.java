@@ -12,7 +12,7 @@ import com.kn.groupBuilder.Storage.Pojo;
 class MemberTab extends JPanel {
 
     private static final long serialVersionUID = 3210114640051532404L;
-    GuiTabBuilder builder = new GuiTabBuilder();
+    private final GuiTabBuilder builder = new GuiTabBuilder();
 
     MemberTab(final Pojo pojo) {
 
