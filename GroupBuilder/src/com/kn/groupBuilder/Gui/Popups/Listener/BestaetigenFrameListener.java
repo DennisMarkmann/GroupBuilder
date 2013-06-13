@@ -7,6 +7,7 @@ import javax.swing.JButton;
 
 import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
 import com.kn.groupBuilder.Storage.Group;
+import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class BestaetigenFrameListener implements ActionListener {
@@ -35,6 +36,8 @@ public class BestaetigenFrameListener implements ActionListener {
         if (buttonClicked.getText().compareTo("Bestätigen") == 0) {
             if (this.action.equals("addGroup")) {
                 this.pojo.getGroupList().add((Group) this.object);
+            } else if (this.action.equals("addMember")) {
+                this.pojo.getMemberList().add((Member) this.object);
             }
 
         } else if (buttonClicked.getText().compareTo("Abbrechen") == 0) {

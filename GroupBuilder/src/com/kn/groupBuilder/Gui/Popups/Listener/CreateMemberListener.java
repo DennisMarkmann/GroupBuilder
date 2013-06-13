@@ -3,9 +3,12 @@ package com.kn.groupBuilder.Gui.Popups.Listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateMemberFrame;
+import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class CreateMemberListener implements ActionListener {
@@ -34,9 +37,19 @@ public class CreateMemberListener implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(final ActionEvent e) {
+    public void actionPerformed(final ActionEvent event) {
+
+        final JButton buttonClicked = (JButton) event.getSource();
+
         // TODO add groups
-        // new BestaetigenFrame(this.pojo, "addMember", new Member(this.firstName, this.lastName, this.eMail));
+        if (buttonClicked.getName().compareTo("bestaetigenButton") == 0) {
+            new BestaetigenFrame(this.pojo, "addMember", new Member(
+                    this.firstNameField.getText(),
+                    this.lastNameField.getText(),
+                    this.eMailField.getText()));
+            this.createMemberFrame.dispose();
+        } else if (buttonClicked.getText().compareTo("Abbrechen") == 0) {
+        }
         this.createMemberFrame.dispose();
 
     }
