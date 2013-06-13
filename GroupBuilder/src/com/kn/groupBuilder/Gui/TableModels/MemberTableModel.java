@@ -16,19 +16,6 @@ public final class MemberTableModel extends AbstractTableModel {
 
     public MemberTableModel(final ArrayList<Member> memberList) {
         this.memberList = memberList;
-
-        // final Action delete = new AbstractAction()
-        // {
-        // public void actionPerformed(final ActionEvent e)
-        // {
-        // final JTable table = (JTable)e.getSource();
-        // final int modelRow = Integer.valueOf( e.getActionCommand() );
-        // ((DefaultTableModel)table.getModel()).removeRow(modelRow);
-        // }
-        // };
-        //
-        // final ButtonColumn buttonColumn = new ButtonColumn(table, delete, 2);
-        // buttonColumn.setMnemonic(KeyEvent.VK_D)
     }
 
     @Override

@@ -14,7 +14,6 @@ public final class GroupTableModel extends AbstractTableModel {
 
     public GroupTableModel(final ArrayList<Group> groupList) {
         this.groupList = groupList;
-
     }
 
     @Override
