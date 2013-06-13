@@ -12,7 +12,7 @@ public class BestaetigenFrame extends JFrame {
     private static final long serialVersionUID = -6013891923961668832L;
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
 
-    public BestaetigenFrame(final Pojo pojo) {
+    public BestaetigenFrame(final Pojo pojo, final String action, final Object object) {
 
         this.builder.setDefaultFrameSettings(this);
 
@@ -20,7 +20,7 @@ public class BestaetigenFrame extends JFrame {
         final JButton bestaetigenButton = this.builder.createButton(this, "bestaetigenButton", "Bestätigen", 0, 4);
         final JButton abbrechenButton = this.builder.createButton(this, "abbrechenButton", "Abbrechen", 3, 4);
 
-        final BestaetigenFrameListener listener = new BestaetigenFrameListener(this, pojo);
+        final BestaetigenFrameListener listener = new BestaetigenFrameListener(this, pojo, action, object);
 
         bestaetigenButton.addActionListener(listener);
         abbrechenButton.addActionListener(listener);

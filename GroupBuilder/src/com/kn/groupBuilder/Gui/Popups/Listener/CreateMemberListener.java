@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
-import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateMemberFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -36,12 +35,10 @@ public class CreateMemberListener implements ActionListener {
 
     @Override
     public void actionPerformed(final ActionEvent e) {
-        new BestaetigenFrame(this.pojo);
+        // TODO add groups
+        // new BestaetigenFrame(this.pojo, "addMember", new Member(this.firstName, this.lastName, this.eMail));
         this.createMemberFrame.dispose();
 
-        if (this.pojo.isBestaetigt()) {
-
-        }
     }
 
 }
