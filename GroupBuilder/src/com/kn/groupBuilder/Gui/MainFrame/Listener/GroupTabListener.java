@@ -24,5 +24,8 @@ public class GroupTabListener implements ActionListener {
         if (buttonClicked.getName().compareTo("addButton") == 0) {
             new CreateGroupFrame(this.pojo);
         }
+        if (buttonClicked.getName().compareTo("saveButton") == 0) {
+            // TODO
+        }
     }
 }

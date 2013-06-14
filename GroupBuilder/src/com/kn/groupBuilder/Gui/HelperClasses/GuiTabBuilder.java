@@ -20,8 +20,11 @@ public class GuiTabBuilder {
     private final GridBagConstraints gridBagConstraints = new GridBagConstraints();
 
     public GuiTabBuilder() {
-
         this.gridBagConstraints.insets = new Insets(5, 5, 5, 5);
+        this.setDefaultGridBackValues();
+    }
+
+    public void setDefaultGridBackValues() {
         this.gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         this.gridBagConstraints.weightx = 2;
     }
