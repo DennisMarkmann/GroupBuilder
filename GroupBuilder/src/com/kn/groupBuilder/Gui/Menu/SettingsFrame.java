@@ -20,7 +20,6 @@ public class SettingsFrame extends JFrame {
 
     private static final long serialVersionUID = 3141095634381522203L;
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
-    private static final int TEXT_FIELD_SIZE = 5;
 
     public SettingsFrame(final Pojo pojo) {
 

@@ -18,6 +18,7 @@ public class CreateMemberListener implements ActionListener {
     private final JTextField firstNameField;
     private final JTextField lastNameField;
     private final JTextField eMailField;
+    @SuppressWarnings("unused")
     private final JTextField groupsField;
 
     public CreateMemberListener(

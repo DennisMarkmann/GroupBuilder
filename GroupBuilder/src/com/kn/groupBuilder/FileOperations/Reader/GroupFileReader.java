@@ -15,6 +15,12 @@ import org.xml.sax.SAXException;
 
 public class GroupFileReader {
 
+    /**
+     * Currently unused. TODO:Has to be implemented.
+     * 
+     * @param path
+     */
+    @SuppressWarnings("unused")
     public final void readFiles(final String path) {
 
         try {
