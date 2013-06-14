@@ -14,7 +14,7 @@ import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Test.DefaultTestCreator;
 import com.kn.groupBuilder.Test.PojoContentTester;
 
-public final class Main {
+public final class Main { // NO_UCD
 
     private Main() {
         // final Prevent instantiation

@@ -45,10 +45,10 @@ public class BestaetigenFrameListener implements ActionListener {
             } else if (this.action.equals("sendEmailToAll")) {
                 new EmailJob().initializeEmailSending(this.pojo);
             } else if (this.action.equals("printOut")) {
+                // TODO implement single print
             } else if (this.action.equals("sendEmail")) {
+                // TODO implement single email operation
             }
-            // TODO implement single print / email operation
-        } else if (buttonClicked.getText().compareTo("Abbrechen") == 0) {
         }
         this.bestaetigenFrame.dispose();
 

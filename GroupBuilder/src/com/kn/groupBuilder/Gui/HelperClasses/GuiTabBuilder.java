@@ -40,7 +40,7 @@ public class GuiTabBuilder {
         return button;
     }
 
-    private final JScrollPane createTable(final JPanel jPanel, final int gridxValue, final int gridyValue, final JTable jTable) {
+    private JScrollPane createTable(final JPanel jPanel, final int gridxValue, final int gridyValue, final JTable jTable) {
 
         final JScrollPane scrollPane = new JScrollPane(jTable);
         jTable.setFillsViewportHeight(true);

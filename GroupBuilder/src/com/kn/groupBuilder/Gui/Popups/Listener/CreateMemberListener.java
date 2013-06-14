@@ -49,7 +49,6 @@ public class CreateMemberListener implements ActionListener {
                     this.lastNameField.getText(),
                     this.eMailField.getText()));
             this.createMemberFrame.dispose();
-        } else if (buttonClicked.getText().compareTo("Abbrechen") == 0) {
         }
         this.createMemberFrame.dispose();
 
