@@ -3,7 +3,7 @@ package com.kn.groupBuilder.Main;
 import java.io.IOException;
 
 import com.kn.groupBuilder.Archiving.GroupFileArchiver;
-import com.kn.groupBuilder.FileOperations.FileCleaner;
+import com.kn.groupBuilder.FileOperations.Other.FileCleaner;
 import com.kn.groupBuilder.FileOperations.Reader.GroupListReader;
 import com.kn.groupBuilder.FileOperations.Reader.MemberListReader;
 import com.kn.groupBuilder.FileOperations.Writer.GroupListWriter;
