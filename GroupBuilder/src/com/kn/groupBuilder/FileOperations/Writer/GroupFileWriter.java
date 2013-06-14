@@ -1,7 +1,6 @@
 package com.kn.groupBuilder.FileOperations.Writer;
 
 import java.io.File;
-import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,20 +17,25 @@ import org.w3c.dom.Element;
 
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
+import com.kn.groupBuilder.Storage.Pojo;
 
 public class GroupFileWriter {
 
-    public final void initializeXMLPrint(final ArrayList<Group> groupArrayList, final String defaultPath) {
+    private String defaultPath = "";
 
-        for (final Group group : groupArrayList) {
+    public final void initializeXMLPrint(final Pojo pojo) {
 
-            this.createXmlFile(group, defaultPath);
+        this.defaultPath = pojo.getDefaultPath();
+
+        for (final Group group : pojo.getGroupList()) {
+
+            this.createXmlFile(group);
 
         }
 
     }
 
-    private void createXmlFile(final Group group, final String defaultPath) {
+    private void createXmlFile(final Group group) {
 
         try {
 
@@ -99,10 +103,10 @@ public class GroupFileWriter {
             final Transformer transformer = transformerFactory.newTransformer();
             final DOMSource source = new DOMSource(doc);
 
-            File file = new File(defaultPath + "//Groups//");
+            File file = new File(this.defaultPath + "//Groups//");
             file.mkdirs();
 
-            file = new File(defaultPath + "//Groups//" + group.getName() + ".xml");
+            file = new File(this.defaultPath + "//Groups//" + group.getName() + ".xml");
 
             final StreamResult result = new StreamResult(file);
             transformer.transform(source, result);

@@ -2,7 +2,6 @@ package com.kn.groupBuilder.Gui.TableModels;
 
 import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
 import com.kn.groupBuilder.Storage.Group;
@@ -12,7 +11,7 @@ public final class MemberTableModel extends AbstractTableModel {
 
     private static final long serialVersionUID = -3758449082711896808L;
     private final ArrayList<Member> memberList;
-    private final String[] cols = { "FirstName", "LastName", "E-Mail", "Groups", "Edit" };
+    private final String[] cols = { "FirstName", "LastName", "E-Mail", "Groups", "Edit", "Delete" };
 
     public MemberTableModel(final ArrayList<Member> memberList) {
         this.memberList = memberList;
@@ -49,7 +48,10 @@ public final class MemberTableModel extends AbstractTableModel {
             return this.buildGroupList(rowIndex);
 
         } else if (columnIndex == 4) {
-            return new JButton("Edit");
+            return "";
+
+        } else if (columnIndex == 5) {
+            return "";
         }
         return null;
     }

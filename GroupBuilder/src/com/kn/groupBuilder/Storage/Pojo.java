@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Pojo {
 
-    private String defaultPath = System.getProperty("user.home") + "\\Desktop\\" + "\\GroupBuilder\\";
+    private String defaultPath = System.getProperty("user.home") + "\\Desktop\\" + "GroupBuilder\\";
 
     private ArrayList<Member> memberList = new ArrayList<Member>();;
     private ArrayList<Group> groupList = new ArrayList<Group>();

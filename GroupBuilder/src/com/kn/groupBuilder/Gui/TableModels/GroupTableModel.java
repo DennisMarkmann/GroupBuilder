@@ -10,7 +10,7 @@ public final class GroupTableModel extends AbstractTableModel {
 
     private static final long serialVersionUID = -3758449082711896808L;
     private final ArrayList<Group> groupList;
-    private final String[] cols = { "GroupName", "Description", "Size" };
+    private final String[] cols = { "GroupName", "Description", "Size", "Edit", "Delete" };
 
     public GroupTableModel(final ArrayList<Group> groupList) {
         this.groupList = groupList;
@@ -33,15 +33,22 @@ public final class GroupTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(final int rowIndex, final int columnIndex) {
-        String content = "";
-        if (columnIndex == 0) {
-            content = this.groupList.get(rowIndex).getName();
-        } else if (columnIndex == 1) {
-            content = this.groupList.get(rowIndex).getDescription();
-        } else if (columnIndex == 2) {
-            content = this.groupList.get(rowIndex).getFixSize() + "";
-        }
-        return content;
 
+        if (columnIndex == 0) {
+            return this.groupList.get(rowIndex).getName();
+
+        } else if (columnIndex == 1) {
+            return this.groupList.get(rowIndex).getDescription();
+
+        } else if (columnIndex == 2) {
+            return this.groupList.get(rowIndex).getFixSize() + "";
+
+        } else if (columnIndex == 3) {
+            return "";
+
+        } else if (columnIndex == 4) {
+            return "";
+        }
+        return null;
     }
 }

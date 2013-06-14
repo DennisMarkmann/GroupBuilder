@@ -9,7 +9,7 @@ public class FileCleaner {
         new File(defaultPath + "GroupList.xml").delete();
         new File(defaultPath + "MemberList.xml").delete();
 
-        this.cleanFolder(defaultPath + "\\Groups\\");
+        this.cleanFolder(defaultPath + "Groups\\");
     }
 
     private void cleanFolder(final String path) {

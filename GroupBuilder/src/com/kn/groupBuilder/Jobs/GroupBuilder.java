@@ -3,7 +3,6 @@ package com.kn.groupBuilder.Jobs;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import com.kn.groupBuilder.FileOperations.Writer.GroupFileWriter;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -17,7 +16,6 @@ public class GroupBuilder {
         new GroupListSorter().sortArrayList(pojo);
         final ArrayList<Member> memberList = this.mixMemberList(pojo.getMemberList());
         this.assignGroups(memberList, pojo.getGroupList());
-        new GroupFileWriter().initializeXMLPrint(pojo.getGroupList(), pojo.getDefaultPath());
     }
 
     private ArrayList<Member> mixMemberList(final ArrayList<Member> memberList) {
