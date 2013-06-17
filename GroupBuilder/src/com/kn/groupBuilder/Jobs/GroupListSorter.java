@@ -11,6 +11,7 @@ class GroupListSorter {
         boolean hasFixSize = false;
         final ArrayList<Group> groupList = pojo.getGroupList();
         final ArrayList<Group> tempGroupList = new ArrayList<Group>();
+
         for (final Group group : groupList) {
             hasFixSize = this.hasFixSize(group);
 
@@ -27,7 +28,6 @@ class GroupListSorter {
     }
 
     private boolean hasFixSize(final Group group) {
-
         return group.getFixSize() != 0;
     }
 }

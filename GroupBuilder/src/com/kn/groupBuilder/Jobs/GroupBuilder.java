@@ -28,11 +28,9 @@ public class GroupBuilder {
     private void assignGroups(final ArrayList<Member> memberList, final ArrayList<Group> groupList) {
 
         for (final Group group : groupList) {
-
             final int fixSize = group.getFixSize();
 
             if (this.memberIndex < memberList.size()) {
-
                 this.addMemberToGroup(group, memberList, fixSize);
 
             } else {

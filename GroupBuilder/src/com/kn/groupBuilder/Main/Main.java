@@ -12,7 +12,7 @@ public final class Main { // NO_UCD
 
     private Main() {
         // final Prevent instantiation
-        // Optional: throw an exception e.g. AssertionError
+        // throws an exception e.g. AssertionError
         // if this ever *is* called
         throw new AssertionError("Instantiating utility class");
     }
