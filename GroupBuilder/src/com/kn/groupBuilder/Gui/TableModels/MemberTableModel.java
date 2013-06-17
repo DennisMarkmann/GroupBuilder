@@ -11,7 +11,7 @@ public final class MemberTableModel extends AbstractTableModel {
 
     private static final long serialVersionUID = -3758449082711896808L;
     private final ArrayList<Member> memberList;
-    private final String[] cols = { "FirstName", "LastName", "E-Mail", "Groups", "Edit", "Delete" };
+    private final String[] cols = { "FirstName", "LastName", "E-Mail", "Groups", "Edit", "Remove" };
 
     public MemberTableModel(final ArrayList<Member> memberList) {
         this.memberList = memberList;

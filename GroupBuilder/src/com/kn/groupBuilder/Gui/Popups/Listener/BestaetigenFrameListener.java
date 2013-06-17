@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.kn.groupBuilder.FileOperations.Output.EmailJob;
+import com.kn.groupBuilder.FileOperations.Output.EmailJobHelper;
 import com.kn.groupBuilder.FileOperations.Output.PrintJobHelper;
 import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
 import com.kn.groupBuilder.Storage.Group;
@@ -43,7 +43,7 @@ public class BestaetigenFrameListener implements ActionListener {
             } else if (this.action.equals("printOutAll")) {
                 new PrintJobHelper().printAllGroups(this.pojo);
             } else if (this.action.equals("sendEmailToAll")) {
-                new EmailJob().initializeEmailSending(this.pojo);
+                new EmailJobHelper().initializeEmailSending(this.pojo);
             } else if (this.action.equals("printOut")) {
                 // TODO implement single print
             } else if (this.action.equals("sendEmail")) {

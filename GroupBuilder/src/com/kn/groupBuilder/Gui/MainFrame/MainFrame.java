@@ -15,6 +15,7 @@ public class MainFrame extends JFrame {
 
     private static final long serialVersionUID = -5660805007314188894L;
     private final JTabbedPane tabBar = new JTabbedPane();
+    private final JMenu menu = new JMenu("Extras");
 
     public final void createGui(final Pojo pojo) {
 
@@ -24,16 +25,16 @@ public class MainFrame extends JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // adds menu
-        final JMenu menu = new JMenu("Extras");
-        menu.add(new JMenuItem("Settings"));
-        menu.add(new JMenuItem("E-Mail"));
-        menu.add(new JMenuItem("Print"));
-        menu.add(new JMenuItem("Help"));
-        menu.add(new JMenuItem("About"));
+        // adds menuItems
+        this.addMenuItem("Settings");
+        this.addMenuItem("E-Mail");
+        this.addMenuItem("Print");
+        this.addMenuItem("Build");
+        this.addMenuItem("Help");
+        this.addMenuItem("About");
 
         final JMenuBar menuBar = new JMenuBar();
-        menuBar.add(menu);
+        menuBar.add(this.menu);
         this.setJMenuBar(menuBar);
 
         this.addPane("Member", new MemberTab(pojo));
@@ -41,17 +42,20 @@ public class MainFrame extends JFrame {
 
         this.add(this.tabBar);
         this.setVisible(true);
-        new MainFrameListener(menu, pojo);
+        new MainFrameListener(this.menu, pojo);
 
     }
 
-    // Methode zum Hinzufuegen von neuen Panes (Inklusive Closebutton etc.)
+    // method to add new panes
     private void addPane(final String title, final JPanel panel) {
         this.tabBar.add(title, panel);
 
         final JPanel titlePanel = new JPanel();
-        titlePanel.setOpaque(false);
         titlePanel.add(new JLabel(title));
 
+    }
+
+    private void addMenuItem(final String menuName) {
+        this.menu.add(new JMenuItem(menuName));
     }
 }

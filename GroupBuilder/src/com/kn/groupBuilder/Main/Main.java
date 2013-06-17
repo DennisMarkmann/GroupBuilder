@@ -35,7 +35,7 @@ public final class Main { // NO_UCD
         // new GroupFileWriter().initializeXMLPrint(pojo);
         // new DefaultTestCreator().startTests(pojo);
         // new GroupFileArchiver().archivGroupFiles(pojo.getDefaultPath());
-        // new EmailJob().initializeEmailSending(pojo);
+        // new EmailJobHelper().initializeEmailSending(pojo);
         // new PrintJobHelper().printAllGroups(pojo);
         //
         // new FileCleaner().cleanFolder(pojo.getDefaultPath() + "\\Archive\\");

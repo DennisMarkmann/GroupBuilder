@@ -24,7 +24,7 @@ public class GuiTabBuilder {
         this.setDefaultGridBackValues();
     }
 
-    public void setDefaultGridBackValues() {
+    public final void setDefaultGridBackValues() {
         this.gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
         this.gridBagConstraints.weightx = 2;
     }
