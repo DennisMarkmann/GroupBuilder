@@ -8,7 +8,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import com.kn.groupBuilder.Gui.Menu.AboutFrame;
-import com.kn.groupBuilder.Gui.Menu.BuildFrame;
 import com.kn.groupBuilder.Gui.Menu.EmailFrame;
 import com.kn.groupBuilder.Gui.Menu.HelpFrame;
 import com.kn.groupBuilder.Gui.Menu.PrintFrame;
@@ -36,8 +35,6 @@ public class MainFrameListener extends MouseAdapter {
             new EmailFrame(this.pojo);
         } else if (menuItem.getText().equals("Print")) {
             new PrintFrame(this.pojo);
-        } else if (menuItem.getText().equals("Build")) {
-            new BuildFrame(this.pojo);
         } else if (menuItem.getText().equals("Help")) {
             new HelpFrame(this.pojo);
         } else if (menuItem.getText().equals("About")) {

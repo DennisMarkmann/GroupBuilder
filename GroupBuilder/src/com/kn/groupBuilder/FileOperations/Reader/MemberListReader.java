@@ -22,7 +22,7 @@ public class MemberListReader {
 
         try {
 
-            final File file = new File(pojo.getDefaultPath() + "MemberList.xml");
+            final File file = new File(pojo.getPath() + "MemberList.xml");
 
             final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

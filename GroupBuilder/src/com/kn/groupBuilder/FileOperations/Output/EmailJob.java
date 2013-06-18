@@ -47,7 +47,7 @@ class EmailJob {
             final ArrayList<Group> groupList = pojo.getGroupList();
             for (final Group group : groupList) {
 
-                mailContent = new EmailJobHelper().generateMailContent(group, pojo.getDefaultPath());
+                mailContent = new EmailJobHelper().generateMailContent(group, pojo.getPath());
                 msg.setContent(mailContent);
 
                 for (final Member member : group.getMemberList()) {

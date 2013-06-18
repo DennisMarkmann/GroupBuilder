@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 public class Pojo {
 
-    private String defaultPath = System.getProperty("user.home") + "\\Desktop\\" + "GroupBuilder\\";
+    private String path = System.getProperty("user.home") + "\\Desktop\\" + "GroupBuilder\\";
 
     private ArrayList<Member> memberList = new ArrayList<Member>();;
     private ArrayList<Group> groupList = new ArrayList<Group>();
     private final String[] languageList = { "German", "English" };
     private final String[] formatList = { "XML", "TXT" };
 
-    public final String getDefaultPath() {
-        return this.defaultPath;
+    public final String getPath() {
+        return this.path;
     }
 
-    public final void setDefaultPath(final String defaultPath) {
-        this.defaultPath = defaultPath;
+    public final void setPath(final String path) {
+        this.path = path;
     }
 
     public final ArrayList<Member> getMemberList() {

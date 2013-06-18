@@ -77,10 +77,10 @@ public class GroupListWriter {
             final Transformer transformer = transformerFactory.newTransformer();
             final DOMSource source = new DOMSource(doc);
 
-            File file = new File(pojo.getDefaultPath());
+            File file = new File(pojo.getPath());
             file.mkdirs();
 
-            file = new File(pojo.getDefaultPath() + "//GroupList" + ".xml");
+            file = new File(pojo.getPath() + "//GroupList" + ".xml");
 
             final StreamResult result = new StreamResult(file);
             transformer.transform(source, result);

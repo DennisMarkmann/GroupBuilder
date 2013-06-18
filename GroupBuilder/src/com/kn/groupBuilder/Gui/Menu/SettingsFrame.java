@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
+import com.kn.groupBuilder.Gui.Menu.Listener.SettingsFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class SettingsFrame extends JFrame {
@@ -32,8 +33,10 @@ public class SettingsFrame extends JFrame {
         c.insets = new Insets(5, 5, 5, 5);
 
         final JLabel pathLabel = new JLabel("Path:");
-        final JTextField pathField = new JTextField(10);
+        final JTextField pathField = new JTextField(20);
+        pathField.setName("pathField");
         final JButton pathButton = new JButton("Select path");
+        pathButton.setName("pathButton");
 
         final JLabel languageLabel = new JLabel("Language");
         final JComboBox<String> languageBox = new JComboBox<String>(pojo.getLanguageList());
@@ -110,6 +113,16 @@ public class SettingsFrame extends JFrame {
         c.gridy = 5;
         this.add(closePanel, c);
 
+        final SettingsFrameListener listener = new SettingsFrameListener(this, pojo, pathField);
+
+        pathButton.addActionListener(listener);
+
         this.setVisible(true);
+    }
+
+    public void refreshTextFields(final JTextField textField, final Pojo pojo) {
+        if (textField.getName().equals("pathField")) {
+            textField.setText(pojo.getPath());
+        }
     }
 }

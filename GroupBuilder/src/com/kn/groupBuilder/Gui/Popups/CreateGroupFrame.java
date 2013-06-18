@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
-import com.kn.groupBuilder.Gui.Popups.Listener.CreateGroupListener;
+import com.kn.groupBuilder.Gui.Popups.Listener.CreateGroupFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class CreateGroupFrame extends JFrame {
@@ -31,7 +31,12 @@ public class CreateGroupFrame extends JFrame {
 
         this.pack();
 
-        final CreateGroupListener listener = new CreateGroupListener(this, pojo, groupNameField, groupDescField, groupSizeField);
+        final CreateGroupFrameListener listener = new CreateGroupFrameListener(
+                this,
+                pojo,
+                groupNameField,
+                groupDescField,
+                groupSizeField);
 
         bestaetigenButton.addActionListener(listener);
         abbrechenButton.addActionListener(listener);

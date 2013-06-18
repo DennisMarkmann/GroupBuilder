@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
-import com.kn.groupBuilder.Gui.Popups.Listener.CreateMemberListener;
+import com.kn.groupBuilder.Gui.Popups.Listener.CreateMemberFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class CreateMemberFrame extends JFrame {
@@ -33,7 +33,7 @@ public class CreateMemberFrame extends JFrame {
 
         this.pack();
 
-        final CreateMemberListener listener = new CreateMemberListener(
+        final CreateMemberFrameListener listener = new CreateMemberFrameListener(
                 this,
                 pojo,
                 firstNameField,

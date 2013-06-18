@@ -31,7 +31,7 @@ public class TextFileReader {
 
         try {
 
-            final DataInputStream in = new DataInputStream(new FileInputStream(pojo.getDefaultPath() + fileName));
+            final DataInputStream in = new DataInputStream(new FileInputStream(pojo.getPath() + fileName));
             final BufferedReader br = new BufferedReader(new InputStreamReader(in));
             String strLine = "";
 

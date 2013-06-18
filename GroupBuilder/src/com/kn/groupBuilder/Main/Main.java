@@ -21,7 +21,7 @@ public final class Main { // NO_UCD
 
         final Pojo pojo = new Pojo();
 
-        new FileCleaner().cleanFiles(pojo.getDefaultPath());
+        new FileCleaner().cleanFiles(pojo.getPath());
         new PojoContentTester().initializeDefaultTest(pojo);
         // new GroupListReader().readXmlFile(pojo);
         // new MemberListReader().readXmlFile(pojo);

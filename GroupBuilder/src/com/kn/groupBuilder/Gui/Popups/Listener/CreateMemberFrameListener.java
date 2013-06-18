@@ -11,7 +11,7 @@ import com.kn.groupBuilder.Gui.Popups.CreateMemberFrame;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class CreateMemberListener implements ActionListener {
+public class CreateMemberFrameListener implements ActionListener {
 
     private final CreateMemberFrame createMemberFrame;
     private final Pojo pojo;
@@ -21,7 +21,7 @@ public class CreateMemberListener implements ActionListener {
     @SuppressWarnings("unused")
     private final JTextField groupsField;
 
-    public CreateMemberListener(
+    public CreateMemberFrameListener(
             final CreateMemberFrame createMemberFrame,
             final Pojo pojo,
             final JTextField firstNameField,

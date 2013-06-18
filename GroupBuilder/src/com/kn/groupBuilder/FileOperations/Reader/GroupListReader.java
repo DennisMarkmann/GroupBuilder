@@ -22,7 +22,7 @@ public class GroupListReader {
 
         try {
 
-            final File file = new File(pojo.getDefaultPath() + "GroupList.xml");
+            final File file = new File(pojo.getPath() + "GroupList.xml");
 
             final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

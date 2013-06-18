@@ -25,7 +25,7 @@ public class GroupFileWriter {
 
     public final void initializeXMLPrint(final Pojo pojo) {
 
-        this.defaultPath = pojo.getDefaultPath();
+        this.defaultPath = pojo.getPath();
 
         for (final Group group : pojo.getGroupList()) {
 

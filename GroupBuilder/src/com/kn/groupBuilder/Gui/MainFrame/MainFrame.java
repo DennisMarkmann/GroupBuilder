@@ -29,7 +29,6 @@ public class MainFrame extends JFrame {
         this.addMenuItem("Settings");
         this.addMenuItem("E-Mail");
         this.addMenuItem("Print");
-        this.addMenuItem("Build");
         this.addMenuItem("Help");
         this.addMenuItem("About");
 
