@@ -6,6 +6,8 @@ Finish GuiBuilder. 		use it everywhere possible
 
 Allgemeine Refresh Funktion für alle Frames etc.
 
+Table Refresh nach dem Hinzufügen eines Members / einer Gruppe
+
 GUI
 
 Automatische Gruppenerstellung berücksichtigen (GUI)
@@ -31,3 +33,5 @@ Print job aufräumen und closen nach print
 Exceptions abfangen
 
 JUnit Tests statt sysos
+
+Kommentare und JavaDocs

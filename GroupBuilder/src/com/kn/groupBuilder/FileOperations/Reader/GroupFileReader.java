@@ -13,19 +13,21 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.kn.groupBuilder.Storage.Pojo;
+
 public class GroupFileReader {
 
     /**
      * Currently unused. TODO:Has to be implemented.
      * 
-     * @param path
+     * @param pojo
      */
     @SuppressWarnings("unused")
-    public final void readFiles(final String path) {
+    public final void readFiles(final Pojo pojo) {
 
         try {
 
-            final File[] files = new File(path).listFiles();
+            final File[] files = new File(pojo.getSettings().getPath() + "//Groups//").listFiles();
 
             for (final File file : files) {
 

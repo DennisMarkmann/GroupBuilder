@@ -43,16 +43,20 @@ public class SettingsFrame extends JFrame {
         this.builder.createCheckBox(this, "Print automatically: ", 1, 5);
 
         // close
-        this.builder.createButton(this, "saveButton", "Save", 0, 6);
-        this.builder.createButton(this, "closeButton", "Close", 1, 6);
+        final JButton saveButton = this.builder.createButton(this, "saveButton", "Save", 0, 6);
+        final JButton closeButton = this.builder.createButton(this, "closeButton", "Close", 1, 6);
 
         final SettingsFrameListener listener = new SettingsFrameListener(this, pojo, pathField, archiveField);
+
         pathButton.addActionListener(listener);
+        closeButton.addActionListener(listener);
+        saveButton.addActionListener(listener);
 
         this.setVisible(true);
     }
 
     public void refreshTextFields(final JTextField textField, final Pojo pojo) {
+
         if (textField.getName().equals("pathField")) {
             textField.setText(pojo.getSettings().getPath());
         }

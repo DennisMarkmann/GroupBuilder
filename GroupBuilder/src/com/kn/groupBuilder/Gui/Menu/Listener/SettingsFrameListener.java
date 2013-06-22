@@ -37,6 +37,9 @@ public class SettingsFrameListener implements ActionListener {
         if (buttonClicked.getName().compareTo("pathButton") == 0) {
             new PathChooser().changePath(this.pojo);
             this.settingsFrame.refreshTextFields(this.pathField, this.pojo);
+
+        } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
+            this.settingsFrame.dispose();
         }
     }
 }

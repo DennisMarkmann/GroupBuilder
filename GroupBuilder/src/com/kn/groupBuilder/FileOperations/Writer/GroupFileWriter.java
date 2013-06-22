@@ -21,11 +21,11 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class GroupFileWriter {
 
-    private String defaultPath = "";
+    private String path = "";
 
     public final void initializeXMLPrint(final Pojo pojo) {
 
-        this.defaultPath = pojo.getSettings().getPath();
+        this.path = pojo.getSettings().getPath();
 
         for (final Group group : pojo.getGroupList()) {
 
@@ -103,10 +103,10 @@ public class GroupFileWriter {
             final Transformer transformer = transformerFactory.newTransformer();
             final DOMSource source = new DOMSource(doc);
 
-            File file = new File(this.defaultPath + "//Groups//");
+            File file = new File(this.path + "//Groups//");
             file.mkdirs();
 
-            file = new File(this.defaultPath + "//Groups//" + group.getName() + ".xml");
+            file = new File(this.path + "//Groups//" + group.getName() + ".xml");
 
             final StreamResult result = new StreamResult(file);
             transformer.transform(source, result);

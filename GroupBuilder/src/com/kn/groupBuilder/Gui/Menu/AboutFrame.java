@@ -12,6 +12,7 @@ public class AboutFrame extends JFrame {
 
     public AboutFrame(final Pojo pojo) {
         this.builder.setDefaultFrameSettings(this, "About");
-        this.builder.createLabel(this, "Designed by Dennis Markmann", 2, 2);
+        this.builder.createLabel(this, "Designed by Dennis Markmann", 1, 2);
+        this.builder.createButton(this, "closeButton", "close", 0, 3);
     }
 }

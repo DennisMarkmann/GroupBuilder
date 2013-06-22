@@ -5,21 +5,23 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import com.kn.groupBuilder.Storage.Pojo;
+
 public class GroupFileArchiver {
 
-    public final void archivGroupFiles(final String defaultPath) {
+    public final void archivGroupFiles(final Pojo pojo) {
 
-        final String archivPath = this.createArchivFolder(defaultPath);
+        final String archivPath = this.createArchivFolder(pojo.getSettings().getPath());
 
-        final File[] files = new File(defaultPath + "//Groups//").listFiles();
+        final File[] files = new File(pojo.getSettings().getPath() + "//Groups//").listFiles();
 
         for (final File file : files) {
             new FileCopy().copy(file.getAbsolutePath(), archivPath + file.getName());
         }
     }
 
-    private String createArchivFolder(final String defaultPath) {
-        final String archivPath = defaultPath + "//Archive//" + "//" + this.getDate() + "//";
+    private String createArchivFolder(final String path) {
+        final String archivPath = path + "//Archive//" + "//" + this.getDate() + "//";
         new File(archivPath).mkdirs();
         return archivPath;
 

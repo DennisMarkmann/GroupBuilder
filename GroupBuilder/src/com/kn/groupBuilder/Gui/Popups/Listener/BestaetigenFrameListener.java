@@ -7,6 +7,7 @@ import javax.swing.JButton;
 
 import com.kn.groupBuilder.FileOperations.Output.EmailJobHelper;
 import com.kn.groupBuilder.FileOperations.Output.PrintJobHelper;
+import com.kn.groupBuilder.FileOperations.Writer.FileWriteHelper;
 import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
@@ -48,6 +49,8 @@ public class BestaetigenFrameListener implements ActionListener {
                 // TODO implement single print
             } else if (this.action.equals("sendEmail")) {
                 // TODO implement single email operation
+            } else if (this.action.equals("save")) {
+                new FileWriteHelper().createXMLFiles(this.pojo);
             }
         }
         this.bestaetigenFrame.dispose();
