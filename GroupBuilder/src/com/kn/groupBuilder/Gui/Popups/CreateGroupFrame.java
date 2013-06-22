@@ -16,15 +16,15 @@ public class CreateGroupFrame extends JFrame {
 
     public CreateGroupFrame(final Pojo pojo) {
 
-        this.builder.setDefaultFrameSettings(this);
+        this.builder.setDefaultFrameSettings(this, "CreateGroup");
 
         this.builder.createLabel(this, "GroupName", 0, 1);
         this.builder.createLabel(this, "Description", 0, 2);
         this.builder.createLabel(this, "Size", 0, 3);
 
-        final JTextField groupNameField = this.builder.createTextField(this, TEXT_FIELD_SIZE, 1, 1);
-        final JTextField groupDescField = this.builder.createTextField(this, TEXT_FIELD_SIZE, 1, 2);
-        final JTextField groupSizeField = this.builder.createTextField(this, TEXT_FIELD_SIZE, 1, 3);
+        final JTextField groupNameField = this.builder.createTextField(this, "groupNameField", TEXT_FIELD_SIZE, 1, 1);
+        final JTextField groupDescField = this.builder.createTextField(this, "groupDescField", TEXT_FIELD_SIZE, 1, 2);
+        final JTextField groupSizeField = this.builder.createTextField(this, "groupSizeField", TEXT_FIELD_SIZE, 1, 3);
 
         final JButton bestaetigenButton = this.builder.createButton(this, "bestaetigenButton", "Bestätigen", 0, 4);
         final JButton abbrechenButton = this.builder.createButton(this, "abbrechenButton", "Abbrechen", 1, 4);

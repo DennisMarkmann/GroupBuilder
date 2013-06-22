@@ -7,6 +7,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -22,9 +24,9 @@ public class GuiFrameBuilder {
         this.gridBagConstraints.weightx = 2;
     }
 
-    public final void setDefaultFrameSettings(final JFrame frame) {
+    public final void setDefaultFrameSettings(final JFrame frame, final String frameName) {
 
-        frame.setTitle("GroupBuilder");
+        frame.setTitle("GroupBuilder - " + frameName);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(new Dimension(400, 200));
         frame.setLayout(new GridBagLayout());
@@ -34,13 +36,13 @@ public class GuiFrameBuilder {
 
     public final JButton createButton(
             final JFrame frame,
-            final String buttonName,
+            final String name,
             final String buttonText,
             final int gridxValue,
             final int gridyValue) {
 
         final JButton button = new JButton(buttonText);
-        this.setName(button, buttonName);
+        this.setName(button, name);
         this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, button);
 
         return button;
@@ -55,13 +57,37 @@ public class GuiFrameBuilder {
 
     public final JTextField createTextField(
             final JFrame frame,
+            final String name,
             final int textFieldSize,
             final int gridxValue,
             final int gridyValue) {
+
         final JTextField textField = new JTextField(textFieldSize);
+        this.setName(textField, name);
         this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, textField);
 
         return textField;
+    }
+
+    public final JComboBox<String> createComboBox(
+            final JFrame frame,
+            final String[] content,
+            final int gridxValue,
+            final int gridyValue) {
+
+        final JComboBox<String> comboBox = new JComboBox<String>(content);
+        this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, comboBox);
+
+        return comboBox;
+    }
+
+    public final JCheckBox createCheckBox(final JFrame frame, final String text, final int gridxValue, final int gridyValue) {
+
+        final JCheckBox checkBox = new JCheckBox();
+        checkBox.setText(text);
+        this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, checkBox);
+
+        return checkBox;
     }
 
     private void setName(final Component object, final String objectName) {

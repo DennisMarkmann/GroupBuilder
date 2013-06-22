@@ -15,12 +15,18 @@ public class SettingsFrameListener implements ActionListener {
     private final SettingsFrame settingsFrame;
     private final Pojo pojo;
     private final JTextField pathField;
+    private final JTextField archiveField;
 
-    public SettingsFrameListener(final SettingsFrame settingsFrame, final Pojo pojo, final JTextField pathField) {
+    public SettingsFrameListener(
+            final SettingsFrame settingsFrame,
+            final Pojo pojo,
+            final JTextField pathField,
+            final JTextField archiveField) {
 
         this.settingsFrame = settingsFrame;
         this.pojo = pojo;
         this.pathField = pathField;
+        this.archiveField = archiveField;
     }
 
     @Override

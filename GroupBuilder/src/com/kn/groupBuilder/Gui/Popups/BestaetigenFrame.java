@@ -14,7 +14,7 @@ public class BestaetigenFrame extends JFrame {
 
     public BestaetigenFrame(final Pojo pojo, final String action, final Object object) {
 
-        this.builder.setDefaultFrameSettings(this);
+        this.builder.setDefaultFrameSettings(this, "Bestätigen");
 
         this.builder.createLabel(this, "Wollen Sie wirklich ...?", 0, 1);
         final JButton bestaetigenButton = this.builder.createButton(this, "bestaetigenButton", "Bestätigen", 0, 4);

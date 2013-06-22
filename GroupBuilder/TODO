@@ -4,6 +4,8 @@ Finish GuiBuilder. 		use it everywhere possible
 						
 						Einzelne GUI Komponenten nicht mitgeben, sondern aus dem gesamten Frame ziehen?(Alle Listener)
 
+Allgemeine Refresh Funktion für alle Frames etc.
+
 GUI
 
 Automatische Gruppenerstellung berücksichtigen (GUI)

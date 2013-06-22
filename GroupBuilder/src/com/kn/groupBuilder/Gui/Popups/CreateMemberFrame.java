@@ -16,17 +16,17 @@ public class CreateMemberFrame extends JFrame {
 
     public CreateMemberFrame(final Pojo pojo) {
 
-        this.builder.setDefaultFrameSettings(this);
+        this.builder.setDefaultFrameSettings(this, "CreateMember");
 
         this.builder.createLabel(this, "FirstName", 0, 1);
         this.builder.createLabel(this, "LastName", 0, 2);
         this.builder.createLabel(this, "E-Mail", 0, 3);
         this.builder.createLabel(this, "Groups", 0, 4);
 
-        final JTextField firstNameField = this.builder.createTextField(this, TEXT_FIELD_SIZE, 1, 1);
-        final JTextField lastNameField = this.builder.createTextField(this, TEXT_FIELD_SIZE, 1, 2);
-        final JTextField eMailField = this.builder.createTextField(this, TEXT_FIELD_SIZE, 1, 3);
-        final JTextField groupsField = this.builder.createTextField(this, TEXT_FIELD_SIZE, 1, 4);
+        final JTextField firstNameField = this.builder.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
+        final JTextField lastNameField = this.builder.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
+        final JTextField eMailField = this.builder.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
+        final JTextField groupsField = this.builder.createTextField(this, "groupsField", TEXT_FIELD_SIZE, 1, 4);
 
         final JButton bestaetigenButton = this.builder.createButton(this, "bestaetigenButton", "Bestätigen", 0, 5);
         final JButton abbrechenButton = this.builder.createButton(this, "abbrechenButton", "Abbrechen", 1, 5);

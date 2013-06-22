@@ -11,7 +11,7 @@ public class AboutFrame extends JFrame {
     GuiFrameBuilder builder = new GuiFrameBuilder();
 
     public AboutFrame(final Pojo pojo) {
-        this.builder.setDefaultFrameSettings(this);
+        this.builder.setDefaultFrameSettings(this, "About");
         this.builder.createLabel(this, "Designed by Dennis Markmann", 2, 2);
     }
 }
