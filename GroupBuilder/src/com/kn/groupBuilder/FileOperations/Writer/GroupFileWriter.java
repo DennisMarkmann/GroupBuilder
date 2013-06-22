@@ -19,11 +19,11 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class GroupFileWriter {
+class GroupFileWriter {
 
     private String path = "";
 
-    public final void initializeXMLPrint(final Pojo pojo) {
+    final void initializeXMLPrint(final Pojo pojo) {
 
         this.path = pojo.getSettings().getPath();
 

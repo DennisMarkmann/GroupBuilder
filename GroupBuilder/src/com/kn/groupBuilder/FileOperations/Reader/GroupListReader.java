@@ -16,9 +16,9 @@ import org.xml.sax.SAXException;
 import com.kn.groupBuilder.Jobs.GroupCreator;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class GroupListReader {
+class GroupListReader {
 
-    public final void readXmlFile(final Pojo pojo) {
+    final void readXmlFile(final Pojo pojo) {
 
         try {
 

@@ -18,9 +18,9 @@ import org.w3c.dom.Element;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class MemberListWriter {
+class MemberListWriter {
 
-    public final void createXmlFile(final Pojo pojo) {
+    final void createXmlFile(final Pojo pojo) {
 
         try {
 

@@ -35,7 +35,7 @@ public class Pojo {
         return this.formatList;
     }
 
-    public Settings getSettings() {
+    public final Settings getSettings() {
         return this.settings;
     }
 

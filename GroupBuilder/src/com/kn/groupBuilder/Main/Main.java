@@ -18,7 +18,6 @@ public final class Main { // NO_UCD
     public static void main(final String[] args) throws IOException {
 
         final Pojo pojo = new Pojo();
-
         // new FileCleaner().cleanFiles(pojo.getSettings().getPath());
         // new PojoContentTester().initializeDefaultTest(pojo);
 

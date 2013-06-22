@@ -9,7 +9,7 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class PathChooser {
 
-    public void changePath(final Pojo pojo) {
+    public final void changePath(final Pojo pojo) {
         final JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         fc.setFileFilter(new FileFilter() {

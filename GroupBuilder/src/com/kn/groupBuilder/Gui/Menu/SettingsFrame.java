@@ -55,7 +55,7 @@ public class SettingsFrame extends JFrame {
         this.setVisible(true);
     }
 
-    public void refreshTextFields(final JTextField textField, final Pojo pojo) {
+    public final void refreshTextFields(final JTextField textField, final Pojo pojo) {
 
         if (textField.getName().equals("pathField")) {
             textField.setText(pojo.getSettings().getPath());

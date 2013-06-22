@@ -4,7 +4,7 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class FileReaderHelper {
 
-    public void readXMLFiles(final Pojo pojo) {
+    public final void readXMLFiles(final Pojo pojo) {
 
         new GroupListReader().readXmlFile(pojo);
         new MemberListReader().readXmlFile(pojo);

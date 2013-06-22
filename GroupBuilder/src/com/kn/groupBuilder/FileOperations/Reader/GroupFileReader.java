@@ -15,7 +15,7 @@ import org.xml.sax.SAXException;
 
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class GroupFileReader {
+class GroupFileReader {
 
     /**
      * Currently unused. TODO:Has to be implemented.
@@ -23,7 +23,7 @@ public class GroupFileReader {
      * @param pojo
      */
     @SuppressWarnings("unused")
-    public final void readFiles(final Pojo pojo) {
+    final void readFiles(final Pojo pojo) {
 
         try {
 
