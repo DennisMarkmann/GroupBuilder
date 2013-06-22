@@ -4,20 +4,11 @@ import java.util.ArrayList;
 
 public class Pojo {
 
-    private String path = System.getProperty("user.home") + "\\Desktop\\" + "GroupBuilder\\";
-
     private ArrayList<Member> memberList = new ArrayList<Member>();;
     private ArrayList<Group> groupList = new ArrayList<Group>();
     private final String[] languageList = { "German", "English" };
     private final String[] formatList = { "XML", "TXT" };
-
-    public final String getPath() {
-        return this.path;
-    }
-
-    public final void setPath(final String path) {
-        this.path = path;
-    }
+    private final Settings settings = new Settings();
 
     public final ArrayList<Member> getMemberList() {
         return this.memberList;
@@ -42,6 +33,10 @@ public class Pojo {
 
     public final String[] getFormatList() {
         return this.formatList;
+    }
+
+    public Settings getSettings() {
+        return this.settings;
     }
 
 }

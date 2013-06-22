@@ -15,13 +15,13 @@ class TextFileWriter {
     public final void writeDefaultFiles(final Pojo pojo) {
 
         try {
-            this.writeTextFile(pojo.getMemberList(), null, "MemberList.txt", pojo.getPath(), null);
+            this.writeTextFile(pojo.getMemberList(), null, "MemberList.txt", pojo.getSettings().getPath(), null);
         } catch (final IOException e) {
             System.out.println("An error occured writing the file: \"GroupList.txt\"");
             e.printStackTrace();
         }
         try {
-            this.writeTextFile(null, pojo.getGroupList(), "GroupList.txt", pojo.getPath(), null);
+            this.writeTextFile(null, pojo.getGroupList(), "GroupList.txt", pojo.getSettings().getPath(), null);
         } catch (final IOException e) {
             System.out.println("An error occured writing the file: \"GroupList.txt\"");
             e.printStackTrace();

@@ -122,7 +122,7 @@ public class SettingsFrame extends JFrame {
 
     public void refreshTextFields(final JTextField textField, final Pojo pojo) {
         if (textField.getName().equals("pathField")) {
-            textField.setText(pojo.getPath());
+            textField.setText(pojo.getSettings().getPath());
         }
     }
 }
