@@ -1,6 +1,6 @@
-Finish GuiBuilder. 		use it everywhere possible
+Builder optionen einbauen. (Hauptfunktionalität)
 						
-						Tab und Frame Builder zusammen fassen
+						Tab und Frame Builder zusammen fassen?
 						
 						Einzelne GUI Komponenten nicht mitgeben, sondern aus dem gesamten Frame ziehen?(Alle Listener)
 
