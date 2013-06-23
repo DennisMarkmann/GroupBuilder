@@ -100,7 +100,6 @@ class PrintJob implements Printable {
         try {
             this.printerJob.print();
         } catch (final PrinterException e) {
-            e.printStackTrace();
             return false;
         }
         return true;

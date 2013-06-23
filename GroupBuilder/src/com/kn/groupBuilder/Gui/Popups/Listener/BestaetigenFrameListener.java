@@ -43,12 +43,12 @@ public class BestaetigenFrameListener implements ActionListener {
                 this.pojo.getMemberList().add((Member) this.object);
             } else if (this.action.equals("printOutAll")) {
                 new PrintJobHelper().printAllGroups(this.pojo);
-            } else if (this.action.equals("sendEmailToAll")) {
+            } else if (this.action.equals("sendMailToAll")) {
                 new EmailJobHelper().initializeEmailSending(this.pojo);
             } else if (this.action.equals("printOut")) {
                 // TODO implement single print
-            } else if (this.action.equals("sendEmail")) {
-                // TODO implement single email operation
+            } else if (this.action.equals("sendMail")) {
+                // TODO implement single mail
             } else if (this.action.equals("save")) {
                 new FileWriteHelper().createXMLFiles(this.pojo);
             }

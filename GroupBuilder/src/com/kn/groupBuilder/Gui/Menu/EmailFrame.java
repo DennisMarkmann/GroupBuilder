@@ -1,11 +1,34 @@
 package com.kn.groupBuilder.Gui.Menu;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
+import com.kn.groupBuilder.Gui.Menu.Listener.EmailFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class EmailFrame {
+public class EmailFrame extends JFrame {
+
+    private static final long serialVersionUID = 4767991083504569016L;
+    private final GuiFrameBuilder builder = new GuiFrameBuilder();
+    private static final int TEXT_FIELD_SIZE = 5;
 
     public EmailFrame(final Pojo pojo) {
-        // TODO Auto-generated constructor stub
+
+        this.builder.setDefaultFrameSettings(this, "Email");
+
+        final JTextField addressField = this.builder.createTextField(this, "addressField", TEXT_FIELD_SIZE, 0, 0);
+        final JButton sendButton = this.builder.createButton(this, "sendButton", "Send", 1, 0);
+
+        final JButton sendAllButton = this.builder.createButton(this, "sendAllButton", "SendToAll", 0, 1);
+        final JButton closeButton = this.builder.createButton(this, "closeButton", "Close", 1, 1);
+
+        final EmailFrameListener listener = new EmailFrameListener(this, pojo, addressField);
+
+        sendButton.addActionListener(listener);
+        sendAllButton.addActionListener(listener);
+        closeButton.addActionListener(listener);
     }
 
 }

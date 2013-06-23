@@ -17,12 +17,6 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 class GroupFileReader {
 
-    /**
-     * Currently unused. TODO:Has to be implemented.
-     * 
-     * @param pojo
-     */
-    @SuppressWarnings("unused")
     final void readFiles(final Pojo pojo) {
 
         try {
@@ -38,13 +32,14 @@ class GroupFileReader {
 
                 final NodeList list = doc.getElementsByTagName("Group");
                 final Node node = list.item(0);
+                String groupName = null;
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
 
                     final Element element = (Element) node;
 
-                    final String groupName = element.getElementsByTagName("GroupName").item(0).getTextContent();
-                    final String groupSize = element.getElementsByTagName("GroupSize").item(0).getTextContent();
-                    final String description = element.getElementsByTagName("Description").item(0).getTextContent();
+                    groupName = element.getElementsByTagName("GroupName").item(0).getTextContent();
+                    // final String groupSize = element.getElementsByTagName("GroupSize").item(0).getTextContent();
+                    // final String description = element.getElementsByTagName("Description").item(0).getTextContent();
 
                 }
 
@@ -56,10 +51,13 @@ class GroupFileReader {
                     if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                         final Element eElement = (Element) nNode;
 
-                        final String memberID = eElement.getAttribute("id");
+                        // final String memberID = eElement.getAttribute("id");
                         final String firstName = eElement.getElementsByTagName("FirstName").item(0).getTextContent();
                         final String lastName = eElement.getElementsByTagName("LastName").item(0).getTextContent();
-                        final String eMailAdress = eElement.getElementsByTagName("EmailAdress").item(0).getTextContent();
+                        // final String eMailAdress = eElement.getElementsByTagName("EmailAdress").item(0).getTextContent();
+
+                        pojo.getGroupByName(groupName).getMemberList().add(pojo.getMemberByName(firstName, lastName));
+                        pojo.getMemberByName(firstName, lastName).getGroupList().add(pojo.getGroupByName(groupName));
                     }
                 }
             }
