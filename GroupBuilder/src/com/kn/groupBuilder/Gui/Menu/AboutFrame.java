@@ -1,8 +1,12 @@
 package com.kn.groupBuilder.Gui.Menu;
 
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
+import com.kn.groupBuilder.Gui.Menu.Listener.AboutFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class AboutFrame extends JFrame {
@@ -13,6 +17,10 @@ public class AboutFrame extends JFrame {
     public AboutFrame(final Pojo pojo) {
         this.builder.setDefaultFrameSettings(this, "About");
         this.builder.createLabel(this, "Designed by Dennis Markmann", 1, 2);
-        this.builder.createButton(this, "closeButton", "close", 0, 3);
+        final JButton closeButton = this.builder.createButton(this, "closeButton", "close", 0, 3);
+
+        final ActionListener listener = new AboutFrameListener(this);
+
+        closeButton.addActionListener(listener);
     }
 }
