@@ -12,9 +12,9 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class EmailFrameListener implements ActionListener {
 
-    final EmailFrame emailFrame;
-    final Pojo pojo;
-    final JTextField addressField;
+    private final EmailFrame emailFrame;
+    private final Pojo pojo;
+    private final JTextField addressField;
 
     public EmailFrameListener(final EmailFrame emailFrame, final Pojo pojo, final JTextField addressField) {
         this.emailFrame = emailFrame;
@@ -23,7 +23,7 @@ public class EmailFrameListener implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(final ActionEvent event) {
+    public final void actionPerformed(final ActionEvent event) {
 
         final JButton buttonClicked = (JButton) event.getSource();
 

@@ -39,7 +39,7 @@ public class Pojo {
         return this.settings;
     }
 
-    public Group getGroupByName(final String name) {
+    public final Group getGroupByName(final String name) {
         for (final Group group : this.groupList) {
             if (group.getName().equals(name)) {
                 return group;
@@ -48,7 +48,7 @@ public class Pojo {
         return null;
     }
 
-    public Member getMemberByName(final String firstName, final String lastName) {
+    public final Member getMemberByName(final String firstName, final String lastName) {
         for (final Member member : this.memberList) {
             if (member.getFirstName().equals(firstName) && member.getLastName().equals(lastName)) {
                 return member;
@@ -57,7 +57,7 @@ public class Pojo {
         return null;
     }
 
-    public String[] getGroupListAsArray() {
+    public final String[] getGroupListAsArray() {
 
         final String[] groupListArray = new String[this.groupList.size()];
         for (int i = 0; i < groupListArray.length; i++) {

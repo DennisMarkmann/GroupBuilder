@@ -12,9 +12,9 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class PrintFrameListener implements ActionListener {
 
-    final PrintFrame printFrame;
-    final Pojo pojo;
-    final JComboBox<String> groupBox;
+    private final PrintFrame printFrame;
+    private final Pojo pojo;
+    private final JComboBox<String> groupBox;
 
     public PrintFrameListener(final PrintFrame printFrame, final Pojo pojo, final JComboBox<String> groupBox) {
         this.printFrame = printFrame;
@@ -23,7 +23,7 @@ public class PrintFrameListener implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(final ActionEvent event) {
+    public final void actionPerformed(final ActionEvent event) {
 
         final JButton buttonClicked = (JButton) event.getSource();
 
