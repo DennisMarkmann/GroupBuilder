@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
+import com.kn.groupBuilder.Gui.Popups.BuildFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateGroupFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -24,8 +25,11 @@ public class GroupTabListener implements ActionListener {
 
         if (buttonClicked.getName().compareTo("addButton") == 0) {
             new CreateGroupFrame(this.pojo);
-        }
-        if (buttonClicked.getName().compareTo("saveButton") == 0) {
+
+        } else if (buttonClicked.getName().compareTo("buildButton") == 0) {
+            new BuildFrame(this.pojo);
+
+        } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
             new BestaetigenFrame(this.pojo, "save", null);
         }
     }

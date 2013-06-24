@@ -22,12 +22,12 @@ class MemberTab extends JPanel {
         this.builder.createMemberTable(this, pojo.getMemberList(), 0, 0);
 
         this.builder.getGridBagConstraints().fill = GridBagConstraints.NONE;
-        final JButton addButton = this.builder.createButton(this, "addButton", "Add member", 0, 5);
-        final JButton saveButton = this.builder.createButton(this, "saveButton", "Save", 0, 6);
+        final JButton addButton = this.builder.createButton(this, "addButton", "Add Member", 0, 5);
+        final JButton saveButton = this.builder.createButton(this, "saveButton", "Save", 0, 7);
         this.builder.setDefaultGridBackValues();
 
-        saveButton.addActionListener(new MemberTabListener(pojo));
         addButton.addActionListener(new MemberTabListener(pojo));
+        saveButton.addActionListener(new MemberTabListener(pojo));
 
     }
 }
