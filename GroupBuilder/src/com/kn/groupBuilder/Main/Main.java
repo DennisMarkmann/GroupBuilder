@@ -28,13 +28,13 @@ public final class Main { // NO_UCD
         // new EmailJobHelper().initializeEmailSending(pojo);
         // new PrintJobHelper().printAllGroups(pojo);
         //
-        // new FileCleaner().cleanFolder(pojo.getDefaultPath() + "\\Archive\\");
+        // new FileCleaner().cleanFolder(pojo.getSettings().getPath() + "Archive\\");
 
         new MainFrame().createGui(pojo);
 
         // Veraltet
         // new TextFileReader().readDefaultLists(pojo);
-        // new GroupFolderCleaner().cleanGroupFolder(pojo.getDefaultPath());
+        // new GroupFolderCleaner().cleanGroupFolder(pojo.getSettings().getPath());
         // new TextFileWriter().writeDefaultFiles(pojo);
         // System.exit(0);
     }

@@ -76,7 +76,7 @@ class GroupListWriter {
             File file = new File(pojo.getSettings().getPath());
             file.mkdirs();
 
-            file = new File(pojo.getSettings().getPath() + "//GroupList" + ".xml");
+            file = new File(pojo.getSettings().getPath() + "GroupList" + ".xml");
 
             final StreamResult result = new StreamResult(file);
             transformer.transform(source, result);

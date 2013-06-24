@@ -4,15 +4,15 @@ import java.io.File;
 
 public class GroupFolderCleaner {
 
-    public final boolean cleanGroupFolder(final String defaultPath) {
-        final File path = new File(defaultPath + "\\GroupsXML\\");
+    public final boolean cleanGroupFolder(final String path) {
+        final File folderPath = new File(path + "GroupsXML\\");
         try {
-            for (final File file : path.listFiles()) {
+            for (final File file : folderPath.listFiles()) {
                 if (file.isDirectory()) {
-                    this.cleanGroupFolder(defaultPath);
+                    this.cleanGroupFolder(path);
                     file.delete();
                 }
-                path.delete();
+                folderPath.delete();
             }
         } catch (final java.lang.NullPointerException e) {
             // nothing to do.

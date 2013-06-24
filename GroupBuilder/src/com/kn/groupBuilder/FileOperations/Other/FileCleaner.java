@@ -4,12 +4,12 @@ import java.io.File;
 
 public class FileCleaner {
 
-    public final void cleanFiles(final String defaultPath) {
+    public final void cleanFiles(final String path) {
 
-        new File(defaultPath + "GroupList.xml").delete();
-        new File(defaultPath + "MemberList.xml").delete();
+        new File(path + "GroupList.xml").delete();
+        new File(path + "MemberList.xml").delete();
 
-        this.cleanFolder(defaultPath + "Groups\\");
+        this.cleanFolder(path + "Groups\\");
     }
 
     private void cleanFolder(final String path) {

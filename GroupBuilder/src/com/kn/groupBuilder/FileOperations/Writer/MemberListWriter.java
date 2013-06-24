@@ -76,7 +76,7 @@ class MemberListWriter {
             File file = new File(pojo.getSettings().getPath());
             file.mkdirs();
 
-            file = new File(pojo.getSettings().getPath() + "//MemberList" + ".xml");
+            file = new File(pojo.getSettings().getPath() + "MemberList" + ".xml");
 
             final StreamResult result = new StreamResult(file);
             transformer.transform(source, result);

@@ -99,10 +99,10 @@ class GroupFileWriter {
             final Transformer transformer = transformerFactory.newTransformer();
             final DOMSource source = new DOMSource(doc);
 
-            File file = new File(this.path + "//Groups//");
+            File file = new File(this.path + "Groups//");
             file.mkdirs();
 
-            file = new File(this.path + "//Groups//" + group.getName() + ".xml");
+            file = new File(this.path + "Groups//" + group.getName() + ".xml");
 
             final StreamResult result = new StreamResult(file);
             transformer.transform(source, result);
