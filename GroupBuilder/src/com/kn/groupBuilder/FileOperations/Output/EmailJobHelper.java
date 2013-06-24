@@ -25,23 +25,45 @@ public class EmailJobHelper {
         new EmailJob().sendMail(smtpHost, username, password, senderAddress, subject, pojo);
     }
 
-    final MimeMultipart generateMailContent(final Group group, final String defaultPath) throws MessagingException {
-        String emailText = "Hello! " + "\r\n" + "This is an autmatic generated mail by the groupBuilder of Dennis Markmann."
-                + "\r\n" + "\r\n" + "GroupName: " + group.getName() + "\r\n" + "GroupSize: " + group.getMemberList().size()
-                + "\r\n" + "Decription: " + group.getDescription() + "\r\n" + "\r\n" + "Member:" + "\r\n";
+    final MimeMultipart generateMailContent(final Group group, final String path) throws MessagingException {
+
+        final StringBuilder sb = new StringBuilder();
+
+        sb.append("Hello! ");
+        sb.append(System.lineSeparator());
+        sb.append("This is an autmatic generated mail by the groupBuilder of Dennis Markmann.");
+        sb.append(System.lineSeparator());
+        sb.append(System.lineSeparator());
+        sb.append("GroupName: ");
+        sb.append(group.getName());
+        sb.append(System.lineSeparator());
+        sb.append("GroupSize: ");
+        sb.append(group.getMemberList().size());
+        sb.append(System.lineSeparator());
+        sb.append("Decription: ");
+        sb.append(group.getDescription());
+        sb.append(System.lineSeparator());
+        sb.append(System.lineSeparator());
+        sb.append("Member: ");
+        sb.append(System.lineSeparator());
 
         for (final Member member : group.getMemberList()) {
-            final String memberInfo = member.getLastName() + ", " + member.getFirstName() + " : " + member.getEMailAdress()
-                    + "\r\n";
-            emailText = emailText + memberInfo;
+
+            sb.append(member.getLastName());
+            sb.append(", ");
+            sb.append(member.getFirstName());
+            sb.append(" : ");
+            sb.append(member.getEMailAdress());
+            sb.append(System.lineSeparator());
+
         }
 
         final MimeMultipart mailContent = new MimeMultipart();
         final MimeBodyPart text = new MimeBodyPart();
-        text.setText(emailText);
+        text.setText(sb.toString());
         text.setDisposition(MimeBodyPart.INLINE);
 
-        final File file = new File(defaultPath + "//Groups//" + group.getName() + ".xml");
+        final File file = new File(path + "Groups//" + group.getName() + ".xml");
 
         final MimeBodyPart attachement = new MimeBodyPart();
         attachement.setDataHandler(new DataHandler(new FileDataSource(file)));
