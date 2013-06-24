@@ -52,11 +52,9 @@ public class GuiTabBuilder {
 
     }
 
-    public final JScrollPane createGroupTable(
-            final ArrayList<Group> tableContent,
-            final JPanel jPanel,
-            final int gridxValue,
-            final int gridyValue) {
+    public final JScrollPane createGroupTable(final JPanel jPanel, final ArrayList<Group> tableContent,
+
+    final int gridxValue, final int gridyValue) {
 
         final JTable groupTable = new JTable(new GroupTableModel(tableContent));
         final JScrollPane scrollPane = this.createTable(jPanel, gridxValue, gridyValue, groupTable);
@@ -65,8 +63,8 @@ public class GuiTabBuilder {
     }
 
     public final JScrollPane createMemberTable(
-            final ArrayList<Member> tableContent,
             final JPanel jPanel,
+            final ArrayList<Member> tableContent,
             final int gridxValue,
             final int gridyValue) {
 

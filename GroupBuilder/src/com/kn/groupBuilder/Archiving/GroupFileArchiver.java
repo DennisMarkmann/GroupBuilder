@@ -13,7 +13,7 @@ public class GroupFileArchiver {
 
         final String archivPath = this.createArchivFolder(pojo.getSettings().getPath());
 
-        final File[] files = new File(pojo.getSettings().getPath() + "//Groups//").listFiles();
+        final File[] files = new File(pojo.getSettings().getPath() + "Groups//").listFiles();
 
         for (final File file : files) {
             new FileCopy().copy(file.getAbsolutePath(), archivPath + file.getName());
@@ -33,7 +33,7 @@ public class GroupFileArchiver {
         c.setTimeInMillis(System.currentTimeMillis());
 
         return +(c.get(Calendar.DAY_OF_MONTH)) + "." + (c.get(Calendar.MONTH) + 1) + "." + (c.get(Calendar.YEAR)) + "_"
-                + (c.get(Calendar.HOUR_OF_DAY)) + "" + (c.get(Calendar.MINUTE) + 1) + "" + c.get(Calendar.SECOND);
+                + (c.get(Calendar.HOUR_OF_DAY)) + "." + (c.get(Calendar.MINUTE) + 1) + "." + c.get(Calendar.SECOND);
 
     }
 

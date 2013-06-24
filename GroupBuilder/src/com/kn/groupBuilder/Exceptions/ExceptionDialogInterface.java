@@ -7,7 +7,7 @@ package com.kn.groupBuilder.Exceptions;
  * @since jdk1.7.0_17
  */
 
-public interface ExceptionDialogInterface {
+interface ExceptionDialogInterface {
 
     void showDialog();
 }

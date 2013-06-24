@@ -16,8 +16,6 @@ Automatische Gruppenerstellung berücksichtigen (GUI)
 Nur unverteilte Gruppen verteilen
 Nur selektierte Gruppen verteilen
 
-GroupFileReader noch ungenutzt 
-MemberListSize / GroupListSize etc nutzlos beim Einlesen?
 FileCopy vereinfachen?
 	
 TXT Optional anbieten mit TXT in Namen
@@ -31,6 +29,9 @@ Print job aufräumen und closen nach print
 
 	Print Job + Email Job Helper Text Generierung zusammenfassen und optimieren
 
+Tabs nur einmal öffnen
+
+Uhrzeit beim Archivieren leicht falsch
 
 Exceptions abfangen
 

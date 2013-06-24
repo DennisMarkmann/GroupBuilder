@@ -18,7 +18,7 @@ class GroupTab extends JPanel {
     GroupTab(final Pojo pojo) {
 
         this.setLayout(new GridBagLayout());
-        this.builder.createGroupTable(pojo.getGroupList(), this, 0, 0);
+        this.builder.createGroupTable(this, pojo.getGroupList(), 0, 0);
 
         this.builder.getGridBagConstraints().fill = GridBagConstraints.NONE;
         final JButton addButton = this.builder.createButton(this, "addButton", "Add group", 0, 5);
