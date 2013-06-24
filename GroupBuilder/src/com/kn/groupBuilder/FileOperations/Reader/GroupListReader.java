@@ -3,7 +3,6 @@ package com.kn.groupBuilder.FileOperations.Reader;
 import java.io.File;
 import java.io.IOException;
 
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -24,19 +23,14 @@ class GroupListReader {
 
             final File file = new File(pojo.getSettings().getPath() + "GroupList.xml");
 
-            final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            final Document doc = dBuilder.parse(file);
+            final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file);
             doc.getDocumentElement().normalize();
 
-            final NodeList list = doc.getElementsByTagName("GroupList");
-            final Node node = list.item(0);
+            final Node node = doc.getElementsByTagName("GroupList").item(0);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
 
-                final Element element = (Element) node;
-
-                @SuppressWarnings("unused")
-                final String groupListSize = element.getElementsByTagName("GroupListSize").item(0).getTextContent();
+                // final Element element = (Element) node;
+                // final String groupListSize = element.getElementsByTagName("GroupListSize").item(0).getTextContent();
             }
 
             String groupName = "";

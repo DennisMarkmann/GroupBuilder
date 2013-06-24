@@ -65,21 +65,4 @@ public class Pojo {
         }
         return groupListArray;
     }
-    // public String[] getGroupListForComboboxes() {
-    // final StringBuilder builder = new StringBuilder();
-    //
-    // for (final Group group : this.groupList) {
-    // if (builder.length() != 0) {
-    // builder.append(", ");
-    // } else {
-    // builder.append("{");
-    // }
-    // builder.append("\"").append(group.getName()).append("\"");
-    // }
-    // builder.append("}");
-    // // System.out.println(builder.toString());
-    // final String[] groupListArray = new String[] { builder.toString() };
-    //
-    // return groupListArray;
-    // }
 }

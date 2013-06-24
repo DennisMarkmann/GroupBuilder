@@ -31,6 +31,8 @@ Print job aufräumen und closen nach print
 
 Tabs nur einmal öffnen
 
+MemberList in Groups und GroupList in Member automatisch synchronisieren
+
 Exceptions abfangen
 
 JUnit Tests statt sysos

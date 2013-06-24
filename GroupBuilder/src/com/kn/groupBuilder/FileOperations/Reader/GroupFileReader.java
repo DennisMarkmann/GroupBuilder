@@ -3,7 +3,6 @@ package com.kn.groupBuilder.FileOperations.Reader;
 import java.io.File;
 import java.io.IOException;
 
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -32,18 +31,14 @@ class GroupFileReader {
 
             for (final File file : files) {
 
-                final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-                final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-                final Document doc = dBuilder.parse(file);
+                final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file);
                 doc.getDocumentElement().normalize();
 
-                final NodeList list = doc.getElementsByTagName("Group");
-                final Node node = list.item(0);
+                final Node node = doc.getElementsByTagName("Group").item(0);
                 String groupName = null;
+
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
-
                     final Element element = (Element) node;
-
                     groupName = element.getElementsByTagName("GroupName").item(0).getTextContent();
                     // final String groupSize = element.getElementsByTagName("GroupSize").item(0).getTextContent();
                     // final String description = element.getElementsByTagName("Description").item(0).getTextContent();

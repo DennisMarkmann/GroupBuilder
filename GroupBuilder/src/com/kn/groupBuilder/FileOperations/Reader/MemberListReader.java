@@ -3,7 +3,6 @@ package com.kn.groupBuilder.FileOperations.Reader;
 import java.io.File;
 import java.io.IOException;
 
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -24,19 +23,14 @@ class MemberListReader {
 
             final File file = new File(pojo.getSettings().getPath() + "MemberList.xml");
 
-            final DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            final DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            final Document doc = dBuilder.parse(file);
+            final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file);
             doc.getDocumentElement().normalize();
 
-            final NodeList list = doc.getElementsByTagName("MemberList");
-            final Node node = list.item(0);
+            final Node node = doc.getElementsByTagName("MemberList").item(0);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
 
-                final Element element = (Element) node;
-
-                @SuppressWarnings("unused")
-                final String memberListSize = element.getElementsByTagName("MemberListSize").item(0).getTextContent();
+                // final Element element = (Element) node;
+                // final String memberListSize = element.getElementsByTagName("MemberListSize").item(0).getTextContent();
 
             }
             String firstName = "";
