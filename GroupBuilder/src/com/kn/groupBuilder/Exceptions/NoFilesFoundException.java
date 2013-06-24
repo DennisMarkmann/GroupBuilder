@@ -7,12 +7,11 @@ public class NoFilesFoundException extends Exception implements ExceptionDialogI
     private static final long serialVersionUID = -4565962119370664301L;
 
     public NoFilesFoundException(final String path) {
-        super("Es konnte keine gültige Datei in \"" + path + "\" gefunden werden. " + System.lineSeparator()
-                + "Bitte ändern sie den gewählten Pfad.");
+        super("No valid data was found at \"" + path + "\"" + System.lineSeparator() + "Please change the chosen path.");
     }
 
     @Override
     public final void showDialog() {
-        JOptionPane.showMessageDialog(null, this.getMessage(), "Fehler", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, this.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
 }

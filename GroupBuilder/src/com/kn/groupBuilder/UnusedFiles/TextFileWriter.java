@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.kn.groupBuilder.Exceptions.WriteOperationError;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -17,14 +18,12 @@ class TextFileWriter {
         try {
             this.writeTextFile(pojo.getMemberList(), null, "MemberList.txt", pojo.getSettings().getPath(), null);
         } catch (final IOException e) {
-            System.out.println("An error occured writing the file: \"GroupList.txt\"");
-            e.printStackTrace();
+            new WriteOperationError(pojo.getSettings().getPath() + "MemberList.txt").showDialog();
         }
         try {
             this.writeTextFile(null, pojo.getGroupList(), "GroupList.txt", pojo.getSettings().getPath(), null);
         } catch (final IOException e) {
-            System.out.println("An error occured writing the file: \"GroupList.txt\"");
-            e.printStackTrace();
+            new WriteOperationError(pojo.getSettings().getPath() + "GroupList.txt").showDialog();
         }
     }
 

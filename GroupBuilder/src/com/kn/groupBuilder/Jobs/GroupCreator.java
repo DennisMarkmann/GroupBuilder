@@ -20,9 +20,5 @@ public class GroupCreator {
         for (int i = 0; i < numberOfGroups; i++) {
             pojo.getGroupList().add(new Group("Group" + i));
         }
-
-        for (final Group group : pojo.getGroupList()) {
-            System.out.println(group.getName());
-        }
     }
 }
