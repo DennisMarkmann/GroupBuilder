@@ -1,7 +1,6 @@
 package com.kn.groupBuilder.Archiving;
 
 import java.io.File;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -28,13 +27,23 @@ public class GroupFileArchiver {
     }
 
     public final String getDate() {
-        final DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-        final Calendar c = df.getCalendar();
+        final Calendar c = new SimpleDateFormat("dd.MM.yyyy").getCalendar();
         c.setTimeInMillis(System.currentTimeMillis());
+        final StringBuilder sb = new StringBuilder();
 
-        return +(c.get(Calendar.DAY_OF_MONTH)) + "." + (c.get(Calendar.MONTH) + 1) + "." + (c.get(Calendar.YEAR)) + "_"
-                + (c.get(Calendar.HOUR_OF_DAY)) + "." + (c.get(Calendar.MINUTE) + 1) + "." + c.get(Calendar.SECOND);
+        sb.append(c.get(Calendar.DAY_OF_MONTH));
+        sb.append(".");
+        sb.append(c.get(Calendar.MONTH) + 1);
+        sb.append(".");
+        sb.append(c.get(Calendar.YEAR));
+        sb.append("_");
+        sb.append(c.get(Calendar.HOUR_OF_DAY));
+        sb.append(".");
+        sb.append(c.get(Calendar.MINUTE));
+        sb.append(".");
+        sb.append(c.get(Calendar.SECOND));
 
+        return sb.toString();
     }
 
 }
