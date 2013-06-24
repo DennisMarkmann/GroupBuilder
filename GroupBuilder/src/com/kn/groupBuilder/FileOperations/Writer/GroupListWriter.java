@@ -2,7 +2,6 @@ package com.kn.groupBuilder.FileOperations.Writer;
 
 import java.io.File;
 
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
@@ -25,10 +24,7 @@ class GroupListWriter {
         try {
 
             int groupNumber = 0;
-
-            final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            final DocumentBuilder builder = factory.newDocumentBuilder();
-            final Document doc = builder.newDocument();
+            final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 
             // member elements
             final Element groupListElement = doc.createElement("GroupList");
