@@ -13,6 +13,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.kn.groupBuilder.Exceptions.NoFilesFoundException;
 import com.kn.groupBuilder.Storage.Pojo;
 
 class GroupFileReader {
@@ -21,7 +22,13 @@ class GroupFileReader {
 
         try {
 
-            final File[] files = new File(pojo.getSettings().getPath() + "//Groups//").listFiles();
+            final File[] files = new File(pojo.getSettings().getPath() + "Groups").listFiles();
+            try {
+                files.toString();
+            } catch (final java.lang.NullPointerException exception) {
+                new NoFilesFoundException(pojo.getSettings().getPath() + "Groups").showDialog();
+                return;
+            }
 
             for (final File file : files) {
 
