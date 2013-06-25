@@ -1,45 +1,48 @@
 package com.kn.groupBuilder.Gui.Popups;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
+import com.kn.groupBuilder.Gui.HelperClasses.CheckBoxHelper;
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Gui.Popups.Listener.BuildFrameListener;
-import com.kn.groupBuilder.Gui.Popups.Listener.CheckBoxSelectionListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class BuildFrame extends JFrame {
 
     private static final long serialVersionUID = -6911722669720979718L;
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
+    private final CheckBoxHelper checkBoxHelper = new CheckBoxHelper();
 
     public BuildFrame(final Pojo pojo) {
 
         this.builder.setDefaultFrameSettings(this, "Build Groups");
 
-        final JCheckBox buildCompleteCheckBox = this.builder.createCheckBox(
+        final JCheckBox buildCompleteCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
                 this,
                 "buildCompleteCheckBox",
                 "(Re)Build Everything",
                 0,
                 0);
-        final JCheckBox buildSelectedCheckBox = this.builder.createCheckBox(
+        final JCheckBox buildSelectedCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
                 this,
                 "buildSelectedCheckBox",
                 "Build Selected",
                 0,
                 1);
-        final JCheckBox buildUnassignedCheckBox = this.builder.createCheckBox(
+        final JCheckBox buildUnassignedCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
                 this,
                 "buildUnassignedCheckBox",
                 "Build Unassigned",
                 0,
                 2);
-        final JCheckBox buildSingleCheckBox = this.builder.createCheckBox(this, "buildSingleCheckBox", "Build Single", 0, 3);
+        final JCheckBox buildSingleCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
+                this,
+                "buildSingleCheckBox",
+                "Build Single",
+                0,
+                3);
         final JButton buildButton = this.builder.createButton(this, "buildButton", "Build", 0, 4);
         this.pack();
 
@@ -52,18 +55,6 @@ public class BuildFrame extends JFrame {
                 buildSingleCheckBox);
 
         buildButton.addActionListener(listener);
-
-        final List<JCheckBox> checkBoxList = new ArrayList<JCheckBox>();
-        checkBoxList.add(buildCompleteCheckBox);
-        checkBoxList.add(buildSelectedCheckBox);
-        checkBoxList.add(buildUnassignedCheckBox);
-        checkBoxList.add(buildSingleCheckBox);
-        final CheckBoxSelectionListener checkBoxListener = new CheckBoxSelectionListener(checkBoxList);
-
-        buildCompleteCheckBox.addItemListener(checkBoxListener);
-        buildSelectedCheckBox.addItemListener(checkBoxListener);
-        buildUnassignedCheckBox.addItemListener(checkBoxListener);
-        buildSingleCheckBox.addItemListener(checkBoxListener);
 
     }
 }
