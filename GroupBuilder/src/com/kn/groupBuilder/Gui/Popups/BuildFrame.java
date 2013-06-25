@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
+import com.kn.groupBuilder.Gui.Popups.Listener.BuildFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class BuildFrame extends JFrame {
@@ -15,9 +16,15 @@ public class BuildFrame extends JFrame {
 
         this.builder.setDefaultFrameSettings(this, "Build Groups");
 
-        final JButton buildAllButton = this.builder.createButton(this, "buildAllButton", "Build All", 0, 0);
-        final JButton buildButton = this.builder.createButton(this, "buildButton", "Build", 1, 0);
-        final JButton buildSelectedButton = this.builder.createButton(this, "buildSelectedButton", "Build Selected", 0, 1);
-        final JButton buildRemainingButton = this.builder.createButton(this, "buildRemainingButton", "Build Remaining", 1, 1);
+        this.builder.createCheckBox(this, "(Re)Build Everything", 0, 0);
+        this.builder.createCheckBox(this, "Build Selected", 0, 1);
+        this.builder.createCheckBox(this, "Build Unassigned", 0, 2);
+        this.builder.createCheckBox(this, "Build Single", 0, 3);
+        final JButton buildButton = this.builder.createButton(this, "buildButton", "Build", 0, 4);
+        this.pack();
+
+        final BuildFrameListener listener = new BuildFrameListener(this, pojo);
+
+        buildButton.addActionListener(listener);
     }
 }
