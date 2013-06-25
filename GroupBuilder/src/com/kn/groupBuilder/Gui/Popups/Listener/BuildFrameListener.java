@@ -36,6 +36,11 @@ public class BuildFrameListener implements ActionListener {
     @Override
     public final void actionPerformed(final ActionEvent event) {
 
+        if (this.buildCompleteCheckBox.isSelected()) {
+        } else if (this.buildSelectedCheckBox.isSelected()) {
+        } else if (this.buildUnassignedCheckBox.isSelected()) {
+        } else if (this.buildSingleCheckBox.isSelected()) {
+        }
         this.buildFrame.dispose();
     }
 }

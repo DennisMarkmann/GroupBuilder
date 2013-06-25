@@ -1,11 +1,15 @@
 package com.kn.groupBuilder.Gui.Popups;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Gui.Popups.Listener.BuildFrameListener;
+import com.kn.groupBuilder.Gui.Popups.Listener.CheckBoxSelectionListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class BuildFrame extends JFrame {
@@ -36,7 +40,6 @@ public class BuildFrame extends JFrame {
                 0,
                 2);
         final JCheckBox buildSingleCheckBox = this.builder.createCheckBox(this, "buildSingleCheckBox", "Build Single", 0, 3);
-
         final JButton buildButton = this.builder.createButton(this, "buildButton", "Build", 0, 4);
         this.pack();
 
@@ -49,5 +52,18 @@ public class BuildFrame extends JFrame {
                 buildSingleCheckBox);
 
         buildButton.addActionListener(listener);
+
+        final List<JCheckBox> checkBoxList = new ArrayList<JCheckBox>();
+        checkBoxList.add(buildCompleteCheckBox);
+        checkBoxList.add(buildSelectedCheckBox);
+        checkBoxList.add(buildUnassignedCheckBox);
+        checkBoxList.add(buildSingleCheckBox);
+        final CheckBoxSelectionListener checkBoxListener = new CheckBoxSelectionListener(checkBoxList);
+
+        buildCompleteCheckBox.addItemListener(checkBoxListener);
+        buildSelectedCheckBox.addItemListener(checkBoxListener);
+        buildUnassignedCheckBox.addItemListener(checkBoxListener);
+        buildSingleCheckBox.addItemListener(checkBoxListener);
+
     }
 }
