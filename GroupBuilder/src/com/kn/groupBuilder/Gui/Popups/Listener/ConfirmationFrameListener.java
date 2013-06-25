@@ -8,24 +8,24 @@ import javax.swing.JButton;
 import com.kn.groupBuilder.FileOperations.Output.EmailJobHelper;
 import com.kn.groupBuilder.FileOperations.Output.PrintJobHelper;
 import com.kn.groupBuilder.FileOperations.Writer.FileWriteHelper;
-import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class BestaetigenFrameListener implements ActionListener {
+public class ConfirmationFrameListener implements ActionListener {
 
-    private final BestaetigenFrame bestaetigenFrame;
+    private final ConfirmationFrame confirmationFrame;
     private final Pojo pojo;
     private final String action;
     private final Object object;
 
-    public BestaetigenFrameListener(
-            final BestaetigenFrame bestaetigenFrame,
+    public ConfirmationFrameListener(
+            final ConfirmationFrame confirmationFrame,
             final Pojo pojo,
             final String action,
             final Object object) {
-        this.bestaetigenFrame = bestaetigenFrame;
+        this.confirmationFrame = confirmationFrame;
         this.pojo = pojo;
         this.action = action;
         this.object = object;
@@ -36,7 +36,7 @@ public class BestaetigenFrameListener implements ActionListener {
 
         final JButton buttonClicked = (JButton) event.getSource();
 
-        if (buttonClicked.getText().compareTo("Bestätigen") == 0) {
+        if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
             if (this.action.equals("addGroup")) {
                 this.pojo.getGroupList().add((Group) this.object);
             } else if (this.action.equals("addMember")) {
@@ -53,7 +53,7 @@ public class BestaetigenFrameListener implements ActionListener {
                 new FileWriteHelper().createXMLFiles(this.pojo);
             }
         }
-        this.bestaetigenFrame.dispose();
+        this.confirmationFrame.dispose();
 
     }
 }

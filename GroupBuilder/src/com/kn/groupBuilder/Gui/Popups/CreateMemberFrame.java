@@ -28,8 +28,8 @@ public class CreateMemberFrame extends JFrame {
         final JTextField eMailField = this.builder.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
         final JTextField groupsField = this.builder.createTextField(this, "groupsField", TEXT_FIELD_SIZE, 1, 4);
 
-        final JButton bestaetigenButton = this.builder.createButton(this, "bestaetigenButton", "Bestätigen", 0, 5);
-        final JButton abbrechenButton = this.builder.createButton(this, "abbrechenButton", "Abbrechen", 1, 5);
+        final JButton confirmationButton = this.builder.createButton(this, "confirmationButton", "Confirm", 0, 5);
+        final JButton abortButton = this.builder.createButton(this, "abortButton", "Abort", 1, 5);
 
         this.pack();
 
@@ -41,7 +41,7 @@ public class CreateMemberFrame extends JFrame {
                 eMailField,
                 groupsField);
 
-        bestaetigenButton.addActionListener(listener);
-        abbrechenButton.addActionListener(listener);
+        confirmationButton.addActionListener(listener);
+        abortButton.addActionListener(listener);
     }
 }

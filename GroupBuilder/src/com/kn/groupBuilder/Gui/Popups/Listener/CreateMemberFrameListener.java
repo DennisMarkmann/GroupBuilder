@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateMemberFrame;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -44,7 +44,7 @@ public class CreateMemberFrameListener implements ActionListener {
 
         // TODO add groups
         if (buttonClicked.getName().compareTo("bestaetigenButton") == 0) {
-            new BestaetigenFrame(this.pojo, "addMember", new Member(
+            new ConfirmationFrame(this.pojo, "addMember", new Member(
                     this.firstNameField.getText(),
                     this.lastNameField.getText(),
                     this.eMailField.getText()));

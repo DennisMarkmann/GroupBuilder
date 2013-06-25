@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateMemberFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -25,7 +25,7 @@ public class MemberTabListener implements ActionListener {
         if (buttonClicked.getName().compareTo("addButton") == 0) {
             new CreateMemberFrame(this.pojo);
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
-            new BestaetigenFrame(this.pojo, "save", null);
+            new ConfirmationFrame(this.pojo, "save", null);
         }
     }
 }

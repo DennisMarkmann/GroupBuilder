@@ -26,8 +26,8 @@ public class CreateGroupFrame extends JFrame {
         final JTextField groupDescField = this.builder.createTextField(this, "groupDescField", TEXT_FIELD_SIZE, 1, 2);
         final JTextField groupSizeField = this.builder.createTextField(this, "groupSizeField", TEXT_FIELD_SIZE, 1, 3);
 
-        final JButton bestaetigenButton = this.builder.createButton(this, "bestaetigenButton", "Bestätigen", 0, 4);
-        final JButton abbrechenButton = this.builder.createButton(this, "abbrechenButton", "Abbrechen", 1, 4);
+        final JButton confirmationButton = this.builder.createButton(this, "confirmationButton", "Confirm", 0, 4);
+        final JButton abortButton = this.builder.createButton(this, "abortButton", "Abort", 1, 4);
 
         this.pack();
 
@@ -38,7 +38,7 @@ public class CreateGroupFrame extends JFrame {
                 groupDescField,
                 groupSizeField);
 
-        bestaetigenButton.addActionListener(listener);
-        abbrechenButton.addActionListener(listener);
+        confirmationButton.addActionListener(listener);
+        abortButton.addActionListener(listener);
     }
 }

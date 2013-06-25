@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 
 import com.kn.groupBuilder.Gui.Menu.PrintFrame;
-import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class PrintFrameListener implements ActionListener {
@@ -28,9 +28,9 @@ public class PrintFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("printOutButton") == 0) {
-            new BestaetigenFrame(this.pojo, "printOut", this.groupBox.getSelectedItem());
+            new ConfirmationFrame(this.pojo, "printOut", this.groupBox.getSelectedItem());
         } else if (buttonClicked.getName().compareTo("printOutAllButton") == 0) {
-            new BestaetigenFrame(this.pojo, "printOutAll", null);
+            new ConfirmationFrame(this.pojo, "printOutAll", null);
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
         }
         this.printFrame.dispose();

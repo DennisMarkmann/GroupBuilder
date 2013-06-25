@@ -7,7 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Menu.EmailFrame;
-import com.kn.groupBuilder.Gui.Popups.BestaetigenFrame;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class EmailFrameListener implements ActionListener {
@@ -28,9 +28,9 @@ public class EmailFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("sendButton") == 0) {
-            new BestaetigenFrame(this.pojo, "sendMail", this.addressField.getText());
+            new ConfirmationFrame(this.pojo, "sendMail", this.addressField.getText());
         } else if (buttonClicked.getName().compareTo("sendAllButton") == 0) {
-            new BestaetigenFrame(this.pojo, "sendMailToAll", null);
+            new ConfirmationFrame(this.pojo, "sendMailToAll", null);
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
         }
         this.emailFrame.dispose();
