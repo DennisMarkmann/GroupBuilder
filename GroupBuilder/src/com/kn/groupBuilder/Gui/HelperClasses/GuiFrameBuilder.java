@@ -81,10 +81,16 @@ public class GuiFrameBuilder {
         return comboBox;
     }
 
-    public final JCheckBox createCheckBox(final JFrame frame, final String text, final int gridxValue, final int gridyValue) {
+    public final JCheckBox createCheckBox(
+            final JFrame frame,
+            final String name,
+            final String text,
+            final int gridxValue,
+            final int gridyValue) {
 
         final JCheckBox checkBox = new JCheckBox();
         checkBox.setText(text);
+        this.setName(checkBox, name);
         this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, checkBox);
 
         return checkBox;

@@ -1,6 +1,7 @@
 package com.kn.groupBuilder.Gui.Menu;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -30,7 +31,7 @@ public class SettingsFrame extends JFrame {
 
         // archiving
         this.builder.createLabel(this, "Archiving:", 0, 2);
-        this.builder.createCheckBox(this, "", 1, 2);
+        final JCheckBox archivingCheckBox = this.builder.createCheckBox(this, "archivingCheckBox", "", 1, 2);
         this.builder.createLabel(this, "Duration [in days]:", 0, 3);
         final JTextField archiveField = this.builder.createTextField(this, "archiveField", TEXT_FIELD_SIZE, 1, 3);
 
@@ -39,8 +40,18 @@ public class SettingsFrame extends JFrame {
         this.builder.createComboBox(this, pojo.getFormatList(), 1, 4);
 
         // automatic
-        this.builder.createCheckBox(this, "Send e-Mails automatically: ", 0, 5);
-        this.builder.createCheckBox(this, "Print automatically: ", 1, 5);
+        final JCheckBox sendMailsAutomaticallyCheckBox = this.builder.createCheckBox(
+                this,
+                "sendMailsAutomatically",
+                "Send e-Mails automatically: ",
+                0,
+                5);
+        final JCheckBox printOutAutomaticallyCheckBox = this.builder.createCheckBox(
+                this,
+                "printOutAutomatically",
+                "Print automatically: ",
+                1,
+                5);
 
         // close
         final JButton saveButton = this.builder.createButton(this, "saveButton", "Save", 0, 6);
