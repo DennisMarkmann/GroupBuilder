@@ -18,17 +18,12 @@ public class CheckBoxSelectionListener implements ItemListener {
     public void itemStateChanged(final ItemEvent e) {
         if (e.getStateChange() == ItemEvent.SELECTED) {
             final String sourceName = e.getItemSelectable().toString();
-            String checkBoxName = "";
-            if (sourceName.contains("buildCompleteCheckBox")) {
-                checkBoxName = "buildCompleteCheckBox";
-            } else if (sourceName.contains("buildSelectedCheckBox")) {
-                checkBoxName = "buildSelectedCheckBox";
-            } else if (sourceName.contains("buildUnassignedCheckBox")) {
-                checkBoxName = "buildUnassignedCheckBox";
-            } else if (sourceName.contains("buildSingleCheckBox")) {
-                checkBoxName = "buildSingleCheckBox";
+
+            for (final JCheckBox checkBox : this.checkBoxList) {
+                if (sourceName.contains(checkBox.getName())) {
+                    this.deselectAllOthers(checkBox.getName());
+                }
             }
-            this.deselectAllOthers(checkBoxName);
         }
     }
 
