@@ -187,5 +187,4 @@ class PrintJob implements Printable {
     private int getMaxLines() {
         return this.textareaForPrint.getHeight() / this.fontMetrics.getHeight();
     }
-
 }
