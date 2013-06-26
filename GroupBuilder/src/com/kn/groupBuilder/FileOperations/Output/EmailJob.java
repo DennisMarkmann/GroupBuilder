@@ -13,7 +13,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import com.kn.groupBuilder.Exceptions.EmailException;
+import com.kn.groupBuilder.Exceptions.SendEmailOperationException;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -60,7 +60,7 @@ class EmailJob {
                 }
             }
         } catch (final Exception e) {
-            new EmailException(e.getStackTrace().toString());
+            new SendEmailOperationException(e.getStackTrace().toString());
         }
     }
 

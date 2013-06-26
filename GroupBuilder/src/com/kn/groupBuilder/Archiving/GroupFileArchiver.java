@@ -20,7 +20,7 @@ public class GroupFileArchiver {
     }
 
     private String createArchivFolder(final String path) {
-        final String archivPath = path + "//Archive//" + "//" + this.getDate() + "//";
+        final String archivPath = path + "Archive//" + this.getDate() + "//";
         new File(archivPath).mkdirs();
         return archivPath;
 

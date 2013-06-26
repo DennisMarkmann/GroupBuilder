@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.nio.channels.ByteChannel;
 import java.nio.channels.FileChannel;
 
+import com.kn.groupBuilder.Exceptions.CopyOperationException;
+
 class FileCopy {
 
     private final long chunckSizeInBytes = 1024 * 1024;
@@ -19,34 +21,34 @@ class FileCopy {
 
             final FileInputStream fileInputStream = new FileInputStream(sourceFile);
             final FileOutputStream fileOutputStream = new FileOutputStream(copiedFile);
+
             final FileChannel inputChannel = fileInputStream.getChannel();
             final FileChannel outputChannel = fileOutputStream.getChannel();
-            this.transfer(inputChannel, outputChannel, sourceFile.length(), false);
+
+            this.transfer(inputChannel, outputChannel, sourceFile.length());
+
             fileInputStream.close();
             fileOutputStream.close();
-            copiedFile.setLastModified(sourceFile.lastModified());
+
         } catch (final Exception e) {
-            e.printStackTrace();
+            new CopyOperationException(source);
         }
     }
 
-    private void transfer(
-            final FileChannel fileChannel,
-            final ByteChannel byteChannel,
-            final long lengthInBytes,
-            final boolean verbose) throws IOException {
+    private void transfer(final FileChannel inputChannel, final ByteChannel outputChannel, final long lengthInBytes)
+            throws IOException {
+
         long overallBytesTransfered = 0L;
+
         while (overallBytesTransfered < lengthInBytes) {
             long bytesTransfered = 0L;
-            bytesTransfered = fileChannel.transferTo(
+
+            bytesTransfered = inputChannel.transferTo(
                     overallBytesTransfered,
                     Math.min(this.chunckSizeInBytes, lengthInBytes - overallBytesTransfered),
-                    byteChannel);
+                    outputChannel);
+
             overallBytesTransfered += bytesTransfered;
-            if (verbose) {
-                System.out.println("overall bytes transfered: " + overallBytesTransfered + " progress "
-                        + (Math.round(overallBytesTransfered / ((double) lengthInBytes) * 100.0)) + "%");
-            }
         }
     }
 }

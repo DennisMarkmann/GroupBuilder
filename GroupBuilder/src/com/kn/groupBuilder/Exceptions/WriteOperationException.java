@@ -2,11 +2,11 @@ package com.kn.groupBuilder.Exceptions;
 
 import javax.swing.JOptionPane;
 
-public class WriteOperationError extends Exception implements ExceptionDialogInterface {
+public class WriteOperationException extends Exception implements ExceptionDialogInterface {
 
     private static final long serialVersionUID = 6498733673905740756L;
 
-    public WriteOperationError(final String path) {
+    public WriteOperationException(final String path) {
         super("An error occured writing the file: \"" + path + "\"");
     }
 
