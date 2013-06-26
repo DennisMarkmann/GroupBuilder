@@ -30,15 +30,15 @@ public class MainFrameListener extends MouseAdapter {
         final JMenuItem menuItem = (JMenuItem) event.getSource();
 
         if (menuItem.getText().equals("Settings")) {
-            new SettingsFrame(this.pojo);
+            SettingsFrame.getInstance(this.pojo);
         } else if (menuItem.getText().equals("E-Mail")) {
-            new EmailFrame(this.pojo);
+            EmailFrame.getInstance(this.pojo);
         } else if (menuItem.getText().equals("Print")) {
-            new PrintFrame(this.pojo);
+            PrintFrame.getInstance(this.pojo);
         } else if (menuItem.getText().equals("Help")) {
             HelpFrame.getInstance(this.pojo);
         } else if (menuItem.getText().equals("About")) {
-            new AboutFrame(this.pojo);
+            AboutFrame.getInstance(this.pojo);
         }
     }
 

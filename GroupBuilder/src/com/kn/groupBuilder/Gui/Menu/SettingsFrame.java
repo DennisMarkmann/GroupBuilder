@@ -6,18 +6,23 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
+import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
+import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Menu.Listener.SettingsFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class SettingsFrame extends JFrame {
+public class SettingsFrame extends JFrame implements DefaultFrame {
 
+    private static SettingsFrame instance = null;
     private static final long serialVersionUID = 3141095634381522203L;
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
     private static final int TEXT_FIELD_SIZE = 5;
 
-    public SettingsFrame(final Pojo pojo) {
+    private SettingsFrame(final Pojo pojo) {
 
         this.builder.setDefaultFrameSettings(this, "Settings");
+        this.addWindowListener(new MyWindowAdapter(this));
+
         this.setSize(500, 370);
 
         // path
@@ -71,5 +76,18 @@ public class SettingsFrame extends JFrame {
         if (textField.getName().equals("pathField")) {
             textField.setText(pojo.getSettings().getPath());
         }
+    }
+
+    public static final SettingsFrame getInstance(final Pojo pojo) {
+        if (instance == null) {
+            instance = new SettingsFrame(pojo);
+        }
+        return instance;
+    }
+
+    @Override
+    public void closeWindow() {
+        this.dispose();
+        instance = null;
     }
 }

@@ -12,7 +12,6 @@ import com.kn.groupBuilder.Storage.Pojo;
 public class HelpFrame extends JFrame implements DefaultFrame {
 
     private static HelpFrame instance = null;
-
     private static final long serialVersionUID = 416901635761617562L;
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
 

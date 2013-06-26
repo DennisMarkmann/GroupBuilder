@@ -5,16 +5,18 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
+import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
 import com.kn.groupBuilder.Gui.Menu.Listener.EmailFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class EmailFrame extends JFrame {
+public class EmailFrame extends JFrame implements DefaultFrame {
 
+    private static EmailFrame instance = null;
     private static final long serialVersionUID = 4767991083504569016L;
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
     private static final int TEXT_FIELD_SIZE = 5;
 
-    public EmailFrame(final Pojo pojo) {
+    private EmailFrame(final Pojo pojo) {
 
         this.builder.setDefaultFrameSettings(this, "Email");
 
@@ -31,4 +33,16 @@ public class EmailFrame extends JFrame {
         closeButton.addActionListener(listener);
     }
 
+    public static EmailFrame getInstance(final Pojo pojo) {
+        if (instance == null) {
+            instance = new EmailFrame(pojo);
+        }
+        return instance;
+    }
+
+    @Override
+    public void closeWindow() {
+        this.dispose();
+        instance = null;
+    }
 }
