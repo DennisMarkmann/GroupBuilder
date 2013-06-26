@@ -60,7 +60,7 @@ class EmailJob {
                 }
             }
         } catch (final Exception e) {
-            new SendEmailOperationException(e.getStackTrace().toString());
+            new SendEmailOperationException(e.getStackTrace()).showDialog();
         }
     }
 

@@ -19,6 +19,8 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.Utilities;
 
+import com.kn.groupBuilder.Exceptions.PrintOperationException;
+
 class PrintJob implements Printable {
 
     private final PageFormat pageFormat;
@@ -87,7 +89,7 @@ class PrintJob implements Printable {
                         - this.pageBorders[i][0]));
             }
         } catch (final BadLocationException e) {
-            e.printStackTrace();
+            new PrintOperationException(e.getStackTrace()).showDialog();
         }
     }
 
@@ -167,7 +169,7 @@ class PrintJob implements Printable {
                 offset = end;
             }
         } catch (final BadLocationException e) {
-            e.printStackTrace();
+            new PrintOperationException(e.getStackTrace()).showDialog();
         }
         try {
             return buf.toString();

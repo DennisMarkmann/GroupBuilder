@@ -31,7 +31,7 @@ class FileCopy {
             fileOutputStream.close();
 
         } catch (final Exception e) {
-            new CopyOperationException(source);
+            new CopyOperationException(source, e.getStackTrace()).showDialog();
         }
     }
 

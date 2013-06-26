@@ -6,7 +6,7 @@ public class CopyOperationException extends Exception implements ExceptionDialog
 
     private static final long serialVersionUID = 6498733673905740756L;
 
-    public CopyOperationException(final String path) {
+    public CopyOperationException(final String path, final StackTraceElement[] stackTraceElements) {
         super("An error occured while copying the file: \"" + path + "\"");
     }
 

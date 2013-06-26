@@ -6,7 +6,7 @@ public class WriteOperationException extends Exception implements ExceptionDialo
 
     private static final long serialVersionUID = 6498733673905740756L;
 
-    public WriteOperationException(final String path) {
+    public WriteOperationException(final String path, final StackTraceElement[] stackTraceElements) {
         super("An error occured writing the file: \"" + path + "\"");
     }
 

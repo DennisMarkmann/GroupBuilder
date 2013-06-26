@@ -19,7 +19,7 @@ public class GroupFileCreator {
                 writer.writeTextFile(null, null, fileName, path + "Groups\\", group);
 
             } catch (final IOException e) {
-                new WriteOperationException(path + "Groups.txt").showDialog();
+                new WriteOperationException(path + "Groups.txt", e.getStackTrace()).showDialog();
             }
         }
     }

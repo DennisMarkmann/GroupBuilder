@@ -2,12 +2,12 @@ package com.kn.groupBuilder.Exceptions;
 
 import javax.swing.JOptionPane;
 
-public class NoFilesFoundException extends Exception implements ExceptionDialogInterface {
+public class PrintOperationException extends Exception implements ExceptionDialogInterface {
 
     private static final long serialVersionUID = -4565962119370664301L;
 
-    public NoFilesFoundException(final String path, final StackTraceElement[] stackTraceElements) {
-        super("No valid data was found at \"" + path + "\"" + System.lineSeparator() + "Please change the chosen path.");
+    public PrintOperationException(final StackTraceElement[] stackTraceElements) {
+        super("An error appeared while trying to print.");
     }
 
     @Override

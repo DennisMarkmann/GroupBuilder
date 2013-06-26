@@ -6,7 +6,7 @@ public class SendEmailOperationException extends Exception implements ExceptionD
 
     private static final long serialVersionUID = -4565962119370664301L;
 
-    public SendEmailOperationException(final String message) {
+    public SendEmailOperationException(final StackTraceElement[] stackTraceElements) {
         super("An error appeared while trying to send an e-mail."
                 + " Please disable your firewall and check your network connection before trying again.");
     }

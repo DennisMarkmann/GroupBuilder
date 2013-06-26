@@ -18,12 +18,12 @@ class TextFileWriter {
         try {
             this.writeTextFile(pojo.getMemberList(), null, "MemberList.txt", pojo.getSettings().getPath(), null);
         } catch (final IOException e) {
-            new WriteOperationException(pojo.getSettings().getPath() + "MemberList.txt").showDialog();
+            new WriteOperationException(pojo.getSettings().getPath() + "MemberList.txt", e.getStackTrace()).showDialog();
         }
         try {
             this.writeTextFile(null, pojo.getGroupList(), "GroupList.txt", pojo.getSettings().getPath(), null);
         } catch (final IOException e) {
-            new WriteOperationException(pojo.getSettings().getPath() + "GroupList.txt").showDialog();
+            new WriteOperationException(pojo.getSettings().getPath() + "GroupList.txt", e.getStackTrace()).showDialog();
         }
     }
 

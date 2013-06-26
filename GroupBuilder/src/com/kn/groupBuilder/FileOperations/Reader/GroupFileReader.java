@@ -24,8 +24,8 @@ class GroupFileReader {
             final File[] files = new File(pojo.getSettings().getPath() + "Groups").listFiles();
             try {
                 files.toString();
-            } catch (final java.lang.NullPointerException exception) {
-                new NoFilesFoundException(pojo.getSettings().getPath() + "Groups").showDialog();
+            } catch (final java.lang.NullPointerException e) {
+                new NoFilesFoundException(pojo.getSettings().getPath() + "Groups", e.getStackTrace()).showDialog();
                 return;
             }
 
