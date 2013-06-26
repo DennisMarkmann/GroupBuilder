@@ -22,37 +22,20 @@ public class BuildFrame extends JFrame {
         final JCheckBox buildCompleteCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
                 this,
                 "buildCompleteCheckBox",
-                "(Re)Build Everything",
+                "Build Everything",
                 0,
                 0);
-        final JCheckBox buildSelectedCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
-                this,
-                "buildSelectedCheckBox",
-                "Build Selected",
-                0,
-                1);
         final JCheckBox buildUnassignedCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
                 this,
                 "buildUnassignedCheckBox",
                 "Build Unassigned",
                 0,
                 2);
-        final JCheckBox buildSingleCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
-                this,
-                "buildSingleCheckBox",
-                "Build Single",
-                0,
-                3);
+
         final JButton buildButton = this.builder.createButton(this, "buildButton", "Build", 0, 4);
         this.pack();
 
-        final BuildFrameListener listener = new BuildFrameListener(
-                this,
-                pojo,
-                buildCompleteCheckBox,
-                buildSelectedCheckBox,
-                buildUnassignedCheckBox,
-                buildSingleCheckBox);
+        final BuildFrameListener listener = new BuildFrameListener(this, pojo, buildCompleteCheckBox, buildUnassignedCheckBox);
 
         buildButton.addActionListener(listener);
 

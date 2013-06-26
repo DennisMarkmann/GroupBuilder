@@ -14,14 +14,35 @@ public class GroupBuilder {
     public final void buildGroups(final Pojo pojo) {
 
         new GroupListSorter().sortArrayList(pojo);
-        final ArrayList<Member> memberList = this.mixMemberList(pojo.getMemberList());
-        this.assignGroups(memberList, pojo.getGroupList());
+        this.assignGroups(this.mixList(pojo.getMemberList()), pojo.getGroupList());
     }
 
-    private ArrayList<Member> mixMemberList(final ArrayList<Member> memberList) {
+    public final void buildUnassignedGroups(final Pojo pojo) {
 
-        Collections.shuffle(memberList);
-        return memberList;
+        new GroupListSorter().sortArrayList(pojo);
+        final ArrayList<Member> unassignedMemberList = new ArrayList<Member>();
+        for (final Member member : pojo.getMemberList()) {
+            if (member.getGroupList().size() == 0) {
+                unassignedMemberList.add(member);
+            }
+        }
+        this.assignGroups(this.mixList(unassignedMemberList), pojo.getGroupList());
+
+    }
+
+    public final void removeGroups(final Pojo pojo) {
+        for (final Member member : pojo.getMemberList()) {
+            member.setGroupList(new ArrayList<Group>());
+        }
+        for (final Group group : pojo.getGroupList()) {
+            group.setMemberList(new ArrayList<Member>());
+        }
+    }
+
+    private ArrayList<Member> mixList(final ArrayList<Member> list) {
+
+        Collections.shuffle(list);
+        return list;
 
     }
 

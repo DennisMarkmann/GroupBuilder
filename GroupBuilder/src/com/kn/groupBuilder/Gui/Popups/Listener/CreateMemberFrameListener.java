@@ -43,7 +43,7 @@ public class CreateMemberFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         // TODO add groups
-        if (buttonClicked.getName().compareTo("bestaetigenButton") == 0) {
+        if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
             new ConfirmationFrame(this.pojo, "addMember", new Member(
                     this.firstNameField.getText(),
                     this.lastNameField.getText(),
