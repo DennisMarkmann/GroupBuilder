@@ -22,8 +22,8 @@ public final class Main { // NO_UCD
         // new PojoContentTester().initializeDefaultTest(pojo);
 
         new FileReaderHelper().readXMLFiles(pojo);
-        // new GroupBuilder().buildGroups(pojo);
 
+        // new GroupBuilder().buildGroups(pojo);
         // new DefaultTestCreator().startTests(pojo);
         // new EmailJobHelper().initializeEmailSending(pojo);
         // new PrintJobHelper().printAllGroups(pojo);

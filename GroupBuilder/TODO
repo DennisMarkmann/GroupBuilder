@@ -1,4 +1,3 @@
-Builder optionen einbauen. (Hauptfunktionalität)
 						
 						Tab und Frame Builder zusammen fassen?
 						
@@ -11,10 +10,6 @@ Table Refresh nach dem Hinzufügen eines Members / einer Gruppe
 Namen sortieren für Ausgabe / Tabellen / Comboboxen
 
 GUI
-
-Automatische Gruppenerstellung berücksichtigen (GUI)
-Nur unverteilte Gruppen verteilen
-Nur selektierte Gruppen verteilen
 
 FileCopy vereinfachen?
 	
