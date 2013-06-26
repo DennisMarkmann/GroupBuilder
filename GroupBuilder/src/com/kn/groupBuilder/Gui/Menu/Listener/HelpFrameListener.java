@@ -21,7 +21,7 @@ public class HelpFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("closeButton") == 0) {
-            this.helpFrame.dispose();
+            this.helpFrame.closeWindow();
         }
     }
 }

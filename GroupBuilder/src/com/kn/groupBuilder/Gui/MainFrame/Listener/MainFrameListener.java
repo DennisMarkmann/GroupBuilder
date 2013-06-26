@@ -36,7 +36,7 @@ public class MainFrameListener extends MouseAdapter {
         } else if (menuItem.getText().equals("Print")) {
             new PrintFrame(this.pojo);
         } else if (menuItem.getText().equals("Help")) {
-            new HelpFrame(this.pojo);
+            HelpFrame.getInstance(this.pojo);
         } else if (menuItem.getText().equals("About")) {
             new AboutFrame(this.pojo);
         }
