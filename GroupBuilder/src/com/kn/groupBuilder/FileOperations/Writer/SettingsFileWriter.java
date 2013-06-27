@@ -13,7 +13,7 @@ import org.w3c.dom.Element;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Storage.Settings;
 
-public class SettingsFileWriter {
+class SettingsFileWriter {
 
     final void createXmlFile(final Pojo pojo) {
 

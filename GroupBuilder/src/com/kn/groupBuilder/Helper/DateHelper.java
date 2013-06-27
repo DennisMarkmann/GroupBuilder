@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class DateHelper {
 
-    final Calendar c = new SimpleDateFormat("dd.MM.yyyy").getCalendar();
+    private final Calendar c = new SimpleDateFormat("dd.MM.yyyy").getCalendar();
 
     public DateHelper() {
         this.c.setTimeInMillis(System.currentTimeMillis());
@@ -43,7 +43,7 @@ public class DateHelper {
         return sb.toString();
     }
 
-    public Date parseStringToDate(final String dateString) {
+    public final Date parseStringToDate(final String dateString) {
 
         try {
             return new SimpleDateFormat("dd.MM.yyyy").parse(dateString);

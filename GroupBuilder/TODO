@@ -37,6 +37,8 @@
 	
 	2.6.Bei erneuter Auswahl eines Frames diesen auswählen und in den Vordergrund
 	
+	2.7.Doppelte Einträge verhinden
+	
 
 3. CleanUp:
 
@@ -51,5 +53,3 @@
 	3.5.Kommentare & JavaDocs
 
 	3.6.Default Path wieder in das Programm legen (GroupBuilder folder)
-	
-	3.7.JPA Kram entfernen

@@ -8,7 +8,7 @@ import org.w3c.dom.Node;
 
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class SettingsFileReader {
+class SettingsFileReader {
 
     final void readXmlFile(final Pojo pojo) {
 

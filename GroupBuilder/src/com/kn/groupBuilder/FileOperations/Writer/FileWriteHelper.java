@@ -20,7 +20,7 @@ public class FileWriteHelper {
         new SettingsFileWriter().createXmlFile(pojo);
     }
 
-    public Element createElement(final Document doc, final Element superiorElement, final String name, final String value) {
+    final Element createElement(final Document doc, final Element superiorElement, final String name, final String value) {
         final Element element = doc.createElement(name);
         if (value != null) {
             element.appendChild(doc.createTextNode(value));
@@ -29,19 +29,19 @@ public class FileWriteHelper {
         return element;
     }
 
-    public Attr createAttribute(final Document doc, final Element superiorElement, final String name, final String value) {
+    final Attr createAttribute(final Document doc, final Element superiorElement, final String name, final String value) {
         final Attr attr = doc.createAttribute(name);
         attr.setValue(value);
         return superiorElement.setAttributeNode(attr);
     }
 
-    public Element createMainElement(final Document doc, final String name) {
+    final Element createMainElement(final Document doc, final String name) {
         final Element element = doc.createElement(name);
         doc.appendChild(element);
         return element;
     }
 
-    public Document createDocument() {
+    final Document createDocument() {
         try {
             return DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
         } catch (final ParserConfigurationException e) {

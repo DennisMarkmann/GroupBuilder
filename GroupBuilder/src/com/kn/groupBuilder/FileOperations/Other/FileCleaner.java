@@ -28,15 +28,15 @@ public class FileCleaner {
         this.cleanFolder(pojo.getSettings().getPath() + "Archive\\");
     }
 
-    public final void cleanGroupList(final Pojo pojo) {
+    private void cleanGroupList(final Pojo pojo) {
         new File(pojo.getSettings().getPath() + "GroupList.xml").delete();
     }
 
-    public final void cleanMemberList(final Pojo pojo) {
+    private void cleanMemberList(final Pojo pojo) {
         new File(pojo.getSettings().getPath() + "MemberList.xml").delete();
     }
 
-    public final void cleanSettings(final Pojo pojo) {
+    private void cleanSettings(final Pojo pojo) {
         new File(pojo.getSettings().getPath() + "Settings.xml").delete();
     }
 
@@ -66,7 +66,7 @@ public class FileCleaner {
         }
     }
 
-    public boolean checkDeletionDate(final String fileName, final Pojo pojo) {
+    private boolean checkDeletionDate(final String fileName, final Pojo pojo) {
         final DateHelper helper = new DateHelper();
 
         final Date archiveDate = helper.parseStringToDate(fileName.substring(0, fileName.indexOf("_")));

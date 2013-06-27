@@ -24,11 +24,11 @@ public class FileReaderHelper {
         new FileCleaner().updateArchive(pojo);
     }
 
-    public String getElementValue(final Element element, final String name) {
+    final String getElementValue(final Element element, final String name) {
         return element.getElementsByTagName(name).item(0).getTextContent();
     }
 
-    public Document createDocument(final File file) {
+    final Document createDocument(final File file) {
         Document doc = null;
         try {
             doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file);
