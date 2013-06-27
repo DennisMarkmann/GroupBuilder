@@ -21,7 +21,7 @@ public class MainFrame extends JFrame {
 
         // basic attributes
         this.setTitle("GroupBuilder - Dennis Markmann");
-        this.setSize(800, 800);
+        this.setSize(800, 680);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

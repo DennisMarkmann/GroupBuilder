@@ -29,6 +29,8 @@
 	2.4.Exceptions abfangen
 	
 	2.5.Gui Aussehen optimieren (Vor allem Settings & Buttons in den Tabs)
+	
+	2.6.Bei erneuter Auswahl eines Frames diesen auswählen und in den Vordergrund
 
 
 3. CleanUp:
@@ -44,3 +46,5 @@
 	3.5.Kommentare & JavaDocs
 
 	3.6.Default Path wieder in das Programm legen (GroupBuilder folder)
+	
+	3.7.JPA Kram entfernen
