@@ -8,12 +8,12 @@ public class Settings { // NO_UCD
 
     private String path = System.getProperty("user.home") + "\\Desktop\\" + "GroupBuilder\\";;
 
-    private String language; // german or english
-    private boolean archive;
-    private int archivingDays;
-    private String ausgabeFormat; // txt or xml
-    private boolean sendMailAutomatically;
-    private boolean printAutomatically;
+    private String language = "english"; // german or english
+    private boolean archive = true;
+    private int archivingDays = 7; // if the value is 0 the archiving will be disabled
+    private String ausgabeFormat = "xml"; // txt or xml
+    private boolean sendMailAutomatically = false;
+    private boolean printAutomatically = false;
 
     public final String getLanguage() {
         return this.language;

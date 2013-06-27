@@ -16,7 +16,9 @@
 	
 	1.8.Messages bei erfolgreichen Aktionen
 	
-	1.9.Initiales richtiges befüllen der Frames (Settings) !
+!	1.9.Initiales richtiges befüllen der Frames (Settings)
+	
+	2.0.Mehrsprachen support.
 	
 	
 2. Dringende Änderungen nötig:
@@ -32,7 +34,7 @@
 	2.5.Gui Aussehen optimieren (Vor allem Settings & Buttons in den Tabs)
 	
 	2.6.Bei erneuter Auswahl eines Frames diesen auswählen und in den Vordergrund
-
+	
 
 3. CleanUp:
 
@@ -49,3 +51,6 @@
 	3.6.Default Path wieder in das Programm legen (GroupBuilder folder)
 	
 	3.7.JPA Kram entfernen
+	
+!	3.8.Andere FileWriter ebenfalls optimieren (Vorbild: SettingsFileWriter)
+	

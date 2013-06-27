@@ -10,6 +10,7 @@ public class FileWriteHelper {
         new GroupListWriter().createXmlFile(pojo);
         new GroupFileWriter().initializeXMLPrint(pojo);
         new GroupFileArchiver().archivGroupFiles(pojo);
+        new SettingsFileWriter().createXmlFile(pojo);
     }
 
 }

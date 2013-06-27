@@ -41,7 +41,7 @@ class GroupFileWriter {
             int memberNumber = 0;
             final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 
-            // member elements
+            // group elements
             final Element groupsElement = doc.createElement("Group");
             final Element groupNameElement = doc.createElement("GroupName");
             final Element groupSizeElement = doc.createElement("GroupSize");
