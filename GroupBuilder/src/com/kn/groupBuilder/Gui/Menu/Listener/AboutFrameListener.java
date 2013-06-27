@@ -21,7 +21,7 @@ public class AboutFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("closeButton") == 0) {
-            this.aboutFrame.dispose();
+            this.aboutFrame.closeWindow();
         }
     }
 }

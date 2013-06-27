@@ -39,7 +39,7 @@ public class SettingsFrameListener implements ActionListener {
             this.settingsFrame.refreshTextFields(this.pathField, this.pojo);
 
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
-            this.settingsFrame.dispose();
+            this.settingsFrame.closeWindow();
         }
     }
 }

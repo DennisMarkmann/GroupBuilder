@@ -53,7 +53,7 @@ public class ConfirmationFrameListener implements ActionListener {
                 new FileWriteHelper().createXMLFiles(this.pojo);
             }
         }
-        this.confirmationFrame.dispose();
+        this.confirmationFrame.closeWindow();
 
     }
 }

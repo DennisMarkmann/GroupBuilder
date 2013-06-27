@@ -59,4 +59,9 @@ public class Group {
     public final void setDescription(final String description) {
         this.description = description;
     }
+
+    public void addMemberToGroup(final Group group, final Member member) {
+        this.memberList.add(member);
+        member.getGroupList().add(group);
+    }
 }

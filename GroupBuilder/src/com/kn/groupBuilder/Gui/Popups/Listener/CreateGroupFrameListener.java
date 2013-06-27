@@ -47,7 +47,7 @@ public class CreateGroupFrameListener implements ActionListener {
                             Integer.parseInt(this.groupSizeField.getText()),
                             this.groupDescField.getText()));
         }
-        this.createGroupFrame.dispose();
+        this.createGroupFrame.closeWindow();
 
     }
 }

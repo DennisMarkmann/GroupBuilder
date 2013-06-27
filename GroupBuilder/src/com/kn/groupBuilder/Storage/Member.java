@@ -7,6 +7,7 @@ public class Member {
     private String firstName = "";
     private String lastName = "";
     private ArrayList<Group> groupList = new ArrayList<Group>();
+    // private ArrayList<Group> groupList = new ArrayList<Group>();
     private String eMailAdress = "";
 
     public Member(final String firstName, final String lastName) {

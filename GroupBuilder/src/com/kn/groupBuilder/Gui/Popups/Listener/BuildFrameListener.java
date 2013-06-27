@@ -37,6 +37,6 @@ public class BuildFrameListener implements ActionListener {
         } else if (this.buildUnassignedCheckBox.isSelected()) {
             groupBuilder.buildUnassignedGroups(this.pojo);
         }
-        this.buildFrame.dispose();
+        this.buildFrame.closeWindow();
     }
 }

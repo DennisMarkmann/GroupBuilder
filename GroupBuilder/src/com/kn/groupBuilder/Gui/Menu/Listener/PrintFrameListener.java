@@ -33,7 +33,7 @@ public class PrintFrameListener implements ActionListener {
             ConfirmationFrame.getInstance(this.pojo, "printOutAll", null);
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
         }
-        this.printFrame.dispose();
+        this.printFrame.closeWindow();
 
     }
 

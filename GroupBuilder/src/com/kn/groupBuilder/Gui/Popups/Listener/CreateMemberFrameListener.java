@@ -48,9 +48,8 @@ public class CreateMemberFrameListener implements ActionListener {
                     this.pojo,
                     "addMember",
                     new Member(this.firstNameField.getText(), this.lastNameField.getText(), this.eMailField.getText()));
-            this.createMemberFrame.dispose();
         }
-        this.createMemberFrame.dispose();
+        this.createMemberFrame.closeWindow();
 
     }
 

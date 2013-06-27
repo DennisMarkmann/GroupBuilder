@@ -33,7 +33,7 @@ public class EmailFrameListener implements ActionListener {
             ConfirmationFrame.getInstance(this.pojo, "sendMailToAll", null);
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
         }
-        this.emailFrame.dispose();
+        this.emailFrame.closeWindow();
 
     }
 }
