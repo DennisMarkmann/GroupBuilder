@@ -7,7 +7,7 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 class GroupListSorter {
 
-    final void sortArrayList(final Pojo pojo) {
+    final void sortArrayListForPriority(final Pojo pojo) {
         boolean hasFixSize = false;
         final ArrayList<Group> groupList = pojo.getGroupList();
         final ArrayList<Group> tempGroupList = new ArrayList<Group>();

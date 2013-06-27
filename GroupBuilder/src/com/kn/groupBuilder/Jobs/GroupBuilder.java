@@ -13,13 +13,13 @@ public class GroupBuilder {
 
     public final void buildGroups(final Pojo pojo) {
 
-        new GroupListSorter().sortArrayList(pojo);
+        new GroupListSorter().sortArrayListForPriority(pojo);
         this.assignGroups(this.mixList(pojo.getMemberList()), pojo.getGroupList());
     }
 
     public final void buildUnassignedGroups(final Pojo pojo) {
 
-        new GroupListSorter().sortArrayList(pojo);
+        new GroupListSorter().sortArrayListForPriority(pojo);
         final ArrayList<Member> unassignedMemberList = new ArrayList<Member>();
         for (final Member member : pojo.getMemberList()) {
             if (member.getGroupList().size() == 0) {

@@ -28,7 +28,8 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         // path
         this.builder.createLabel(this, "Path:", 0, 0);
         final JTextField pathField = this.builder.createTextField(this, "pathField", TEXT_FIELD_SIZE, 1, 0);
-        final JButton pathButton = this.builder.createButton(this, "pathButton", "pathButton", 2, 0);
+        this.refreshTextFields(pathField, pojo);
+        final JButton pathButton = this.builder.createButton(this, "Change Path", "pathButton", 2, 0);
 
         // language
         this.builder.createLabel(this, "Language:", 0, 1);
@@ -62,7 +63,14 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         final JButton saveButton = this.builder.createButton(this, "saveButton", "Save", 0, 6);
         final JButton closeButton = this.builder.createButton(this, "closeButton", "Close", 1, 6);
 
-        final SettingsFrameListener listener = new SettingsFrameListener(this, pojo, pathField, archiveField);
+        final SettingsFrameListener listener = new SettingsFrameListener(
+                this,
+                pojo,
+                pathField,
+                archivingCheckBox,
+                archiveField,
+                sendMailsAutomaticallyCheckBox,
+                printOutAutomaticallyCheckBox);
 
         pathButton.addActionListener(listener);
         closeButton.addActionListener(listener);
