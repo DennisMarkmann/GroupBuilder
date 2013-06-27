@@ -29,11 +29,11 @@ class GroupListReader {
             final Node node = doc.getElementsByTagName("GroupList").item(0);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
 
-                // final Element element = (Element) node;
-                // final String groupListSize = element.getElementsByTagName("GroupListSize").item(0).getTextContent();
+                // currently not in use.
+                // final String groupListSize = this.getElementValue((Element) node, "GroupListSize");
             }
 
-            final GroupCreator creator = new GroupCreator();
+            final GroupCreator creator = new GroupCreator(pojo);
 
             final NodeList nList = doc.getElementsByTagName("Group");
             for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -41,13 +41,13 @@ class GroupListReader {
                 final Node nNode = nList.item(temp);
 
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                    final Element eElement = (Element) nNode;
+                    final Element element = (Element) nNode;
 
-                    final String groupName = eElement.getElementsByTagName("GroupName").item(0).getTextContent();
-                    final int fixSize = Integer.parseInt(eElement.getElementsByTagName("FixSize").item(0).getTextContent());
-                    final String description = eElement.getElementsByTagName("Description").item(0).getTextContent();
+                    final String groupName = this.getElementValue(element, "GroupName");
+                    final int fixSize = Integer.parseInt(this.getElementValue(element, "FixSize"));
+                    final String description = this.getElementValue(element, "Description");
 
-                    creator.createGroupsManually(groupName, fixSize, description, pojo);
+                    creator.createGroupsManually(groupName, fixSize, description);
                 }
             }
 
@@ -58,5 +58,9 @@ class GroupListReader {
         } catch (final SAXException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getElementValue(final Element element, final String name) {
+        return element.getElementsByTagName(name).item(0).getTextContent();
     }
 }

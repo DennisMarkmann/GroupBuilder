@@ -5,20 +5,26 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class GroupCreator {
 
-    public final void createGroupsManually(final String name, final String description, final Pojo pojo) {
-        pojo.getGroupList().add(new Group(name, description));
+    private final Pojo pojo;
+
+    public GroupCreator(final Pojo pojo) {
+        this.pojo = pojo;
     }
 
-    public final void createGroupsManually(final String name, final int fixSize, final String description, final Pojo pojo) {
-        pojo.getGroupList().add(new Group(name, fixSize, description));
+    public final void createGroupsManually(final String name, final String description) {
+        this.pojo.getGroupList().add(new Group(name, description));
     }
 
-    public final void createGroupsAutmatically(final int memberPerGroup, final Pojo pojo) {
+    public final void createGroupsManually(final String name, final int fixSize, final String description) {
+        this.pojo.getGroupList().add(new Group(name, fixSize, description));
+    }
 
-        final int numberOfGroups = pojo.getMemberList().size() / memberPerGroup;
+    public final void createGroupsAutmatically(final int memberPerGroup) {
+
+        final int numberOfGroups = this.pojo.getMemberList().size() / memberPerGroup;
 
         for (int i = 0; i < numberOfGroups; i++) {
-            pojo.getGroupList().add(new Group("Group" + i));
+            this.pojo.getGroupList().add(new Group("Group" + i));
         }
     }
 }

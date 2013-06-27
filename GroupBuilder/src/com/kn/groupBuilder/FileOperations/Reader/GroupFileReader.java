@@ -13,6 +13,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import com.kn.groupBuilder.Exceptions.NoFilesFoundException;
+import com.kn.groupBuilder.Storage.Group;
+import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
 class GroupFileReader {
@@ -39,9 +41,12 @@ class GroupFileReader {
 
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     final Element element = (Element) node;
-                    groupName = element.getElementsByTagName("GroupName").item(0).getTextContent();
-                    // final String groupSize = element.getElementsByTagName("GroupSize").item(0).getTextContent();
-                    // final String description = element.getElementsByTagName("Description").item(0).getTextContent();
+
+                    groupName = this.getElementValue(element, "GroupName");
+
+                    // final currently not in final use.
+                    // groupName = this.getElementValue(element, "GroupSize");
+                    // groupName = this.getElementValue(element, "Description");
 
                 }
 
@@ -51,15 +56,20 @@ class GroupFileReader {
                     final Node nNode = nList.item(temp);
 
                     if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                        final Element eElement = (Element) nNode;
+                        final Element element = (Element) nNode;
 
+                        // currently not in use.
                         // final String memberID = eElement.getAttribute("id");
-                        final String firstName = eElement.getElementsByTagName("FirstName").item(0).getTextContent();
-                        final String lastName = eElement.getElementsByTagName("LastName").item(0).getTextContent();
-                        // final String eMailAdress = eElement.getElementsByTagName("EmailAdress").item(0).getTextContent();
+                        final String firstName = this.getElementValue(element, "FirstName");
+                        final String lastName = this.getElementValue(element, "LastName");
+                        // currently not in use.
+                        // final String eMailAdress = this.getElementValue(element, "EmailAdress");
 
-                        pojo.getGroupByName(groupName).getMemberList().add(pojo.getMemberByName(firstName, lastName));
-                        pojo.getMemberByName(firstName, lastName).getGroupList().add(pojo.getGroupByName(groupName));
+                        final Group group = pojo.getGroupByName(groupName);
+                        final Member member = pojo.getMemberByName(firstName, lastName);
+
+                        group.addMemberToGroup(group, member);
+
                     }
                 }
             }
@@ -71,5 +81,9 @@ class GroupFileReader {
         } catch (final ParserConfigurationException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getElementValue(final Element element, final String name) {
+        return element.getElementsByTagName(name).item(0).getTextContent();
     }
 }

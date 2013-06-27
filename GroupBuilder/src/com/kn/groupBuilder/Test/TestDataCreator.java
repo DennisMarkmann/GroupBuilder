@@ -8,29 +8,29 @@ public class TestDataCreator {
 
     public final void fillTestMemberList(final Pojo pojo) {
 
-        final MemberCreator creator = new MemberCreator();
+        final MemberCreator creator = new MemberCreator(pojo);
 
-        creator.createMember("Test1", "User1", "godlikeBot@gmx.net", pojo);
-        creator.createMember("Test2", "User2", "godlike_bot@gmx.de", pojo);
-        creator.createMember("Test3", "User3", pojo);
-        creator.createMember("Test1", "User4", pojo);
-        creator.createMember("Test2", "User5", pojo);
-        creator.createMember("Test3", "User6", pojo);
-        creator.createMember("Test1", "User7", pojo);
-        creator.createMember("Test2", "User8", pojo);
-        creator.createMember("Test3", "User9", "godlikeBot@gmx.net", pojo);
+        creator.createMember("Test1", "User1", "godlikeBot@gmx.net");
+        creator.createMember("Test2", "User2", "godlike_bot@gmx.de");
+        creator.createMember("Test3", "User3");
+        creator.createMember("Test1", "User4");
+        creator.createMember("Test2", "User5");
+        creator.createMember("Test3", "User6");
+        creator.createMember("Test1", "User7");
+        creator.createMember("Test2", "User8");
+        creator.createMember("Test3", "User9", "godlikeBot@gmx.net");
 
     }
 
     public final void fillTestGroupList(final Pojo pojo) {
 
-        final GroupCreator creator = new GroupCreator();
+        final GroupCreator creator = new GroupCreator(pojo);
 
-        creator.createGroupsManually("Group1", 4, "desc", pojo);
-        creator.createGroupsManually("Group2", 1, "test", pojo);
-        creator.createGroupsManually("Group3", "test", pojo);
-        creator.createGroupsManually("Group4", "", pojo);
-        creator.createGroupsManually("Group5", 1, "", pojo);
+        creator.createGroupsManually("Group1", 4, "desc");
+        creator.createGroupsManually("Group2", 1, "test");
+        creator.createGroupsManually("Group3", "test");
+        creator.createGroupsManually("Group4", "");
+        creator.createGroupsManually("Group5", 1, "");
 
         // creator.createGroupsAutmatically(4, pojo);
 

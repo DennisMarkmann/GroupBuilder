@@ -28,15 +28,11 @@ class MemberListReader {
 
             final Node node = doc.getElementsByTagName("MemberList").item(0);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
-
-                // final Element element = (Element) node;
-                // final String memberListSize = element.getElementsByTagName("MemberListSize").item(0).getTextContent();
-
+                // currently not in use.
+                // final String memberListSize = this.getElementValue((Element) node, "MemberListSize");
             }
-            String firstName = "";
-            String lastName = "";
-            String eMailAdress = "";
-            final MemberCreator creator = new MemberCreator();
+
+            final MemberCreator creator = new MemberCreator(pojo);
 
             final NodeList nList = doc.getElementsByTagName("Member");
             for (int temp = 0; temp < nList.getLength(); temp++) {
@@ -44,24 +40,25 @@ class MemberListReader {
                 final Node nNode = nList.item(temp);
 
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                    final Element eElement = (Element) nNode;
+                    final Element element = (Element) nNode;
 
-                    firstName = eElement.getElementsByTagName("FirstName").item(0).getTextContent();
-                    lastName = eElement.getElementsByTagName("LastName").item(0).getTextContent();
-                    eMailAdress = eElement.getElementsByTagName("EmailAdress").item(0).getTextContent();
+                    final String firstName = this.getElementValue(element, "FirstName");
+                    final String lastName = this.getElementValue(element, "LastName");
+                    final String eMailAdress = this.getElementValue(element, "EmailAdress");
 
-                    creator.createMember(firstName, lastName, eMailAdress, pojo);
-
+                    creator.createMember(firstName, lastName, eMailAdress);
                 }
             }
-
         } catch (final IOException e) {
             // nothing to do.
-
         } catch (final ParserConfigurationException e) {
             e.printStackTrace();
         } catch (final SAXException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getElementValue(final Element element, final String name) {
+        return element.getElementsByTagName(name).item(0).getTextContent();
     }
 }
