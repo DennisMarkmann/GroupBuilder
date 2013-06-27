@@ -54,3 +54,4 @@
 	
 !	3.8.Andere FileWriter ebenfalls optimieren (Vorbild: SettingsFileWriter)
 	
+!	3.9.Andere FileReader ebenfalls optimieren (Vorbild: SettingsFileReader)

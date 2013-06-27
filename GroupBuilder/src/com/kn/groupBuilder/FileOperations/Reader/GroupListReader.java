@@ -33,9 +33,6 @@ class GroupListReader {
                 // final String groupListSize = element.getElementsByTagName("GroupListSize").item(0).getTextContent();
             }
 
-            String groupName = "";
-            int fixSize = 0;
-            String description = "";
             final GroupCreator creator = new GroupCreator();
 
             final NodeList nList = doc.getElementsByTagName("Group");
@@ -46,9 +43,9 @@ class GroupListReader {
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     final Element eElement = (Element) nNode;
 
-                    groupName = eElement.getElementsByTagName("GroupName").item(0).getTextContent();
-                    fixSize = Integer.parseInt(eElement.getElementsByTagName("FixSize").item(0).getTextContent());
-                    description = eElement.getElementsByTagName("Description").item(0).getTextContent();
+                    final String groupName = eElement.getElementsByTagName("GroupName").item(0).getTextContent();
+                    final int fixSize = Integer.parseInt(eElement.getElementsByTagName("FixSize").item(0).getTextContent());
+                    final String description = eElement.getElementsByTagName("Description").item(0).getTextContent();
 
                     creator.createGroupsManually(groupName, fixSize, description, pojo);
                 }

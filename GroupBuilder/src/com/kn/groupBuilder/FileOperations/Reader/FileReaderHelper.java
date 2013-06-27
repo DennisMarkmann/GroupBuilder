@@ -9,6 +9,7 @@ public class FileReaderHelper {
         new GroupListReader().readXmlFile(pojo);
         new MemberListReader().readXmlFile(pojo);
         new GroupFileReader().readFiles(pojo);
+        new SettingsFileReader().readXmlFile(pojo);
     }
 
 }
