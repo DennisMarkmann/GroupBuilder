@@ -60,12 +60,12 @@ public class Group {
         this.description = description;
     }
 
-    public void addMemberToGroup(final Group group, final Member member) {
+    public final void addMemberToGroup(final Group group, final Member member) {
         this.memberList.add(member);
         member.getGroupList().add(group);
     }
 
-    public void removeMemberFromGroup(final Group group, final Member member) {
+    public final void removeMemberFromGroup(final Group group, final Member member) {
         this.memberList.remove(member);
         member.getGroupList().remove(group);
     }

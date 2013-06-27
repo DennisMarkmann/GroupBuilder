@@ -9,7 +9,7 @@ import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Menu.Listener.HelpFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class HelpFrame extends JFrame implements DefaultFrame {
+public final class HelpFrame extends JFrame implements DefaultFrame {
 
     private static HelpFrame instance = null;
     private static final long serialVersionUID = 416901635761617562L;

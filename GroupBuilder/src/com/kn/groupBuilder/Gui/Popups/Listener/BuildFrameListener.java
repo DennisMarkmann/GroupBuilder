@@ -12,9 +12,9 @@ import com.kn.groupBuilder.Storage.Pojo;
 public class BuildFrameListener implements ActionListener {
 
     private final BuildFrame buildFrame;
-    final Pojo pojo;
-    final JCheckBox buildCompleteCheckBox;
-    final JCheckBox buildUnassignedCheckBox;
+    private final Pojo pojo;
+    private final JCheckBox buildCompleteCheckBox;
+    private final JCheckBox buildUnassignedCheckBox;
 
     public BuildFrameListener(
             final BuildFrame buildFrame,

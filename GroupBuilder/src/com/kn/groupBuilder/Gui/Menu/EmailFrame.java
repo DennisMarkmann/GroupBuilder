@@ -9,7 +9,7 @@ import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
 import com.kn.groupBuilder.Gui.Menu.Listener.EmailFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class EmailFrame extends JFrame implements DefaultFrame {
+public final class EmailFrame extends JFrame implements DefaultFrame {
 
     private static EmailFrame instance = null;
     private static final long serialVersionUID = 4767991083504569016L;

@@ -9,7 +9,7 @@ import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Popups.Listener.ConfirmationFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class ConfirmationFrame extends JFrame implements DefaultFrame {
+public final class ConfirmationFrame extends JFrame implements DefaultFrame {
 
     private static ConfirmationFrame instance = null;
     private static final long serialVersionUID = -6013891923961668832L;

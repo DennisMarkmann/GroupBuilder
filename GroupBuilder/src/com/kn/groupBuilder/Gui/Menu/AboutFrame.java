@@ -11,7 +11,7 @@ import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Menu.Listener.AboutFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class AboutFrame extends JFrame implements DefaultFrame {
+public final class AboutFrame extends JFrame implements DefaultFrame {
 
     private static AboutFrame instance = null;
     private static final long serialVersionUID = -7650216557475857971L;

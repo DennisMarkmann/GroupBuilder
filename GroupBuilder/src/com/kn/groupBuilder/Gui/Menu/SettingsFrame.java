@@ -11,7 +11,7 @@ import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Menu.Listener.SettingsFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class SettingsFrame extends JFrame implements DefaultFrame {
+public final class SettingsFrame extends JFrame implements DefaultFrame {
 
     private static SettingsFrame instance = null;
     private static final long serialVersionUID = 3141095634381522203L;
@@ -71,14 +71,14 @@ public class SettingsFrame extends JFrame implements DefaultFrame {
         this.setVisible(true);
     }
 
-    public final void refreshTextFields(final JTextField textField, final Pojo pojo) {
+    public void refreshTextFields(final JTextField textField, final Pojo pojo) {
 
         if (textField.getName().equals("pathField")) {
             textField.setText(pojo.getSettings().getPath());
         }
     }
 
-    public static final SettingsFrame getInstance(final Pojo pojo) {
+    public static SettingsFrame getInstance(final Pojo pojo) {
         if (instance == null) {
             instance = new SettingsFrame(pojo);
         }

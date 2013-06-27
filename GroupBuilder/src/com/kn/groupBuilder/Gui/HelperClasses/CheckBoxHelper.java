@@ -10,8 +10,8 @@ import com.kn.groupBuilder.Gui.Popups.Listener.CheckBoxSelectionListener;
 
 public class CheckBoxHelper {
 
-    final List<JCheckBox> checkBoxList = new ArrayList<JCheckBox>();
-    final CheckBoxSelectionListener checkBoxListener = new CheckBoxSelectionListener(this.checkBoxList);
+    private final List<JCheckBox> checkBoxList = new ArrayList<JCheckBox>();
+    private final CheckBoxSelectionListener checkBoxListener = new CheckBoxSelectionListener(this.checkBoxList);
 
     public final JCheckBox createSingleSelectionCheckBox(
             final JFrame frame,

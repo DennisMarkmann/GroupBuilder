@@ -2,7 +2,7 @@ package com.kn.groupBuilder.Gui.Interfaces;
 
 public interface DefaultFrame {
 
-    public void closeWindow();
+    void closeWindow();
 
-    public void dispose();
+    void dispose();
 }

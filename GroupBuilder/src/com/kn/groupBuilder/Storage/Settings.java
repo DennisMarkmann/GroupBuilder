@@ -4,7 +4,7 @@ package com.kn.groupBuilder.Storage;
  * Currently unused. TODO:Has to be implemented.
  * 
  */
-public class Settings {
+public class Settings { // NO_UCD
 
     private String path = System.getProperty("user.home") + "\\Desktop\\" + "GroupBuilder\\";;
 

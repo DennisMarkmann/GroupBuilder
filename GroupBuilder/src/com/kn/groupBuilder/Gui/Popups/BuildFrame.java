@@ -53,7 +53,7 @@ public class BuildFrame extends JFrame implements DefaultFrame {
     }
 
     @Override
-    public void closeWindow() {
+    public final void closeWindow() {
         this.dispose();
         instance = null;
     }

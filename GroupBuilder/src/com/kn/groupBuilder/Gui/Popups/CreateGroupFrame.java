@@ -10,7 +10,7 @@ import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Popups.Listener.CreateGroupFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class CreateGroupFrame extends JFrame implements DefaultFrame {
+public final class CreateGroupFrame extends JFrame implements DefaultFrame {
 
     private static CreateGroupFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;

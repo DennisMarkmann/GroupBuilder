@@ -10,7 +10,7 @@ import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Menu.Listener.PrintFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class PrintFrame extends JFrame implements DefaultFrame {
+public final class PrintFrame extends JFrame implements DefaultFrame {
 
     private static PrintFrame instance = null;
     private static final long serialVersionUID = 4767991083504569016L;

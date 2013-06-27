@@ -3,9 +3,9 @@ package com.kn.groupBuilder.FileOperations.Output;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 
-public class TextCreator {
+class TextCreator {
 
-    public String createText(final Group group) {
+    String createText(final Group group) {
 
         final StringBuilder sb = new StringBuilder();
 

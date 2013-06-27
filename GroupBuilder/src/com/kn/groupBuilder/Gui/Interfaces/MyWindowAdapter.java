@@ -12,7 +12,7 @@ public class MyWindowAdapter extends WindowAdapter {
     }
 
     @Override
-    public void windowClosing(final WindowEvent e) {
+    public final void windowClosing(final WindowEvent e) {
         this.frame.closeWindow();
     }
 }

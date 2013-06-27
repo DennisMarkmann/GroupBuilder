@@ -8,14 +8,14 @@ import javax.swing.JCheckBox;
 
 public class CheckBoxSelectionListener implements ItemListener {
 
-    final List<JCheckBox> checkBoxList;
+    private final List<JCheckBox> checkBoxList;
 
     public CheckBoxSelectionListener(final List<JCheckBox> checkBoxList) {
         this.checkBoxList = checkBoxList;
     }
 
     @Override
-    public void itemStateChanged(final ItemEvent e) {
+    public final void itemStateChanged(final ItemEvent e) {
         if (e.getStateChange() == ItemEvent.SELECTED) {
             final String sourceName = e.getItemSelectable().toString();
 
