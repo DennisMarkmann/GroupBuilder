@@ -22,7 +22,7 @@ class GroupFileReader {
     final void readFiles(final Pojo pojo) {
 
         try {
-
+            final FileReaderHelper helper = new FileReaderHelper();
             final File[] files = new File(pojo.getSettings().getPath() + "Groups").listFiles();
             try {
                 files.toString();
@@ -42,11 +42,11 @@ class GroupFileReader {
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     final Element element = (Element) node;
 
-                    groupName = this.getElementValue(element, "GroupName");
+                    groupName = helper.getElementValue(element, "GroupName");
 
                     // final currently not in final use.
-                    // groupName = this.getElementValue(element, "GroupSize");
-                    // groupName = this.getElementValue(element, "Description");
+                    // groupName = helper.getElementValue(element, "GroupSize");
+                    // groupName = helper.getElementValue(element, "Description");
 
                 }
 
@@ -60,10 +60,10 @@ class GroupFileReader {
 
                         // currently not in use.
                         // final String memberID = eElement.getAttribute("id");
-                        final String firstName = this.getElementValue(element, "FirstName");
-                        final String lastName = this.getElementValue(element, "LastName");
+                        final String firstName = helper.getElementValue(element, "FirstName");
+                        final String lastName = helper.getElementValue(element, "LastName");
                         // currently not in use.
-                        // final String eMailAdress = this.getElementValue(element, "EmailAdress");
+                        // final String eMailAdress = helper.getElementValue(element, "EmailAdress");
 
                         final Group group = pojo.getGroupByName(groupName);
                         final Member member = pojo.getMemberByName(firstName, lastName);
@@ -81,9 +81,5 @@ class GroupFileReader {
         } catch (final ParserConfigurationException e) {
             e.printStackTrace();
         }
-    }
-
-    public String getElementValue(final Element element, final String name) {
-        return element.getElementsByTagName(name).item(0).getTextContent();
     }
 }

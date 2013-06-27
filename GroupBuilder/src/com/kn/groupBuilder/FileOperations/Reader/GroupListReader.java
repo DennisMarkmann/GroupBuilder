@@ -20,7 +20,7 @@ class GroupListReader {
     final void readXmlFile(final Pojo pojo) {
 
         try {
-
+            final FileReaderHelper helper = new FileReaderHelper();
             final File file = new File(pojo.getSettings().getPath() + "GroupList.xml");
 
             final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file);
@@ -30,7 +30,7 @@ class GroupListReader {
             if (node.getNodeType() == Node.ELEMENT_NODE) {
 
                 // currently not in use.
-                // final String groupListSize = this.getElementValue((Element) node, "GroupListSize");
+                // final String groupListSize = helper.getElementValue((Element) node, "GroupListSize");
             }
 
             final GroupCreator creator = new GroupCreator(pojo);
@@ -43,9 +43,9 @@ class GroupListReader {
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     final Element element = (Element) nNode;
 
-                    final String groupName = this.getElementValue(element, "GroupName");
-                    final int fixSize = Integer.parseInt(this.getElementValue(element, "FixSize"));
-                    final String description = this.getElementValue(element, "Description");
+                    final String groupName = helper.getElementValue(element, "GroupName");
+                    final int fixSize = Integer.parseInt(helper.getElementValue(element, "FixSize"));
+                    final String description = helper.getElementValue(element, "Description");
 
                     creator.createGroupsManually(groupName, fixSize, description);
                 }
@@ -58,9 +58,5 @@ class GroupListReader {
         } catch (final SAXException e) {
             e.printStackTrace();
         }
-    }
-
-    public String getElementValue(final Element element, final String name) {
-        return element.getElementsByTagName(name).item(0).getTextContent();
     }
 }

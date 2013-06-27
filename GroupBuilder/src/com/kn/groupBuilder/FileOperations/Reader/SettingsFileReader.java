@@ -18,7 +18,7 @@ public class SettingsFileReader {
     final void readXmlFile(final Pojo pojo) {
 
         try {
-
+            final FileReaderHelper helper = new FileReaderHelper();
             final File file = new File(pojo.getSettings().getPath() + "Settings.xml");
 
             final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file);
@@ -28,14 +28,14 @@ public class SettingsFileReader {
             if (node.getNodeType() == Node.ELEMENT_NODE) {
 
                 final Element element = (Element) node;
-                pojo.getSettings().setLanguage(this.getElementValue(element, "Language"));
-                pojo.getSettings().setArchive(Boolean.parseBoolean(this.getElementValue(element, "Archive")));
-                pojo.getSettings().setArchivingDays(Integer.parseInt(this.getElementValue(element, "ArchivingDays")));
-                pojo.getSettings().setAusgabeFormat(this.getElementValue(element, "AusgabeFormat"));
+                pojo.getSettings().setLanguage(helper.getElementValue(element, "Language"));
+                pojo.getSettings().setArchive(Boolean.parseBoolean(helper.getElementValue(element, "Archive")));
+                pojo.getSettings().setArchivingDays(Integer.parseInt(helper.getElementValue(element, "ArchivingDays")));
+                pojo.getSettings().setAusgabeFormat(helper.getElementValue(element, "AusgabeFormat"));
                 pojo.getSettings().setSendMailAutomatically(
-                        Boolean.parseBoolean(this.getElementValue(element, "SendMailAutomatically")));
+                        Boolean.parseBoolean(helper.getElementValue(element, "SendMailAutomatically")));
                 pojo.getSettings().setPrintAutomatically(
-                        Boolean.parseBoolean(this.getElementValue(element, "PrintAutomatically")));
+                        Boolean.parseBoolean(helper.getElementValue(element, "PrintAutomatically")));
             }
 
         } catch (final IOException e) {
@@ -45,9 +45,5 @@ public class SettingsFileReader {
         } catch (final SAXException e) {
             e.printStackTrace();
         }
-    }
-
-    public String getElementValue(final Element element, final String name) {
-        return element.getElementsByTagName(name).item(0).getTextContent();
     }
 }
