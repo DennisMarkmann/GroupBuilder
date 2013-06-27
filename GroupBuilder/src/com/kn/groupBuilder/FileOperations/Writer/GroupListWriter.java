@@ -4,13 +4,11 @@ import java.io.File;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -22,67 +20,33 @@ class GroupListWriter {
     final void createXmlFile(final Pojo pojo) {
 
         try {
-
             int groupNumber = 0;
+
+            final FileWriteHelper helper = new FileWriteHelper();
             final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
-
-            // member elements
             final Element groupListElement = doc.createElement("GroupList");
-            final Element groupListSizeElement = doc.createElement("GroupListSize");
-
             doc.appendChild(groupListElement);
 
-            groupListSizeElement.appendChild(doc.createTextNode(pojo.getGroupList().size() + ""));
-            groupListElement.appendChild(groupListSizeElement);
+            helper.createElement(doc, groupListElement, "GroupListSize", pojo.getGroupList().size() + "");
 
             for (final Group group : pojo.getGroupList()) {
 
-                final String groupName = group.getName();
-                final int fixSize = group.getFixSize();
-                final String description = group.getDescription();
-
-                final Element groupElement = doc.createElement("Group");
-                groupListElement.appendChild(groupElement);
-
-                // set attribute to group element
-                final Attr attr = doc.createAttribute("id");
-                attr.setValue(groupNumber + "");
-                groupElement.setAttributeNode(attr);
-
-                // groupName elements
-                final Element groupNameElement = doc.createElement("GroupName");
-                groupNameElement.appendChild(doc.createTextNode(groupName));
-                groupElement.appendChild(groupNameElement);
-
-                // fixSize elements
-                final Element fixSizeElement = doc.createElement("FixSize");
-                fixSizeElement.appendChild(doc.createTextNode(fixSize + ""));
-                groupElement.appendChild(fixSizeElement);
-
-                // description elements
-                final Element descriptionElement = doc.createElement("Description");
-                descriptionElement.appendChild(doc.createTextNode(description));
-                groupElement.appendChild(descriptionElement);
+                final Element groupElement = helper.createElement(doc, groupListElement, "Group", null);
+                helper.createAttribute(doc, groupElement, "id", groupNumber + "");
+                helper.createElement(doc, groupElement, "GroupName", group.getName());
+                helper.createElement(doc, groupElement, "FixSize", group.getFixSize() + "");
+                helper.createElement(doc, groupElement, "Description", group.getDescription());
 
                 groupNumber++;
 
             }
 
             // write the content into xml file
-            final TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            final Transformer transformer = transformerFactory.newTransformer();
-            final DOMSource source = new DOMSource(doc);
-
             File file = new File(pojo.getSettings().getPath());
             file.mkdirs();
-
             file = new File(pojo.getSettings().getPath() + "GroupList" + ".xml");
 
-            final StreamResult result = new StreamResult(file);
-            transformer.transform(source, result);
-
-            // Output to console for testing
-            // StreamResult result = new StreamResult(System.out);
+            TransformerFactory.newInstance().newTransformer().transform(new DOMSource(doc), new StreamResult(file));
 
         } catch (final ParserConfigurationException pce) {
             pce.printStackTrace();

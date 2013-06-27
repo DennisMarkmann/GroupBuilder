@@ -8,6 +8,7 @@ public class FileCleaner {
 
         new File(path + "GroupList.xml").delete();
         new File(path + "MemberList.xml").delete();
+        new File(path + "Settings.xml").delete();
 
         this.cleanFolder(path + "Groups\\");
     }

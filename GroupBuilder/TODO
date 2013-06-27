@@ -20,6 +20,8 @@
 	
 	2.0.Mehrsprachen support.
 	
+	2.1.FileCleaner sinnvoll einbinden / ändern.
+	
 	
 2. Dringende Änderungen nötig:
 
@@ -53,5 +55,3 @@
 	3.7.JPA Kram entfernen
 	
 !	3.8.Andere FileWriter ebenfalls optimieren (Vorbild: SettingsFileWriter)
-	
-!	3.9.Andere FileReader ebenfalls optimieren (Vorbild: SettingsFileReader)
