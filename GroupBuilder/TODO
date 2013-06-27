@@ -1,32 +1,34 @@
-						
-						Tab und Frame Builder zusammen fassen?
-						
-						Einzelne GUI Komponenten nicht mitgeben, sondern aus dem gesamten Frame ziehen?(Alle Listener)
+1. Content:
 
-Allgemeine Refresh Funktion für alle Frames etc.
+	1.1.Help und AboutFrame befüllen.
 
-Table Refresh nach dem Hinzufügen eines Members / einer Gruppe
-
-Namen sortieren für Ausgabe / Tabellen / Comboboxen
-
-GUI
-	
-TXT Optional anbieten mit TXT in Namen
-
-Archiv löschen von Ordnern Alter + einer Woche etc (in Optionen angebbar)
+	1.2.Archiv löschen von Ordnern Alter + einer Woche etc (in Optionen angebbar)
 	Archive einlesen und wiedergeben?
 	
+	1.3.TXT Optional anbieten mit TXT in Namen
 	
-Print job aufräumen und closen nach print
+	
+2. Dringende Änderungen nötig:
 
-MemberList in Groups und GroupList in Member automatisch synchronisieren
+	2.1.Table Refresh nach dem Hinzufügen eines Members / einer Gruppe	
+	
+	2.2.Namen sortieren für Ausgabe / Tabellen / Comboboxen	
+	
+	2.3.Print job aufräumen und closen nach print
 
-Exceptions abfangen
+	2.4.Exceptions abfangen
 
-JUnit Tests statt sysos
 
-Methoden aus frames auslagern (getInstance & closeWindow)
+3. CleanUp:
 
-Kommentare und JavaDocs
+	3.1.Methoden aus frames auslagern (getInstance & closeWindow)
 
-Default Path wieder in das Programm legen
+	3.2.Einzelne GUI Komponenten nicht mitgeben, sondern aus dem gesamten Frame ziehen?(Alle Listener)
+
+	3.3.Tab und Frame Builder (teilweise) zusammen fassen?
+
+	3.4.JUnit Tests statt sysos
+
+	3.5.Kommentare und JavaDocs
+
+	3.6.Default Path wieder in das Programm legen

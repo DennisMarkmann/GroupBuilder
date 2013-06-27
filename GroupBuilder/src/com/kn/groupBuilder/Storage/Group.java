@@ -64,4 +64,9 @@ public class Group {
         this.memberList.add(member);
         member.getGroupList().add(group);
     }
+
+    public void removeMemberFromGroup(final Group group, final Member member) {
+        this.memberList.remove(member);
+        member.getGroupList().remove(group);
+    }
 }

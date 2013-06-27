@@ -67,9 +67,6 @@ public class GroupBuilder {
 
         if (fixSize == 0 || group.getMemberList().size() < fixSize) {
             group.addMemberToGroup(group, memberList.get(this.memberIndex));
-
-            // group.getMemberList().add(memberList.get(this.memberIndex));
-            // memberList.get(this.memberIndex).getGroupList().add(group);
             this.memberIndex++;
 
             if (group.getMemberList().size() < fixSize) {
