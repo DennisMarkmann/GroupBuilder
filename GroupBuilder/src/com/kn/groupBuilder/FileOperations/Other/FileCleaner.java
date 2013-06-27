@@ -2,15 +2,49 @@ package com.kn.groupBuilder.FileOperations.Other;
 
 import java.io.File;
 
+import com.kn.groupBuilder.Storage.Pojo;
+
 public class FileCleaner {
 
-    public final void cleanFiles(final String path) {
+    public final void updateArchive(final Pojo pojo) {
 
-        new File(path + "GroupList.xml").delete();
-        new File(path + "MemberList.xml").delete();
-        new File(path + "Settings.xml").delete();
+        final File filePath = new File(pojo.getSettings().getPath() + "Archive\\");
+        try {
+            for (final File file : filePath.listFiles()) {
+                if (!file.isDirectory()) {
+                    if (this.checkDeletionDate(file.getName())) {
+                        file.delete();
+                    }
+                }
+            }
+        } catch (final java.lang.NullPointerException e) {
+            // nothing to do.
+        }
+    }
 
-        this.cleanFolder(path + "Groups\\");
+    public final void cleanArchive(final Pojo pojo) {
+        this.cleanFolder(pojo.getSettings().getPath() + "Archive\\");
+    }
+
+    public final void cleanGroupList(final Pojo pojo) {
+        new File(pojo.getSettings().getPath() + "GroupList.xml").delete();
+    }
+
+    public final void cleanMemberList(final Pojo pojo) {
+        new File(pojo.getSettings().getPath() + "MemberList.xml").delete();
+    }
+
+    public final void cleanSettings(final Pojo pojo) {
+        new File(pojo.getSettings().getPath() + "Settings.xml").delete();
+    }
+
+    public final void cleanAllFiles(final Pojo pojo) {
+
+        this.cleanGroupList(pojo);
+        this.cleanMemberList(pojo);
+        this.cleanSettings(pojo);
+
+        this.cleanFolder(pojo.getSettings().getPath() + "Groups\\");
     }
 
     private void cleanFolder(final String path) {
@@ -28,5 +62,13 @@ public class FileCleaner {
         } catch (final java.lang.NullPointerException e) {
             // nothing to do.
         }
+    }
+
+    public boolean checkDeletionDate(final String fileName) {
+
+        final String test = fileName.substring(0, fileName.indexOf("_"));
+        System.out.println(test);
+        return false;
+
     }
 }

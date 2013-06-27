@@ -22,6 +22,8 @@
 	
 	2.1.FileCleaner sinnvoll einbinden / ändern.
 	
+	!!!!! FileCleaner zuende und implementieren !!!!!
+	
 	
 2. Dringende Änderungen nötig:
 
@@ -53,5 +55,3 @@
 	3.6.Default Path wieder in das Programm legen (GroupBuilder folder)
 	
 	3.7.JPA Kram entfernen
-	
-!	3.8.Andere FileWriter ebenfalls optimieren (Vorbild: SettingsFileWriter)
