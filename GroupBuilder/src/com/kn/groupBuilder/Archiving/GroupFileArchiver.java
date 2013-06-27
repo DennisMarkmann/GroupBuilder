@@ -1,9 +1,8 @@
 package com.kn.groupBuilder.Archiving;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
+import com.kn.groupBuilder.Helper.DateHelper;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class GroupFileArchiver {
@@ -20,30 +19,10 @@ public class GroupFileArchiver {
     }
 
     private String createArchivFolder(final String path) {
-        final String archivPath = path + "Archive//" + this.getDate() + "//";
+        final String archivPath = path + "Archive//" + new DateHelper().getFullDate(0) + "//";
         new File(archivPath).mkdirs();
         return archivPath;
 
-    }
-
-    public final String getDate() {
-        final Calendar c = new SimpleDateFormat("dd.MM.yyyy").getCalendar();
-        c.setTimeInMillis(System.currentTimeMillis());
-        final StringBuilder sb = new StringBuilder();
-
-        sb.append(c.get(Calendar.DAY_OF_MONTH));
-        sb.append(".");
-        sb.append(c.get(Calendar.MONTH) + 1);
-        sb.append(".");
-        sb.append(c.get(Calendar.YEAR));
-        sb.append("_");
-        sb.append(c.get(Calendar.HOUR_OF_DAY));
-        sb.append(".");
-        sb.append(c.get(Calendar.MINUTE));
-        sb.append(".");
-        sb.append(c.get(Calendar.SECOND));
-
-        return sb.toString();
     }
 
 }

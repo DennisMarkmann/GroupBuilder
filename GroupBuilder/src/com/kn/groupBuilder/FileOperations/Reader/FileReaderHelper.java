@@ -10,6 +10,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
+import com.kn.groupBuilder.FileOperations.Other.FileCleaner;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class FileReaderHelper {
@@ -20,6 +21,7 @@ public class FileReaderHelper {
         new MemberListReader().readXmlFile(pojo);
         new GroupFileReader().readFiles(pojo);
         new SettingsFileReader().readXmlFile(pojo);
+        new FileCleaner().updateArchive(pojo);
     }
 
     public String getElementValue(final Element element, final String name) {
@@ -30,6 +32,10 @@ public class FileReaderHelper {
         Document doc = null;
         try {
             doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file);
+
+        } catch (final java.io.FileNotFoundException e) {
+            // nothing to do
+            return null;
         } catch (final SAXException e) {
             // nothing to do
         } catch (final IOException e) {

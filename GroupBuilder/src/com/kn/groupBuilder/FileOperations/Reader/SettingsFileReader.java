@@ -15,7 +15,9 @@ public class SettingsFileReader {
         final FileReaderHelper helper = new FileReaderHelper();
 
         final Document doc = helper.createDocument(new File(pojo.getSettings().getPath() + "Settings.xml"));
-
+        if (doc == null) {
+            return;
+        }
         final Node node = doc.getElementsByTagName("Settings").item(0);
         if (node.getNodeType() == Node.ELEMENT_NODE) {
 

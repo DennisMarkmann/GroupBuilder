@@ -1,24 +1,26 @@
 package com.kn.groupBuilder.FileOperations.Other;
 
 import java.io.File;
+import java.util.Date;
 
+import com.kn.groupBuilder.Helper.DateHelper;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class FileCleaner {
 
     public final void updateArchive(final Pojo pojo) {
 
-        final File filePath = new File(pojo.getSettings().getPath() + "Archive\\");
-        try {
-            for (final File file : filePath.listFiles()) {
-                if (!file.isDirectory()) {
-                    if (this.checkDeletionDate(file.getName())) {
-                        file.delete();
+        if (pojo.getSettings().isArchive()) {
+            final File filePath = new File(pojo.getSettings().getPath() + "Archive\\");
+            try {
+                for (final File file : filePath.listFiles()) {
+                    if (this.checkDeletionDate(file.getName(), pojo)) {
+                        this.cleanFolder(file.getPath());
                     }
                 }
+            } catch (final java.lang.NullPointerException e) {
+                // nothing to do.
             }
-        } catch (final java.lang.NullPointerException e) {
-            // nothing to do.
         }
     }
 
@@ -64,10 +66,15 @@ public class FileCleaner {
         }
     }
 
-    public boolean checkDeletionDate(final String fileName) {
+    public boolean checkDeletionDate(final String fileName, final Pojo pojo) {
+        final DateHelper helper = new DateHelper();
 
-        final String test = fileName.substring(0, fileName.indexOf("_"));
-        System.out.println(test);
+        final Date archiveDate = helper.parseStringToDate(fileName.substring(0, fileName.indexOf("_")));
+        final Date currentDate = helper.parseStringToDate(helper.getDate(-7));
+
+        if (archiveDate.before(currentDate)) {
+            return true;
+        }
         return false;
 
     }

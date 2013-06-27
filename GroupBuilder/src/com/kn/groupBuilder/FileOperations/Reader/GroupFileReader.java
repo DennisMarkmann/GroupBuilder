@@ -34,7 +34,9 @@ class GroupFileReader {
         for (final File file : files) {
 
             final Document doc = helper.createDocument(file);
-
+            if (doc == null) {
+                return;
+            }
             final Node node = doc.getElementsByTagName("Group").item(0);
             String groupName = null;
 

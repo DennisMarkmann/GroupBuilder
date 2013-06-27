@@ -18,7 +18,9 @@ class GroupListReader {
         final GroupCreator creator = new GroupCreator(pojo);
 
         final Document doc = helper.createDocument(new File(pojo.getSettings().getPath() + "GroupList.xml"));
-
+        if (doc == null) {
+            return;
+        }
         final Node node = doc.getElementsByTagName("GroupList").item(0);
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             // currently not in use.

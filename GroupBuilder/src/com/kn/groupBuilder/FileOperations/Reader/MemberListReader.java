@@ -18,7 +18,9 @@ class MemberListReader {
         final MemberCreator creator = new MemberCreator(pojo);
 
         final Document doc = helper.createDocument(new File(pojo.getSettings().getPath() + "MemberList.xml"));
-
+        if (doc == null) {
+            return;
+        }
         final Node node = doc.getElementsByTagName("MemberList").item(0);
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             // currently not in use.
