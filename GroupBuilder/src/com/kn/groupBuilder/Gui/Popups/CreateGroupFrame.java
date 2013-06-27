@@ -5,18 +5,22 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
+import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
+import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Popups.Listener.CreateGroupFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class CreateGroupFrame extends JFrame {
+public class CreateGroupFrame extends JFrame implements DefaultFrame {
 
+    private static CreateGroupFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
     private static final int TEXT_FIELD_SIZE = 5;
 
-    public CreateGroupFrame(final Pojo pojo) {
+    private CreateGroupFrame(final Pojo pojo) {
 
         this.builder.setDefaultFrameSettings(this, "CreateGroup");
+        this.addWindowListener(new MyWindowAdapter(this));
 
         this.builder.createLabel(this, "GroupName", 0, 1);
         this.builder.createLabel(this, "Description", 0, 2);
@@ -40,5 +44,18 @@ public class CreateGroupFrame extends JFrame {
 
         confirmationButton.addActionListener(listener);
         abortButton.addActionListener(listener);
+    }
+
+    public static CreateGroupFrame getInstance(final Pojo pojo) {
+        if (instance == null) {
+            instance = new CreateGroupFrame(pojo);
+        }
+        return instance;
+    }
+
+    @Override
+    public void closeWindow() {
+        this.dispose();
+        instance = null;
     }
 }

@@ -5,18 +5,22 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
+import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
+import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Popups.Listener.CreateMemberFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class CreateMemberFrame extends JFrame {
+public class CreateMemberFrame extends JFrame implements DefaultFrame {
 
+    private static CreateMemberFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
     private static final int TEXT_FIELD_SIZE = 5;
 
-    public CreateMemberFrame(final Pojo pojo) {
+    private CreateMemberFrame(final Pojo pojo) {
 
         this.builder.setDefaultFrameSettings(this, "CreateMember");
+        this.addWindowListener(new MyWindowAdapter(this));
 
         this.builder.createLabel(this, "FirstName", 0, 1);
         this.builder.createLabel(this, "LastName", 0, 2);
@@ -43,5 +47,18 @@ public class CreateMemberFrame extends JFrame {
 
         confirmationButton.addActionListener(listener);
         abortButton.addActionListener(listener);
+    }
+
+    public static CreateMemberFrame getInstance(final Pojo pojo) {
+        if (instance == null) {
+            instance = new CreateMemberFrame(pojo);
+        }
+        return instance;
+    }
+
+    @Override
+    public void closeWindow() {
+        this.dispose();
+        instance = null;
     }
 }

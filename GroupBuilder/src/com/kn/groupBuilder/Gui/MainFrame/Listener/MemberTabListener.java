@@ -23,9 +23,9 @@ public class MemberTabListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("addButton") == 0) {
-            new CreateMemberFrame(this.pojo);
+            CreateMemberFrame.getInstance(this.pojo);
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
-            new ConfirmationFrame(this.pojo, "save", null);
+            ConfirmationFrame.getInstance(this.pojo, "save", null);
         }
     }
 }

@@ -24,13 +24,13 @@ public class GroupTabListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("addButton") == 0) {
-            new CreateGroupFrame(this.pojo);
+            CreateGroupFrame.getInstance(this.pojo);
 
         } else if (buttonClicked.getName().compareTo("buildButton") == 0) {
             new BuildFrame(this.pojo);
 
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
-            new ConfirmationFrame(this.pojo, "save", null);
+            ConfirmationFrame.getInstance(this.pojo, "save", null);
         }
     }
 }

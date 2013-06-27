@@ -28,9 +28,9 @@ public class EmailFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("sendButton") == 0) {
-            new ConfirmationFrame(this.pojo, "sendMail", this.addressField.getText());
+            ConfirmationFrame.getInstance(this.pojo, "sendMail", this.addressField.getText());
         } else if (buttonClicked.getName().compareTo("sendAllButton") == 0) {
-            new ConfirmationFrame(this.pojo, "sendMailToAll", null);
+            ConfirmationFrame.getInstance(this.pojo, "sendMailToAll", null);
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
         }
         this.emailFrame.dispose();

@@ -28,9 +28,9 @@ public class PrintFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("printOutButton") == 0) {
-            new ConfirmationFrame(this.pojo, "printOut", this.groupBox.getSelectedItem());
+            ConfirmationFrame.getInstance(this.pojo, "printOut", this.groupBox.getSelectedItem());
         } else if (buttonClicked.getName().compareTo("printOutAllButton") == 0) {
-            new ConfirmationFrame(this.pojo, "printOutAll", null);
+            ConfirmationFrame.getInstance(this.pojo, "printOutAll", null);
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
         }
         this.printFrame.dispose();

@@ -44,10 +44,10 @@ public class CreateMemberFrameListener implements ActionListener {
 
         // TODO add groups
         if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
-            new ConfirmationFrame(this.pojo, "addMember", new Member(
-                    this.firstNameField.getText(),
-                    this.lastNameField.getText(),
-                    this.eMailField.getText()));
+            ConfirmationFrame.getInstance(
+                    this.pojo,
+                    "addMember",
+                    new Member(this.firstNameField.getText(), this.lastNameField.getText(), this.eMailField.getText()));
             this.createMemberFrame.dispose();
         }
         this.createMemberFrame.dispose();

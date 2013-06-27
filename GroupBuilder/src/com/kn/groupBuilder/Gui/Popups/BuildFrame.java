@@ -6,11 +6,14 @@ import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.HelperClasses.CheckBoxHelper;
 import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
+import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
+import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Popups.Listener.BuildFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class BuildFrame extends JFrame {
+public class BuildFrame extends JFrame implements DefaultFrame {
 
+    private static BuildFrame instance = null;
     private static final long serialVersionUID = -6911722669720979718L;
     private final GuiFrameBuilder builder = new GuiFrameBuilder();
     private final CheckBoxHelper checkBoxHelper = new CheckBoxHelper();
@@ -18,6 +21,7 @@ public class BuildFrame extends JFrame {
     public BuildFrame(final Pojo pojo) {
 
         this.builder.setDefaultFrameSettings(this, "Build Groups");
+        this.addWindowListener(new MyWindowAdapter(this));
 
         final JCheckBox buildCompleteCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
                 this,
@@ -39,5 +43,18 @@ public class BuildFrame extends JFrame {
 
         buildButton.addActionListener(listener);
 
+    }
+
+    public static BuildFrame getInstance(final Pojo pojo) {
+        if (instance == null) {
+            instance = new BuildFrame(pojo);
+        }
+        return instance;
+    }
+
+    @Override
+    public void closeWindow() {
+        this.dispose();
+        instance = null;
     }
 }
