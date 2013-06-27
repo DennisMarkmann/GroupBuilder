@@ -25,15 +25,13 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
         this.builder.createLabel(this, "FirstName", 0, 1);
         this.builder.createLabel(this, "LastName", 0, 2);
         this.builder.createLabel(this, "E-Mail", 0, 3);
-        this.builder.createLabel(this, "Groups", 0, 4);
 
         final JTextField firstNameField = this.builder.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
         final JTextField lastNameField = this.builder.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
         final JTextField eMailField = this.builder.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
-        final JTextField groupsField = this.builder.createTextField(this, "groupsField", TEXT_FIELD_SIZE, 1, 4);
 
-        final JButton confirmationButton = this.builder.createButton(this, "confirmationButton", "Confirm", 0, 5);
-        final JButton abortButton = this.builder.createButton(this, "abortButton", "Abort", 1, 5);
+        final JButton confirmationButton = this.builder.createButton(this, "confirmationButton", "Confirm", 0, 4);
+        final JButton abortButton = this.builder.createButton(this, "abortButton", "Abort", 1, 4);
 
         this.pack();
 
@@ -42,8 +40,7 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
                 pojo,
                 firstNameField,
                 lastNameField,
-                eMailField,
-                groupsField);
+                eMailField);
 
         confirmationButton.addActionListener(listener);
         abortButton.addActionListener(listener);

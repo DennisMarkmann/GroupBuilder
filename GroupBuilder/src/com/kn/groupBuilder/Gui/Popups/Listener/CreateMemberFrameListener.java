@@ -18,31 +18,25 @@ public class CreateMemberFrameListener implements ActionListener {
     private final JTextField firstNameField;
     private final JTextField lastNameField;
     private final JTextField eMailField;
-    @SuppressWarnings("unused")
-    private final JTextField groupsField;
 
     public CreateMemberFrameListener(
             final CreateMemberFrame createMemberFrame,
             final Pojo pojo,
             final JTextField firstNameField,
             final JTextField lastNameField,
-            final JTextField eMailField,
-            final JTextField groupsField) {
+            final JTextField eMailField) {
 
         this.createMemberFrame = createMemberFrame;
         this.pojo = pojo;
         this.firstNameField = firstNameField;
         this.lastNameField = lastNameField;
         this.eMailField = eMailField;
-        this.groupsField = groupsField;
     }
 
     @Override
     public final void actionPerformed(final ActionEvent event) {
 
         final JButton buttonClicked = (JButton) event.getSource();
-
-        // TODO add groups
         if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
             ConfirmationFrame.getInstance(
                     this.pojo,
