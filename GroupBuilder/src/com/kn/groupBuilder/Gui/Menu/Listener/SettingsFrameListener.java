@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Menu.SettingsFrame;
@@ -21,6 +22,7 @@ public class SettingsFrameListener implements ActionListener {
     private final JTextField archiveField;
     private final JCheckBox sendMailsAutomaticallyCheckBox;
     private final JCheckBox printOutAutomaticallyCheckBox;
+    private final JComboBox<String> outputFormatBox;
 
     public SettingsFrameListener(
             final SettingsFrame settingsFrame,
@@ -28,6 +30,7 @@ public class SettingsFrameListener implements ActionListener {
             final JTextField pathField,
             final JCheckBox archivingCheckBox,
             final JTextField archiveField,
+            final JComboBox<String> outputFormatBox,
             final JCheckBox sendMailsAutomaticallyCheckBox,
             final JCheckBox printOutAutomaticallyCheckBox) {
 
@@ -36,6 +39,7 @@ public class SettingsFrameListener implements ActionListener {
         this.pathField = pathField;
         this.archivingCheckBox = archivingCheckBox;
         this.archiveField = archiveField;
+        this.outputFormatBox = outputFormatBox;
         this.sendMailsAutomaticallyCheckBox = sendMailsAutomaticallyCheckBox;
         this.printOutAutomaticallyCheckBox = printOutAutomaticallyCheckBox;
     }

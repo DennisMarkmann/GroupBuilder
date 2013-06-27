@@ -1,4 +1,4 @@
-package com.kn.groupBuilder.Helper;
+package com.kn.groupBuilder.HelperClasses;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

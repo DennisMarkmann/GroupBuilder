@@ -2,6 +2,7 @@ package com.kn.groupBuilder.Gui.Menu;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -43,7 +44,7 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
         // format
         this.builder.createLabel(this, "Output format:", 0, 4);
-        this.builder.createComboBox(this, pojo.getFormatList(), 1, 4);
+        final JComboBox<String> outputFormatBox = this.builder.createComboBox(this, pojo.getFormatList(), 1, 4);
 
         // automatic
         final JCheckBox sendMailsAutomaticallyCheckBox = this.builder.createCheckBox(
@@ -69,6 +70,7 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
                 pathField,
                 archivingCheckBox,
                 archiveField,
+                outputFormatBox,
                 sendMailsAutomaticallyCheckBox,
                 printOutAutomaticallyCheckBox);
 
