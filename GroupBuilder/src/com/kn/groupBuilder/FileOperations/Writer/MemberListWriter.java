@@ -2,8 +2,6 @@ package com.kn.groupBuilder.FileOperations.Writer;
 
 import java.io.File;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -23,9 +21,8 @@ class MemberListWriter {
             int memberNumber = 0;
 
             final FileWriteHelper helper = new FileWriteHelper();
-            final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
-            final Element memberListElement = doc.createElement("MemberList");
-            doc.appendChild(memberListElement);
+            final Document doc = helper.createDocument();
+            final Element memberListElement = helper.createMainElement(doc, "MemberList");
 
             helper.createElement(doc, memberListElement, "MemberListSize", pojo.getMemberList().size() + "");
 
@@ -48,8 +45,6 @@ class MemberListWriter {
 
             TransformerFactory.newInstance().newTransformer().transform(new DOMSource(doc), new StreamResult(file));
 
-        } catch (final ParserConfigurationException pce) {
-            pce.printStackTrace();
         } catch (final TransformerException tfe) {
             tfe.printStackTrace();
         }

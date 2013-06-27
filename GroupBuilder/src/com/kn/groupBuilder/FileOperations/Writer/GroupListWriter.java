@@ -2,8 +2,6 @@ package com.kn.groupBuilder.FileOperations.Writer;
 
 import java.io.File;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -23,9 +21,8 @@ class GroupListWriter {
             int groupNumber = 0;
 
             final FileWriteHelper helper = new FileWriteHelper();
-            final Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
-            final Element groupListElement = doc.createElement("GroupList");
-            doc.appendChild(groupListElement);
+            final Document doc = helper.createDocument();
+            final Element groupListElement = helper.createMainElement(doc, "GroupList");
 
             helper.createElement(doc, groupListElement, "GroupListSize", pojo.getGroupList().size() + "");
 
@@ -48,8 +45,6 @@ class GroupListWriter {
 
             TransformerFactory.newInstance().newTransformer().transform(new DOMSource(doc), new StreamResult(file));
 
-        } catch (final ParserConfigurationException pce) {
-            pce.printStackTrace();
         } catch (final TransformerException tfe) {
             tfe.printStackTrace();
         }

@@ -1,5 +1,8 @@
 package com.kn.groupBuilder.FileOperations.Writer;
 
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -23,13 +26,28 @@ public class FileWriteHelper {
             element.appendChild(doc.createTextNode(value));
         }
         superiorElement.appendChild(element);
-
         return element;
     }
 
-    public void createAttribute(final Document doc, final Element superiorElement, final String name, final String value) {
+    public Attr createAttribute(final Document doc, final Element superiorElement, final String name, final String value) {
         final Attr attr = doc.createAttribute(name);
         attr.setValue(value);
-        superiorElement.setAttributeNode(attr);
+        return superiorElement.setAttributeNode(attr);
     }
+
+    public Element createMainElement(final Document doc, final String name) {
+        final Element element = doc.createElement(name);
+        doc.appendChild(element);
+        return element;
+    }
+
+    public Document createDocument() {
+        try {
+            return DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
+        } catch (final ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
