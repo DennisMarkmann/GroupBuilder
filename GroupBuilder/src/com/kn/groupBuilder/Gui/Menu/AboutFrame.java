@@ -30,6 +30,8 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
     public static AboutFrame getInstance(final Pojo pojo) {
         if (instance == null) {
             instance = new AboutFrame(pojo);
+        } else {
+            instance.toFront();
         }
         return instance;
     }

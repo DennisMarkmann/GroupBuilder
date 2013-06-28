@@ -26,8 +26,8 @@ public class GuiFrameBuilder {
 
     public final void setDefaultFrameSettings(final JFrame frame, final String frameName) {
 
+        // frame.addWindowListener(new MyWindowAdapter(frame));
         frame.setTitle("GroupBuilder - " + frameName);
-        // frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(new Dimension(400, 200));
         frame.setLayout(new GridBagLayout());
         frame.setLocationRelativeTo(null);

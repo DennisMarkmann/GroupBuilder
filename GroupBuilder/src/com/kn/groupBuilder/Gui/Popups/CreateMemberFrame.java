@@ -46,6 +46,8 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
     public static CreateMemberFrame getInstance(final Pojo pojo) {
         if (instance == null) {
             instance = new CreateMemberFrame(pojo);
+        } else {
+            instance.toFront();
         }
         return instance;
     }

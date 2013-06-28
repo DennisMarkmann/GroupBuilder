@@ -125,6 +125,8 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
     public static SettingsFrame getInstance(final Pojo pojo) {
         if (instance == null) {
             instance = new SettingsFrame(pojo);
+        } else {
+            instance.toFront();
         }
         return instance;
     }

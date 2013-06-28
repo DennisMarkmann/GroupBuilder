@@ -28,6 +28,8 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
     public static HelpFrame getInstance(final Pojo pojo) {
         if (instance == null) {
             instance = new HelpFrame(pojo);
+        } else {
+            instance.toFront();
         }
         return instance;
     }

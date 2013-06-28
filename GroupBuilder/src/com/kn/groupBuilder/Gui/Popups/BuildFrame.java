@@ -46,6 +46,8 @@ public class BuildFrame extends JFrame implements DefaultFrame {
     public static BuildFrame getInstance(final Pojo pojo) {
         if (instance == null) {
             instance = new BuildFrame(pojo);
+        } else {
+            instance.toFront();
         }
         return instance;
     }

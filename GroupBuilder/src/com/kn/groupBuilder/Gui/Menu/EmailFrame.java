@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
+import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Menu.Listener.EmailFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -16,6 +17,7 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
     private EmailFrame(final Pojo pojo) {
 
         BUILDER.setDefaultFrameSettings(this, "Email");
+        this.addWindowListener(new MyWindowAdapter(this));
 
         final JTextField addressField = BUILDER.createTextField(this, "addressField", TEXT_FIELD_SIZE, 0, 0);
         final JButton sendButton = BUILDER.createButton(this, "sendButton", "Send", 1, 0);
@@ -33,6 +35,8 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
     public static EmailFrame getInstance(final Pojo pojo) {
         if (instance == null) {
             instance = new EmailFrame(pojo);
+        } else {
+            instance.toFront();
         }
         return instance;
     }

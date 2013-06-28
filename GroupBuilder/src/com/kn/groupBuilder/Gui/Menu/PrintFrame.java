@@ -35,6 +35,8 @@ public final class PrintFrame extends JFrame implements DefaultFrame {
     public static PrintFrame getInstance(final Pojo pojo) {
         if (instance == null) {
             instance = new PrintFrame(pojo);
+        } else {
+            instance.toFront();
         }
         return instance;
     }

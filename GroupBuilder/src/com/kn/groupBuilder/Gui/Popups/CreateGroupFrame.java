@@ -46,6 +46,8 @@ public final class CreateGroupFrame extends JFrame implements DefaultFrame {
     public static CreateGroupFrame getInstance(final Pojo pojo) {
         if (instance == null) {
             instance = new CreateGroupFrame(pojo);
+        } else {
+            instance.toFront();
         }
         return instance;
     }

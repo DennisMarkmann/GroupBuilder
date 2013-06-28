@@ -31,6 +31,8 @@ public final class ConfirmationFrame extends JFrame implements DefaultFrame {
     public static ConfirmationFrame getInstance(final Pojo pojo, final String action, final Object object) {
         if (instance == null) {
             instance = new ConfirmationFrame(pojo, action, object);
+        } else {
+            instance.toFront();
         }
         return instance;
     }
