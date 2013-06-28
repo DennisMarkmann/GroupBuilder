@@ -11,7 +11,7 @@ public class Settings { // NO_UCD
     private String language = "english"; // german or english
     private boolean archive = true;
     private int archivingDays = 7; // if the value is 0 the archiving will be disabled
-    private String ausgabeFormat = "xml"; // txt or xml
+    private String outputFormat = "xml"; // txt or xml
     private boolean sendMailAutomatically = false;
     private boolean printAutomatically = false;
 
@@ -39,12 +39,12 @@ public class Settings { // NO_UCD
         this.archivingDays = archivingDays;
     }
 
-    public final String getAusgabeFormat() {
-        return this.ausgabeFormat;
+    public final String getOutputFormat() {
+        return this.outputFormat;
     }
 
-    public final void setAusgabeFormat(final String ausgabeFormat) {
-        this.ausgabeFormat = ausgabeFormat;
+    public final void setOutputFormat(final String outputFormat) {
+        this.outputFormat = outputFormat;
     }
 
     public final boolean isSendMailAutomatically() {

@@ -39,8 +39,8 @@ public class SettingsFrameListener implements ActionListener {
         this.settingsFrame = settingsFrame;
         this.pojo = pojo;
         this.pathField = pathField;
-        this.languageBox = this.languageBox;
-        this.archivingBox = this.archivingBox;
+        this.languageBox = languageBox;
+        this.archivingBox = archivingBox;
         this.archiveField = archiveField;
         this.outputFormatBox = outputFormatBox;
         this.sendMailsAutomatically = sendMailsAutomatically;
@@ -59,16 +59,12 @@ public class SettingsFrameListener implements ActionListener {
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
             final Settings settings = this.pojo.getSettings();
 
-            this.languageBox.getSelectedItem();
             settings.setArchived(this.readCheckBox(this.archivingBox));
             settings.setSendMailAutomatically(this.readCheckBox(this.sendMailsAutomatically));
             settings.setPrintAutomatically(this.readCheckBox(this.printOutAutomatically));
-
-            if (this.archiveField.getText() != null && !this.archiveField.getText().equals("")) {
-                settings.setArchivingDays(Integer.parseInt(this.archiveField.getText()));
-            } else {
-                settings.setArchivingDays(0);
-            }
+            settings.setLanguage(this.pojo.getLanguageList()[this.languageBox.getSelectedIndex()]);
+            settings.setOutputFormat(this.pojo.getFormatList()[this.outputFormatBox.getSelectedIndex()]);
+            settings.setArchivingDays(Integer.parseInt(this.archiveField.getText()));
 
             this.settingsFrame.closeWindow();
 
