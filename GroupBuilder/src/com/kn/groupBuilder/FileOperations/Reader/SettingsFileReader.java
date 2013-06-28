@@ -23,7 +23,7 @@ class SettingsFileReader {
 
             final Element element = (Element) node;
             pojo.getSettings().setLanguage(helper.getElementValue(element, "Language"));
-            pojo.getSettings().setArchive(Boolean.parseBoolean(helper.getElementValue(element, "Archive")));
+            pojo.getSettings().setArchived(Boolean.parseBoolean(helper.getElementValue(element, "Archive")));
             pojo.getSettings().setArchivingDays(Integer.parseInt(helper.getElementValue(element, "ArchivingDays")));
             pojo.getSettings().setAusgabeFormat(helper.getElementValue(element, "AusgabeFormat"));
             pojo.getSettings().setSendMailAutomatically(

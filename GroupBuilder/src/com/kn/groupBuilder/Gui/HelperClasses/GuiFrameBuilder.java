@@ -71,11 +71,13 @@ public class GuiFrameBuilder {
 
     public final JComboBox<String> createComboBox(
             final JFrame frame,
+            final String name,
             final String[] content,
             final int gridxValue,
             final int gridyValue) {
 
         final JComboBox<String> comboBox = new JComboBox<String>(content);
+        this.setName(comboBox, name);
         this.setPosition(frame, this.gridBagConstraints, gridxValue, gridyValue, comboBox);
 
         return comboBox;

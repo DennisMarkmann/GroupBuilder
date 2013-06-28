@@ -23,11 +23,11 @@ public class Settings { // NO_UCD
         this.language = language;
     }
 
-    public final boolean isArchive() {
+    public final boolean isArchived() {
         return this.archive;
     }
 
-    public final void setArchive(final boolean archive) {
+    public final void setArchived(final boolean archive) {
         this.archive = archive;
     }
 

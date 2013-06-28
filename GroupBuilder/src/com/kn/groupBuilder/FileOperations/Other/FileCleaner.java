@@ -10,7 +10,7 @@ public class FileCleaner {
 
     public final void updateArchive(final Pojo pojo) {
 
-        if (pojo.getSettings().isArchive()) {
+        if (pojo.getSettings().isArchived()) {
             final File filePath = new File(pojo.getSettings().getPath() + "Archive\\");
             try {
                 for (final File file : filePath.listFiles()) {

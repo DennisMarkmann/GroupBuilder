@@ -20,7 +20,7 @@
 	
 	2.0.Mehrsprachen support.
 	
-	2.1.FileCleaner einbinden
+	2.1.FileCleaner einbinden in UI (Delete MenuPunkt)
 		
 	
 2. Dringende Änderungen nötig:
@@ -53,3 +53,5 @@
 	3.5.Kommentare & JavaDocs
 
 	3.6.Default Path wieder in das Programm legen (GroupBuilder folder)
+	
+	3.7. JPA connection Kram

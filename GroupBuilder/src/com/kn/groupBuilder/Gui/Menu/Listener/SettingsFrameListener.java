@@ -18,30 +18,33 @@ public class SettingsFrameListener implements ActionListener {
     private final SettingsFrame settingsFrame;
     private final Pojo pojo;
     private final JTextField pathField;
-    private final JCheckBox archivingCheckBox;
+    private final JComboBox<String> languageBox;
+    private final JCheckBox archivingBox;
     private final JTextField archiveField;
-    private final JCheckBox sendMailsAutomaticallyCheckBox;
-    private final JCheckBox printOutAutomaticallyCheckBox;
+    private final JCheckBox sendMailsAutomatically;
+    private final JCheckBox printOutAutomatically;
     private final JComboBox<String> outputFormatBox;
 
     public SettingsFrameListener(
             final SettingsFrame settingsFrame,
             final Pojo pojo,
             final JTextField pathField,
-            final JCheckBox archivingCheckBox,
+            final JComboBox<String> languageBox,
+            final JCheckBox archivingBox,
             final JTextField archiveField,
             final JComboBox<String> outputFormatBox,
-            final JCheckBox sendMailsAutomaticallyCheckBox,
-            final JCheckBox printOutAutomaticallyCheckBox) {
+            final JCheckBox sendMailsAutomatically,
+            final JCheckBox printOutAutomatically) {
 
         this.settingsFrame = settingsFrame;
         this.pojo = pojo;
         this.pathField = pathField;
-        this.archivingCheckBox = archivingCheckBox;
+        this.languageBox = this.languageBox;
+        this.archivingBox = this.archivingBox;
         this.archiveField = archiveField;
         this.outputFormatBox = outputFormatBox;
-        this.sendMailsAutomaticallyCheckBox = sendMailsAutomaticallyCheckBox;
-        this.printOutAutomaticallyCheckBox = printOutAutomaticallyCheckBox;
+        this.sendMailsAutomatically = sendMailsAutomatically;
+        this.printOutAutomatically = printOutAutomatically;
     }
 
     @Override
@@ -51,28 +54,15 @@ public class SettingsFrameListener implements ActionListener {
 
         if (buttonClicked.getName().compareTo("pathButton") == 0) {
             new PathChooser().changePath(this.pojo);
-            this.settingsFrame.refreshTextFields(this.pathField, this.pojo);
+            this.settingsFrame.updatePathField(this.pathField, this.pojo);
 
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
             final Settings settings = this.pojo.getSettings();
 
-            if (this.archivingCheckBox.isSelected()) {
-                settings.setArchive(true);
-            } else {
-                settings.setArchive(false);
-            }
-
-            if (this.sendMailsAutomaticallyCheckBox.isSelected()) {
-                settings.setSendMailAutomatically(true);
-            } else {
-                settings.setSendMailAutomatically(false);
-            }
-
-            if (this.printOutAutomaticallyCheckBox.isSelected()) {
-                settings.setPrintAutomatically(true);
-            } else {
-                settings.setPrintAutomatically(false);
-            }
+            this.languageBox.getSelectedItem();
+            settings.setArchived(this.readCheckBox(this.archivingBox));
+            settings.setSendMailAutomatically(this.readCheckBox(this.sendMailsAutomatically));
+            settings.setPrintAutomatically(this.readCheckBox(this.printOutAutomatically));
 
             if (this.archiveField.getText() != null && !this.archiveField.getText().equals("")) {
                 settings.setArchivingDays(Integer.parseInt(this.archiveField.getText()));
@@ -85,5 +75,14 @@ public class SettingsFrameListener implements ActionListener {
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
             this.settingsFrame.closeWindow();
         }
+    }
+
+    private boolean readCheckBox(final JCheckBox checkBox) {
+
+        if (checkBox.isSelected()) {
+            return (true);
+        }
+        return (false);
+
     }
 }
