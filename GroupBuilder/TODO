@@ -15,7 +15,7 @@
 	
 	1.6.Print for a single group
 		
-	1.7.Messages for succesfull actions
+	1.7.Messages for sucesfull actions
 			
 	1.8.FileCleaner implementation in GUI (Delete MenuPunkt)
 	
@@ -57,3 +57,8 @@
 	3.6.Default Path wieder in das Programm legen (GroupBuilder folder)
 	
 	3.7. JPA connection Kram
+	
+
+4. Bugs:
+
+	4.1. Print & Email jobs don't work

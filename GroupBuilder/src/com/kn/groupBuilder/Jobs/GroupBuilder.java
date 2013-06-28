@@ -7,6 +7,14 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Used to assign or unassign members to groups.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class GroupBuilder {
 
     private int memberIndex = 0;

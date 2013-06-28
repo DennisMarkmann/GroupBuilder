@@ -5,6 +5,14 @@ import java.io.File;
 import com.kn.groupBuilder.HelperClasses.DateHelper;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Used to create archive files (copys) of the current group files.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class GroupFileArchiver {
 
     public final void archivGroupFiles(final Pojo pojo) {

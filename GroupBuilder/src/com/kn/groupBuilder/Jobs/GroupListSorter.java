@@ -5,6 +5,15 @@ import java.util.ArrayList;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Used to sort the GroupList. Sorts the Groups with fix size to the beginning, so that this will be prioritized before the
+ * others. Important for building groups.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 class GroupListSorter {
 
     final void sortArrayListForPriority(final Pojo pojo) {

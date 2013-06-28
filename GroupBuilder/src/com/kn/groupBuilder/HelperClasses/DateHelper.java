@@ -5,6 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Used to get the current Dat or to parse Strings to Date objects.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class DateHelper {
 
     private final Calendar c = new SimpleDateFormat("dd.MM.yyyy").getCalendar();

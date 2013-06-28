@@ -7,6 +7,14 @@ import javax.swing.table.AbstractTableModel;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 
+/**
+ * The table shown in the memberTab.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public final class MemberTableModel extends AbstractTableModel {
 
     private static final long serialVersionUID = -3758449082711896808L;

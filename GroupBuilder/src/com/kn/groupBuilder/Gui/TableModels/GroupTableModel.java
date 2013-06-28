@@ -6,6 +6,14 @@ import javax.swing.table.AbstractTableModel;
 
 import com.kn.groupBuilder.Storage.Group;
 
+/**
+ * The table shown in the groupTab.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public final class GroupTableModel extends AbstractTableModel {
 
     private static final long serialVersionUID = -3758449082711896808L;

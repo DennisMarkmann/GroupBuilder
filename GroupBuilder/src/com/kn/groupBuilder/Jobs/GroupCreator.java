@@ -3,6 +3,14 @@ package com.kn.groupBuilder.Jobs;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Used to create new group objects.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class GroupCreator {
 
     private final Pojo pojo;
