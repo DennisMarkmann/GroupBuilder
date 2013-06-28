@@ -4,7 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
-import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
 import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Menu.Listener.PrintFrameListener;
@@ -14,18 +13,17 @@ public final class PrintFrame extends JFrame implements DefaultFrame {
 
     private static PrintFrame instance = null;
     private static final long serialVersionUID = 4767991083504569016L;
-    private final GuiFrameBuilder builder = new GuiFrameBuilder();
 
     private PrintFrame(final Pojo pojo) {
 
-        this.builder.setDefaultFrameSettings(this, "Print");
+        builder.setDefaultFrameSettings(this, "Print");
         this.addWindowListener(new MyWindowAdapter(this));
 
-        final JComboBox<String> groupBox = this.builder.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 0, 0);
-        final JButton printButton = this.builder.createButton(this, "printOutButton", "Print", 1, 0);
+        final JComboBox<String> groupBox = builder.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 0, 0);
+        final JButton printButton = builder.createButton(this, "printOutButton", "Print", 1, 0);
 
-        final JButton printAllButton = this.builder.createButton(this, "printOutAllButton", "PrintAll", 0, 1);
-        final JButton closeButton = this.builder.createButton(this, "closeButton", "Close", 1, 1);
+        final JButton printAllButton = builder.createButton(this, "printOutAllButton", "PrintAll", 0, 1);
+        final JButton closeButton = builder.createButton(this, "closeButton", "Close", 1, 1);
 
         final PrintFrameListener listener = new PrintFrameListener(this, pojo, groupBox);
 

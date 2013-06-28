@@ -5,7 +5,6 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.HelperClasses.CheckBoxHelper;
-import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
 import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Popups.Listener.BuildFrameListener;
@@ -15,12 +14,11 @@ public class BuildFrame extends JFrame implements DefaultFrame {
 
     private static BuildFrame instance = null;
     private static final long serialVersionUID = -6911722669720979718L;
-    private final GuiFrameBuilder builder = new GuiFrameBuilder();
     private final CheckBoxHelper checkBoxHelper = new CheckBoxHelper();
 
     public BuildFrame(final Pojo pojo) {
 
-        this.builder.setDefaultFrameSettings(this, "Build Groups");
+        builder.setDefaultFrameSettings(this, "Build Groups");
         this.addWindowListener(new MyWindowAdapter(this));
 
         final JCheckBox buildCompleteCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
@@ -36,7 +34,7 @@ public class BuildFrame extends JFrame implements DefaultFrame {
                 0,
                 2);
 
-        final JButton buildButton = this.builder.createButton(this, "buildButton", "Build", 0, 4);
+        final JButton buildButton = builder.createButton(this, "buildButton", "Build", 0, 4);
         this.pack();
 
         final BuildFrameListener listener = new BuildFrameListener(this, pojo, buildCompleteCheckBox, buildUnassignedCheckBox);

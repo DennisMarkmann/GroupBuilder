@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
 import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Menu.Listener.AboutFrameListener;
@@ -15,14 +14,13 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
 
     private static AboutFrame instance = null;
     private static final long serialVersionUID = -7650216557475857971L;
-    private final GuiFrameBuilder builder = new GuiFrameBuilder();
 
     private AboutFrame(final Pojo pojo) {
 
-        this.builder.setDefaultFrameSettings(this, "About");
+        builder.setDefaultFrameSettings(this, "About");
         this.addWindowListener(new MyWindowAdapter(this));
-        this.builder.createLabel(this, "Designed by Dennis Markmann", 1, 2);
-        final JButton closeButton = this.builder.createButton(this, "closeButton", "close", 0, 3);
+        builder.createLabel(this, "Designed by Dennis Markmann", 1, 2);
+        final JButton closeButton = builder.createButton(this, "closeButton", "close", 0, 3);
 
         final ActionListener listener = new AboutFrameListener(this);
 

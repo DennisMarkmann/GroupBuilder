@@ -4,7 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
 import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Popups.Listener.CreateMemberFrameListener;
@@ -14,24 +13,22 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
 
     private static CreateMemberFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;
-    private final GuiFrameBuilder builder = new GuiFrameBuilder();
-    private static final int TEXT_FIELD_SIZE = 5;
 
     private CreateMemberFrame(final Pojo pojo) {
 
-        this.builder.setDefaultFrameSettings(this, "CreateMember");
+        builder.setDefaultFrameSettings(this, "CreateMember");
         this.addWindowListener(new MyWindowAdapter(this));
 
-        this.builder.createLabel(this, "FirstName", 0, 1);
-        this.builder.createLabel(this, "LastName", 0, 2);
-        this.builder.createLabel(this, "E-Mail", 0, 3);
+        builder.createLabel(this, "FirstName", 0, 1);
+        builder.createLabel(this, "LastName", 0, 2);
+        builder.createLabel(this, "E-Mail", 0, 3);
 
-        final JTextField firstNameField = this.builder.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
-        final JTextField lastNameField = this.builder.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
-        final JTextField eMailField = this.builder.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
+        final JTextField firstNameField = builder.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
+        final JTextField lastNameField = builder.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
+        final JTextField eMailField = builder.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
 
-        final JButton confirmationButton = this.builder.createButton(this, "confirmationButton", "Confirm", 0, 4);
-        final JButton abortButton = this.builder.createButton(this, "abortButton", "Abort", 1, 4);
+        final JButton confirmationButton = builder.createButton(this, "confirmationButton", "Confirm", 0, 4);
+        final JButton abortButton = builder.createButton(this, "abortButton", "Abort", 1, 4);
 
         this.pack();
 

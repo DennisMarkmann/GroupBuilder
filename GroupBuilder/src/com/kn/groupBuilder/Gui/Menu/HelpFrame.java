@@ -3,7 +3,6 @@ package com.kn.groupBuilder.Gui.Menu;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import com.kn.groupBuilder.Gui.HelperClasses.GuiFrameBuilder;
 import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
 import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Menu.Listener.HelpFrameListener;
@@ -13,13 +12,12 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
 
     private static HelpFrame instance = null;
     private static final long serialVersionUID = 416901635761617562L;
-    private final GuiFrameBuilder builder = new GuiFrameBuilder();
 
     private HelpFrame(final Pojo pojo) {
-        this.builder.setDefaultFrameSettings(this, "Help");
+        builder.setDefaultFrameSettings(this, "Help");
         this.addWindowListener(new MyWindowAdapter(this));
-        this.builder.createLabel(this, "HelpText", 1, 2);
-        final JButton closeButton = this.builder.createButton(this, "closeButton", "close", 0, 3);
+        builder.createLabel(this, "HelpText", 1, 2);
+        final JButton closeButton = builder.createButton(this, "closeButton", "close", 0, 3);
 
         final HelpFrameListener listener = new HelpFrameListener(this);
 
