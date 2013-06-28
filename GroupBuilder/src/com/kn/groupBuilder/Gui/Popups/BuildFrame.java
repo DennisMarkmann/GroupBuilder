@@ -18,7 +18,7 @@ public class BuildFrame extends JFrame implements DefaultFrame {
 
     public BuildFrame(final Pojo pojo) {
 
-        builder.setDefaultFrameSettings(this, "Build Groups");
+        BUILDER.setDefaultFrameSettings(this, "Build Groups");
         this.addWindowListener(new MyWindowAdapter(this));
 
         final JCheckBox buildCompleteCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
@@ -34,7 +34,7 @@ public class BuildFrame extends JFrame implements DefaultFrame {
                 0,
                 2);
 
-        final JButton buildButton = builder.createButton(this, "buildButton", "Build", 0, 4);
+        final JButton buildButton = BUILDER.createButton(this, "buildButton", "Build", 0, 4);
         this.pack();
 
         final BuildFrameListener listener = new BuildFrameListener(this, pojo, buildCompleteCheckBox, buildUnassignedCheckBox);

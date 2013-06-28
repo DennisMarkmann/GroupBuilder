@@ -6,9 +6,9 @@ import java.util.Date;
 import com.kn.groupBuilder.HelperClasses.DateHelper;
 import com.kn.groupBuilder.Storage.Pojo;
 
-public class FileCleaner {
+class FileCleaner {
 
-    public final void updateArchive(final Pojo pojo) {
+    final void updateArchive(final Pojo pojo) {
 
         if (pojo.getSettings().isArchived()) {
             final File filePath = new File(pojo.getSettings().getPath() + "Archive\\");

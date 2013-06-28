@@ -15,12 +15,12 @@ public final class ConfirmationFrame extends JFrame implements DefaultFrame {
 
     private ConfirmationFrame(final Pojo pojo, final String action, final Object object) {
 
-        builder.setDefaultFrameSettings(this, "Confirm");
+        BUILDER.setDefaultFrameSettings(this, "Confirm");
         this.addWindowListener(new MyWindowAdapter(this));
 
-        builder.createLabel(this, "Do you really want to ...?", 0, 1);
-        final JButton confirmationButton = builder.createButton(this, "confirmationButton", "Confirm", 0, 4);
-        final JButton abortButton = builder.createButton(this, "abortButton", "Abort", 3, 4);
+        BUILDER.createLabel(this, "Do you really want to ...?", 0, 1);
+        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Confirm", 0, 4);
+        final JButton abortButton = BUILDER.createButton(this, "abortButton", "Abort", 3, 4);
 
         final ConfirmationFrameListener listener = new ConfirmationFrameListener(this, pojo, action, object);
 

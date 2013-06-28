@@ -16,19 +16,19 @@ public final class CreateGroupFrame extends JFrame implements DefaultFrame {
 
     private CreateGroupFrame(final Pojo pojo) {
 
-        builder.setDefaultFrameSettings(this, "CreateGroup");
+        BUILDER.setDefaultFrameSettings(this, "CreateGroup");
         this.addWindowListener(new MyWindowAdapter(this));
 
-        builder.createLabel(this, "GroupName", 0, 1);
-        builder.createLabel(this, "Description", 0, 2);
-        builder.createLabel(this, "Size", 0, 3);
+        BUILDER.createLabel(this, "GroupName", 0, 1);
+        BUILDER.createLabel(this, "Description", 0, 2);
+        BUILDER.createLabel(this, "Size", 0, 3);
 
-        final JTextField groupNameField = builder.createTextField(this, "groupNameField", TEXT_FIELD_SIZE, 1, 1);
-        final JTextField groupDescField = builder.createTextField(this, "groupDescField", TEXT_FIELD_SIZE, 1, 2);
-        final JTextField groupSizeField = builder.createTextField(this, "groupSizeField", TEXT_FIELD_SIZE, 1, 3);
+        final JTextField groupNameField = BUILDER.createTextField(this, "groupNameField", TEXT_FIELD_SIZE, 1, 1);
+        final JTextField groupDescField = BUILDER.createTextField(this, "groupDescField", TEXT_FIELD_SIZE, 1, 2);
+        final JTextField groupSizeField = BUILDER.createTextField(this, "groupSizeField", TEXT_FIELD_SIZE, 1, 3);
 
-        final JButton confirmationButton = builder.createButton(this, "confirmationButton", "Confirm", 0, 4);
-        final JButton abortButton = builder.createButton(this, "abortButton", "Abort", 1, 4);
+        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Confirm", 0, 4);
+        final JButton abortButton = BUILDER.createButton(this, "abortButton", "Abort", 1, 4);
 
         this.pack();
 

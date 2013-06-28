@@ -14,10 +14,10 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
     private static final long serialVersionUID = 416901635761617562L;
 
     private HelpFrame(final Pojo pojo) {
-        builder.setDefaultFrameSettings(this, "Help");
+        BUILDER.setDefaultFrameSettings(this, "Help");
         this.addWindowListener(new MyWindowAdapter(this));
-        builder.createLabel(this, "HelpText", 1, 2);
-        final JButton closeButton = builder.createButton(this, "closeButton", "close", 0, 3);
+        BUILDER.createLabel(this, "HelpText", 1, 2);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "close", 0, 3);
 
         final HelpFrameListener listener = new HelpFrameListener(this);
 

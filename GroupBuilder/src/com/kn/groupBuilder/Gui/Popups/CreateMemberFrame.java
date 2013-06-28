@@ -16,19 +16,19 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
 
     private CreateMemberFrame(final Pojo pojo) {
 
-        builder.setDefaultFrameSettings(this, "CreateMember");
+        BUILDER.setDefaultFrameSettings(this, "CreateMember");
         this.addWindowListener(new MyWindowAdapter(this));
 
-        builder.createLabel(this, "FirstName", 0, 1);
-        builder.createLabel(this, "LastName", 0, 2);
-        builder.createLabel(this, "E-Mail", 0, 3);
+        BUILDER.createLabel(this, "FirstName", 0, 1);
+        BUILDER.createLabel(this, "LastName", 0, 2);
+        BUILDER.createLabel(this, "E-Mail", 0, 3);
 
-        final JTextField firstNameField = builder.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
-        final JTextField lastNameField = builder.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
-        final JTextField eMailField = builder.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
+        final JTextField firstNameField = BUILDER.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
+        final JTextField lastNameField = BUILDER.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
+        final JTextField eMailField = BUILDER.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
 
-        final JButton confirmationButton = builder.createButton(this, "confirmationButton", "Confirm", 0, 4);
-        final JButton abortButton = builder.createButton(this, "abortButton", "Abort", 1, 4);
+        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Confirm", 0, 4);
+        final JButton abortButton = BUILDER.createButton(this, "abortButton", "Abort", 1, 4);
 
         this.pack();
 

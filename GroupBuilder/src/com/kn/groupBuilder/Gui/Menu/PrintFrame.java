@@ -16,14 +16,14 @@ public final class PrintFrame extends JFrame implements DefaultFrame {
 
     private PrintFrame(final Pojo pojo) {
 
-        builder.setDefaultFrameSettings(this, "Print");
+        BUILDER.setDefaultFrameSettings(this, "Print");
         this.addWindowListener(new MyWindowAdapter(this));
 
-        final JComboBox<String> groupBox = builder.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 0, 0);
-        final JButton printButton = builder.createButton(this, "printOutButton", "Print", 1, 0);
+        final JComboBox<String> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 0, 0);
+        final JButton printButton = BUILDER.createButton(this, "printOutButton", "Print", 1, 0);
 
-        final JButton printAllButton = builder.createButton(this, "printOutAllButton", "PrintAll", 0, 1);
-        final JButton closeButton = builder.createButton(this, "closeButton", "Close", 1, 1);
+        final JButton printAllButton = BUILDER.createButton(this, "printOutAllButton", "PrintAll", 0, 1);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 1);
 
         final PrintFrameListener listener = new PrintFrameListener(this, pojo, groupBox);
 

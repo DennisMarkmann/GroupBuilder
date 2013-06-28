@@ -18,17 +18,12 @@ public final class Main { // NO_UCD
     public static void main(final String[] args) throws IOException {
 
         final Pojo pojo = new Pojo();
-        // new FileCleaner().cleanFiles(pojo.getSettings().getPath());
         // new PojoContentTester().initializeDefaultTest(pojo);
 
         new FileReaderHelper().readXMLFiles(pojo);
 
-        // new GroupBuilder().buildGroups(pojo);
         // new DefaultTestCreator().startTests(pojo);
-        // new EmailJobHelper().initializeEmailSending(pojo);
-        // new PrintJobHelper().printAllGroups(pojo);
         //
-        // new FileCleaner().cleanFolder(pojo.getSettings().getPath() + "Archive\\");
 
         new MainFrame().createGui(pojo);
 

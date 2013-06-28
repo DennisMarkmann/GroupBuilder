@@ -17,10 +17,10 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
 
     private AboutFrame(final Pojo pojo) {
 
-        builder.setDefaultFrameSettings(this, "About");
+        BUILDER.setDefaultFrameSettings(this, "About");
         this.addWindowListener(new MyWindowAdapter(this));
-        builder.createLabel(this, "Designed by Dennis Markmann", 1, 2);
-        final JButton closeButton = builder.createButton(this, "closeButton", "close", 0, 3);
+        BUILDER.createLabel(this, "Designed by Dennis Markmann", 1, 2);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "close", 0, 3);
 
         final ActionListener listener = new AboutFrameListener(this);
 

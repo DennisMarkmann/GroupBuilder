@@ -15,13 +15,13 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
 
     private EmailFrame(final Pojo pojo) {
 
-        builder.setDefaultFrameSettings(this, "Email");
+        BUILDER.setDefaultFrameSettings(this, "Email");
 
-        final JTextField addressField = builder.createTextField(this, "addressField", TEXT_FIELD_SIZE, 0, 0);
-        final JButton sendButton = builder.createButton(this, "sendButton", "Send", 1, 0);
+        final JTextField addressField = BUILDER.createTextField(this, "addressField", TEXT_FIELD_SIZE, 0, 0);
+        final JButton sendButton = BUILDER.createButton(this, "sendButton", "Send", 1, 0);
 
-        final JButton sendAllButton = builder.createButton(this, "sendAllButton", "SendToAll", 0, 1);
-        final JButton closeButton = builder.createButton(this, "closeButton", "Close", 1, 1);
+        final JButton sendAllButton = BUILDER.createButton(this, "sendAllButton", "SendToAll", 0, 1);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 1);
 
         final EmailFrameListener listener = new EmailFrameListener(this, pojo, addressField);
 
