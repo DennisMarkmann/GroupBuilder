@@ -2,6 +2,14 @@ package com.kn.groupBuilder.Storage;
 
 import java.util.ArrayList;
 
+/**
+ * Member object. Contains various elements and is able to get assigned to groups.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class Member {
 
     private String firstName = "";

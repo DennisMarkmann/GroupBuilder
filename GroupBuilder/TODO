@@ -16,9 +16,15 @@
 	
 	1.6.Print for a single group
 		
-	1.8.Messages for succesfull actions
+	1.7.Messages for succesfull actions
 			
-	2.1.FileCleaner implementation in GUI (Delete MenuPunkt)
+	1.8.FileCleaner implementation in GUI (Delete MenuPunkt)
+	
+	1.9.Choose printer functionality
+		1.9.1.Add printer in Settings
+		1.9.2.Add printer in Settings.XML
+		1.9.3.If printer selected: use this, else: open choosePrinterDialog
+		1.9.4.Ask to store the printer after choosing in the dialog
 	
 		
 	

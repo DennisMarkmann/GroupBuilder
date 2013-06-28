@@ -2,6 +2,15 @@ package com.kn.groupBuilder.Storage;
 
 import java.util.ArrayList;
 
+/**
+ * Storage of the application. Contains various elements and is reached through the whole program. Most of the content can be
+ * saved via XML files.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class Pojo {
 
     private ArrayList<Member> memberList = new ArrayList<Member>();;
