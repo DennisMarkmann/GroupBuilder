@@ -18,6 +18,7 @@ public class FileWriteHelper {
         new GroupFileWriter().initializeXMLPrint(pojo);
         new GroupFileArchiver().archivGroupFiles(pojo);
         new SettingsFileWriter().createXmlFile(pojo);
+        new FileCleaner().updateArchive(pojo);
     }
 
     final Element createElement(final Document doc, final Element superiorElement, final String name, final String value) {

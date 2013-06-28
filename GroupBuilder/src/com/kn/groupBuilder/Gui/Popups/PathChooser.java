@@ -26,7 +26,7 @@ public class PathChooser {
         });
 
         if (fc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            pojo.getSettings().setPath(fc.getSelectedFile().getAbsolutePath());
+            pojo.getSettings().setPath(fc.getSelectedFile().getAbsolutePath() + "\\");
         }
     }
 }

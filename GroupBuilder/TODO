@@ -1,26 +1,25 @@
 1. Content:
 
-	1.1.Settings implementieren
+	1.1.Settings functionalities
+		1.1.1.Language
+		1.1.2.Output format
+		1.1.3.Send e-Mails automatically
+		1.1.4.Print automatically
 
 	1.2.Edit & Remove functionality
 	
-	1.3.Help und AboutFrame befüllen.
+	1.3.Fill Help and AboutFrame.
 
-	1.4.Tabellen sortieren können.. alphabetisch nach den verschiedenen Kriterien
+	1.4.Sort Tables.. alphabetisch nach den verschiedenen Kriterien
 	
-	1.5.Email an einzelnen Person
+	1.5.Email to single Person
 	
-	1.6.Print einer einzelnen Gruppe
+	1.6.Print for a single group
+		
+	1.8.Messages for succesfull actions
+			
+	2.1.FileCleaner implementation in GUI (Delete MenuPunkt)
 	
-	1.7.TXT Optional anbieten mit TXT in Namen
-	
-	1.8.Messages bei erfolgreichen Aktionen
-	
-!	1.9.Initiales richtiges befüllen der Frames (Settings)
-	
-	2.0.Mehrsprachen support.
-	
-	2.1.FileCleaner einbinden in UI (Delete MenuPunkt)
 		
 	
 2. Dringende Änderungen nötig:
@@ -37,7 +36,7 @@
 	
 	2.6.Bei erneuter Auswahl eines Frames diesen auswählen und in den Vordergrund
 	
-	2.7.Doppelte Einträge verhinden
+	2.7.Doppelte Einträge verhindern (Member und Group mit identischen Namen)
 	
 
 3. CleanUp:

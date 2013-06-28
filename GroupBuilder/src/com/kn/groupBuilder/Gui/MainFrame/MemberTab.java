@@ -19,7 +19,6 @@ class MemberTab extends JPanel {
     MemberTab(final Pojo pojo) {
 
         this.setLayout(new GridBagLayout());
-
         this.builder.createMemberTable(this, pojo.getMemberList(), 0, 0);
 
         this.builder.getGridBagConstraints().fill = GridBagConstraints.NONE;
