@@ -28,7 +28,6 @@ class SettingsFileWriter {
             helper.createElement(doc, settingsElement, "Language", settings.getLanguage());
             helper.createElement(doc, settingsElement, "Archive", settings.isArchived() + "");
             helper.createElement(doc, settingsElement, "ArchivingDays", settings.getArchivingDays() + "");
-            helper.createElement(doc, settingsElement, "AusgabeFormat", settings.getOutputFormat());
             helper.createElement(doc, settingsElement, "SendMailAutomatically", settings.isSendMailAutomatically() + "");
             helper.createElement(doc, settingsElement, "PrintAutomatically", settings.isPrintAutomatically() + "");
 

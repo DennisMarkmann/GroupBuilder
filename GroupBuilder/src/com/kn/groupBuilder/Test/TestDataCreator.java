@@ -4,6 +4,14 @@ import com.kn.groupBuilder.Jobs.GroupCreator;
 import com.kn.groupBuilder.Jobs.MemberCreator;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Used create testData. This contains member and groups. Is going to be replaced with a JUnit test.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class TestDataCreator {
 
     public final void fillTestMemberList(final Pojo pojo) {

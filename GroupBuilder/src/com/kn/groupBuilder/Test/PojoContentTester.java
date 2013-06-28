@@ -4,6 +4,14 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Used to start the different test operations. Another test for the POJO content. Is going to be replaced with a JUnit test.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class PojoContentTester {
 
     public final void initializeDefaultTest(final Pojo pojo) {

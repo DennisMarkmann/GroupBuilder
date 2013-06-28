@@ -23,7 +23,6 @@ public class SettingsFrameListener implements ActionListener {
     private final JTextField archiveField;
     private final JCheckBox sendMailsAutomatically;
     private final JCheckBox printOutAutomatically;
-    private final JComboBox<String> outputFormatBox;
 
     public SettingsFrameListener(
             final SettingsFrame settingsFrame,
@@ -32,7 +31,6 @@ public class SettingsFrameListener implements ActionListener {
             final JComboBox<String> languageBox,
             final JCheckBox archivingBox,
             final JTextField archiveField,
-            final JComboBox<String> outputFormatBox,
             final JCheckBox sendMailsAutomatically,
             final JCheckBox printOutAutomatically) {
 
@@ -42,7 +40,6 @@ public class SettingsFrameListener implements ActionListener {
         this.languageBox = languageBox;
         this.archivingBox = archivingBox;
         this.archiveField = archiveField;
-        this.outputFormatBox = outputFormatBox;
         this.sendMailsAutomatically = sendMailsAutomatically;
         this.printOutAutomatically = printOutAutomatically;
     }
@@ -63,7 +60,6 @@ public class SettingsFrameListener implements ActionListener {
             settings.setSendMailAutomatically(this.readCheckBox(this.sendMailsAutomatically));
             settings.setPrintAutomatically(this.readCheckBox(this.printOutAutomatically));
             settings.setLanguage(this.pojo.getLanguageList()[this.languageBox.getSelectedIndex()]);
-            settings.setOutputFormat(this.pojo.getFormatList()[this.outputFormatBox.getSelectedIndex()]);
             settings.setArchivingDays(Integer.parseInt(this.archiveField.getText()));
 
             this.settingsFrame.closeWindow();
