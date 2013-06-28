@@ -102,10 +102,13 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         final Settings settings = pojo.getSettings();
 
         this.updatePathField(pathField, pojo);
+        languageBox.setSelectedItem(settings.getLanguage());
         archivingBox.setSelected(this.readCheckSettings(settings.isArchived()));
         archiveField.setText(settings.getArchivingDays() + "");
+        outputFormatBox.setSelectedItem(settings.getOutputFormat());
         sendMailsAutomaticallyBox.setSelected(this.readCheckSettings(settings.isSendMailAutomatically()));
         printOutAutomaticallyBox.setSelected(this.readCheckSettings(settings.isPrintAutomatically()));
+
     }
 
     public void updatePathField(final JTextField pathField, final Pojo pojo) {
