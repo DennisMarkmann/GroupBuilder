@@ -60,7 +60,9 @@
 
 	3.6.Default Path wieder in das Programm legen (GroupBuilder folder)
 	
-	3.7. JPA connection Kram
+	3.7.JPA connection Kram
+	
+	3.8.Helper Classes etc als externe Libraries einbinden
 	
 
 4. Bugs:
