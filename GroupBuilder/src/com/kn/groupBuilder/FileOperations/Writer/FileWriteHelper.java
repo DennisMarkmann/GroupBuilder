@@ -8,6 +8,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import com.kn.groupBuilder.Archiving.GroupFileArchiver;
+import com.kn.groupBuilder.FileOperations.Output.EmailJobHelper;
+import com.kn.groupBuilder.FileOperations.Output.PrintJobHelper;
 import com.kn.groupBuilder.Storage.Pojo;
 
 public class FileWriteHelper {
@@ -19,6 +21,13 @@ public class FileWriteHelper {
         new GroupFileArchiver().archivGroupFiles(pojo);
         new SettingsFileWriter().createXmlFile(pojo);
         new FileCleaner().updateArchive(pojo);
+
+        if (pojo.getSettings().isPrintAutomatically()) {
+            new PrintJobHelper().printAllGroups(pojo);
+        }
+        if (pojo.getSettings().isSendMailAutomatically()) {
+            new EmailJobHelper().initializeEmailSending(pojo);
+        }
     }
 
     final Element createElement(final Document doc, final Element superiorElement, final String name, final String value) {
