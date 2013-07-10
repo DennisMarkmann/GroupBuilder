@@ -15,7 +15,7 @@
 	
 	1.6.Print for a single group
 		
-	1.7.Messages for sucesfull actions
+	1.7.Messages for sucessfull actions
 			
 	1.8.FileCleaner implementation in GUI (Delete MenuPunkt)
 	
@@ -62,7 +62,7 @@
 	
 	3.7.JPA connection Kram
 	
-	3.8.Helper Classes etc als externe Libraries einbinden
+	3.8.Helper Classes & Email / Print Job etc als externe Libraries einbinden
 	
 
 4. Bugs:
