@@ -17,7 +17,7 @@ public class BuildFrame extends JFrame implements DefaultFrame {
     private static final long serialVersionUID = -6911722669720979718L;
     private final CheckBoxHelper checkBoxHelper = new CheckBoxHelper();
 
-    public BuildFrame(final Pojo pojo) {
+    private BuildFrame(final Pojo pojo) {
 
         BUILDER.setDefaultFrameSettings(this, "Build Groups");
         this.addWindowListener(new MyWindowAdapter(this));
