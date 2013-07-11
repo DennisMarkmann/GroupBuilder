@@ -70,9 +70,10 @@ class FileCleaner {
         final DateHelper helper = new DateHelper();
 
         final Date archiveDate = helper.parseStringToDate(fileName.substring(0, fileName.indexOf("_")));
-        final Date currentDate = helper.parseStringToDate(helper.getDate(-7));
+        helper.addTime(0, 0, -7, 0, 0, 0);
+        final Date deletionDate = helper.parseStringToDate(helper.getDate());
 
-        if (archiveDate.before(currentDate)) {
+        if (archiveDate.before(deletionDate)) {
             return true;
         }
         return false;

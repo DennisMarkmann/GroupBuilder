@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Used to get the current Dat or to parse Strings to Date objects.
+ * Used to get the current Date or to parse Strings to Date objects.
  * 
  * @author dennis.markmann
  * @since JDK.1.7.0_21
@@ -21,10 +21,10 @@ public class DateHelper {
         this.c.setTimeInMillis(System.currentTimeMillis());
     }
 
-    public final String getFullDate(final int daysToAdd) {
+    public final String getFullDate() {
         final StringBuilder sb = new StringBuilder();
 
-        sb.append(this.getDate(daysToAdd));
+        sb.append(this.getDate());
         sb.append("_");
         sb.append(this.c.get(Calendar.HOUR_OF_DAY));
         sb.append(".");
@@ -35,10 +35,9 @@ public class DateHelper {
         return sb.toString();
     }
 
-    public final String getDate(final int daysToAdd) {
+    public final String getDate() {
         final StringBuilder sb = new StringBuilder();
 
-        this.c.add(Calendar.DAY_OF_MONTH, daysToAdd);
         sb.append(this.c.get(Calendar.DAY_OF_MONTH));
         sb.append(".");
         if (Calendar.MONTH < 10) {
@@ -49,6 +48,22 @@ public class DateHelper {
         sb.append(this.c.get(Calendar.YEAR));
 
         return sb.toString();
+    }
+
+    public final void addTime(
+            final int years,
+            final int months,
+            final int days,
+            final int hours,
+            final int minutes,
+            final int seconds) {
+
+        this.c.add(Calendar.YEAR, years);
+        this.c.add(Calendar.MONTH, months);
+        this.c.add(Calendar.DAY_OF_MONTH, days);
+        this.c.add(Calendar.HOUR_OF_DAY, hours);
+        this.c.add(Calendar.MINUTE, minutes);
+        this.c.add(Calendar.SECOND, seconds);
     }
 
     public final Date parseStringToDate(final String dateString) {
