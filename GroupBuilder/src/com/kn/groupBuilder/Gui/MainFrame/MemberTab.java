@@ -5,11 +5,14 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
-import com.kn.groupBuilder.Gui.HelperClasses.GuiTabBuilder;
 import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
 import com.kn.groupBuilder.Gui.MainFrame.Listener.MemberTabListener;
+import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
+
+import dennis.markmann.MyLibraries.Gui.Builder.GuiTabBuilder;
 
 class MemberTab extends JPanel {
 
@@ -19,7 +22,7 @@ class MemberTab extends JPanel {
     MemberTab(final Pojo pojo) {
 
         this.setLayout(new GridBagLayout());
-        this.builder.createMemberTable(this, pojo.getMemberList(), 0, 0);
+        this.builder.createTable(this, 0, 0, new JTable(new MemberTableModel(pojo.getMemberList())));
 
         this.builder.getGridBagConstraints().fill = GridBagConstraints.NONE;
         final JButton addButton = this.builder.createButton(this, "addButton", "Add Member", 0, 5);

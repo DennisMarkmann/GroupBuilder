@@ -5,10 +5,13 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
-import com.kn.groupBuilder.Gui.HelperClasses.GuiTabBuilder;
 import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
+import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
+
+import dennis.markmann.MyLibraries.Gui.Builder.GuiTabBuilder;
 
 class GroupTab extends JPanel {
 
@@ -18,7 +21,7 @@ class GroupTab extends JPanel {
     GroupTab(final Pojo pojo) {
 
         this.setLayout(new GridBagLayout());
-        this.builder.createGroupTable(this, pojo.getGroupList(), 0, 0);
+        this.builder.createTable(this, 0, 0, new JTable(new GroupTableModel(pojo.getGroupList())));
 
         this.builder.getGridBagConstraints().fill = GridBagConstraints.NONE;
         final JButton addButton = this.builder.createButton(this, "addButton", "Add Group", 0, 5);
