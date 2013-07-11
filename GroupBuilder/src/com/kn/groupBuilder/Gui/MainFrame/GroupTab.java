@@ -11,12 +11,12 @@ import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
 import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.Gui.Builder.GuiTabBuilder;
+import dennis.markmann.MyLibraries.Gui.Builder.TabBuilder;
 
 class GroupTab extends JPanel {
 
     private static final long serialVersionUID = 1673516265342795696L;
-    private final GuiTabBuilder builder = new GuiTabBuilder();
+    private final TabBuilder builder = new TabBuilder();
 
     GroupTab(final Pojo pojo) {
 

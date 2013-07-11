@@ -1,8 +1,9 @@
 package com.kn.groupBuilder.FileOperations.Output;
 
-import dennis.markmann.MyLibraries.PrintJob.*;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
+
+import dennis.markmann.MyLibraries.DefaultJobs.PrintJob;
 
 public class PrintJobHelper {
 

@@ -12,12 +12,12 @@ import com.kn.groupBuilder.Gui.MainFrame.Listener.MemberTabListener;
 import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.Gui.Builder.GuiTabBuilder;
+import dennis.markmann.MyLibraries.Gui.Builder.TabBuilder;
 
 class MemberTab extends JPanel {
 
     private static final long serialVersionUID = 3210114640051532404L;
-    private final GuiTabBuilder builder = new GuiTabBuilder();
+    private final TabBuilder builder = new TabBuilder();
 
     MemberTab(final Pojo pojo) {
 
