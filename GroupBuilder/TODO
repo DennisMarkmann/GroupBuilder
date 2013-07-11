@@ -29,7 +29,6 @@
 	1.12.Gui Aussehen optimieren (Settings)
 	
 	
-		
 	
 2. Dringende Änderungen nötig:
 
@@ -58,11 +57,3 @@
 	3.5.Default Path wieder in das Programm legen (GroupBuilder folder)
 	
 	3.6.JPA connection Kram
-	
-	3.7.Print job aufräumen
-	
-	
-
-4. Bugs:
-
-	4.1. Email job doesn't work ?

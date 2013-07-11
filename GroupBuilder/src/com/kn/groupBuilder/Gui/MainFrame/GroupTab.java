@@ -28,7 +28,9 @@ class GroupTab extends JPanel {
         final JButton saveButton = this.builder.createButton(this, "saveButton", "Save", 0, 7);
         this.builder.setDefaultGridBackValues();
 
-        addButton.addActionListener(new GroupTabListener(pojo));
-        saveButton.addActionListener(new GroupTabListener(pojo));
+        final GroupTabListener listener = new GroupTabListener(pojo);
+
+        addButton.addActionListener(listener);
+        saveButton.addActionListener(listener);
     }
 }

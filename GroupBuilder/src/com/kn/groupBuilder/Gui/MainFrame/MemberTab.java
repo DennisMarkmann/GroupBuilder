@@ -7,7 +7,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
-import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
 import com.kn.groupBuilder.Gui.MainFrame.Listener.MemberTabListener;
 import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -30,9 +29,11 @@ class MemberTab extends JPanel {
         final JButton saveButton = this.builder.createButton(this, "saveButton", "Save", 0, 7);
         this.builder.setDefaultGridBackValues();
 
-        addButton.addActionListener(new MemberTabListener(pojo));
-        buildButton.addActionListener(new GroupTabListener(pojo));
-        saveButton.addActionListener(new MemberTabListener(pojo));
+        final MemberTabListener listener = new MemberTabListener(pojo);
+
+        addButton.addActionListener(listener);
+        buildButton.addActionListener(listener);
+        saveButton.addActionListener(listener);
 
     }
 }
