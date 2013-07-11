@@ -9,9 +9,10 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Menu.SettingsFrame;
-import com.kn.groupBuilder.Gui.Popups.PathChooser;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Storage.Settings;
+
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.PathChooser;
 
 public class SettingsFrameListener implements ActionListener {
 
@@ -50,7 +51,7 @@ public class SettingsFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("pathButton") == 0) {
-            new PathChooser().changePath(this.pojo);
+            this.pojo.getSettings().setPath(new PathChooser().changePath());
             this.settingsFrame.updatePathField(this.pathField, this.pojo);
 
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {

@@ -6,8 +6,8 @@ import javax.swing.JFrame;
 import com.kn.groupBuilder.Gui.Menu.Listener.HelpFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.DefaultFrame;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
 public final class HelpFrame extends JFrame implements DefaultFrame {
 

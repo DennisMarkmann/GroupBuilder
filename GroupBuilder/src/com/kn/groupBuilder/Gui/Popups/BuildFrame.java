@@ -8,8 +8,8 @@ import com.kn.groupBuilder.Gui.Popups.Listener.BuildFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.ComponentHelper.CheckBoxHelper;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.DefaultFrame;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
 public class BuildFrame extends JFrame implements DefaultFrame {
 

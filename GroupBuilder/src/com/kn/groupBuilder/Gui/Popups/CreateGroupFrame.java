@@ -7,8 +7,8 @@ import javax.swing.JTextField;
 import com.kn.groupBuilder.Gui.Popups.Listener.CreateGroupFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.DefaultFrame;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
 public final class CreateGroupFrame extends JFrame implements DefaultFrame {
 
