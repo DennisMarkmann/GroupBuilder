@@ -41,7 +41,7 @@
 
 	2.4.Exceptions abfangen
 	
-	2.5.Gui Aussehen optimieren (Vor allem Settings & Buttons in den Tabs)
+	2.5.Gui Aussehen optimieren (Settings)
 		
 	2.6.Doppelte Einträge verhindern (Member und Group mit identischen Namen)
 	
@@ -51,21 +51,17 @@
 	3.1.Methoden aus frames auslagern (getInstance & closeWindow)
 
 	3.2.Einzelne GUI Komponenten nicht mitgeben, sondern aus dem gesamten Frame ziehen?(Alle Listener)
-
-	3.3.Tab und Frame Builder (teilweise) zusammen fassen?
-
-	3.4.JUnit Tests statt sysos
-
-	3.5.Kommentare & JavaDocs
-
-	3.6.Default Path wieder in das Programm legen (GroupBuilder folder)
 	
-	3.7.JPA connection Kram
+	3.3.JUnit Tests statt sysos
+
+	3.4.Kommentare & JavaDocs
+
+	3.5.Default Path wieder in das Programm legen (GroupBuilder folder)
 	
-	3.8.Einige Klassen als externe library einbinden
+	3.6.JPA connection Kram
 	
-	3.9.DateHelper
-	
+	3.7.Weitere Klassen als externe library einbinden (DateHelper)
+
 
 4. Bugs:
 
