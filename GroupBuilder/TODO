@@ -62,9 +62,9 @@
 	
 	3.7.JPA connection Kram
 	
-	3.8.Helper Classes & Email / Print Job etc als externe Libraries einbinden
+	3.8.Helper Classes & Email etc als externe Libraries einbinden
 	
 
 4. Bugs:
 
-	4.1. Print & Email jobs don't work
+	4.1. Email job doesn't work ?
