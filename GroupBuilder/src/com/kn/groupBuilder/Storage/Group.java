@@ -21,7 +21,7 @@ public class Group {
         this.name = name;
     }
 
-    public Group(final String name, final int fixSize) {
+    private Group(final String name, final int fixSize) {
         this(name);
         this.fixSize = fixSize;
     }
