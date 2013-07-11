@@ -13,7 +13,6 @@ public class PrintJobHelper {
 
     private void printGroup(final Group group) {
         final String printText = new TextCreator().createText(group);
-        final PrintJob pt = new PrintJob(printText);
-        pt.printAllPages();
+        new PrintJob(printText).printText();
     }
 }

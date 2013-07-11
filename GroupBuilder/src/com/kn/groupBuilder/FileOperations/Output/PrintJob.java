@@ -19,7 +19,12 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.Utilities;
 
-import com.kn.groupBuilder.Exceptions.PrintOperationException;
+/**
+ * Klasse zum Drucken von Texten.
+ * 
+ * @author dennis.markmann
+ * @since jdk1.7.0_21
+ */
 
 class PrintJob implements Printable {
 
@@ -82,14 +87,14 @@ class PrintJob implements Printable {
             }
             for (int i = 0; i < this.numberOfPages - 1; i++) {
                 this.pageBorders[i][1] = this.pageBorders[i + 1][0] - 1;
-                this.pageBorders[this.numberOfPages - 1][1] = this.textareaForPrint.getLineEndOffset(this.linesTotal - 1);
             }
+            this.pageBorders[this.numberOfPages - 1][1] = this.textareaForPrint.getLineEndOffset(this.linesTotal - 1);
             for (int i = 0; i < this.numberOfPages; i++) {
                 this.textPassages.add(this.textareaForPrint.getText(this.pageBorders[i][0], this.pageBorders[i][1]
                         - this.pageBorders[i][0]));
             }
         } catch (final BadLocationException e) {
-            new PrintOperationException(e.getStackTrace()).showDialog();
+            e.printStackTrace();
         }
     }
 
@@ -102,12 +107,13 @@ class PrintJob implements Printable {
         try {
             this.printerJob.print();
         } catch (final PrinterException e) {
+            e.printStackTrace();
             return false;
         }
         return true;
     }
 
-    final void printAllPages() {
+    void printText() {
         this.printerJob.setPrintable(this, this.pageFormat);
         for (int i = 0; i < this.numberOfPages; i++) {
             this.printPage(i);
@@ -119,6 +125,7 @@ class PrintJob implements Printable {
         if (pageIndex > 0) {
             return Printable.NO_SUCH_PAGE;
         }
+
         final Graphics2D g2 = (Graphics2D) g;
 
         g2.translate((int) pFormat.getImageableX(), (int) pFormat.getImageableY());
@@ -133,20 +140,6 @@ class PrintJob implements Printable {
         g2.dispose();
 
         return Printable.PAGE_EXISTS;
-    }
-
-    public final BufferedImage getPreviewOfPage(final int pageI) {
-        this.textareaForPrint.setText(this.textPassages.get(pageI));
-
-        this.bufferedImage = null;
-        this.bufferedImage = new BufferedImage(this.pageDim.width, this.pageDim.height, BufferedImage.TYPE_BYTE_GRAY);
-        this.textareaForPrint.paint(this.bufferedImage.getGraphics());
-
-        try {
-            return this.bufferedImage;
-        } finally {
-            this.bufferedImage = null;
-        }
     }
 
     private String getWrappedText(final JTextComponent c) {
@@ -169,7 +162,7 @@ class PrintJob implements Printable {
                 offset = end;
             }
         } catch (final BadLocationException e) {
-            new PrintOperationException(e.getStackTrace()).showDialog();
+            e.printStackTrace();
         }
         try {
             return buf.toString();
