@@ -4,11 +4,12 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
-import com.kn.groupBuilder.Gui.HelperClasses.CheckBoxHelper;
-import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
-import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Popups.Listener.BuildFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
+
+import dennis.markmann.MyLibraries.Gui.ComponentHelper.CheckBoxHelper;
+import dennis.markmann.MyLibraries.Gui.DefaultFrameClasses.DefaultFrame;
+import dennis.markmann.MyLibraries.Gui.DefaultFrameClasses.MyWindowAdapter;
 
 public class BuildFrame extends JFrame implements DefaultFrame {
 

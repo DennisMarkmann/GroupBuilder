@@ -3,10 +3,11 @@ package com.kn.groupBuilder.Gui.Popups;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import com.kn.groupBuilder.Gui.Interfaces.DefaultFrame;
-import com.kn.groupBuilder.Gui.Interfaces.MyWindowAdapter;
 import com.kn.groupBuilder.Gui.Popups.Listener.ConfirmationFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
+
+import dennis.markmann.MyLibraries.Gui.DefaultFrameClasses.DefaultFrame;
+import dennis.markmann.MyLibraries.Gui.DefaultFrameClasses.MyWindowAdapter;
 
 public final class ConfirmationFrame extends JFrame implements DefaultFrame {
 
