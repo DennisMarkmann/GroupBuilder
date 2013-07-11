@@ -2,6 +2,7 @@ package com.kn.groupBuilder.Gui.TableModels;
 
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
 import com.kn.groupBuilder.Storage.Group;
@@ -19,6 +20,12 @@ public final class GroupTableModel extends AbstractTableModel {
     private static final long serialVersionUID = -3758449082711896808L;
     private final ArrayList<Group> groupList;
     private final String[] cols = { "GroupName", "Description", "Size", "Edit", "Remove" };
+    private final Class<?>[] columnTypes = new Class<?>[] {
+            String.class,
+            String.class,
+            String.class,
+            JButton.class,
+            JButton.class };
 
     public GroupTableModel(final ArrayList<Group> groupList) {
         this.groupList = groupList;
@@ -40,23 +47,34 @@ public final class GroupTableModel extends AbstractTableModel {
     }
 
     @Override
+    public Class<?> getColumnClass(final int columnIndex) {
+        return this.columnTypes[columnIndex];
+    }
+
+    @Override
     public Object getValueAt(final int rowIndex, final int columnIndex) {
 
-        if (columnIndex == 0) {
+        switch (columnIndex) {
+        case 0:
             return this.groupList.get(rowIndex).getName();
 
-        } else if (columnIndex == 1) {
+        case 1:
             return this.groupList.get(rowIndex).getDescription();
 
-        } else if (columnIndex == 2) {
+        case 2:
             return this.groupList.get(rowIndex).getFixSize() + "";
 
-        } else if (columnIndex == 3) {
+        case 3:
+            // final JButton button = new JButton(this.cols[columnIndex]);
+            // return button;
+            return "";
+        case 4:
+            // final JButton button = new JButton(this.cols[columnIndex]);
+            // return button;
             return "";
 
-        } else if (columnIndex == 4) {
-            return "";
+        default:
+            return "Error";
         }
-        return null;
     }
 }

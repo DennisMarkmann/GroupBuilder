@@ -2,6 +2,7 @@ package com.kn.groupBuilder.Gui.TableModels;
 
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
 import com.kn.groupBuilder.Storage.Group;
@@ -20,6 +21,13 @@ public final class MemberTableModel extends AbstractTableModel {
     private static final long serialVersionUID = -3758449082711896808L;
     private final ArrayList<Member> memberList;
     private final String[] cols = { "FirstName", "LastName", "E-Mail", "Groups", "Edit", "Remove" };
+    private final Class<?>[] columnTypes = new Class<?>[] {
+            String.class,
+            String.class,
+            String.class,
+            String.class,
+            JButton.class,
+            JButton.class };
 
     public MemberTableModel(final ArrayList<Member> memberList) {
         this.memberList = memberList;
@@ -41,27 +49,39 @@ public final class MemberTableModel extends AbstractTableModel {
     }
 
     @Override
+    public Class<?> getColumnClass(final int columnIndex) {
+        return this.columnTypes[columnIndex];
+    }
+
+    @Override
     public Object getValueAt(final int rowIndex, final int columnIndex) {
 
-        if (columnIndex == 0) {
+        switch (columnIndex) {
+        case 0:
             return (this.memberList.get(rowIndex).getFirstName());
 
-        } else if (columnIndex == 1) {
+        case 1:
             return (this.memberList.get(rowIndex).getLastName());
 
-        } else if (columnIndex == 2) {
+        case 2:
             return (this.memberList.get(rowIndex).getEMailAdress());
 
-        } else if (columnIndex == 3) {
+        case 3:
             return this.buildGroupList(rowIndex);
 
-        } else if (columnIndex == 4) {
+        case 4:
+            // final JButton button = new JButton(this.cols[columnIndex]);
+            // return button;
             return "";
 
-        } else if (columnIndex == 5) {
+        case 5:
+            // final JButton button = new JButton(this.cols[columnIndex]);
+            // return button;
             return "";
+
+        default:
+            return "Error";
         }
-        return null;
     }
 
     private String buildGroupList(final int index) {
