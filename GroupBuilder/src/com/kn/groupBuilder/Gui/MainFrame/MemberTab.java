@@ -12,7 +12,7 @@ import com.kn.groupBuilder.Gui.MainFrame.Listener.MemberTabListener;
 import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.Gui.Builder.TabBuilder;
+import dennis.markmann.MyLibraries.GuiJobs.Builder.TabBuilder;
 
 class MemberTab extends JPanel {
 

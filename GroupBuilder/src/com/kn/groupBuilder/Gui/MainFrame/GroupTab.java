@@ -11,7 +11,7 @@ import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
 import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.Gui.Builder.TabBuilder;
+import dennis.markmann.MyLibraries.GuiJobs.Builder.TabBuilder;
 
 class GroupTab extends JPanel {
 

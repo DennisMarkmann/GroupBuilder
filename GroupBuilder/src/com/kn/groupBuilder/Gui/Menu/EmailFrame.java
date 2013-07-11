@@ -7,8 +7,8 @@ import javax.swing.JTextField;
 import com.kn.groupBuilder.Gui.Menu.Listener.EmailFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.Gui.DefaultFrameClasses.DefaultFrame;
-import dennis.markmann.MyLibraries.Gui.DefaultFrameClasses.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.MyWindowAdapter;
 
 public final class EmailFrame extends JFrame implements DefaultFrame {
 

@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 import com.kn.groupBuilder.Gui.Menu.Listener.AboutFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.Gui.DefaultFrameClasses.DefaultFrame;
-import dennis.markmann.MyLibraries.Gui.DefaultFrameClasses.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.MyWindowAdapter;
 
 public final class AboutFrame extends JFrame implements DefaultFrame {
 

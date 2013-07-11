@@ -10,8 +10,8 @@ import com.kn.groupBuilder.Gui.Menu.Listener.SettingsFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Storage.Settings;
 
-import dennis.markmann.MyLibraries.Gui.DefaultFrameClasses.DefaultFrame;
-import dennis.markmann.MyLibraries.Gui.DefaultFrameClasses.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrameClasses.MyWindowAdapter;
 
 public final class SettingsFrame extends JFrame implements DefaultFrame {
 
