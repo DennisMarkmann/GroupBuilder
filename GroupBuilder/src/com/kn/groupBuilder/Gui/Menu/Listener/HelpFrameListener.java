@@ -7,6 +7,14 @@ import javax.swing.JButton;
 
 import com.kn.groupBuilder.Gui.Menu.HelpFrame;
 
+/**
+ * Listener for the helpFrame. Used to close the window.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class HelpFrameListener implements ActionListener {
 
     private final HelpFrame helpFrame;

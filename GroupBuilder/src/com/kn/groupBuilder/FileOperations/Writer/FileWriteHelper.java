@@ -12,6 +12,15 @@ import com.kn.groupBuilder.FileOperations.Output.GroupFileArchiver;
 import com.kn.groupBuilder.FileOperations.Output.PrintJobHelper;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Helper class for all kind of file writing operations. Initializes the different actions and has some general used methods for
+ * the different writers.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class FileWriteHelper {
 
     public final void createXMLFiles(final Pojo pojo) {

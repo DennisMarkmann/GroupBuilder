@@ -9,6 +9,14 @@ import com.kn.groupBuilder.Storage.Pojo;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
+/**
+ * Frame used to show some useful introductions about the software.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public final class HelpFrame extends JFrame implements DefaultFrame {
 
     private static HelpFrame instance = null;

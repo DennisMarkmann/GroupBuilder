@@ -14,6 +14,14 @@ import com.kn.groupBuilder.Gui.Menu.PrintFrame;
 import com.kn.groupBuilder.Gui.Menu.SettingsFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Listener for the mainFrame. Allows to start operations via menubar.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class MainFrameListener extends MouseAdapter {
 
     private final Pojo pojo;

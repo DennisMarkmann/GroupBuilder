@@ -19,7 +19,7 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindo
  * @version 1.0
  */
 
-final public class BuildFrame extends JFrame implements DefaultFrame {
+public final class BuildFrame extends JFrame implements DefaultFrame {
 
     private static BuildFrame instance = null;
     private static final long serialVersionUID = -6911722669720979718L;

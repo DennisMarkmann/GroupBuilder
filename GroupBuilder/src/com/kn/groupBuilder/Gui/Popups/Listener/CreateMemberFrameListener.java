@@ -11,6 +11,14 @@ import com.kn.groupBuilder.Gui.Popups.CreateMemberFrame;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Listener for the createMemberFrame. Allows to start create member and close the window.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class CreateMemberFrameListener implements ActionListener {
 
     private final CreateMemberFrame createMemberFrame;

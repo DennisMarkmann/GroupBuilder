@@ -13,6 +13,14 @@ import org.w3c.dom.Element;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Used to create the groupList.xml file and to store group information in it.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 class GroupListWriter {
 
     final void createXmlFile(final Pojo pojo) {

@@ -21,7 +21,7 @@ public class PrintJobHelper {
         }
     }
 
-    public void printGroup(final Group group) {
+    public final void printGroup(final Group group) {
         final String printText = new TextCreator().createText(group);
         new PrintJob(printText).printText();
     }

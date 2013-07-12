@@ -10,6 +10,14 @@ import com.kn.groupBuilder.Gui.Menu.EmailFrame;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Listener for the email frame. Allows to start the email sending process and to close the window.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class EmailFrameListener implements ActionListener {
 
     private final EmailFrame emailFrame;

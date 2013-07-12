@@ -13,6 +13,14 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.Builder.TabBuilder;
 
+/**
+ * Second tab of the GUI. Used to access many other operations and to see the different groups via table.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 class GroupTab extends JPanel {
 
     private static final long serialVersionUID = 1673516265342795696L;

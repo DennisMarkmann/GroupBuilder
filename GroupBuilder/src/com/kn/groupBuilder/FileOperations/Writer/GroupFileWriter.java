@@ -14,6 +14,14 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Used to create the different group.xml files and to store group concerning information in it.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 class GroupFileWriter {
 
     private String path = "";

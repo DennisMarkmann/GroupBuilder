@@ -7,6 +7,14 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
 
+/**
+ * Used to delete all different kind of folders.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 class FileCleaner {
 
     final void updateArchive(final Pojo pojo) {

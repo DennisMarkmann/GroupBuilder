@@ -11,6 +11,14 @@ import dennis.markmann.MyLibraries.DefaultJobs.Email.EmailContentCreator;
 import dennis.markmann.MyLibraries.DefaultJobs.Email.EmailJob;
 import dennis.markmann.MyLibraries.DefaultJobs.Email.EmailObject;
 
+/**
+ * Helper class used to initialize the emailSending and to create the emails to send.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class EmailJobHelper {
 
     public final void initializeEmailSending(final Pojo pojo) {

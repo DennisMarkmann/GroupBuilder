@@ -47,10 +47,8 @@
 	
 	3.3.JUnit Tests statt sysos
 
-	3.4.Kommentare & JavaDocs
-
-	3.5.Default Path wieder in das Programm legen (GroupBuilder folder)
+	3.4.Default Path wieder in das Programm legen (GroupBuilder folder)
 	
-	3.6.JPA connection Kram
+	3.5.JPA connection Kram
 	
-	3.7.Remove mail.jar
+	3.6.Remove mail.jar

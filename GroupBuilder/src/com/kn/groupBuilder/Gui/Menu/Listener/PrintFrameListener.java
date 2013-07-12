@@ -10,6 +10,14 @@ import com.kn.groupBuilder.Gui.Menu.PrintFrame;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Listener for the printFrame. Used to start the printing operation and to close the window.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class PrintFrameListener implements ActionListener {
 
     private final PrintFrame printFrame;
