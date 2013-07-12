@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JCheckBox;
 
 import com.kn.groupBuilder.Gui.Popups.BuildFrame;
+import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Jobs.GroupBuilder;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -45,6 +46,7 @@ public class BuildFrameListener implements ActionListener {
         } else if (this.buildUnassignedCheckBox.isSelected()) {
             groupBuilder.buildUnassignedGroups(this.pojo);
         }
+        MemberTableModel.refreshTable();
         this.buildFrame.closeWindow();
     }
 }
