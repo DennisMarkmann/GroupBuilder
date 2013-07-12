@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @version 1.0
  */
 
-public class Group {
+public class Group implements Comparable<Group> {
 
     private String name = "";
     private ArrayList<Member> memberList = new ArrayList<Member>();
@@ -76,5 +76,10 @@ public class Group {
     public final void removeMemberFromGroup(final Group group, final Member member) {
         this.memberList.remove(member);
         member.getGroupList().remove(group);
+    }
+
+    @Override
+    public int compareTo(final Group group) {
+        return this.getName().compareTo(group.getName());
     }
 }

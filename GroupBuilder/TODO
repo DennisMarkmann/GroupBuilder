@@ -26,15 +26,16 @@
 	
 	1.12.Gui Aussehen optimieren (Settings)
 	
+	1.13.Tastatursteuerung
+	
 	
 	
 2. Dringende Änderungen nötig:
+			
+	2.1.Edit & Remove functionality (Tabellen)
 	
-	2.1.Namen sortieren für Ausgabe / Tabellen / Comboboxen	
-
 	2.2.Exceptions abfangen
-		
-	2.3.Edit & Remove functionality (Tabellen)	
+	
 	
 
 3. CleanUp:

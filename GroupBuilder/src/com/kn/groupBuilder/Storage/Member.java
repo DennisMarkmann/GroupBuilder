@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @version 1.0
  */
 
-public class Member {
+public class Member implements Comparable<Member> {
 
     private String firstName = "";
     private String lastName = "";
@@ -59,4 +59,12 @@ public class Member {
         this.eMailAdress = eMailAdress;
     }
 
+    @Override
+    public int compareTo(final Member member) {
+        int result = this.getFirstName().compareTo(member.getFirstName());
+        if (result == 0) {
+            result = this.getLastName().compareTo(member.getLastName());
+        }
+        return result;
+    }
 }

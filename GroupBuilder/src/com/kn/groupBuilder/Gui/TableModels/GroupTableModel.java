@@ -1,6 +1,7 @@
 package com.kn.groupBuilder.Gui.TableModels;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
@@ -30,6 +31,7 @@ public final class GroupTableModel extends AbstractTableModel {
             JButton.class };
 
     private GroupTableModel(final ArrayList<Group> groupList) {
+        Collections.sort(groupList);
         this.groupList = groupList;
     }
 
@@ -41,6 +43,7 @@ public final class GroupTableModel extends AbstractTableModel {
     }
 
     public static void refreshTable() {
+        Collections.sort(instance.groupList);
         instance.fireTableDataChanged();
     }
 
