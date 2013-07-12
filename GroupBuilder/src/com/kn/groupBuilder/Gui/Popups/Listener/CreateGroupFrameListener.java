@@ -39,13 +39,19 @@ public class CreateGroupFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
-            ConfirmationFrame.getInstance(
-                    this.pojo,
-                    "addGroup",
-                    new Group(
-                            this.groupNameField.getText(),
-                            this.groupDescField.getText(),
-                            Integer.parseInt(this.groupSizeField.getText())));
+
+            int fixSize = 0;
+            final String groupName = this.groupNameField.getText();
+            final String description = this.groupDescField.getText();
+            try {
+                fixSize = Integer.parseInt(this.groupSizeField.getText());
+            } catch (final NumberFormatException e) {
+            }
+            if (groupName.equals("")) {
+                // TODO throw error
+            }
+
+            ConfirmationFrame.getInstance(this.pojo, "addGroup", new Group(groupName, description, fixSize));
         }
         this.createGroupFrame.closeWindow();
 

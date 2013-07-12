@@ -38,13 +38,20 @@ public class CreateMemberFrameListener implements ActionListener {
 
         final JButton buttonClicked = (JButton) event.getSource();
         if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
-            ConfirmationFrame.getInstance(
-                    this.pojo,
-                    "addMember",
-                    new Member(this.firstNameField.getText(), this.lastNameField.getText(), this.eMailField.getText()));
+
+            final String firstName = this.firstNameField.getText();
+            final String lastName = this.lastNameField.getText();
+            final String email = this.eMailField.getText();
+
+            if (firstName.equals("")) {
+                // TODO throw error
+            }
+            if (lastName.equals("")) {
+                // TODO throw error
+            }
+            ConfirmationFrame.getInstance(this.pojo, "addMember", new Member(firstName, lastName, email));
         }
         this.createMemberFrame.closeWindow();
 
     }
-
 }
