@@ -9,6 +9,8 @@ import com.kn.groupBuilder.FileOperations.Output.EmailJobHelper;
 import com.kn.groupBuilder.FileOperations.Output.PrintJobHelper;
 import com.kn.groupBuilder.FileOperations.Writer.FileWriteHelper;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
+import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
+import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Jobs.GroupCreator;
 import com.kn.groupBuilder.Jobs.MemberCreator;
 import com.kn.groupBuilder.Storage.Group;
@@ -50,9 +52,11 @@ public class ConfirmationFrameListener implements ActionListener {
             if (this.action.equals("addGroup")) {
                 final Group group = (Group) this.object;
                 new GroupCreator(this.pojo).createGroup(group.getName(), group.getDescription(), group.getFixSize());
+                GroupTableModel.refreshTable();
             } else if (this.action.equals("addMember")) {
                 final Member member = (Member) this.object;
                 new MemberCreator(this.pojo).createMember(member.getFirstName(), member.getLastName(), member.getEMailAdress());
+                MemberTableModel.refreshTable();
             } else if (this.action.equals("printOutAll")) {
                 new PrintJobHelper().printAllGroups(this.pojo);
             } else if (this.action.equals("sendMailToAll")) {

@@ -40,5 +40,6 @@ public class MemberTabListener implements ActionListener {
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
             ConfirmationFrame.getInstance(this.pojo, "save", null);
         }
+
     }
 }

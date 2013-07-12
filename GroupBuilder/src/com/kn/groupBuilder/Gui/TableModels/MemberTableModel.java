@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableModel;
 
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
@@ -19,6 +20,7 @@ import com.kn.groupBuilder.Storage.Member;
 public final class MemberTableModel extends AbstractTableModel {
 
     private static final long serialVersionUID = -3758449082711896808L;
+    private static MemberTableModel instance = null;
     private final ArrayList<Member> memberList;
     private final String[] cols = { "FirstName", "LastName", "E-Mail", "Groups", "Edit", "Remove" };
     private final Class<?>[] columnTypes = new Class<?>[] {
@@ -29,8 +31,19 @@ public final class MemberTableModel extends AbstractTableModel {
             JButton.class,
             JButton.class };
 
-    public MemberTableModel(final ArrayList<Member> memberList) {
+    private MemberTableModel(final ArrayList<Member> memberList) {
         this.memberList = memberList;
+    }
+
+    public static TableModel createTable(final ArrayList<Member> memberList) {
+        if (instance == null) {
+            instance = new MemberTableModel(memberList);
+        }
+        return instance;
+    }
+
+    public static void refreshTable() {
+        instance.fireTableDataChanged();
     }
 
     @Override

@@ -29,14 +29,12 @@
 	
 	
 2. Dringende Änderungen nötig:
-
-	2.1.Table Refresh nach dem Hinzufügen eines Members / einer Gruppe	
 	
-	2.2.Namen sortieren für Ausgabe / Tabellen / Comboboxen	
+	2.1.Namen sortieren für Ausgabe / Tabellen / Comboboxen	
 
-	2.3.Exceptions abfangen
+	2.2.Exceptions abfangen
 		
-	2.4.Edit & Remove functionality (Tabellen)	
+	2.3.Edit & Remove functionality (Tabellen)	
 	
 
 3. CleanUp:

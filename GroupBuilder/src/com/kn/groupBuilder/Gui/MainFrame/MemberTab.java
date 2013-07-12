@@ -29,7 +29,7 @@ class MemberTab extends JPanel {
     MemberTab(final Pojo pojo) {
 
         this.setLayout(new GridBagLayout());
-        this.builder.createTable(this, 0, 0, new JTable(new MemberTableModel(pojo.getMemberList())));
+        this.builder.createTable(this, 0, 0, new JTable(MemberTableModel.createTable(pojo.getMemberList())));
 
         this.builder.getGridBagConstraints().fill = GridBagConstraints.NONE;
         final JButton addButton = this.builder.createButton(this, "addButton", "Add Member", 0, 5);
