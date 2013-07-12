@@ -39,7 +39,7 @@ class GroupListReader {
                 final int fixSize = Integer.parseInt(helper.getElementValue(element, "FixSize"));
                 final String description = helper.getElementValue(element, "Description");
 
-                creator.createGroupsManually(groupName, fixSize, description);
+                creator.createGroup(groupName, description, fixSize);
             }
         }
     }

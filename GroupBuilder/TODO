@@ -37,10 +37,10 @@
 	2.2.Namen sortieren für Ausgabe / Tabellen / Comboboxen	
 
 	2.3.Exceptions abfangen
+		
+	2.4.Edit & Remove functionality (Tabellen)
 	
-	2.4.Doppelte Einträge verhindern (Member und Group mit identischen Namen)
-	
-	2.5.Edit & Remove functionality (Tabellen)
+	2.5.Ermöglichen nicht zwangsweise eine email addresse und fixSize angeben zu müssen
 	
 	
 

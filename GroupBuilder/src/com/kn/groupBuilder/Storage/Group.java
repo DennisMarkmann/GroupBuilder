@@ -31,7 +31,7 @@ public class Group {
         this.description = description;
     }
 
-    public Group(final String name, final int fixSize, final String descrition) {
+    public Group(final String name, final String descrition, final int fixSize) {
         this(name, fixSize);
         this.description = descrition;
     }

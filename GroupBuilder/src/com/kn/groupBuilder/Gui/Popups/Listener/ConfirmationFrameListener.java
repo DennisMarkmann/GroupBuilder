@@ -9,6 +9,8 @@ import com.kn.groupBuilder.FileOperations.Output.EmailJobHelper;
 import com.kn.groupBuilder.FileOperations.Output.PrintJobHelper;
 import com.kn.groupBuilder.FileOperations.Writer.FileWriteHelper;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
+import com.kn.groupBuilder.Jobs.GroupCreator;
+import com.kn.groupBuilder.Jobs.MemberCreator;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -38,9 +40,11 @@ public class ConfirmationFrameListener implements ActionListener {
 
         if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
             if (this.action.equals("addGroup")) {
-                this.pojo.getGroupList().add((Group) this.object);
+                final Group group = (Group) this.object;
+                new GroupCreator(this.pojo).createGroup(group.getName(), group.getDescription(), group.getFixSize());
             } else if (this.action.equals("addMember")) {
-                this.pojo.getMemberList().add((Member) this.object);
+                final Member member = (Member) this.object;
+                new MemberCreator(this.pojo).createMember(member.getFirstName(), member.getLastName(), member.getEMailAdress());
             } else if (this.action.equals("printOutAll")) {
                 new PrintJobHelper().printAllGroups(this.pojo);
             } else if (this.action.equals("sendMailToAll")) {

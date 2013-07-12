@@ -44,8 +44,8 @@ public class CreateGroupFrameListener implements ActionListener {
                     "addGroup",
                     new Group(
                             this.groupNameField.getText(),
-                            Integer.parseInt(this.groupSizeField.getText()),
-                            this.groupDescField.getText()));
+                            this.groupDescField.getText(),
+                            Integer.parseInt(this.groupSizeField.getText())));
         }
         this.createGroupFrame.closeWindow();
 

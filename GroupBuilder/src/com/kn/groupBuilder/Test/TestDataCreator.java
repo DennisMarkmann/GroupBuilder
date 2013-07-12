@@ -34,11 +34,11 @@ public class TestDataCreator {
 
         final GroupCreator creator = new GroupCreator(pojo);
 
-        creator.createGroupsManually("Group1", 4, "desc");
-        creator.createGroupsManually("Group2", 1, "test");
-        creator.createGroupsManually("Group3", "test");
-        creator.createGroupsManually("Group4", "");
-        creator.createGroupsManually("Group5", 1, "");
+        creator.createGroup("Group1", "desc", 4);
+        creator.createGroup("Group2", "test", 1);
+        creator.createGroup("Group3", "test");
+        creator.createGroup("Group4", "");
+        creator.createGroup("Group5", "", 1);
 
         // creator.createGroupsAutmatically(4, pojo);
 

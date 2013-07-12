@@ -1,5 +1,6 @@
 package com.kn.groupBuilder.Jobs;
 
+import com.kn.groupBuilder.Exceptions.DuplicateEntryException;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -19,12 +20,22 @@ public class GroupCreator {
         this.pojo = pojo;
     }
 
-    public final void createGroupsManually(final String name, final String description) {
-        this.pojo.getGroupList().add(new Group(name, description));
+    public final void createGroup(final String name, final String description) {
+        this.addGroupToList(new Group(this.correctFormat(name), description));
     }
 
-    public final void createGroupsManually(final String name, final int fixSize, final String description) {
-        this.pojo.getGroupList().add(new Group(name, fixSize, description));
+    public final void createGroup(final String name, final String description, final int fixSize) {
+        this.addGroupToList(new Group(this.correctFormat(name), description, fixSize));
+    }
+
+    public final void addGroupToList(final Group group) {
+        try {
+            this.checkDuplicates(group.getName());
+        } catch (final DuplicateEntryException e) {
+            e.showDialog();
+            return;
+        }
+        this.pojo.getGroupList().add(group);
     }
 
     public final void createGroupsAutmatically(final int memberPerGroup) {
@@ -34,5 +45,18 @@ public class GroupCreator {
         for (int i = 0; i < numberOfGroups; i++) {
             this.pojo.getGroupList().add(new Group("Group" + i));
         }
+    }
+
+    private final void checkDuplicates(final String name) throws DuplicateEntryException {
+        if (this.pojo.getGroupByName(name) != null) {
+            throw new DuplicateEntryException(name);
+        }
+    }
+
+    private final String correctFormat(String string) {
+        string = string.trim();
+        string = string.toLowerCase();
+        string = string.substring(0, 1).toUpperCase() + string.substring(1);
+        return string;
     }
 }
