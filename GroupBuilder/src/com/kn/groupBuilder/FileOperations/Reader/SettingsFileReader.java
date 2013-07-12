@@ -8,6 +8,14 @@ import org.w3c.dom.Node;
 
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Used to get and store the values of the settings.xml in the pojo.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 class SettingsFileReader {
 
     final void readXmlFile(final Pojo pojo) {

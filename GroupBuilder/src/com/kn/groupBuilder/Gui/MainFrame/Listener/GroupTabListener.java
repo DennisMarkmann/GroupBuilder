@@ -9,6 +9,14 @@ import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateGroupFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Listener for the groupTab. Used to add groups and save all changes.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class GroupTabListener implements ActionListener {
 
     private final Pojo pojo;

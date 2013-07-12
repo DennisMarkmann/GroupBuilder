@@ -13,11 +13,14 @@ import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
- * GroupSize, Description, id, EmailAdress are currently unused.
+ * Used to get and store the values of the different group.xml files in the pojo. GroupSize, Description, id, EmailAdress are
+ * currently stored but unused and not included in the reading process.
  * 
  * @author dennis.markmann
- * 
+ * @since JDK.1.7.0_21
+ * @version 1.0
  */
+
 class GroupFileReader {
 
     final void readFiles(final Pojo pojo) {

@@ -11,6 +11,14 @@ import javax.swing.JTabbedPane;
 import com.kn.groupBuilder.Gui.MainFrame.Listener.MainFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Main GUI Frame. Used to access all other GUI components.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class MainFrame extends JFrame {
 
     private static final long serialVersionUID = -5660805007314188894L;

@@ -13,6 +13,14 @@ import org.w3c.dom.Element;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Storage.Settings;
 
+/**
+ * Writer class used to create an XML file for storing the settings.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 class SettingsFileWriter {
 
     final void createXmlFile(final Pojo pojo) {

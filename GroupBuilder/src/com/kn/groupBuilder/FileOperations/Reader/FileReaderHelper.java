@@ -12,6 +12,14 @@ import org.xml.sax.SAXException;
 
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Used to start the different reading processes. Has general methods used by the readClasses.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class FileReaderHelper {
 
     public final void readXMLFiles(final Pojo pojo) {
@@ -37,9 +45,9 @@ public class FileReaderHelper {
         } catch (final SAXException e) {
             // nothing to do
         } catch (final IOException e) {
-            e.printStackTrace();
+            // TODO
         } catch (final ParserConfigurationException e) {
-            e.printStackTrace();
+            // TODO
         }
         doc.getDocumentElement().normalize();
         return doc;
