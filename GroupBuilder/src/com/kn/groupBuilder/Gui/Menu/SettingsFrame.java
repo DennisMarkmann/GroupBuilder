@@ -13,6 +13,14 @@ import com.kn.groupBuilder.Storage.Settings;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
+/**
+ * Frame used to change information concerning the behavior of the application.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public final class SettingsFrame extends JFrame implements DefaultFrame {
 
     private static SettingsFrame instance = null;

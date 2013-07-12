@@ -5,6 +5,14 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.DefaultJobs.PrintJob;
 
+/**
+ * Initializes the different print operations.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class PrintJobHelper {
 
     public final void printAllGroups(final Pojo pojo) {
@@ -13,7 +21,7 @@ public class PrintJobHelper {
         }
     }
 
-    private void printGroup(final Group group) {
+    public void printGroup(final Group group) {
         final String printText = new TextCreator().createText(group);
         new PrintJob(printText).printText();
     }

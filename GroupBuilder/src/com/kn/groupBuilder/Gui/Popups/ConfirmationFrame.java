@@ -9,6 +9,14 @@ import com.kn.groupBuilder.Storage.Pojo;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
+/**
+ * Frame used to ask if a operation should really be done.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public final class ConfirmationFrame extends JFrame implements DefaultFrame {
 
     private static ConfirmationFrame instance = null;

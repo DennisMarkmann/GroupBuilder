@@ -47,13 +47,13 @@ public class GroupCreator {
         }
     }
 
-    private final void checkDuplicates(final String name) throws DuplicateEntryException {
+    private void checkDuplicates(final String name) throws DuplicateEntryException {
         if (this.pojo.getGroupByName(name) != null) {
             throw new DuplicateEntryException(name);
         }
     }
 
-    private final String correctFormat(String string) {
+    private String correctFormat(String string) {
         string = string.trim();
         string = string.toLowerCase();
         string = string.substring(0, 1).toUpperCase() + string.substring(1);

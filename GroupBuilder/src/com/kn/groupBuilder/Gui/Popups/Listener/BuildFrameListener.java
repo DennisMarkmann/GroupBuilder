@@ -9,6 +9,14 @@ import com.kn.groupBuilder.Gui.Popups.BuildFrame;
 import com.kn.groupBuilder.Jobs.GroupBuilder;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Listener for the build frame. Allows to build all groups, build unassigned groups and close it.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class BuildFrameListener implements ActionListener {
 
     private final BuildFrame buildFrame;

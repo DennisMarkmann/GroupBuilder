@@ -15,6 +15,14 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Listener for the confirmation frame. Allows to start several operations.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class ConfirmationFrameListener implements ActionListener {
 
     private final ConfirmationFrame confirmationFrame;
@@ -50,7 +58,7 @@ public class ConfirmationFrameListener implements ActionListener {
             } else if (this.action.equals("sendMailToAll")) {
                 new EmailJobHelper().initializeEmailSending(this.pojo);
             } else if (this.action.equals("printOut")) {
-                // TODO implement single print
+                new PrintJobHelper().printGroup(this.pojo.getGroupByName((String) this.object));
             } else if (this.action.equals("sendMail")) {
                 // TODO implement single mail
             } else if (this.action.equals("save")) {

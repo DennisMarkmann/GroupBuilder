@@ -3,6 +3,14 @@ package com.kn.groupBuilder.FileOperations.Output;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 
+/**
+ * Class for generating the default text used for output operations. (email & print)
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 class TextCreator {
 
     String createText(final Group group) {

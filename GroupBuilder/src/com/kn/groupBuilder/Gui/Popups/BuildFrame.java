@@ -11,7 +11,15 @@ import dennis.markmann.MyLibraries.GuiJobs.ComponentHelper.CheckBoxHelper;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
-public class BuildFrame extends JFrame implements DefaultFrame {
+/**
+ * Frame used to add information for the group building process.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
+final public class BuildFrame extends JFrame implements DefaultFrame {
 
     private static BuildFrame instance = null;
     private static final long serialVersionUID = -6911722669720979718L;
@@ -54,7 +62,7 @@ public class BuildFrame extends JFrame implements DefaultFrame {
     }
 
     @Override
-    public final void closeWindow() {
+    public void closeWindow() {
         this.dispose();
         instance = null;
     }

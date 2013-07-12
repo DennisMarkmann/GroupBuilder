@@ -7,6 +7,14 @@ import javax.swing.JButton;
 
 import com.kn.groupBuilder.Gui.Menu.AboutFrame;
 
+/**
+ * Listener for the aboutFrame. Allows to close it.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class AboutFrameListener implements ActionListener {
 
     private final AboutFrame aboutFrame;

@@ -11,6 +11,14 @@ import com.kn.groupBuilder.Gui.Popups.CreateGroupFrame;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
+/**
+ * Listener for the groupFrame. Used to create groups and close the window.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public class CreateGroupFrameListener implements ActionListener {
 
     private final CreateGroupFrame createGroupFrame;

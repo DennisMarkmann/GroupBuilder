@@ -11,6 +11,14 @@ import com.kn.groupBuilder.Storage.Pojo;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
+/**
+ * Frame showing information about the author.
+ * 
+ * @author dennis.markmann
+ * @since JDK.1.7.0_21
+ * @version 1.0
+ */
+
 public final class AboutFrame extends JFrame implements DefaultFrame {
 
     private static AboutFrame instance = null;

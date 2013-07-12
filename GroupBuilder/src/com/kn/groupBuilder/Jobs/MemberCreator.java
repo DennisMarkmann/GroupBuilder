@@ -38,13 +38,13 @@ public class MemberCreator {
         this.pojo.getMemberList().add(member);
     }
 
-    private final void checkDuplicates(final String firstName, final String lastName) throws DuplicateEntryException {
+    private void checkDuplicates(final String firstName, final String lastName) throws DuplicateEntryException {
         if (this.pojo.getMemberByName(firstName, lastName) != null) {
             throw new DuplicateEntryException(firstName + "." + lastName);
         }
     }
 
-    private final String correctFormat(String string) {
+    private String correctFormat(String string) {
         string = string.trim();
         string = string.toLowerCase();
         string = string.substring(0, 1).toUpperCase() + string.substring(1);

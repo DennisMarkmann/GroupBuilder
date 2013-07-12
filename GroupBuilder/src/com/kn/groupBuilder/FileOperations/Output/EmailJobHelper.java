@@ -25,7 +25,7 @@ public class EmailJobHelper {
         new EmailJob().sendMail(smtpHost, username, password, senderAddress, subject, emailList);
     }
 
-    private final String generateMailText(final Group group, final String path) {
+    private String generateMailText(final Group group, final String path) {
 
         final StringBuilder sb = new StringBuilder();
 
@@ -39,7 +39,7 @@ public class EmailJobHelper {
         return sb.toString();
     }
 
-    private final ArrayList<EmailObject> createEmailObjects(final Pojo pojo) {
+    private ArrayList<EmailObject> createEmailObjects(final Pojo pojo) {
 
         final ArrayList<EmailObject> emailList = new ArrayList<EmailObject>();
         final String path = pojo.getSettings().getPath();
