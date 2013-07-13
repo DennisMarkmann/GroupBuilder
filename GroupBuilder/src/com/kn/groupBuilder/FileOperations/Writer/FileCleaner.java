@@ -79,7 +79,7 @@ class FileCleaner {
         final DateHelper helper = new DateHelper();
 
         final Date archiveDate = helper.parseStringToDate(fileName.substring(0, fileName.indexOf("_")));
-        helper.addTime(0, 0, -7, 0, 0, 0);
+        helper.addTime(0, 0, -pojo.getSettings().getArchivingDays(), 0, 0, 0);
         final Date deletionDate = helper.parseStringToDate(helper.getDate());
 
         if (archiveDate.before(deletionDate)) {
