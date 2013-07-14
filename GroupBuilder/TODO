@@ -48,6 +48,4 @@
 
 	3.4.Default Path wieder in das Programm legen (GroupBuilder folder)
 	
-	3.5.JPA connection Kram
-	
-	3.6.Remove mail.jar
+	3.5.Remove mail.jar
