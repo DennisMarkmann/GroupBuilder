@@ -1,7 +1,6 @@
 package com.kn.groupBuilder.Gui.MainFrame;
 
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -11,7 +10,7 @@ import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
 import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.GuiJobs.Builder.ComponentBuilder;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultTab;
 
 /**
  * Second tab of the GUI. Used to access many other operations and to see the different groups via table.
@@ -21,20 +20,18 @@ import dennis.markmann.MyLibraries.GuiJobs.Builder.ComponentBuilder;
  * @version 1.0
  */
 
-class GroupTab extends JPanel {
+class GroupTab extends JPanel implements DefaultTab {
 
     private static final long serialVersionUID = 1673516265342795696L;
-    private final ComponentBuilder builder = new ComponentBuilder();
 
     GroupTab(final Pojo pojo) {
 
-        this.setLayout(new GridBagLayout());
-        this.builder.getGridBagConstraints().fill = GridBagConstraints.HORIZONTAL;
-        this.builder.createTable(this, 0, 0, new JTable(GroupTableModel.createTable(pojo.getGroupList())));
+        BUILDER.setDefaultTabSettings(this);
+        BUILDER.createTable(this, 0, 0, new JTable(GroupTableModel.createTable(pojo.getGroupList())));
 
-        this.builder.getGridBagConstraints().fill = GridBagConstraints.NONE;
-        final JButton addButton = this.builder.createButton(this, "addButton", "Add Group", 0, 5);
-        final JButton saveButton = this.builder.createButton(this, "saveButton", "Save", 0, 7);
+        BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
+        final JButton addButton = BUILDER.createButton(this, "addButton", "Add Group", 0, 5);
+        final JButton saveButton = BUILDER.createButton(this, "saveButton", "Save", 0, 7);
 
         final GroupTabListener listener = new GroupTabListener(pojo);
 
