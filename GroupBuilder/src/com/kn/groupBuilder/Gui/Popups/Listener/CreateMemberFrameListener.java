@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.Exceptions.EmptyValueException;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateMemberFrame;
 import com.kn.groupBuilder.Storage.Member;
@@ -52,10 +53,10 @@ public class CreateMemberFrameListener implements ActionListener {
             final String email = this.eMailField.getText();
 
             if (firstName.equals("")) {
-                // TODO throw error
+                new EmptyValueException("the firstName").showDialog();
             }
             if (lastName.equals("")) {
-                // TODO throw error
+                new EmptyValueException("the lastName").showDialog();
             }
             ConfirmationFrame.getInstance(this.pojo, "addMember", new Member(firstName, lastName, email));
         }

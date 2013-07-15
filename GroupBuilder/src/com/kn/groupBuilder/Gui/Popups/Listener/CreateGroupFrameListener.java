@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.Exceptions.EmptyValueException;
+import com.kn.groupBuilder.Exceptions.NotToHandleException;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateGroupFrame;
 import com.kn.groupBuilder.Storage.Group;
@@ -54,9 +56,10 @@ public class CreateGroupFrameListener implements ActionListener {
             try {
                 fixSize = Integer.parseInt(this.groupSizeField.getText());
             } catch (final NumberFormatException e) {
+                new NotToHandleException(e.getStackTrace());
             }
             if (groupName.equals("")) {
-                // TODO throw error
+                new EmptyValueException("the groupName").showDialog();
             }
 
             ConfirmationFrame.getInstance(this.pojo, "addGroup", new Group(groupName, description, fixSize));

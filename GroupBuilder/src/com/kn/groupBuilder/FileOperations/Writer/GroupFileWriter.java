@@ -26,7 +26,6 @@ class GroupFileWriter {
         for (final Group group : pojo.getGroupList()) {
             this.createXmlFile(group);
         }
-
     }
 
     private void createXmlFile(final Group group) {

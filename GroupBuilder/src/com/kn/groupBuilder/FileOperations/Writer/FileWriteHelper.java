@@ -87,7 +87,7 @@ public class FileWriteHelper {
         try {
             TransformerFactory.newInstance().newTransformer().transform(new DOMSource(doc), new StreamResult(file));
         } catch (final TransformerException e) {
-            new WriteOperationException(fileName, e.getStackTrace());
+            new WriteOperationException(fileName, e.getStackTrace()).showDialog();
         }
 
     }
