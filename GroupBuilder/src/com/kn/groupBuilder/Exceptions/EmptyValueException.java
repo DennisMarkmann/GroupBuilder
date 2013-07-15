@@ -3,7 +3,7 @@ package com.kn.groupBuilder.Exceptions;
 import javax.swing.JOptionPane;
 
 /**
- * Exception without any handling needed.
+ * Exception thrown in case a value is empty but needed.
  * 
  * @author dennis.markmann
  * @since JDK.1.7.0_21

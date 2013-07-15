@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import com.kn.groupBuilder.Gui.Popups.Listener.BuildFrameListener;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.GuiJobs.ComponentHelper.CheckBoxHelper;
+import dennis.markmann.MyLibraries.GuiJobs.Builder.CheckBoxHelper;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
