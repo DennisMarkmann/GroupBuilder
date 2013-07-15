@@ -59,7 +59,8 @@ public class CreateGroupFrameListener implements ActionListener {
                 new NotToHandleException(e.getStackTrace());
             }
             if (groupName.equals("")) {
-                new EmptyValueException("the groupName").showDialog();
+                new EmptyValueException("groupName").showDialog();
+                return;
             }
 
             ConfirmationFrame.getInstance(this.pojo, "addGroup", new Group(groupName, description, fixSize));

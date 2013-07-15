@@ -53,10 +53,12 @@ public class CreateMemberFrameListener implements ActionListener {
             final String email = this.eMailField.getText();
 
             if (firstName.equals("")) {
-                new EmptyValueException("the firstName").showDialog();
+                new EmptyValueException("firstName").showDialog();
+                return;
             }
             if (lastName.equals("")) {
-                new EmptyValueException("the lastName").showDialog();
+                new EmptyValueException("lastName").showDialog();
+                return;
             }
             ConfirmationFrame.getInstance(this.pojo, "addMember", new Member(firstName, lastName, email));
         }
