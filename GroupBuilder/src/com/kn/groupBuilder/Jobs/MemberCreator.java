@@ -38,6 +38,18 @@ public class MemberCreator {
         this.pojo.getMemberList().add(member);
     }
 
+    public final void removeMember(final Member member) {
+        this.pojo.getMemberList().remove(this.pojo.getMemberByName(member.getFirstName(), member.getLastName()));
+    }
+
+    public final void editMember(final Member oldMember, final Member newMember) {
+        final Member member = this.pojo.getMemberByName(oldMember.getFirstName(), oldMember.getLastName());
+        member.setEMailAdress(newMember.getFirstName());
+        member.setEMailAdress(newMember.getLastName());
+        member.setEMailAdress(newMember.getEMailAdress());
+        // member.setGroupList(newMember.getGroupList());
+    }
+
     private void checkDuplicates(final String firstName, final String lastName) throws DuplicateEntryException {
         if (this.pojo.getMemberByName(firstName, lastName) != null) {
             throw new DuplicateEntryException(firstName + "." + lastName);

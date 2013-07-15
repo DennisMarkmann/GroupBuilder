@@ -27,7 +27,7 @@ public final class ConfirmationFrame extends JFrame implements DefaultFrame {
         BUILDER.setDefaultFrameSettings(this, "Confirm");
         this.addWindowListener(new MyWindowAdapter(this));
 
-        BUILDER.createLabel(this, "Are you sure you really want to do this?", 0, 1);
+        BUILDER.createLabel(this, "Are you sure you really want to " + action + " ?", 0, 1);
         final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Confirm", 0, 4);
         final JButton abortButton = BUILDER.createButton(this, "abortButton", "Abort", 3, 4);
 

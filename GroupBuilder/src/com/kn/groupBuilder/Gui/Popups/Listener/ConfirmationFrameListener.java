@@ -2,6 +2,7 @@ package com.kn.groupBuilder.Gui.Popups.Listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 
@@ -43,6 +44,7 @@ public class ConfirmationFrameListener implements ActionListener {
         this.object = object;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public final void actionPerformed(final ActionEvent event) {
 
@@ -64,9 +66,15 @@ public class ConfirmationFrameListener implements ActionListener {
             } else if (this.action.equals("printOut")) {
                 new PrintJobHelper().printGroup(this.pojo.getGroupByName((String) this.object));
             } else if (this.action.equals("sendMail")) {
-                // TODO implement single mail
+                // TODO implement single mail functionality
             } else if (this.action.equals("save")) {
                 new FileWriteHelper().createXMLFiles(this.pojo);
+            } else if (this.action.equals("editMember")) {
+                new MemberCreator(this.pojo).editMember(
+                        ((ArrayList<Member>) this.object).get(0),
+                        ((ArrayList<Member>) this.object).get(1));
+            } else if (this.action.equals("removeMember")) {
+                new MemberCreator(this.pojo).removeMember((Member) this.object);
             }
         }
         this.confirmationFrame.closeWindow();
