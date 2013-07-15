@@ -10,6 +10,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
+import com.kn.groupBuilder.Exceptions.NotToHandleException;
+import com.kn.groupBuilder.Exceptions.UnknownErrorException;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
@@ -40,14 +42,14 @@ public class FileReaderHelper {
             doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file);
 
         } catch (final java.io.FileNotFoundException e) {
-            // nothing to do
+            new NotToHandleException(e.getStackTrace());
             return null;
         } catch (final SAXException e) {
-            // nothing to do
+            new UnknownErrorException("ReadXMLFiles", e.getStackTrace()).showDialog();
         } catch (final IOException e) {
-            // TODO
+            new UnknownErrorException("ReadXMLFiles", e.getStackTrace()).showDialog();
         } catch (final ParserConfigurationException e) {
-            // TODO
+            new UnknownErrorException("ReadXMLFiles", e.getStackTrace()).showDialog();
         }
         doc.getDocumentElement().normalize();
         return doc;

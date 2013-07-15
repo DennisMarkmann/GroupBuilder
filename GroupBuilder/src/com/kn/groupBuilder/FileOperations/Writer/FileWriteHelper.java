@@ -1,12 +1,19 @@
 package com.kn.groupBuilder.FileOperations.Writer;
 
+import java.io.File;
+
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import com.kn.groupBuilder.Exceptions.WriteOperationException;
 import com.kn.groupBuilder.FileOperations.Output.EmailJobHelper;
 import com.kn.groupBuilder.FileOperations.Output.GroupFileArchiver;
 import com.kn.groupBuilder.FileOperations.Output.PrintJobHelper;
@@ -68,6 +75,21 @@ public class FileWriteHelper {
             e.printStackTrace();
         }
         return null;
+    }
+
+    // write the content into xml file
+    public void writeFile(final String path, final String fileName, final Document doc) {
+
+        File file = new File(path);
+        file.mkdirs();
+        file = new File(path + fileName + ".xml");
+
+        try {
+            TransformerFactory.newInstance().newTransformer().transform(new DOMSource(doc), new StreamResult(file));
+        } catch (final TransformerException e) {
+            new WriteOperationException(fileName, e.getStackTrace());
+        }
+
     }
 
 }

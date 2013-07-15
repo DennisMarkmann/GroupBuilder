@@ -3,6 +3,7 @@ package com.kn.groupBuilder.FileOperations.Writer;
 import java.io.File;
 import java.util.Date;
 
+import com.kn.groupBuilder.Exceptions.NotToHandleException;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
@@ -28,7 +29,7 @@ class FileCleaner {
                     }
                 }
             } catch (final java.lang.NullPointerException e) {
-                // nothing to do.
+                new NotToHandleException(e.getStackTrace());
             }
         }
     }
@@ -71,7 +72,7 @@ class FileCleaner {
             }
             filePath.delete();
         } catch (final java.lang.NullPointerException e) {
-            // nothing to do.
+            new NotToHandleException(e.getStackTrace());
         }
     }
 
