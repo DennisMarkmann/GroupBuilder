@@ -11,7 +11,7 @@ import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
 import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.GuiJobs.Builder.TabBuilder;
+import dennis.markmann.MyLibraries.GuiJobs.Builder.ComponentBuilder;
 
 /**
  * Second tab of the GUI. Used to access many other operations and to see the different groups via table.
@@ -24,17 +24,17 @@ import dennis.markmann.MyLibraries.GuiJobs.Builder.TabBuilder;
 class GroupTab extends JPanel {
 
     private static final long serialVersionUID = 1673516265342795696L;
-    private final TabBuilder builder = new TabBuilder();
+    private final ComponentBuilder builder = new ComponentBuilder();
 
     GroupTab(final Pojo pojo) {
 
         this.setLayout(new GridBagLayout());
+        this.builder.getGridBagConstraints().fill = GridBagConstraints.HORIZONTAL;
         this.builder.createTable(this, 0, 0, new JTable(GroupTableModel.createTable(pojo.getGroupList())));
 
         this.builder.getGridBagConstraints().fill = GridBagConstraints.NONE;
         final JButton addButton = this.builder.createButton(this, "addButton", "Add Group", 0, 5);
         final JButton saveButton = this.builder.createButton(this, "saveButton", "Save", 0, 7);
-        this.builder.setDefaultGridBackValues();
 
         final GroupTabListener listener = new GroupTabListener(pojo);
 
