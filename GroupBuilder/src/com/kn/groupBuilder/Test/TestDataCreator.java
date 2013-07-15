@@ -28,6 +28,30 @@ public class TestDataCreator {
         creator.createMember("Test2", "User8");
         creator.createMember("Test3", "User9", "godlikeBot@gmx.net");
 
+        // creator.createMember("Alissa", "Rauhe");
+        // creator.createMember("Björn", "Korella");
+        // creator.createMember("Christian", "Dose");
+        // creator.createMember("Christoph", "Bähr");
+        // creator.createMember("Christopher", "Ponitz");
+        // creator.createMember("Dennis", "Markmann", "dennismarkmann@hotmail.de");
+        // creator.createMember("Dennis", "Watzek");
+        // creator.createMember("Dimitri", "Majle");
+        // creator.createMember("Jendrik", "Witt");
+        // creator.createMember("Jochen", "Erchen");
+        // creator.createMember("Kai-Oliver", "Nießen");
+        // creator.createMember("Leonard", "Thoma");
+        // creator.createMember("Lisa", "Horwege");
+        // creator.createMember("Michelle", "Reichardt");
+        // creator.createMember("Mike", "Kudla");
+        // creator.createMember("Mirko", "Ozekker");
+        // creator.createMember("Nico", "Stuzmann");
+        // creator.createMember("Oleg", "Scheltow");
+        // creator.createMember("Sebastian", "Wäbs");
+        // creator.createMember("Stefan", "Reismann");
+        // creator.createMember("Sven", "Tatter");
+        // creator.createMember("Thorben", "Nehls");
+        // creator.createMember("Timo", "Litzbarski");
+        // creator.createMember("Yasin", "Avcioglu");
     }
 
     public final void fillTestGroupList(final Pojo pojo) {
@@ -40,7 +64,13 @@ public class TestDataCreator {
         creator.createGroup("Group4", "");
         creator.createGroup("Group5", "", 1);
 
-        // creator.createGroupsAutmatically(4, pojo);
+        // creator.createGroup("Group1", "desc");
+        // creator.createGroup("Group2", "test");
+        // creator.createGroup("Group3", "test");
+        // creator.createGroup("Group4", "");
+        // creator.createGroup("Group5", "");
+
+        // creator.createGroupsAutmatically(2);
 
     }
 }

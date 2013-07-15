@@ -14,7 +14,7 @@ import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
- * Listener for the createMemberFrame. Allows to start create member and close the window.
+ * Listener for the createMemberFrame. Allows to start edit member and close the window.
  * 
  * @author dennis.markmann
  * @since JDK.1.7.0_21

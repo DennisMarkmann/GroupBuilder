@@ -22,7 +22,7 @@ public final class GroupTableModel extends AbstractTableModel {
     private static final long serialVersionUID = -3758449082711896808L;
     private static GroupTableModel instance = null;
     private final ArrayList<Group> groupList;
-    private final String[] cols = { "GroupName", "Description", "Size", "Edit", "Remove" };
+    private final String[] cols = { "GroupName", "Description", "FixSize", "Edit", "Remove" };
     private final Class<?>[] columnTypes = new Class<?>[] {
             String.class,
             String.class,

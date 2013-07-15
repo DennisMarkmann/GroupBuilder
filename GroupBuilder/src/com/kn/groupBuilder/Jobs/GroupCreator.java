@@ -2,6 +2,7 @@ package com.kn.groupBuilder.Jobs;
 
 import com.kn.groupBuilder.Exceptions.DuplicateEntryException;
 import com.kn.groupBuilder.Storage.Group;
+import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
@@ -47,6 +48,28 @@ public class GroupCreator {
         }
     }
 
+    public void removeGroup(final Group group) {
+        this.pojo.getGroupList().remove(this.pojo.getGroupByName(group.getName()));
+
+    }
+
+    public void editGroup(final Group oldGroup, final Group newGroup) {
+        final Group group = this.pojo.getGroupByName(oldGroup.getName());
+        group.setName(newGroup.getName());
+        group.setDescription(newGroup.getDescription());
+        group.setFixSize(newGroup.getFixSize());
+        // group.setMemberList(newGroup.getMemberList());
+
+    }
+
+    public final void editMember(final Member oldMember, final Member newMember) {
+        final Member member = this.pojo.getMemberByName(oldMember.getFirstName(), oldMember.getLastName());
+        member.setEMailAdress(newMember.getFirstName());
+        member.setEMailAdress(newMember.getLastName());
+        member.setEMailAdress(newMember.getEMailAdress());
+        // member.setGroupList(newMember.getGroupList());
+    }
+
     private void checkDuplicates(final String name) throws DuplicateEntryException {
         if (this.pojo.getGroupByName(name) != null) {
             throw new DuplicateEntryException(name);
@@ -59,4 +82,5 @@ public class GroupCreator {
         string = string.substring(0, 1).toUpperCase() + string.substring(1);
         return string;
     }
+
 }
