@@ -26,7 +26,7 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
 
     private AboutFrame(final Pojo pojo) {
 
-        BUILDER.setDefaultFrameSettings(this, "About");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - About");
         this.setSize(600, 230);
         this.addWindowListener(new MyWindowAdapter(this));
         BUILDER.createLabel(this, "This Software is designed by Dennis Markmann.", 1, 0);

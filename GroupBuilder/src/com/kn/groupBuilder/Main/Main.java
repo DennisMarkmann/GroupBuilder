@@ -2,9 +2,9 @@ package com.kn.groupBuilder.Main;
 
 import java.io.IOException;
 
+import com.kn.groupBuilder.FileOperations.Reader.FileReaderHelper;
 import com.kn.groupBuilder.Gui.MainFrame.MainFrame;
 import com.kn.groupBuilder.Storage.Pojo;
-import com.kn.groupBuilder.Test.PojoContentTester;
 
 /**
  * Main class for the project. Creates the pojo to store all data in. Starts the read operation for stored GroupBuilder files.
@@ -25,8 +25,8 @@ public final class Main { // NO_UCD
     public static void main(final String[] args) throws IOException {
 
         final Pojo pojo = new Pojo();
-        new PojoContentTester().initializeDefaultTest(pojo);
-        // new FileReaderHelper().readXMLFiles(pojo);
+        // new PojoContentTester().initializeDefaultTest(pojo);
+        new FileReaderHelper().readXMLFiles(pojo);
         // new DefaultTestCreator().startTests(pojo);
 
         new MainFrame().createGui(pojo);

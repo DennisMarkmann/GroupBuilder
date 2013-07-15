@@ -24,7 +24,7 @@ public final class ConfirmationFrame extends JFrame implements DefaultFrame {
 
     private ConfirmationFrame(final Pojo pojo, final String action, final Object object) {
 
-        BUILDER.setDefaultFrameSettings(this, "Confirm");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Confirm");
         this.addWindowListener(new MyWindowAdapter(this));
 
         BUILDER.createLabel(this, "Are you sure you really want to " + action + " ?", 0, 1);

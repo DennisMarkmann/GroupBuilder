@@ -25,7 +25,7 @@ public final class PrintFrame extends JFrame implements DefaultFrame {
 
     private PrintFrame(final Pojo pojo) {
 
-        BUILDER.setDefaultFrameSettings(this, "Print");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Print");
         this.addWindowListener(new MyWindowAdapter(this));
 
         final JComboBox<String> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 0, 0);

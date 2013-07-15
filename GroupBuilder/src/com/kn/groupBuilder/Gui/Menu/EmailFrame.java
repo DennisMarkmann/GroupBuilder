@@ -25,7 +25,7 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
 
     private EmailFrame(final Pojo pojo) {
 
-        BUILDER.setDefaultFrameSettings(this, "Email");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Email");
         this.addWindowListener(new MyWindowAdapter(this));
 
         final JTextField addressField = BUILDER.createTextField(this, "addressField", TEXT_FIELD_SIZE, 0, 0);

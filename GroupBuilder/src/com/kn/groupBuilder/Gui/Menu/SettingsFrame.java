@@ -28,7 +28,7 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
     private SettingsFrame(final Pojo pojo) {
 
-        BUILDER.setDefaultFrameSettings(this, "Settings");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Settings");
         this.addWindowListener(new MyWindowAdapter(this));
 
         this.setSize(500, 370);

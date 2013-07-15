@@ -25,7 +25,7 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
 
     private CreateMemberFrame(final Pojo pojo) {
 
-        BUILDER.setDefaultFrameSettings(this, "CreateMember");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - CreateMember");
         this.addWindowListener(new MyWindowAdapter(this));
 
         BUILDER.createLabel(this, "FirstName", 0, 1);

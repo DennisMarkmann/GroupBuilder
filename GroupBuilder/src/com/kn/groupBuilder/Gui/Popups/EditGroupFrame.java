@@ -25,7 +25,7 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
 
     private EditGroupFrame(final Pojo pojo) {
 
-        BUILDER.setDefaultFrameSettings(this, "EditGroup");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - EditGroup");
         this.addWindowListener(new MyWindowAdapter(this));
 
         BUILDER.createLabel(this, "GroupName", 0, 1);

@@ -25,7 +25,7 @@ public final class CreateGroupFrame extends JFrame implements DefaultFrame {
 
     private CreateGroupFrame(final Pojo pojo) {
 
-        BUILDER.setDefaultFrameSettings(this, "CreateGroup");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - CreateGroup");
         this.addWindowListener(new MyWindowAdapter(this));
 
         BUILDER.createLabel(this, "GroupName", 0, 1);

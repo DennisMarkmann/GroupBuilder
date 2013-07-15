@@ -25,7 +25,7 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
 
     private EditMemberFrame(final Pojo pojo) {
 
-        BUILDER.setDefaultFrameSettings(this, "EditMember");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - EditMember");
         this.addWindowListener(new MyWindowAdapter(this));
 
         BUILDER.createLabel(this, "FirstName", 0, 1);
