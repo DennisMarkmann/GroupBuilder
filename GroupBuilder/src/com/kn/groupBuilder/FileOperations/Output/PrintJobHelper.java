@@ -1,9 +1,12 @@
 package com.kn.groupBuilder.FileOperations.Output;
 
+import javax.print.PrintService;
+
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.DefaultJobs.PrintJob;
+import dennis.markmann.MyLibraries.DefaultJobs.PrinterSelector;
 
 /**
  * Initializes the different print operations.
@@ -15,14 +18,28 @@ import dennis.markmann.MyLibraries.DefaultJobs.PrintJob;
 
 public class PrintJobHelper {
 
-    public final void printAllGroups(final Pojo pojo) {
-        for (final Group group : pojo.getGroupList()) {
+    Pojo pojo;
+
+    public PrintJobHelper(final Pojo pojo) {
+        this.pojo = pojo;
+        this.selectPrinter();
+    }
+
+    public final void printAllGroups() {
+        for (final Group group : this.pojo.getGroupList()) {
             this.printGroup(group);
         }
     }
 
-    public final void printGroup(final Group group) {
-        final String printText = new TextCreator().createText(group);
+    public final void printGroup(final Object object) {
+        final String printText = new TextCreator().createText(this.pojo.getGroupByName((String) object));
         new PrintJob(printText).printText();
+    }
+
+    private void selectPrinter() {
+        final PrintService printService = this.pojo.getSettings().getPrintService();
+        if (printService != null) {
+            PrinterSelector.getInstance().setPrinter(printService);
+        }
     }
 }

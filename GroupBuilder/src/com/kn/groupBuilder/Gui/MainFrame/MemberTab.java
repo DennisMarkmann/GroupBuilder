@@ -1,6 +1,7 @@
 package com.kn.groupBuilder.Gui.MainFrame;
 
 import java.awt.GridBagConstraints;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -26,8 +27,12 @@ class MemberTab extends JPanel implements DefaultTab {
 
     MemberTab(final Pojo pojo) {
 
+        final ArrayList<String> buttonRenderCols = new ArrayList<String>();
+        buttonRenderCols.add("Edit");
+        buttonRenderCols.add("Remove");
+
         BUILDER.setDefaultTabSettings(this);
-        BUILDER.createTable(this, 0, 0, new JTable(MemberTableModel.createTable(pojo.getMemberList())));
+        BUILDER.createTable(this, 0, 0, new JTable(MemberTableModel.createTable(pojo.getMemberList())), buttonRenderCols);
 
         BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
         final JButton addButton = BUILDER.createButton(this, "addButton", "Add Member", 0, 5);

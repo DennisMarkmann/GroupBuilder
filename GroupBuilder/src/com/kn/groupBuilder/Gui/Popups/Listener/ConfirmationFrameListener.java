@@ -60,11 +60,11 @@ public class ConfirmationFrameListener implements ActionListener {
                 new MemberCreator(this.pojo).createMember(member.getFirstName(), member.getLastName(), member.getEMailAdress());
                 MemberTableModel.refreshTable();
             } else if (this.action.equals("printOutAll")) {
-                new PrintJobHelper().printAllGroups(this.pojo);
+                new PrintJobHelper(this.pojo).printAllGroups();
             } else if (this.action.equals("sendMailToAll")) {
                 new EmailJobHelper().initializeEmailSending(this.pojo);
             } else if (this.action.equals("printOut")) {
-                new PrintJobHelper().printGroup(this.pojo.getGroupByName((String) this.object));
+                new PrintJobHelper(this.pojo).printGroup(this.object);
             } else if (this.action.equals("sendMail")) {
                 // TODO implement single mail functionality
             } else if (this.action.equals("save")) {

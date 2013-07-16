@@ -9,6 +9,8 @@ import javax.swing.table.TableModel;
 
 import com.kn.groupBuilder.Storage.Group;
 
+import dennis.markmann.MyLibraries.GuiJobs.Builder.ComponentBuilder;
+
 /**
  * The table shown in the groupTab.
  * 
@@ -20,6 +22,7 @@ import com.kn.groupBuilder.Storage.Group;
 public final class GroupTableModel extends AbstractTableModel {
 
     private static final long serialVersionUID = -3758449082711896808L;
+    private final ComponentBuilder componentBuilder = new ComponentBuilder();
     private static GroupTableModel instance = null;
     private final ArrayList<Group> groupList;
     private final String[] cols = { "GroupName", "Description", "FixSize", "Edit", "Remove" };
@@ -81,13 +84,14 @@ public final class GroupTableModel extends AbstractTableModel {
             return this.groupList.get(rowIndex).getFixSize() + "";
 
         case 3:
-            // final JButton button = new JButton(this.cols[columnIndex]);
-            // return button;
-            return "";
+            final JButton editButton = this.componentBuilder.createButton("editButton", this.cols[columnIndex]);
+            // editButton.addActionListener(new TableButtonListener());
+            return editButton;
+
         case 4:
-            // final JButton button = new JButton(this.cols[columnIndex]);
-            // return button;
-            return "";
+            final JButton removeButton = this.componentBuilder.createButton("removeButton", this.cols[columnIndex]);
+            // removeButton.addActionListener(new TableButtonListener());
+            return removeButton;
 
         default:
             return "Error";

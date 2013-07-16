@@ -40,7 +40,7 @@ public class FileWriteHelper {
         new FileCleaner().updateArchive(pojo);
 
         if (pojo.getSettings().isPrintAutomatically()) {
-            new PrintJobHelper().printAllGroups(pojo);
+            new PrintJobHelper(pojo).printAllGroups();
         }
         if (pojo.getSettings().isSendMailAutomatically()) {
             new EmailJobHelper().initializeEmailSending(pojo);
