@@ -84,14 +84,9 @@ public final class GroupTableModel extends AbstractTableModel {
             return this.groupList.get(rowIndex).getFixSize() + "";
 
         case 3:
-            final JButton editButton = this.componentBuilder.createButton("editButton", this.cols[columnIndex]);
-            // editButton.addActionListener(new TableButtonListener());
-            return editButton;
-
         case 4:
-            final JButton removeButton = this.componentBuilder.createButton("removeButton", this.cols[columnIndex]);
-            // removeButton.addActionListener(new TableButtonListener());
-            return removeButton;
+            final JButton button = this.componentBuilder.createButton(this.cols[columnIndex] + "Button", this.cols[columnIndex]);
+            return button;
 
         default:
             return "Error";
