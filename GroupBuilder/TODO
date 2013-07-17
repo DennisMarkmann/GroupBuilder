@@ -1,32 +1,32 @@
 1. Additional Content:
 
-	1.1.Nur bei Gruppen mit Änderungen Drucken / E-Mail versenden.
+	1.0.Nur bei Gruppen mit Änderungen Drucken / E-Mail versenden.
 	
-	1.2.Nur bei Gruppen mit Änderungen Files schreiben?
+	1.1.Nur bei Gruppen mit Änderungen Files schreiben?
 
-	1.3.Mehrsprachen Unterstützung
+	1.2.Mehrsprachen Unterstützung
 	
-	1.4.Fill HelpFrame
+	1.3.Fill HelpFrame
 
-	1.5.Sort Tables.. alphabetisch nach den verschiedenen Kriterien (per Click)
+	1.4.Sort Tables.. alphabetisch nach den verschiedenen Kriterien (per Click)
 				
-	1.6.Print und Emailframes umgestalten. (Chechboxes für jede Gruppe, default selected)
+	1.5.Print und Emailframes umgestalten. (Chechboxes für jede Gruppe, default selected)
 	
-	1.7.Gui Aussehen optimieren (Settings)
+	1.6.Gui Aussehen optimieren (Settings)
 	
-	1.8.Tastatursteuerung
+	1.7.Tastatursteuerung
 	
-	1.9.Messages for sucessfull actions			
+	1.8.Messages for sucessfull actions			
 		
-	1.10.FileCleaner implementation in GUI (Delete MenuPunkt)
+	1.9.FileCleaner implementation in GUI (Delete MenuPunkt)
 	
-	1.11.Gruppen Auswahl bei der Member Erstellung und Editierung ermöglichen
+	1.10.Gruppen Auswahl bei der Member Erstellung und Editierung ermöglichen
 	
-	1.12.Implement groups automatically functionality
+	1.11.Implement groups automatically functionality
 	
-	1.13.Email to single Person
+	1.12.Email to single Person
 
-	1.14.Choose printer functionality
+	1.13.Choose printer functionality
 		1.14.1.Add printer in Settings
 		1.14.2.Add printer in Settings.XML
 		1.14.3.If printer selected: use this, else: open choosePrinterDialog
@@ -34,10 +34,10 @@
 
 2. CleanUp:
 
-	2.1.Methoden aus frames auslagern (getInstance & closeWindow)
+	2.0.Methoden aus frames auslagern (getInstance & closeWindow)
 
-	2.2.Einzelne GUI Komponenten nicht mitgeben, sondern aus dem gesamten Frame ziehen?(Alle Listener)
+	2.1.Einzelne GUI Komponenten nicht mitgeben, sondern aus dem gesamten Frame ziehen?(Alle Listener)
 	
-	2.3.JUnit Tests statt sysos
+	2.2.JUnit Tests statt sysos
 	
-	2.4.Remove mail.jar
+	2.3.Remove mail.jar
