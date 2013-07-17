@@ -29,11 +29,11 @@ class GroupListReader {
         if (doc == null) {
             return;
         }
-        final Node node = doc.getElementsByTagName("GroupList").item(0);
-        if (node.getNodeType() == Node.ELEMENT_NODE) {
-            // currently not in use.
-            // final String groupListSize = helper.getElementValue((Element) node, "GroupListSize");
-        }
+        // final Node node = doc.getElementsByTagName("GroupList").item(0);
+        // if (node.getNodeType() == Node.ELEMENT_NODE) {
+        // currently not in use.
+        // final String groupListSize = helper.getElementValue((Element) node, "GroupListSize");
+        // }
 
         final NodeList nList = doc.getElementsByTagName("Group");
         for (int temp = 0; temp < nList.getLength(); temp++) {

@@ -28,7 +28,7 @@ public class GroupCreator {
         this.addGroupToList(new Group(this.correctFormat(name), description, fixSize));
     }
 
-    public final void addGroupToList(final Group group) {
+    private final void addGroupToList(final Group group) {
         try {
             this.checkDuplicates(group.getName());
         } catch (final DuplicateEntryException e) {
@@ -47,12 +47,12 @@ public class GroupCreator {
         }
     }
 
-    public void removeGroup(final Group group) {
+    public final void removeGroup(final Group group) {
         this.pojo.getGroupList().remove(this.pojo.getGroupByName(group.getName()));
 
     }
 
-    public void editGroup(final Group oldGroup, final Group newGroup) {
+    public final void editGroup(final Group oldGroup, final Group newGroup) {
         final Group group = this.pojo.getGroupByName(oldGroup.getName());
         group.setName(newGroup.getName());
         group.setDescription(newGroup.getDescription());

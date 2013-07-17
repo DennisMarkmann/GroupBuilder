@@ -60,7 +60,7 @@ public class Member implements Comparable<Member> {
     }
 
     @Override
-    public int compareTo(final Member member) {
+    public final int compareTo(final Member member) {
         int result = this.getFirstName().compareTo(member.getFirstName());
         if (result == 0) {
             result = this.getLastName().compareTo(member.getLastName());

@@ -78,7 +78,7 @@ public class FileWriteHelper {
     }
 
     // write the content into xml file
-    public void writeFile(final String path, final String fileName, final Document doc) {
+    final void writeFile(final String path, final String fileName, final Document doc) {
 
         File file = new File(path);
         file.mkdirs();

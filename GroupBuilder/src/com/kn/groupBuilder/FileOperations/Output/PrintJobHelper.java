@@ -18,7 +18,7 @@ import dennis.markmann.MyLibraries.DefaultJobs.PrinterSelector;
 
 public class PrintJobHelper {
 
-    Pojo pojo;
+    private final Pojo pojo;
 
     public PrintJobHelper(final Pojo pojo) {
         this.pojo = pojo;

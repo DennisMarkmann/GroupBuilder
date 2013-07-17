@@ -13,6 +13,7 @@ import com.kn.groupBuilder.Storage.Pojo;
 /**
  * Used to get and store the values of the memberList.xml in the pojo.
  * 
+ * 
  * @author dennis.markmann
  * @since JDK.1.7.0_21
  * @version 1.0
@@ -29,11 +30,11 @@ class MemberListReader {
         if (doc == null) {
             return;
         }
-        final Node node = doc.getElementsByTagName("MemberList").item(0);
-        if (node.getNodeType() == Node.ELEMENT_NODE) {
-            // currently not in use.
-            // final String memberListSize = helper.getElementValue((Element) node, "MemberListSize");
-        }
+        // final Node node = doc.getElementsByTagName("MemberList").item(0);
+        // if (node.getNodeType() == Node.ELEMENT_NODE) {
+        // currently not in use.
+        // final String memberListSize = helper.getElementValue((Element) node, "MemberListSize");
+        // }
 
         final NodeList nList = doc.getElementsByTagName("Member");
         for (int temp = 0; temp < nList.getLength(); temp++) {

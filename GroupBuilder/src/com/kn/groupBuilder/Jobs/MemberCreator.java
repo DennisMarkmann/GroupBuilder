@@ -28,7 +28,7 @@ public class MemberCreator {
         this.addMemberToList(new Member(this.correctFormat(firstName), this.correctFormat(lastName), eMailAdress));
     }
 
-    public final void addMemberToList(final Member member) {
+    private final void addMemberToList(final Member member) {
         try {
             this.checkDuplicates(member.getFirstName(), member.getLastName());
         } catch (final DuplicateEntryException e) {

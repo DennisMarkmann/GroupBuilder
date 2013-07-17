@@ -69,11 +69,11 @@ public class Settings { // NO_UCD
         this.path = path;
     }
 
-    public PrintService getPrintService() {
-        return printService;
+    public final PrintService getPrintService() {
+        return this.printService;
     }
 
-    public void setPrintService(PrintService printService) {
+    public final void setPrintService(final PrintService printService) {
         this.printService = printService;
     }
 }

@@ -39,7 +39,6 @@ public class EmailFrameListener implements ActionListener {
             ConfirmationFrame.getInstance(this.pojo, "sendMail", this.addressField.getText());
         } else if (buttonClicked.getName().compareTo("sendAllButton") == 0) {
             ConfirmationFrame.getInstance(this.pojo, "sendMailToAll", null);
-        } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
         }
         this.emailFrame.closeWindow();
 

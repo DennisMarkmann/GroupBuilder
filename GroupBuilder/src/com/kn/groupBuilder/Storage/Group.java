@@ -79,7 +79,7 @@ public class Group implements Comparable<Group> {
     }
 
     @Override
-    public int compareTo(final Group group) {
+    public final int compareTo(final Group group) {
         return this.getName().compareTo(group.getName());
     }
 }
