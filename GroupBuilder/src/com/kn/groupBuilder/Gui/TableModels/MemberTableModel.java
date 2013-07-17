@@ -1,8 +1,12 @@
 package com.kn.groupBuilder.Gui.TableModels;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
@@ -90,9 +94,27 @@ public final class MemberTableModel extends AbstractTableModel {
 
         case 4:
         case 5:
-            final JButton button = this.componentBuilder.createButton(this.cols[columnIndex] + "Button", this.cols[columnIndex]);
-            return button;
+            ImageIcon buttonIcon = null;
+            InputStream buttonName = null;
+            try {
+                if (this.cols[columnIndex].equals("Remove")) {
+                    buttonName = this.getClass()
+                            .getClassLoader()
+                            .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Delete_Icon2.png");
+                } else if (this.cols[columnIndex].equals("Edit")) {
+                    buttonName = this.getClass()
+                            .getClassLoader()
+                            .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Edit_Icon.png");
+                }
+                buttonIcon = new ImageIcon(ImageIO.read(buttonName));
+            } catch (final IOException e) {
+                e.printStackTrace();
+            }
 
+            final JButton button = this.componentBuilder.createButton(this.cols[columnIndex] + "Button", "");
+
+            button.setIcon(buttonIcon);
+            return button;
         default:
             return "Error";
         }

@@ -1,6 +1,7 @@
 package com.kn.groupBuilder.Gui.TableModels;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -89,15 +90,24 @@ public final class GroupTableModel extends AbstractTableModel {
         case 3:
         case 4:
             ImageIcon buttonIcon = null;
+            InputStream buttonName = null;
             try {
-                buttonIcon = new ImageIcon(ImageIO.read(this.getClass()
-                        .getClassLoader()
-                        .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Delete_Icon.png")));
+                if (this.cols[columnIndex].equals("Remove")) {
+                    buttonName = this.getClass()
+                            .getClassLoader()
+                            .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Delete_Icon.png");
+                } else if (this.cols[columnIndex].equals("Edit")) {
+                    buttonName = this.getClass()
+                            .getClassLoader()
+                            .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Edit_Icon.png");
+                }
+                buttonIcon = new ImageIcon(ImageIO.read(buttonName));
             } catch (final IOException e) {
                 e.printStackTrace();
             }
 
-            final JButton button = this.componentBuilder.createButton(this.cols[columnIndex] + "Button", this.cols[columnIndex]);
+            final JButton button = this.componentBuilder.createButton(this.cols[columnIndex] + "Button", "");
+
             button.setIcon(buttonIcon);
             return button;
 
