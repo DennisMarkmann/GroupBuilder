@@ -40,7 +40,5 @@
 	3.2.Einzelne GUI Komponenten nicht mitgeben, sondern aus dem gesamten Frame ziehen?(Alle Listener)
 	
 	3.3.JUnit Tests statt sysos
-
-	3.4.Default Path wieder in das Programm legen (GroupBuilder folder)
 	
-	3.5.Remove mail.jar
+	3.4.Remove mail.jar

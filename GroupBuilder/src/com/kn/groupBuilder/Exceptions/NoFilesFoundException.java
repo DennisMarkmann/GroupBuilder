@@ -15,7 +15,7 @@ public class NoFilesFoundException extends Exception implements ExceptionDialogI
     private static final long serialVersionUID = -4565962119370664301L;
 
     public NoFilesFoundException(final String path, final StackTraceElement[] stackTraceElements) {
-        super("No valid data was found at \"" + path + "\"" + System.lineSeparator() + "Please change the chosen path.");
+        super("No valid data was found at \"" + path + "\"" + System.lineSeparator());
     }
 
     @Override

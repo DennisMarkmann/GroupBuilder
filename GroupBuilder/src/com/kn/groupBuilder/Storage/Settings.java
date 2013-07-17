@@ -12,7 +12,7 @@ import javax.print.PrintService;
 
 public class Settings { // NO_UCD
 
-    private String path = System.getProperty("user.home") + "\\Desktop\\" + "GroupBuilder\\";;
+    private String path = System.getProperty("user.home") + "\\GroupBuilder\\";;
 
     private String language = "english"; // german or english
     private boolean archive = true;

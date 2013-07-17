@@ -8,7 +8,10 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.FileOperations.Reader.FileReaderHelper;
 import com.kn.groupBuilder.Gui.Menu.SettingsFrame;
+import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
+import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Storage.Settings;
 
@@ -61,6 +64,9 @@ public class SettingsFrameListener implements ActionListener {
         if (buttonClicked.getName().compareTo("pathButton") == 0) {
             this.pojo.getSettings().setPath(new PathChooser().changePath());
             this.settingsFrame.updatePathField(this.pathField, this.pojo);
+            new FileReaderHelper().readXMLFiles(this.pojo);
+            MemberTableModel.refreshTable();
+            GroupTableModel.refreshTable();
 
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
             final Settings settings = this.pojo.getSettings();
