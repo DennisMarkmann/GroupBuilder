@@ -32,7 +32,7 @@ class GroupTab extends JPanel implements DefaultTab {
         buttonRenderCols.add("Remove");
 
         BUILDER.setDefaultTabSettings(this);
-        BUILDER.createTable(this, 0, 0, new JTable(GroupTableModel.createTable(pojo.getGroupList())), buttonRenderCols);
+        BUILDER.createTable(this, 0, 0, new JTable(GroupTableModel.createTable(pojo)), buttonRenderCols);
 
         BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
         final JButton addButton = BUILDER.createButton(this, "addButton", "Add Group", 0, 5);

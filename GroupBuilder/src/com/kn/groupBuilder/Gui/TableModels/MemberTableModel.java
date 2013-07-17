@@ -11,8 +11,10 @@ import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
+import com.kn.groupBuilder.Gui.TableModels.Listener.TableListener;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
+import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.Builder.ComponentBuilder;
 
@@ -29,6 +31,7 @@ public final class MemberTableModel extends AbstractTableModel {
     private static final long serialVersionUID = -3758449082711896808L;
     private final ComponentBuilder componentBuilder = new ComponentBuilder();
     private static MemberTableModel instance = null;
+    private Pojo pojo = null;
     private final ArrayList<Member> memberList;
     private final String[] cols = { "FirstName", "LastName", "E-Mail", "Groups", "Edit", "Remove" };
     private final Class<?>[] columnTypes = new Class<?>[] {
@@ -39,14 +42,16 @@ public final class MemberTableModel extends AbstractTableModel {
             JButton.class,
             JButton.class };
 
-    private MemberTableModel(final ArrayList<Member> memberList) {
-        Collections.sort(memberList);
-        this.memberList = memberList;
+    private MemberTableModel(final Pojo pojo) {
+        this.pojo = pojo;
+        this.memberList = pojo.getMemberList();
+        Collections.sort(this.memberList);
+
     }
 
-    public static TableModel createTable(final ArrayList<Member> memberList) {
+    public static TableModel createTable(final Pojo pojo) {
         if (instance == null) {
-            instance = new MemberTableModel(memberList);
+            instance = new MemberTableModel(pojo);
         }
         return instance;
     }
@@ -96,15 +101,18 @@ public final class MemberTableModel extends AbstractTableModel {
         case 5:
             ImageIcon buttonIcon = null;
             InputStream buttonName = null;
+            String action = "";
             try {
                 if (this.cols[columnIndex].equals("Remove")) {
                     buttonName = this.getClass()
                             .getClassLoader()
                             .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Delete_Icon2.png");
+                    action = "removeMember";
                 } else if (this.cols[columnIndex].equals("Edit")) {
                     buttonName = this.getClass()
                             .getClassLoader()
                             .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Edit_Icon.png");
+                    action = "editMember";
                 }
                 buttonIcon = new ImageIcon(ImageIO.read(buttonName));
             } catch (final IOException e) {
@@ -112,6 +120,7 @@ public final class MemberTableModel extends AbstractTableModel {
             }
 
             final JButton button = this.componentBuilder.createButton(this.cols[columnIndex] + "Button", "");
+            button.addActionListener(new TableListener(this.pojo, rowIndex, action));
 
             button.setIcon(buttonIcon);
             return button;

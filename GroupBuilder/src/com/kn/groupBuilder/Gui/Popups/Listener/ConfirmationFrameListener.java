@@ -74,13 +74,15 @@ public class ConfirmationFrameListener implements ActionListener {
                         ((ArrayList<Member>) this.object).get(0),
                         ((ArrayList<Member>) this.object).get(1));
             } else if (this.action.equals("removeMember")) {
-                new MemberCreator(this.pojo).removeMember((Member) this.object);
+                new MemberCreator(this.pojo).removeMember(this.pojo.getMemberList().get((int) (this.object)));
+                MemberTableModel.refreshTable();
             } else if (this.action.equals("editGroup")) {
                 new GroupCreator(this.pojo).editGroup(
                         ((ArrayList<Group>) this.object).get(0),
                         ((ArrayList<Group>) this.object).get(1));
             } else if (this.action.equals("removeGroup")) {
-                new GroupCreator(this.pojo).removeGroup((Group) this.object);
+                new GroupCreator(this.pojo).removeGroup(this.pojo.getGroupList().get((int) (this.object)));
+                GroupTableModel.refreshTable();
             }
         }
         this.confirmationFrame.closeWindow();

@@ -32,7 +32,7 @@ class MemberTab extends JPanel implements DefaultTab {
         buttonRenderCols.add("Remove");
 
         BUILDER.setDefaultTabSettings(this);
-        BUILDER.createTable(this, 0, 0, new JTable(MemberTableModel.createTable(pojo.getMemberList())), buttonRenderCols);
+        BUILDER.createTable(this, 0, 0, new JTable(MemberTableModel.createTable(pojo)), buttonRenderCols);
 
         BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
         final JButton addButton = BUILDER.createButton(this, "addButton", "Add Member", 0, 5);
