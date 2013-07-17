@@ -66,6 +66,8 @@ public class ConfirmationFrameListener implements ActionListener {
             } else if (this.action.equals("printOut")) {
                 new PrintJobHelper(this.pojo).printGroup(this.object);
             } else if (this.action.equals("sendMail")) {
+                final String mailAddress = (String) this.object;
+                // new EmailJobHelper().
                 // TODO implement single mail functionality
             } else if (this.action.equals("save")) {
                 new FileWriteHelper().createXMLFiles(this.pojo);
