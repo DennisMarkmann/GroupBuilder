@@ -44,8 +44,8 @@ public class MemberCreator {
 
     public final void editMember(final Member oldMember, final Member newMember) {
         final Member member = this.pojo.getMemberByName(oldMember.getFirstName(), oldMember.getLastName());
-        member.setEMailAdress(newMember.getFirstName());
-        member.setEMailAdress(newMember.getLastName());
+        member.setFirstName(newMember.getFirstName());
+        member.setLastName(newMember.getLastName());
         member.setEMailAdress(newMember.getEMailAdress());
         // member.setGroupList(newMember.getGroupList());
     }

@@ -26,6 +26,7 @@ public class EditGroupFrameListener implements ActionListener {
 
     private final EditGroupFrame editGroupFrame;
     private final Pojo pojo;
+    private final int rowID;
     private final JTextField groupNameField;
     private final JTextField groupDescField;
     private final JTextField groupSizeField;
@@ -33,12 +34,14 @@ public class EditGroupFrameListener implements ActionListener {
     public EditGroupFrameListener(
             final EditGroupFrame editGroupFrame,
             final Pojo pojo,
+            final int rowID,
             final JTextField groupNameField,
             final JTextField groupDescField,
             final JTextField groupSizeField) {
 
         this.editGroupFrame = editGroupFrame;
         this.pojo = pojo;
+        this.rowID = rowID;
         this.groupNameField = groupNameField;
         this.groupDescField = groupDescField;
         this.groupSizeField = groupSizeField;
@@ -64,8 +67,7 @@ public class EditGroupFrameListener implements ActionListener {
                 new EmptyValueException("groupName").showDialog();
                 return;
             }
-            // TODO find a way to add the old group
-
+            groupList.add(this.pojo.getGroupList().get(this.rowID));
             groupList.add(new Group(groupName, description, fixSize));
 
             ConfirmationFrame.getInstance(this.pojo, "editGroup", groupList);

@@ -25,6 +25,7 @@ public class EditMemberFrameListener implements ActionListener {
 
     private final EditMemberFrame editMemberFrame;
     private final Pojo pojo;
+    private final int rowID;
     private final JTextField firstNameField;
     private final JTextField lastNameField;
     private final JTextField eMailField;
@@ -32,12 +33,14 @@ public class EditMemberFrameListener implements ActionListener {
     public EditMemberFrameListener(
             final EditMemberFrame editMemberFrame,
             final Pojo pojo,
-            final JTextField firstNameField,
+            final int rowID,
             final JTextField lastNameField,
-            final JTextField eMailField) {
+            final JTextField eMailField,
+            final JTextField firstNameField) {
 
         this.editMemberFrame = editMemberFrame;
         this.pojo = pojo;
+        this.rowID = rowID;
         this.firstNameField = firstNameField;
         this.lastNameField = lastNameField;
         this.eMailField = eMailField;
@@ -62,8 +65,7 @@ public class EditMemberFrameListener implements ActionListener {
                 new EmptyValueException("lastName").showDialog();
                 return;
             }
-            // TODO find a way to add the old member
-
+            memberList.add(this.pojo.getMemberList().get(this.rowID));
             memberList.add(new Member(firstName, lastName, email));
 
             ConfirmationFrame.getInstance(this.pojo, "editMember", memberList);

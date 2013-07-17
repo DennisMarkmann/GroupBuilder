@@ -106,7 +106,7 @@ public final class MemberTableModel extends AbstractTableModel {
                 if (this.cols[columnIndex].equals("Remove")) {
                     buttonName = this.getClass()
                             .getClassLoader()
-                            .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Delete_Icon2.png");
+                            .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Delete_Icon.png");
                     action = "removeMember";
                 } else if (this.cols[columnIndex].equals("Edit")) {
                     buttonName = this.getClass()

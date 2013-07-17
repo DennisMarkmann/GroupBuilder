@@ -73,6 +73,7 @@ public class ConfirmationFrameListener implements ActionListener {
                 new MemberCreator(this.pojo).editMember(
                         ((ArrayList<Member>) this.object).get(0),
                         ((ArrayList<Member>) this.object).get(1));
+                MemberTableModel.refreshTable();
             } else if (this.action.equals("removeMember")) {
                 new MemberCreator(this.pojo).removeMember(this.pojo.getMemberList().get((int) (this.object)));
                 MemberTableModel.refreshTable();
@@ -80,6 +81,7 @@ public class ConfirmationFrameListener implements ActionListener {
                 new GroupCreator(this.pojo).editGroup(
                         ((ArrayList<Group>) this.object).get(0),
                         ((ArrayList<Group>) this.object).get(1));
+                GroupTableModel.refreshTable();
             } else if (this.action.equals("removeGroup")) {
                 new GroupCreator(this.pojo).removeGroup(this.pojo.getGroupList().get((int) (this.object)));
                 GroupTableModel.refreshTable();

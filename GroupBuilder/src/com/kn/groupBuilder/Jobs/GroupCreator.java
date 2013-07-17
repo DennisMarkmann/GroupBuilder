@@ -2,7 +2,6 @@ package com.kn.groupBuilder.Jobs;
 
 import com.kn.groupBuilder.Exceptions.DuplicateEntryException;
 import com.kn.groupBuilder.Storage.Group;
-import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
@@ -60,14 +59,6 @@ public class GroupCreator {
         group.setFixSize(newGroup.getFixSize());
         // group.setMemberList(newGroup.getMemberList());
 
-    }
-
-    public final void editMember(final Member oldMember, final Member newMember) {
-        final Member member = this.pojo.getMemberByName(oldMember.getFirstName(), oldMember.getLastName());
-        member.setEMailAdress(newMember.getFirstName());
-        member.setEMailAdress(newMember.getLastName());
-        member.setEMailAdress(newMember.getEMailAdress());
-        // member.setGroupList(newMember.getGroupList());
     }
 
     private void checkDuplicates(final String name) throws DuplicateEntryException {

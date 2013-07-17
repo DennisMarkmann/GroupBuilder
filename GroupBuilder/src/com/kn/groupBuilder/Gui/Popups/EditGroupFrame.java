@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Popups.Listener.EditGroupFrameListener;
+import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
@@ -23,7 +24,7 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
     private static EditGroupFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;
 
-    private EditGroupFrame(final Pojo pojo) {
+    private EditGroupFrame(final Pojo pojo, final int rowID) {
 
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - EditGroup");
         this.addWindowListener(new MyWindowAdapter(this));
@@ -41,9 +42,12 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
 
         this.pack();
 
+        this.fillFields(pojo, rowID, groupNameField, groupDescField, groupSizeField);
+
         final EditGroupFrameListener listener = new EditGroupFrameListener(
                 this,
                 pojo,
+                rowID,
                 groupNameField,
                 groupDescField,
                 groupSizeField);
@@ -52,9 +56,9 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
         abortButton.addActionListener(listener);
     }
 
-    public static EditGroupFrame getInstance(final Pojo pojo) {
+    public static EditGroupFrame getInstance(final Pojo pojo, final int rowID) {
         if (instance == null) {
-            instance = new EditGroupFrame(pojo);
+            instance = new EditGroupFrame(pojo, rowID);
         } else {
             instance.toFront();
         }
@@ -65,5 +69,19 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
     public void closeWindow() {
         this.dispose();
         instance = null;
+    }
+
+    private void fillFields(
+            final Pojo pojo,
+            final int rowID,
+            final JTextField groupNameField,
+            final JTextField groupDescField,
+            final JTextField groupSizeField) {
+
+        final Group group = pojo.getGroupList().get(rowID);
+        groupNameField.setText(group.getName());
+        groupDescField.setText(group.getDescription());
+        groupSizeField.setText(group.getFixSize() + "");
+
     }
 }

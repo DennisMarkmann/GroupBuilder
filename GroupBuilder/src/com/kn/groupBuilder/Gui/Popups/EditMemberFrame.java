@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Popups.Listener.EditMemberFrameListener;
+import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
@@ -23,7 +24,7 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
     private static EditMemberFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;
 
-    private EditMemberFrame(final Pojo pojo) {
+    private EditMemberFrame(final Pojo pojo, final int rowID) {
 
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - EditMember");
         this.addWindowListener(new MyWindowAdapter(this));
@@ -42,9 +43,12 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
 
         this.pack();
 
+        this.fillFields(pojo, rowID, firstNameField, lastNameField, eMailField);
+
         final EditMemberFrameListener listener = new EditMemberFrameListener(
                 this,
                 pojo,
+                rowID,
                 firstNameField,
                 lastNameField,
                 eMailField);
@@ -53,9 +57,9 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
         abortButton.addActionListener(listener);
     }
 
-    public static EditMemberFrame getInstance(final Pojo pojo) {
+    public static EditMemberFrame getInstance(final Pojo pojo, final int rowID) {
         if (instance == null) {
-            instance = new EditMemberFrame(pojo);
+            instance = new EditMemberFrame(pojo, rowID);
         } else {
             instance.toFront();
         }
@@ -66,5 +70,17 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
     public void closeWindow() {
         this.dispose();
         instance = null;
+    }
+
+    private void fillFields(
+            final Pojo pojo,
+            final int rowID,
+            final JTextField firstNameField,
+            final JTextField lastNameField,
+            final JTextField eMailField) {
+        final Member member = pojo.getMemberList().get(rowID);
+        firstNameField.setText(member.getFirstName());
+        lastNameField.setText(member.getLastName());
+        eMailField.setText(member.getEMailAdress());
     }
 }
