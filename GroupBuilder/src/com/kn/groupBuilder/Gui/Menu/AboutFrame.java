@@ -30,7 +30,7 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
         this.setSize(600, 230);
         this.addWindowListener(new MyWindowAdapter(this));
         BUILDER.createLabel(this, "This Software is designed by Dennis Markmann.", 1, 0);
-        BUILDER.createLabel(this, "If you have any problems or suggested improvements please contanct me via E-Mail.", 1, 1);
+        BUILDER.createLabel(this, "If you have any problems or improvements to suggest please contanct me via e-mail.", 1, 1);
         BUILDER.createLabel(this, "Address: dennismarkmann@hotmail.de", 1, 2);
         final JButton closeButton = BUILDER.createButton(this, "closeButton", "close", 2, 4);
 
