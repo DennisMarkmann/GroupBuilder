@@ -34,9 +34,9 @@ public class EditMemberFrameListener implements ActionListener {
             final EditMemberFrame editMemberFrame,
             final Pojo pojo,
             final int rowID,
+            final JTextField firstNameField,
             final JTextField lastNameField,
-            final JTextField eMailField,
-            final JTextField firstNameField) {
+            final JTextField eMailField) {
 
         this.editMemberFrame = editMemberFrame;
         this.pojo = pojo;

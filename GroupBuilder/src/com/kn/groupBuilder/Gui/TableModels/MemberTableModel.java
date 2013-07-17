@@ -1,12 +1,8 @@
 package com.kn.groupBuilder.Gui.TableModels;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
@@ -16,6 +12,7 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
+import dennis.markmann.MyLibraries.DefaultJobs.IconHelper;
 import dennis.markmann.MyLibraries.GuiJobs.Builder.ComponentBuilder;
 
 /**
@@ -99,31 +96,16 @@ public final class MemberTableModel extends AbstractTableModel {
 
         case 4:
         case 5:
-            ImageIcon buttonIcon = null;
-            InputStream buttonName = null;
-            String action = "";
-            try {
-                if (this.cols[columnIndex].equals("Remove")) {
-                    buttonName = this.getClass()
-                            .getClassLoader()
-                            .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Delete_Icon.png");
-                    action = "removeMember";
-                } else if (this.cols[columnIndex].equals("Edit")) {
-                    buttonName = this.getClass()
-                            .getClassLoader()
-                            .getResourceAsStream("com/kn/groupBuilder/Gui/TableModels/Icons/Edit_Icon.png");
-                    action = "editMember";
-                }
-                buttonIcon = new ImageIcon(ImageIO.read(buttonName));
-            } catch (final IOException e) {
-                e.printStackTrace();
-            }
-
             final JButton button = this.componentBuilder.createButton(this.cols[columnIndex] + "Button", "");
-            button.addActionListener(new TableListener(this.pojo, rowIndex, action));
 
-            button.setIcon(buttonIcon);
+            if (this.cols[columnIndex].equals("Remove")) {
+                button.setIcon(new IconHelper().getIcon("com/kn/groupBuilder/Gui/TableModels/Icons/Delete_Icon.png"));
+            } else if (this.cols[columnIndex].equals("Edit")) {
+                button.setIcon(new IconHelper().getIcon("com/kn/groupBuilder/Gui/TableModels/Icons/Edit_Icon.png"));
+            }
+            button.addActionListener(new TableListener(this.pojo, rowIndex, this.cols[columnIndex].toLowerCase() + "Member"));
             return button;
+
         default:
             return "Error";
         }
