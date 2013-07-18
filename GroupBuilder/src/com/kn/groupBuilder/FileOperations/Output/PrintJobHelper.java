@@ -5,8 +5,8 @@ import javax.print.PrintService;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.DefaultJobs.PrintJob;
-import dennis.markmann.MyLibraries.DefaultJobs.PrinterSelector;
+import dennis.markmann.MyLibraries.DefaultJobs.Print.PrintJob;
+import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
 
 /**
  * Initializes the different print operations.

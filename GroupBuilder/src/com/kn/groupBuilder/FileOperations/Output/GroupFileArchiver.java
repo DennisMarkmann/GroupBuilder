@@ -5,7 +5,7 @@ import java.io.File;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
-import dennis.markmann.MyLibraries.DefaultJobs.FileCopy;
+import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
 
 /**
  * Used to create archive files (copys) of the current group files.

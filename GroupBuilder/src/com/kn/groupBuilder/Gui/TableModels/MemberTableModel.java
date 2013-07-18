@@ -12,7 +12,7 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
-import dennis.markmann.MyLibraries.DefaultJobs.IconHelper;
+import dennis.markmann.MyLibraries.DefaultJobs.IconHelper.IconHelper;
 import dennis.markmann.MyLibraries.GuiJobs.Builder.ComponentBuilder;
 
 /**
