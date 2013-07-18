@@ -7,6 +7,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import com.kn.groupBuilder.Storage.Pojo;
+import com.kn.groupBuilder.Storage.Settings;
 
 /**
  * Used to get and store the values of the settings.xml in the pojo.
@@ -30,13 +31,14 @@ class SettingsFileReader {
         if (node.getNodeType() == Node.ELEMENT_NODE) {
 
             final Element element = (Element) node;
-            pojo.getSettings().setLanguage(helper.getElementValue(element, "Language"));
-            pojo.getSettings().setArchived(Boolean.parseBoolean(helper.getElementValue(element, "Archive")));
-            pojo.getSettings().setArchivingDays(Integer.parseInt(helper.getElementValue(element, "ArchivingDays")));
-            pojo.getSettings().setSendMailAutomatically(
-                    Boolean.parseBoolean(helper.getElementValue(element, "SendMailAutomatically")));
-            pojo.getSettings().setPrintAutomatically(
-                    Boolean.parseBoolean(helper.getElementValue(element, "PrintAutomatically")));
+            final Settings settings = pojo.getSettings();
+
+            settings.setLanguage(helper.getElementValue(element, "Language"));
+            settings.setArchived(Boolean.parseBoolean(helper.getElementValue(element, "Archive")));
+            settings.setArchivingDays(Integer.parseInt(helper.getElementValue(element, "ArchivingDays")));
+            settings.setSendMailAutomatically(Boolean.parseBoolean(helper.getElementValue(element, "SendMailAutomatically")));
+            settings.setPrintAutomatically(Boolean.parseBoolean(helper.getElementValue(element, "PrintAutomatically")));
+            settings.setPrinter(helper.getElementValue(element, "Printer"));
         }
     }
 }

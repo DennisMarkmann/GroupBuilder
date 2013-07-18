@@ -1,6 +1,7 @@
 package com.kn.groupBuilder.FileOperations.Output;
 
 import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
 
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -27,7 +28,7 @@ public class PrintJobHelper {
 
     public final void printAllGroups() {
         for (final Group group : this.pojo.getGroupList()) {
-            this.printGroup(group);
+            this.printGroup(group.getName());
         }
     }
 
@@ -37,9 +38,11 @@ public class PrintJobHelper {
     }
 
     private void selectPrinter() {
-        final PrintService printService = this.pojo.getSettings().getPrintService();
-        if (printService != null) {
-            PrinterSelector.getInstance().setPrinter(printService);
+        final PrintService[] printerServices = PrintServiceLookup.lookupPrintServices(null, null);
+        for (final PrintService printer : printerServices) {
+            if (printer.getName().equals(this.pojo.getSettings().getPrinter())) {
+                PrinterSelector.getInstance().setPrinter(printer);
+            }
         }
     }
 }

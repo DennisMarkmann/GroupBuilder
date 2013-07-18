@@ -27,10 +27,7 @@
 	1.12.Email to single Person
 
 	1.13.Choose printer functionality
-		1.14.1.Add printer in Settings
-		1.14.2.Add printer in Settings.XML
-		1.14.3.If printer selected: use this, else: open choosePrinterDialog
-		1.14.4.Ask to store the printer after choosing in the dialog
+		1.13.1.Add printer selection to the settings GUI
 
 2. CleanUp:
 

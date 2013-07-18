@@ -1,7 +1,5 @@
 package com.kn.groupBuilder.Storage;
 
-import javax.print.PrintService;
-
 /**
  * Storage for the settings used in the application. Contains various elements that can be saved via XML file.
  * 
@@ -19,7 +17,7 @@ public class Settings { // NO_UCD
     private int archivingDays = 7; // if the value is 0 the archiving will be disabled
     private boolean sendMailAutomatically = false;
     private boolean printAutomatically = false;
-    private PrintService printService;
+    private String printer = null;
 
     public final String getLanguage() {
         return this.language;
@@ -69,11 +67,12 @@ public class Settings { // NO_UCD
         this.path = path;
     }
 
-    public final PrintService getPrintService() {
-        return this.printService;
+    public String getPrinter() {
+        return this.printer;
     }
 
-    public final void setPrintService(final PrintService printService) {
-        this.printService = printService;
+    public void setPrinter(final String printer) {
+        this.printer = printer;
     }
+
 }

@@ -30,6 +30,7 @@ class SettingsFileWriter {
         helper.createElement(doc, settingsElement, "ArchivingDays", settings.getArchivingDays() + "");
         helper.createElement(doc, settingsElement, "SendMailAutomatically", settings.isSendMailAutomatically() + "");
         helper.createElement(doc, settingsElement, "PrintAutomatically", settings.isPrintAutomatically() + "");
+        helper.createElement(doc, settingsElement, "Printer", settings.getPrinter());
 
         helper.writeFile(pojo.getSettings().getPath(), "Settings", doc);
     }
