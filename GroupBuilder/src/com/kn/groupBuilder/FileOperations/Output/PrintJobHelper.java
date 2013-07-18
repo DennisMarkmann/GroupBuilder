@@ -38,8 +38,7 @@ public class PrintJobHelper {
     }
 
     private void selectPrinter() {
-        final PrintService[] printerServices = PrintServiceLookup.lookupPrintServices(null, null);
-        for (final PrintService printer : printerServices) {
+        for (final PrintService printer : PrintServiceLookup.lookupPrintServices(null, null)) {
             if (printer.getName().equals(this.pojo.getSettings().getPrinter())) {
                 PrinterSelector.getInstance().setPrinter(printer);
             }
