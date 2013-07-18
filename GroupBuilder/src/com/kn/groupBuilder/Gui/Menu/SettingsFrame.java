@@ -48,23 +48,29 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         BUILDER.createLabel(this, "Duration [in days]:", 0, 3);
         final JTextField archiveField = BUILDER.createTextField(this, "archiveField", TEXT_FIELD_SIZE, 1, 3);
 
+        // print
+        BUILDER.createLabel(this, "Printer:", 0, 4);
+        final JTextField printerField = BUILDER.createTextField(this, "printerField", TEXT_FIELD_SIZE, 1, 4);
+        final JButton printerButton = BUILDER.createButton(this, "printerButton", "Change Printer", 2, 4);
+
         // automatic
-        final JCheckBox sendMailsAutomatically = BUILDER.createCheckBox(
-                this,
-                "sendMailsAutomatically",
-                "Send e-Mails automatically: ",
-                0,
-                4);
         final JCheckBox printOutAutomatically = BUILDER.createCheckBox(
                 this,
                 "printOutAutomatically",
                 "Print automatically: ",
                 1,
-                4);
+                5);
+
+        final JCheckBox sendMailsAutomatically = BUILDER.createCheckBox(
+                this,
+                "sendMailsAutomatically",
+                "Send e-Mails automatically: ",
+                0,
+                5);
 
         // close
-        final JButton saveButton = BUILDER.createButton(this, "saveButton", "Save", 0, 5);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 5);
+        final JButton saveButton = BUILDER.createButton(this, "saveButton", "Save", 0, 6);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 6);
 
         final SettingsFrameListener listener = new SettingsFrameListener(
                 this,
@@ -73,10 +79,12 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
                 languageBox,
                 archivingBox,
                 archiveField,
+                printerField,
                 sendMailsAutomatically,
                 printOutAutomatically);
 
         pathButton.addActionListener(listener);
+        printerButton.addActionListener(listener);
         closeButton.addActionListener(listener);
         saveButton.addActionListener(listener);
 
@@ -86,6 +94,7 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
                 languageBox,
                 archivingBox,
                 archiveField,
+                printerField,
                 sendMailsAutomatically,
                 printOutAutomatically);
 
@@ -98,6 +107,7 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
             final JComboBox<String> languageBox,
             final JCheckBox archivingBox,
             final JTextField archiveField,
+            final JTextField printerField,
             final JCheckBox sendMailsAutomaticallyBox,
             final JCheckBox printOutAutomaticallyBox) {
 
@@ -107,9 +117,14 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         languageBox.setSelectedItem(settings.getLanguage());
         archivingBox.setSelected(this.readCheckSettings(settings.isArchived()));
         archiveField.setText(settings.getArchivingDays() + "");
+        this.updatePrinterField(printerField, pojo);
         sendMailsAutomaticallyBox.setSelected(this.readCheckSettings(settings.isSendMailAutomatically()));
         printOutAutomaticallyBox.setSelected(this.readCheckSettings(settings.isPrintAutomatically()));
 
+    }
+
+    public void updatePrinterField(final JTextField printerField, final Pojo pojo) {
+        printerField.setText(pojo.getSettings().getPrinter());
     }
 
     public void updatePathField(final JTextField pathField, final Pojo pojo) {

@@ -15,6 +15,7 @@ import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Storage.Settings;
 
+import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.PathChooser;
 
 /**
@@ -33,6 +34,7 @@ public class SettingsFrameListener implements ActionListener {
     private final JComboBox<String> languageBox;
     private final JCheckBox archivingBox;
     private final JTextField archiveField;
+    private final JTextField printerField;
     private final JCheckBox sendMailsAutomatically;
     private final JCheckBox printOutAutomatically;
 
@@ -43,6 +45,7 @@ public class SettingsFrameListener implements ActionListener {
             final JComboBox<String> languageBox,
             final JCheckBox archivingBox,
             final JTextField archiveField,
+            final JTextField printerField,
             final JCheckBox sendMailsAutomatically,
             final JCheckBox printOutAutomatically) {
 
@@ -52,6 +55,7 @@ public class SettingsFrameListener implements ActionListener {
         this.languageBox = languageBox;
         this.archivingBox = archivingBox;
         this.archiveField = archiveField;
+        this.printerField = printerField;
         this.sendMailsAutomatically = sendMailsAutomatically;
         this.printOutAutomatically = printOutAutomatically;
     }
@@ -64,9 +68,12 @@ public class SettingsFrameListener implements ActionListener {
         if (buttonClicked.getName().compareTo("pathButton") == 0) {
             this.pojo.getSettings().setPath(new PathChooser().changePath());
             this.settingsFrame.updatePathField(this.pathField, this.pojo);
-            new FileReaderHelper().readXMLFiles(this.pojo);
-            MemberTableModel.refreshTable();
-            GroupTableModel.refreshTable();
+            this.refreshData();
+
+        } else if (buttonClicked.getName().compareTo("printerButton") == 0) {
+            this.pojo.getSettings().setPrinter(new PrinterSelector().selectPrinter().getName());
+            this.settingsFrame.updatePrinterField(this.printerField, this.pojo);
+            this.refreshData();
 
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
             final Settings settings = this.pojo.getSettings();
@@ -91,5 +98,11 @@ public class SettingsFrameListener implements ActionListener {
         }
         return (false);
 
+    }
+
+    private void refreshData() {
+        new FileReaderHelper().readXMLFiles(this.pojo);
+        MemberTableModel.refreshTable();
+        GroupTableModel.refreshTable();
     }
 }

@@ -38,3 +38,9 @@
 	2.2.JUnit Tests statt sysos
 	
 	2.3.Remove mail.jar
+	
+3. BugFix:
+
+	3.0. Datafresh beim ändern des Pfades / des Druckers korrigieren (sagt .. gibt es schon)
+	
+	3.1. Printerselection: Nicht direkt drucken, nur auswählen ! (Für settings)
