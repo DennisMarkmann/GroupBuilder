@@ -54,7 +54,6 @@ public class MemberCreator {
         member.setLastName(newMember.getLastName());
         member.setEMailAdress(newMember.getEMailAdress());
         member.setGroup(newMember.getGroup());
-        // member.setGroupList(newMember.getGroupList());
     }
 
     private void checkDuplicates(final String firstName, final String lastName) throws DuplicateEntryException {

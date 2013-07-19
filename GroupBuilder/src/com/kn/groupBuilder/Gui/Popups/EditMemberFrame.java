@@ -87,8 +87,9 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
         firstNameField.setText(member.getFirstName());
         lastNameField.setText(member.getLastName());
         eMailField.setText(member.getEMailAdress());
-        groupBox.setSelectedIndex(this.getIndexOfEntry(pojo.getGroupListAsArray(), member.getGroup().getName()));
-
+        if (member.getGroup() != null) {
+            groupBox.setSelectedIndex(this.getIndexOfEntry(pojo.getGroupListAsArray(), member.getGroup().getName()));
+        }
     }
 
     private int getIndexOfEntry(final String[] array, final String string) {

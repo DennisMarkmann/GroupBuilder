@@ -16,12 +16,14 @@
 	1.6.Gui Aussehen optimieren (Settings)
 	
 	1.7.Tastatursteuerung
-		
-	1.8.Messages for sucessfull actions			
-		
-	1.9.Implement groups automatically functionality
 	
-	1.10.Email to single Person
+	1.8.Abfrage für Speichern vorm schließen
+		
+	1.9.Messages for sucessfull actions			
+		
+	1.10.Implement groups automatically functionality
+	
+	1.11.Email to single Person
 	
 
 2. CleanUp:
@@ -35,3 +37,7 @@
 	2.3.Remove mail.jar
 	
 	2.4.Edit / Create Member und Group Frames zusammen fassen
+	
+3. Bug:
+
+	3.0.Bei editieren + speichern werden Gruppen nicht mit geschrieben
