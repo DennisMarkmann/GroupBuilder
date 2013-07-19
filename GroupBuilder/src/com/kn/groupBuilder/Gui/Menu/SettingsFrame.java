@@ -113,22 +113,22 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
         final Settings settings = pojo.getSettings();
 
-        this.updatePathField(pathField, pojo);
+        this.updatePathField(pathField, settings.getPath());
         languageBox.setSelectedItem(settings.getLanguage());
         archivingBox.setSelected(this.readCheckSettings(settings.isArchived()));
         archiveField.setText(settings.getArchivingDays() + "");
-        this.updatePrinterField(printerField, pojo);
+        this.updatePrinterField(printerField, settings.getPrinter());
         sendMailsAutomaticallyBox.setSelected(this.readCheckSettings(settings.isSendMailAutomatically()));
         printOutAutomaticallyBox.setSelected(this.readCheckSettings(settings.isPrintAutomatically()));
 
     }
 
-    public void updatePrinterField(final JTextField printerField, final Pojo pojo) {
-        printerField.setText(pojo.getSettings().getPrinter());
+    public void updatePrinterField(final JTextField printerField, final String printer) {
+        printerField.setText(printer);
     }
 
-    public void updatePathField(final JTextField pathField, final Pojo pojo) {
-        pathField.setText(pojo.getSettings().getPath());
+    public void updatePathField(final JTextField pathField, final String path) {
+        pathField.setText(path);
     }
 
     private boolean readCheckSettings(final boolean checked) {

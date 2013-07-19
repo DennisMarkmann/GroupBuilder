@@ -66,14 +66,10 @@ public class SettingsFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("pathButton") == 0) {
-            this.pojo.getSettings().setPath(new PathChooser().changePath());
-            this.settingsFrame.updatePathField(this.pathField, this.pojo);
-            this.refreshData();
+            this.settingsFrame.updatePathField(this.pathField, new PathChooser().changePath());
 
         } else if (buttonClicked.getName().compareTo("printerButton") == 0) {
-            this.pojo.getSettings().setPrinter(new PrinterSelector().selectPrinter().getName());
-            this.settingsFrame.updatePrinterField(this.printerField, this.pojo);
-            this.refreshData();
+            this.settingsFrame.updatePrinterField(this.printerField, new PrinterSelector().selectPrinter().getName());
 
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
             final Settings settings = this.pojo.getSettings();
@@ -83,6 +79,8 @@ public class SettingsFrameListener implements ActionListener {
             settings.setPrintAutomatically(this.readCheckBox(this.printOutAutomatically));
             settings.setLanguage(this.pojo.getLanguageList()[this.languageBox.getSelectedIndex()]);
             settings.setArchivingDays(Integer.parseInt(this.archiveField.getText()));
+            settings.setPath(this.pathField.getText());
+            settings.setPrinter(this.printerField.getText());
 
             this.settingsFrame.closeWindow();
 

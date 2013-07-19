@@ -80,9 +80,8 @@ public class FileWriteHelper {
     // write the content into xml file
     final void writeFile(final String path, final String fileName, final Document doc) {
 
-        File file = new File(path);
-        file.mkdirs();
-        file = new File(path + fileName + ".xml");
+        new File(path).mkdirs();
+        final File file = new File(path + fileName + ".xml");
 
         try {
             TransformerFactory.newInstance().newTransformer().transform(new DOMSource(doc), new StreamResult(file));

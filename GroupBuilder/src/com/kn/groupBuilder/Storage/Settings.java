@@ -1,5 +1,9 @@
 package com.kn.groupBuilder.Storage;
 
+import com.kn.groupBuilder.FileOperations.Writer.FileCleaner;
+
+import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
+
 /**
  * Storage for the settings used in the application. Contains various elements that can be saved via XML file.
  * 
@@ -63,8 +67,15 @@ public class Settings { // NO_UCD
         return this.path;
     }
 
-    public final void setPath(final String path) {
-        this.path = path;
+    public final void setPath(String path) {
+        if (!path.contains("GroupBuilder")) {
+            path = path + "GroupBuilder\\";
+        }
+        if (!this.path.equals(path)) {
+            new FileCopy().copyFolder(this.path, path);
+            new FileCleaner().cleanFolder(this.path);
+            this.path = path;
+        }
     }
 
     public String getPrinter() {

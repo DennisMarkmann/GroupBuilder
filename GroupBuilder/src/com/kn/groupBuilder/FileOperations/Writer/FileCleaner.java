@@ -16,7 +16,7 @@ import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
  * @version 1.0
  */
 
-class FileCleaner {
+public class FileCleaner {
 
     final void updateArchive(final Pojo pojo) {
 
@@ -34,32 +34,7 @@ class FileCleaner {
         }
     }
 
-    public final void cleanArchive(final Pojo pojo) {
-        this.cleanFolder(pojo.getSettings().getPath() + "Archive\\");
-    }
-
-    private void cleanGroupList(final Pojo pojo) {
-        new File(pojo.getSettings().getPath() + "GroupList.xml").delete();
-    }
-
-    private void cleanMemberList(final Pojo pojo) {
-        new File(pojo.getSettings().getPath() + "MemberList.xml").delete();
-    }
-
-    private void cleanSettings(final Pojo pojo) {
-        new File(pojo.getSettings().getPath() + "Settings.xml").delete();
-    }
-
-    public final void cleanAllFiles(final Pojo pojo) {
-
-        this.cleanGroupList(pojo);
-        this.cleanMemberList(pojo);
-        this.cleanSettings(pojo);
-
-        this.cleanFolder(pojo.getSettings().getPath() + "Groups\\");
-    }
-
-    private void cleanFolder(final String path) {
+    public void cleanFolder(final String path) {
 
         final File filePath = new File(path);
         try {

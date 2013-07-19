@@ -15,19 +15,15 @@
 	1.6.Gui Aussehen optimieren (Settings)
 	
 	1.7.Tastatursteuerung
-	
-	1.8.Messages for sucessfull actions			
 		
-	1.9.FileCleaner implementation in GUI (Delete MenuPunkt)
+	1.8.Messages for sucessfull actions			
+			
+	1.9.Gruppen Auswahl bei der Member Erstellung und Editierung ermöglichen
 	
-	1.10.Gruppen Auswahl bei der Member Erstellung und Editierung ermöglichen
+	1.10.Implement groups automatically functionality
 	
-	1.11.Implement groups automatically functionality
-	
-	1.12.Email to single Person
+	1.11.Email to single Person
 
-	1.13.Choose printer functionality
-		1.13.1.Add printer selection to the settings GUI
 
 2. CleanUp:
 
@@ -38,9 +34,3 @@
 	2.2.JUnit Tests statt sysos
 	
 	2.3.Remove mail.jar
-	
-3. BugFix:
-
-	3.0. Datafresh beim ändern des Pfades / des Druckers korrigieren (sagt .. gibt es schon)
-	
-	3.1. Printerselection: Nicht direkt drucken, nur auswählen ! (Für settings)
