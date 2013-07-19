@@ -6,8 +6,10 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.Exceptions.DataNotFoundException;
 import com.kn.groupBuilder.Gui.Menu.EmailFrame;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
+import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
@@ -36,7 +38,15 @@ public class EmailFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("sendButton") == 0) {
-            ConfirmationFrame.getInstance(this.pojo, "sendMail", this.addressField.getText());
+            final String eMailAddress = this.addressField.getText();
+            for (final Member member : this.pojo.getMemberList()) {
+                if (eMailAddress.equals(member.getEMailAdress())) {
+                    ConfirmationFrame.getInstance(this.pojo, "sendMail", member);
+                } else {
+                    new DataNotFoundException("EmailAddress: \"" + eMailAddress + "\"").showDialog();
+                    return;
+                }
+            }
         } else if (buttonClicked.getName().compareTo("sendAllButton") == 0) {
             ConfirmationFrame.getInstance(this.pojo, "sendMailToAll", null);
         }
