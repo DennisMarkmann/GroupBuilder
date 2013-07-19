@@ -23,9 +23,7 @@
 	
 	1.10.Email to single Person
 	
-	1.11.Gruppen Auswahl bei der Member Erstellung und Editierung ermöglichen
-		1.11.1 Comboboxen mit Gruppen zur Auswahl
-	
+	1.11.Gruppen Auswahl bei der Member Erstellung und Editierung mit Comboboxes	
 
 
 2. CleanUp:
@@ -37,3 +35,5 @@
 	2.2.JUnit Tests statt sysos
 	
 	2.3.Remove mail.jar
+	
+	2.4.Edit / Create Member und Group Frames zusammen fassen

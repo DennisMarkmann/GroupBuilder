@@ -53,6 +53,7 @@ public class MemberCreator {
         member.setFirstName(newMember.getFirstName());
         member.setLastName(newMember.getLastName());
         member.setEMailAdress(newMember.getEMailAdress());
+        member.setGroup(newMember.getGroup());
         // member.setGroupList(newMember.getGroupList());
     }
 
