@@ -63,7 +63,7 @@ class GroupFileReader {
                     final Group group = pojo.getGroupByName(groupName);
                     final Member member = pojo.getMemberByName(firstName, lastName);
 
-                    group.addMemberToGroup(group, member);
+                    group.addMember(member);
 
                 }
             }

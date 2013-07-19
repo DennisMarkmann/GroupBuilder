@@ -74,7 +74,9 @@ public class GroupBuilder {
     private void addMemberToGroup(final Group group, final ArrayList<Member> memberList, final int fixSize) {
 
         if (fixSize == 0 || group.getMemberList().size() < fixSize) {
-            group.addMemberToGroup(group, memberList.get(this.memberIndex));
+            final Member member = memberList.get(this.memberIndex);
+            member.setGroup(group);
+            group.addMember(member);
             this.memberIndex++;
 
             if (group.getMemberList().size() < fixSize) {

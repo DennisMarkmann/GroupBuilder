@@ -33,7 +33,11 @@ class MemberListWriter {
             helper.createElement(doc, memberElement, "FirstName", member.getFirstName());
             helper.createElement(doc, memberElement, "LastName", member.getLastName());
             helper.createElement(doc, memberElement, "EmailAdress", member.getEMailAdress());
-
+            if (member.getGroup() != null) {
+                helper.createElement(doc, memberElement, "Group", member.getGroup().getName());
+            } else {
+                helper.createElement(doc, memberElement, "Group", "");
+            }
             memberNumber++;
 
         }

@@ -8,6 +8,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.kn.groupBuilder.Jobs.MemberCreator;
+import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
@@ -47,8 +48,13 @@ class MemberListReader {
                 final String firstName = helper.getElementValue(element, "FirstName");
                 final String lastName = helper.getElementValue(element, "LastName");
                 final String eMailAdress = helper.getElementValue(element, "EmailAdress");
+                final String groupName = helper.getElementValue(element, "Group");
+                final Group group = pojo.getGroupByName(groupName);
 
-                creator.createMember(firstName, lastName, eMailAdress);
+                creator.createMember(firstName, lastName, eMailAdress, pojo.getGroupByName(groupName));
+                if (group != null) {
+                    group.addMember(pojo.getMemberByName(firstName, lastName));
+                }
             }
         }
     }
