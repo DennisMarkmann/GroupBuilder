@@ -18,12 +18,14 @@
 	1.7.Tastatursteuerung
 		
 	1.8.Messages for sucessfull actions			
-			
-	1.9.Gruppen Auswahl bei der Member Erstellung und Editierung ermöglichen
+		
+	1.9.Implement groups automatically functionality
 	
-	1.10.Implement groups automatically functionality
+	1.10.Email to single Person
 	
-	1.11.Email to single Person
+	1.11.Gruppen Auswahl bei der Member Erstellung und Editierung ermöglichen
+		1.11.1 Comboboxen mit Gruppen zur Auswahl
+	
 
 
 2. CleanUp:

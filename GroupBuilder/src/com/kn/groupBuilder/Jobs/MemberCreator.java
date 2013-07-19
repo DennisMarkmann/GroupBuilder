@@ -1,6 +1,7 @@
 package com.kn.groupBuilder.Jobs;
 
 import com.kn.groupBuilder.Exceptions.DuplicateEntryException;
+import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -26,6 +27,11 @@ public class MemberCreator {
 
     public final void createMember(final String firstName, final String lastName, final String eMailAdress) {
         this.addMemberToList(new Member(this.correctFormat(firstName), this.correctFormat(lastName), eMailAdress));
+    }
+
+    public void createMember(final String firstName, final String lastName, final String eMailAdress, final Group group) {
+        this.addMemberToList(new Member(this.correctFormat(firstName), this.correctFormat(lastName), eMailAdress, group));
+
     }
 
     private final void addMemberToList(final Member member) {

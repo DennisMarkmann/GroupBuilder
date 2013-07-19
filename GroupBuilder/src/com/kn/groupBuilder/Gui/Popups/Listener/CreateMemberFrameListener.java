@@ -6,9 +6,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.Exceptions.DataNotFoundException;
 import com.kn.groupBuilder.Exceptions.EmptyValueException;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateMemberFrame;
+import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -27,19 +29,22 @@ public class CreateMemberFrameListener implements ActionListener {
     private final JTextField firstNameField;
     private final JTextField lastNameField;
     private final JTextField eMailField;
+    private final JTextField groupField;
 
     public CreateMemberFrameListener(
             final CreateMemberFrame createMemberFrame,
             final Pojo pojo,
             final JTextField firstNameField,
             final JTextField lastNameField,
-            final JTextField eMailField) {
+            final JTextField eMailField,
+            final JTextField groupField) {
 
         this.createMemberFrame = createMemberFrame;
         this.pojo = pojo;
         this.firstNameField = firstNameField;
         this.lastNameField = lastNameField;
         this.eMailField = eMailField;
+        this.groupField = groupField;
     }
 
     @Override
@@ -50,7 +55,9 @@ public class CreateMemberFrameListener implements ActionListener {
 
             final String firstName = this.firstNameField.getText();
             final String lastName = this.lastNameField.getText();
-            final String email = this.eMailField.getText();
+            final String eMailAdress = this.eMailField.getText();
+            final String groupName = this.groupField.getText();
+            final Group group = this.pojo.getGroupByName(groupName);
 
             if (firstName.equals("")) {
                 new EmptyValueException("firstName").showDialog();
@@ -60,7 +67,12 @@ public class CreateMemberFrameListener implements ActionListener {
                 new EmptyValueException("lastName").showDialog();
                 return;
             }
-            ConfirmationFrame.getInstance(this.pojo, "addMember", new Member(firstName, lastName, email));
+            if (!groupName.equals("") && group == null) {
+                new DataNotFoundException("Group: \"" + groupName + "\"").showDialog();
+                return;
+            }
+
+            ConfirmationFrame.getInstance(this.pojo, "addMember", new Member(firstName, lastName, eMailAdress, group));
         }
         this.createMemberFrame.closeWindow();
 

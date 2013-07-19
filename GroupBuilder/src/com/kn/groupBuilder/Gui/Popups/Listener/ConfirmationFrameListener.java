@@ -57,7 +57,11 @@ public class ConfirmationFrameListener implements ActionListener {
                 GroupTableModel.refreshTable();
             } else if (this.action.equals("addMember")) {
                 final Member member = (Member) this.object;
-                new MemberCreator(this.pojo).createMember(member.getFirstName(), member.getLastName(), member.getEMailAdress());
+                new MemberCreator(this.pojo).createMember(
+                        member.getFirstName(),
+                        member.getLastName(),
+                        member.getEMailAdress(),
+                        member.getGroup());
                 MemberTableModel.refreshTable();
             } else if (this.action.equals("printOutAll")) {
                 new PrintJobHelper(this.pojo).printAllGroups();

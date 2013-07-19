@@ -26,6 +26,11 @@ public class Member implements Comparable<Member> {
         this.eMailAdress = eMailAdress;
     }
 
+    public Member(final String firstName, final String lastName, final String eMailAdress, final Group group) {
+        this(firstName, lastName, eMailAdress);
+        this.group = group;
+    }
+
     public final String getFirstName() {
         return this.firstName;
     }
@@ -42,13 +47,6 @@ public class Member implements Comparable<Member> {
         this.lastName = lastName;
     }
 
-    // public final ArrayList<Group> getGroupList() {
-    // return this.groupList;
-    // }
-    //
-    // public final void setGroupList(final ArrayList<Group> groupList) {
-    // this.groupList = groupList;
-    // }
     public Group getGroup() {
         return this.group;
     }

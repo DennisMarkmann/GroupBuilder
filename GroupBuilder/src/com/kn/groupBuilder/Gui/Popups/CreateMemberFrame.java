@@ -31,13 +31,15 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
         BUILDER.createLabel(this, "FirstName", 0, 1);
         BUILDER.createLabel(this, "LastName", 0, 2);
         BUILDER.createLabel(this, "E-Mail", 0, 3);
+        BUILDER.createLabel(this, "Group", 0, 4);
 
         final JTextField firstNameField = BUILDER.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
         final JTextField lastNameField = BUILDER.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
         final JTextField eMailField = BUILDER.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
+        final JTextField groupField = BUILDER.createTextField(this, "groupField", TEXT_FIELD_SIZE, 1, 4);
 
-        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Confirm", 0, 4);
-        final JButton abortButton = BUILDER.createButton(this, "abortButton", "Abort", 1, 4);
+        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Confirm", 0, 5);
+        final JButton abortButton = BUILDER.createButton(this, "abortButton", "Abort", 1, 5);
 
         this.pack();
 
@@ -46,7 +48,8 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
                 pojo,
                 firstNameField,
                 lastNameField,
-                eMailField);
+                eMailField,
+                groupField);
 
         confirmationButton.addActionListener(listener);
         abortButton.addActionListener(listener);
