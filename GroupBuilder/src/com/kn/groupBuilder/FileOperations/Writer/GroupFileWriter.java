@@ -8,7 +8,8 @@ import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
- * Used to create the different group.xml files and to store group concerning information in it.
+ * Used to create the different group.xml files and to store group concerning information in it. Those are currently only
+ * attached to e-mails.
  * 
  * @author dennis.markmann
  * @since JDK.1.7.0_21
