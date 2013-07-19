@@ -1,6 +1,7 @@
 package com.kn.groupBuilder.Gui.Popups;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -38,14 +39,14 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
         final JTextField firstNameField = BUILDER.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
         final JTextField lastNameField = BUILDER.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
         final JTextField eMailField = BUILDER.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
-        final JTextField groupField = BUILDER.createTextField(this, "groupField", TEXT_FIELD_SIZE, 1, 4);
+        final JComboBox<String> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 1, 4);
 
         final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Confirm", 0, 5);
         final JButton abortButton = BUILDER.createButton(this, "abortButton", "Abort", 1, 5);
 
         this.pack();
 
-        this.fillFields(pojo, rowID, firstNameField, lastNameField, eMailField, groupField);
+        this.fillFields(pojo, rowID, firstNameField, lastNameField, eMailField, groupBox);
 
         final EditMemberFrameListener listener = new EditMemberFrameListener(
                 this,
@@ -54,7 +55,7 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
                 firstNameField,
                 lastNameField,
                 eMailField,
-                groupField);
+                groupBox);
 
         confirmationButton.addActionListener(listener);
         abortButton.addActionListener(listener);
@@ -81,11 +82,22 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
             final JTextField firstNameField,
             final JTextField lastNameField,
             final JTextField eMailField,
-            final JTextField groupField) {
+            final JComboBox<String> groupBox) {
         final Member member = pojo.getMemberList().get(rowID);
         firstNameField.setText(member.getFirstName());
         lastNameField.setText(member.getLastName());
         eMailField.setText(member.getEMailAdress());
-        groupField.setText((member.getGroup().getName()));
+        groupBox.setSelectedIndex(this.getIndexOfEntry(pojo.getGroupListAsArray(), member.getGroup().getName()));
+
+    }
+
+    private int getIndexOfEntry(final String[] array, final String string) {
+
+        for (int index = 0; index < array.length; index++) {
+            if (array[index].equals(string)) {
+                return index;
+            }
+        }
+        return 0;
     }
 }

@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Exceptions.DataNotFoundException;
@@ -31,7 +32,7 @@ public class EditMemberFrameListener implements ActionListener {
     private final JTextField firstNameField;
     private final JTextField lastNameField;
     private final JTextField eMailField;
-    final JTextField groupField;
+    private final JComboBox<String> groupBox;
 
     public EditMemberFrameListener(
             final EditMemberFrame editMemberFrame,
@@ -40,7 +41,7 @@ public class EditMemberFrameListener implements ActionListener {
             final JTextField firstNameField,
             final JTextField lastNameField,
             final JTextField eMailField,
-            final JTextField groupField) {
+            final JComboBox<String> groupBox) {
 
         this.editMemberFrame = editMemberFrame;
         this.pojo = pojo;
@@ -48,7 +49,7 @@ public class EditMemberFrameListener implements ActionListener {
         this.firstNameField = firstNameField;
         this.lastNameField = lastNameField;
         this.eMailField = eMailField;
-        this.groupField = groupField;
+        this.groupBox = groupBox;
     }
 
     @Override
@@ -61,7 +62,7 @@ public class EditMemberFrameListener implements ActionListener {
             final String firstName = this.firstNameField.getText();
             final String lastName = this.lastNameField.getText();
             final String email = this.eMailField.getText();
-            final String groupName = this.groupField.getText();
+            final String groupName = this.pojo.getGroupListAsArray()[this.groupBox.getSelectedIndex()];
             final Group group = this.pojo.getGroupByName(groupName);
 
             if (firstName.equals("")) {

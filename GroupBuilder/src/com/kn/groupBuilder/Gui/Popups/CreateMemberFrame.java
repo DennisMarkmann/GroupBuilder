@@ -1,6 +1,7 @@
 package com.kn.groupBuilder.Gui.Popups;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
@@ -36,8 +37,7 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
         final JTextField firstNameField = BUILDER.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
         final JTextField lastNameField = BUILDER.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
         final JTextField eMailField = BUILDER.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
-        final JTextField groupField = BUILDER.createTextField(this, "groupField", TEXT_FIELD_SIZE, 1, 4);
-
+        final JComboBox<String> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 1, 4);
         final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Confirm", 0, 5);
         final JButton abortButton = BUILDER.createButton(this, "abortButton", "Abort", 1, 5);
 
@@ -49,7 +49,7 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
                 firstNameField,
                 lastNameField,
                 eMailField,
-                groupField);
+                groupBox);
 
         confirmationButton.addActionListener(listener);
         abortButton.addActionListener(listener);

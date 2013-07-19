@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Exceptions.DataNotFoundException;
@@ -29,7 +30,7 @@ public class CreateMemberFrameListener implements ActionListener {
     private final JTextField firstNameField;
     private final JTextField lastNameField;
     private final JTextField eMailField;
-    private final JTextField groupField;
+    private final JComboBox<String> groupBox;
 
     public CreateMemberFrameListener(
             final CreateMemberFrame createMemberFrame,
@@ -37,14 +38,14 @@ public class CreateMemberFrameListener implements ActionListener {
             final JTextField firstNameField,
             final JTextField lastNameField,
             final JTextField eMailField,
-            final JTextField groupField) {
+            final JComboBox<String> groupBox) {
 
         this.createMemberFrame = createMemberFrame;
         this.pojo = pojo;
         this.firstNameField = firstNameField;
         this.lastNameField = lastNameField;
         this.eMailField = eMailField;
-        this.groupField = groupField;
+        this.groupBox = groupBox;
     }
 
     @Override
@@ -56,7 +57,7 @@ public class CreateMemberFrameListener implements ActionListener {
             final String firstName = this.firstNameField.getText();
             final String lastName = this.lastNameField.getText();
             final String eMailAdress = this.eMailField.getText();
-            final String groupName = this.groupField.getText();
+            final String groupName = this.pojo.getGroupListAsArray()[this.groupBox.getSelectedIndex()];
             final Group group = this.pojo.getGroupByName(groupName);
 
             if (firstName.equals("")) {
