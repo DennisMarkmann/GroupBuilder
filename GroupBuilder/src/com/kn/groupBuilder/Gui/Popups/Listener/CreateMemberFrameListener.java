@@ -7,7 +7,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
-import com.kn.groupBuilder.Exceptions.DataNotFoundException;
 import com.kn.groupBuilder.Exceptions.EmptyValueException;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateMemberFrame;
@@ -66,10 +65,6 @@ public class CreateMemberFrameListener implements ActionListener {
             }
             if (lastName.equals("")) {
                 new EmptyValueException("lastName").showDialog();
-                return;
-            }
-            if (!groupName.equals("") && group == null) {
-                new DataNotFoundException("Group: \"" + groupName + "\"").showDialog();
                 return;
             }
 

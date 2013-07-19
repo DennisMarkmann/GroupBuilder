@@ -68,9 +68,10 @@ public class Pojo {
 
     public final String[] getGroupListAsArray() {
 
-        final String[] groupListArray = new String[this.groupList.size()];
-        for (int i = 0; i < groupListArray.length; i++) {
-            groupListArray[i] = this.groupList.get(i).getName();
+        final String[] groupListArray = new String[this.groupList.size() + 1];
+        groupListArray[0] = "";
+        for (int i = 1; i < groupListArray.length; i++) {
+            groupListArray[i] = this.groupList.get(i - 1).getName();
         }
         return groupListArray;
     }
