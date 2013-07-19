@@ -30,7 +30,7 @@ public class GroupBuilder {
         new GroupListSorter().sortArrayListForPriority(pojo);
         final ArrayList<Member> unassignedMemberList = new ArrayList<Member>();
         for (final Member member : pojo.getMemberList()) {
-            if (member.getGroupList().size() == 0) {
+            if (member.getGroup() == null) {
                 unassignedMemberList.add(member);
             }
         }
@@ -40,7 +40,7 @@ public class GroupBuilder {
 
     public final void removeGroups(final Pojo pojo) {
         for (final Member member : pojo.getMemberList()) {
-            member.setGroupList(new ArrayList<Group>());
+            member.setGroup(null);
         }
         for (final Group group : pojo.getGroupList()) {
             group.setMemberList(new ArrayList<Member>());

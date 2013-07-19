@@ -19,9 +19,9 @@ public class ArrayTest {
         System.out.println("Show groupList of member:");
         for (final Member member : pojo.getMemberList()) {
             System.out.print(member.getFirstName() + "." + member.getLastName() + ": ");
-            for (final Group group : member.getGroupList()) {
-                System.out.print(group.getName() + " ");
-            }
+            // for (final Group group : member.getGroupList()) {
+            // System.out.print(group.getName() + " ");
+            // }
             System.out.println();
         }
         System.out.println("\nShow memberList of groups:");

@@ -70,12 +70,12 @@ public class Group implements Comparable<Group> {
 
     public final void addMemberToGroup(final Group group, final Member member) {
         this.memberList.add(member);
-        member.getGroupList().add(group);
+        member.setGroup(group);
     }
 
     public final void removeMemberFromGroup(final Group group, final Member member) {
         this.memberList.remove(member);
-        member.getGroupList().remove(group);
+        member.setGroup(null);
     }
 
     @Override

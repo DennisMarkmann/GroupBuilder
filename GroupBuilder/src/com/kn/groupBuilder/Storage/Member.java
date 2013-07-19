@@ -1,7 +1,5 @@
 package com.kn.groupBuilder.Storage;
 
-import java.util.ArrayList;
-
 /**
  * Member object. Contains various elements and is able to get assigned to groups.
  * 
@@ -14,7 +12,8 @@ public class Member implements Comparable<Member> {
 
     private String firstName = "";
     private String lastName = "";
-    private ArrayList<Group> groupList = new ArrayList<Group>();
+    private Group group;
+    // private ArrayList<Group> groupList = new ArrayList<Group>();
     private String eMailAdress = "";
 
     public Member(final String firstName, final String lastName) {
@@ -43,12 +42,19 @@ public class Member implements Comparable<Member> {
         this.lastName = lastName;
     }
 
-    public final ArrayList<Group> getGroupList() {
-        return this.groupList;
+    // public final ArrayList<Group> getGroupList() {
+    // return this.groupList;
+    // }
+    //
+    // public final void setGroupList(final ArrayList<Group> groupList) {
+    // this.groupList = groupList;
+    // }
+    public Group getGroup() {
+        return this.group;
     }
 
-    public final void setGroupList(final ArrayList<Group> groupList) {
-        this.groupList = groupList;
+    public void setGroup(final Group group) {
+        this.group = group;
     }
 
     public final String getEMailAdress() {

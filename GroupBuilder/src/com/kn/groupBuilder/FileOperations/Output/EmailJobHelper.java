@@ -69,4 +69,29 @@ public class EmailJobHelper {
         }
         return emailList;
     }
+
+    // private ArrayList<EmailObject> createEmailObjectsNew(final Pojo pojo, final Member member) {
+    //
+    // // final ArrayList<EmailObject> emailList = new ArrayList<EmailObject>();
+    // final String path = pojo.getSettings().getPath();
+    //
+    // // for (final Group group : pojo.getGroupList()) {
+    //
+    // final EmailObject emailObject = new EmailObject();
+    //
+    // final ArrayList<String> emailAddresList = emailObject.getEmailAddressList();
+    // emailAddresList.add(member.getEMailAdress());
+    // // emailObject.add
+    //
+    // final String emailText = this.generateMailText(member.getgr, path);
+    // final File file = new File(path + "Groups//" + group.getName() + ".xml");
+    //
+    // new EmailContentCreator().createMailContent(emailText, file, emailObject);
+    //
+    // for (final Member member : group.getMemberList()) {
+    //
+    // }
+    // // }
+    // return emailList;
+    // }
 }

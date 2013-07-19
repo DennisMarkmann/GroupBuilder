@@ -8,7 +8,6 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
 import com.kn.groupBuilder.Gui.TableModels.Listener.TableListener;
-import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -30,7 +29,7 @@ public final class MemberTableModel extends AbstractTableModel {
     private static MemberTableModel instance = null;
     private Pojo pojo = null;
     private final ArrayList<Member> memberList;
-    private final String[] cols = { "FirstName", "LastName", "E-Mail", "Groups", "Edit", "Remove" };
+    private final String[] cols = { "FirstName", "LastName", "E-Mail", "Group", "Edit", "Remove" };
     private final Class<?>[] columnTypes = new Class<?>[] {
             String.class,
             String.class,
@@ -92,7 +91,11 @@ public final class MemberTableModel extends AbstractTableModel {
             return (this.memberList.get(rowIndex).getEMailAdress());
 
         case 3:
-            return this.buildGroupList(rowIndex);
+            try {
+                return (this.memberList.get(rowIndex).getGroup().getName());
+            } catch (final java.lang.NullPointerException e) {
+                return "";
+            }
 
         case 4:
         case 5:
@@ -109,19 +112,5 @@ public final class MemberTableModel extends AbstractTableModel {
         default:
             return "Error";
         }
-    }
-
-    private String buildGroupList(final int index) {
-
-        final StringBuilder text = new StringBuilder();
-        final ArrayList<Group> groupList = this.memberList.get(index).getGroupList();
-
-        for (final Group group : groupList) {
-            if (text.length() != 0) {
-                text.append(", ");
-            }
-            text.append(groupList.get(groupList.indexOf(group)).getName());
-        }
-        return text.toString();
     }
 }
