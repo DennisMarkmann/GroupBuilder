@@ -62,8 +62,8 @@ public final class CreateGroupFrame extends JFrame implements DefaultFrame {
     }
 
     @Override
-    public void openClosingDialog() {
-        ConfirmationFrame.getInstance(null, "closeWindow", this);
+    public void openClosingDialog(final String text) {
+        ConfirmationFrame.getInstance(null, text, this);
     }
 
     @Override

@@ -9,7 +9,11 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 import com.kn.groupBuilder.Gui.MainFrame.Listener.MainFrameListener;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Pojo;
+
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
 /**
  * Main GUI Frame. Used to access all other GUI components.
@@ -19,7 +23,7 @@ import com.kn.groupBuilder.Storage.Pojo;
  * @version 1.0
  */
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements DefaultFrame {
 
     private static final long serialVersionUID = -5660805007314188894L;
     private final JTabbedPane tabBar = new JTabbedPane();
@@ -31,7 +35,7 @@ public class MainFrame extends JFrame {
         this.setTitle("GroupBuilder - Dennis Markmann");
         this.setSize(800, 680);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.addWindowListener(new MyWindowAdapter(this));
 
         // adds menuItems
         this.addMenuItem("Settings");
@@ -64,5 +68,15 @@ public class MainFrame extends JFrame {
 
     private void addMenuItem(final String menuName) {
         this.menu.add(new JMenuItem(menuName));
+    }
+
+    @Override
+    public void openClosingDialog(final String text) {
+        ConfirmationFrame.getInstance(null, text, this);
+    }
+
+    @Override
+    public void closeWindow() {
+        System.exit(1);
     }
 }
