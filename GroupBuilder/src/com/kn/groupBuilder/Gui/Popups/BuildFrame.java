@@ -62,6 +62,11 @@ public final class BuildFrame extends JFrame implements DefaultFrame {
     }
 
     @Override
+    public void openClosingDialog() {
+        ConfirmationFrame.getInstance(null, "closeWindow", this);
+    }
+
+    @Override
     public void closeWindow() {
         this.dispose();
         instance = null;

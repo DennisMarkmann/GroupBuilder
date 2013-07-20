@@ -5,6 +5,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.Menu.Listener.PrintFrameListener;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
@@ -48,6 +49,11 @@ public final class PrintFrame extends JFrame implements DefaultFrame {
             instance.toFront();
         }
         return instance;
+    }
+
+    @Override
+    public void openClosingDialog() {
+        ConfirmationFrame.getInstance(null, "closeWindow", this);
     }
 
     @Override

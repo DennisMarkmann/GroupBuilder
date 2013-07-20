@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.Menu.Listener.HelpFrameListener;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
@@ -42,6 +43,11 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
             instance.toFront();
         }
         return instance;
+    }
+
+    @Override
+    public void openClosingDialog() {
+        ConfirmationFrame.getInstance(null, "closeWindow", this);
     }
 
     @Override

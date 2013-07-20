@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Menu.Listener.EmailFrameListener;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
@@ -51,8 +52,14 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
     }
 
     @Override
+    public void openClosingDialog() {
+        ConfirmationFrame.getInstance(null, "closeWindow", this);
+    }
+
+    @Override
     public void closeWindow() {
         this.dispose();
         instance = null;
     }
+
 }
