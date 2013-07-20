@@ -36,6 +36,7 @@ public class MainFrame extends JFrame implements DefaultFrame {
         this.setSize(800, 680);
         this.setLocationRelativeTo(null);
         this.addWindowListener(new MyWindowAdapter(this));
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         // adds menuItems
         this.addMenuItem("Settings");
