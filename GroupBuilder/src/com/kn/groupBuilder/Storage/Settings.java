@@ -14,14 +14,14 @@ import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
 
 public class Settings { // NO_UCD
 
-    private String path = System.getProperty("user.home") + "\\GroupBuilder\\";;
+    private String path;
 
     private String language = "english"; // german or english
     private boolean archive = true;
     private int archivingDays = 7; // if the value is 0 the archiving will be disabled
     private boolean sendMailAutomatically = false;
     private boolean printAutomatically = false;
-    private String printer = null;
+    private String printer;
 
     public final String getLanguage() {
         return this.language;
@@ -76,6 +76,10 @@ public class Settings { // NO_UCD
             new FileCleaner().cleanFolder(this.path);
             this.path = path;
         }
+    }
+
+    public final void setPathInitially(final String path) {
+        this.path = path;
     }
 
     public String getPrinter() {
