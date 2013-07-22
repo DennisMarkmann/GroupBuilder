@@ -42,7 +42,7 @@ public class MainFrame extends JFrame implements DefaultFrame {
         this.addMenuItem("Settings");
         this.addMenuItem("E-Mail");
         this.addMenuItem("Print");
-        this.addMenuItem("Help");
+        // this.addMenuItem("Help");
         this.addMenuItem("About");
 
         final JMenuBar menuBar = new JMenuBar();
