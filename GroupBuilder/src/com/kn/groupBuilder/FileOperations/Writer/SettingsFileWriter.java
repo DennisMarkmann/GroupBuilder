@@ -14,9 +14,9 @@ import com.kn.groupBuilder.Storage.Settings;
  * @version 1.0
  */
 
-class SettingsFileWriter {
+public class SettingsFileWriter {
 
-    final void createXmlFile(final Pojo pojo) {
+    public final void createXmlFile(final Pojo pojo) {
 
         final FileWriteHelper helper = new FileWriteHelper();
         final Document doc = helper.createDocument();

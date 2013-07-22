@@ -4,7 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.Popups.Listener.OperationSuccessfullFrameListener;
-import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
@@ -17,27 +16,26 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindo
  * @version 1.0
  */
 
-public final class OperationSuccesfullFrame extends JFrame implements DefaultFrame {
+public final class OperationSuccessfullFrame extends JFrame implements DefaultFrame {
 
-    private static OperationSuccesfullFrame instance = null;
+    private static OperationSuccessfullFrame instance = null;
     private static final long serialVersionUID = 416901635761617562L;
 
-    private OperationSuccesfullFrame(final Pojo pojo) {
+    private OperationSuccessfullFrame(final String text) {
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Help");
         this.addWindowListener(new MyWindowAdapter(this));
-        BUILDER.createLabel(this, "The documentation is still in progress.", 0, 1);
-        BUILDER.createLabel(this, "It will be added in a later release.", 0, 2);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "close", 1, 3);
+        BUILDER.createLabel(this, text, 0, 1);
+        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Okay", 1, 3);
 
         final OperationSuccessfullFrameListener listener = new OperationSuccessfullFrameListener(this);
 
-        closeButton.addActionListener(listener);
+        confirmationButton.addActionListener(listener);
 
     }
 
-    public static OperationSuccesfullFrame getInstance(final Pojo pojo) {
+    public static OperationSuccessfullFrame getInstance(final String text) {
         if (instance == null) {
-            instance = new OperationSuccesfullFrame(pojo);
+            instance = new OperationSuccessfullFrame(text);
         } else {
             instance.toFront();
         }

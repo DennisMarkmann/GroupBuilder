@@ -9,7 +9,9 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.FileOperations.Reader.FileReaderHelper;
+import com.kn.groupBuilder.FileOperations.Writer.SettingsFileWriter;
 import com.kn.groupBuilder.Gui.Menu.SettingsFrame;
+import com.kn.groupBuilder.Gui.Popups.OperationSuccessfullFrame;
 import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
 import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -83,6 +85,8 @@ public class SettingsFrameListener implements ActionListener {
             settings.setPrinter(this.printerField.getText());
             this.refreshData(this.pojo);
             this.settingsFrame.closeWindow();
+            new SettingsFileWriter().createXmlFile(this.pojo);
+            OperationSuccessfullFrame.getInstance("Settings were successfully changed.");
 
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
             this.settingsFrame.closeWindow();

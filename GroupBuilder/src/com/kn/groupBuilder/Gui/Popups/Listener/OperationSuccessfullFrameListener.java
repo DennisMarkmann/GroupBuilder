@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.kn.groupBuilder.Gui.Popups.OperationSuccesfullFrame;
+import com.kn.groupBuilder.Gui.Popups.OperationSuccessfullFrame;
 
 /**
  * Listener for the helpFrame. Used to close the window.
@@ -17,9 +17,9 @@ import com.kn.groupBuilder.Gui.Popups.OperationSuccesfullFrame;
 
 public class OperationSuccessfullFrameListener implements ActionListener {
 
-    private final OperationSuccesfullFrame operationSuccesfullFrame;
+    private final OperationSuccessfullFrame operationSuccesfullFrame;
 
-    public OperationSuccessfullFrameListener(final OperationSuccesfullFrame operationSuccesfullFrame) {
+    public OperationSuccessfullFrameListener(final OperationSuccessfullFrame operationSuccesfullFrame) {
         this.operationSuccesfullFrame = operationSuccesfullFrame;
     }
 
@@ -28,7 +28,7 @@ public class OperationSuccessfullFrameListener implements ActionListener {
 
         final JButton buttonClicked = (JButton) event.getSource();
 
-        if (buttonClicked.getName().compareTo("closeButton") == 0) {
+        if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
             this.operationSuccesfullFrame.closeWindow();
         }
     }

@@ -10,6 +10,7 @@ import com.kn.groupBuilder.FileOperations.Output.EmailJobHelper;
 import com.kn.groupBuilder.FileOperations.Output.PrintJobHelper;
 import com.kn.groupBuilder.FileOperations.Writer.FileWriteHelper;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
+import com.kn.groupBuilder.Gui.Popups.OperationSuccessfullFrame;
 import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
 import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Jobs.GroupCreator;
@@ -57,6 +58,7 @@ public class ConfirmationFrameListener implements ActionListener {
                 final Group group = (Group) this.object;
                 new GroupCreator(this.pojo).createGroup(group.getName(), group.getDescription(), group.getFixSize());
                 GroupTableModel.refreshTable();
+                OperationSuccessfullFrame.getInstance("Group " + group.getName() + " was succesfully added.");
             } else if (this.action.equals("addMember")) {
                 final Member member = (Member) this.object;
                 new MemberCreator(this.pojo).createMember(
@@ -65,12 +67,18 @@ public class ConfirmationFrameListener implements ActionListener {
                         member.getEMailAdress(),
                         member.getGroup());
                 MemberTableModel.refreshTable();
+                OperationSuccessfullFrame.getInstance("Member " + member.getFirstName() + " " + member.getLastName()
+                        + " was succesfully added.");
             } else if (this.action.equals("printOutAll")) {
                 new PrintJobHelper(this.pojo).printAllGroups();
+                OperationSuccessfullFrame.getInstance("All groups were successfully printed.");
             } else if (this.action.equals("sendMailToAll")) {
                 new EmailJobHelper().sendMailsToAll(this.pojo);
+                OperationSuccessfullFrame.getInstance("All groups were successfully sent.");
             } else if (this.action.equals("printOut")) {
-                new PrintJobHelper(this.pojo).printGroup(this.object);
+                final String groupName = (String) this.object;
+                new PrintJobHelper(this.pojo).printGroup(groupName);
+                OperationSuccessfullFrame.getInstance("Group " + groupName + " was successfully printed.");
             } else if (this.action.equals("sendMail")) {
                 final String mailAddress = (String) this.object;
                 for (final Member member : this.pojo.getMemberList()) {
@@ -78,27 +86,40 @@ public class ConfirmationFrameListener implements ActionListener {
                         new EmailJobHelper().sendSingleMail(this.pojo, member);
                     }
                 }
+                OperationSuccessfullFrame.getInstance("Email was succesfully send to " + mailAddress);
             } else if (this.action.equals("save")) {
                 new FileWriteHelper().createXMLFiles(this.pojo);
+                OperationSuccessfullFrame.getInstance("All files were successfully saved.");
+
             } else if (this.action.equals("editMember")) {
-                new MemberCreator(this.pojo).editMember(
-                        ((ArrayList<Member>) this.object).get(0),
-                        ((ArrayList<Member>) this.object).get(1));
+                final Member oldMember = ((ArrayList<Member>) this.object).get(0);
+                final Member newMember = ((ArrayList<Member>) this.object).get(1);
+
+                new MemberCreator(this.pojo).editMember(oldMember, newMember);
                 MemberTableModel.refreshTable();
+                OperationSuccessfullFrame.getInstance("Member " + oldMember.getFirstName() + " " + oldMember.getLastName()
+                        + " was succesfully edited.");
             } else if (this.action.equals("removeMember")) {
-                new MemberCreator(this.pojo).removeMember(this.pojo.getMemberList().get((int) (this.object)));
+                final Member member = this.pojo.getMemberList().get((int) (this.object));
+                new MemberCreator(this.pojo).removeMember(member);
                 MemberTableModel.refreshTable();
+                OperationSuccessfullFrame.getInstance("Member " + member.getFirstName() + " " + member.getLastName()
+                        + " was succesfully removed.");
             } else if (this.action.equals("editGroup")) {
-                new GroupCreator(this.pojo).editGroup(
-                        ((ArrayList<Group>) this.object).get(0),
-                        ((ArrayList<Group>) this.object).get(1));
+                final Group oldGroup = ((ArrayList<Group>) this.object).get(0);
+                final Group newGroup = ((ArrayList<Group>) this.object).get(1);
+                new GroupCreator(this.pojo).editGroup(oldGroup, newGroup);
                 GroupTableModel.refreshTable();
+                OperationSuccessfullFrame.getInstance("Group " + oldGroup.getName() + " was succesfully edited.");
             } else if (this.action.equals("removeGroup")) {
-                new GroupCreator(this.pojo).removeGroup(this.pojo.getGroupList().get((int) (this.object)));
+                final Group group = this.pojo.getGroupList().get((int) (this.object));
+                new GroupCreator(this.pojo).removeGroup(group);
                 GroupTableModel.refreshTable();
+                OperationSuccessfullFrame.getInstance("Group " + group.getName() + " was succesfully removed.");
             } else if (this.action.equals("automatically create groups")) {
                 new GroupCreator(this.pojo).createGroupsAutmatically((int) this.object);
                 GroupTableModel.refreshTable();
+                OperationSuccessfullFrame.getInstance("All groups were automatically created.");
             } else if (this.action.equals("close the window")) {
                 final DefaultFrame frame = (DefaultFrame) this.object;
                 frame.closeWindow();

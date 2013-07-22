@@ -32,8 +32,8 @@ public class PrintJobHelper {
         }
     }
 
-    public final void printGroup(final Object object) {
-        final String printText = new TextCreator().createText(this.pojo.getGroupByName((String) object));
+    public final void printGroup(final String groupName) {
+        final String printText = new TextCreator().createText(this.pojo.getGroupByName(groupName));
         new PrintJob(printText).printText();
     }
 

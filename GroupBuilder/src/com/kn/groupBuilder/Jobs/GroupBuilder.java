@@ -3,6 +3,7 @@ package com.kn.groupBuilder.Jobs;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.kn.groupBuilder.Gui.Popups.OperationSuccessfullFrame;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -35,7 +36,11 @@ public class GroupBuilder {
             }
         }
         this.assignGroups(this.mixList(unassignedMemberList), pojo.getGroupList());
-
+        if (unassignedMemberList.size() != 0) {
+            OperationSuccessfullFrame.getInstance("Unassigned groups were successfully build.");
+        } else {
+            OperationSuccessfullFrame.getInstance("No changes. All groups were allready assigned.");
+        }
     }
 
     public final void removeGroups(final Pojo pojo) {
@@ -68,7 +73,7 @@ public class GroupBuilder {
 
         }
         this.assignGroups(memberList, groupList);
-
+        OperationSuccessfullFrame.getInstance("All groups were successfully build.");
     }
 
     private void addMemberToGroup(final Group group, final ArrayList<Member> memberList, final int fixSize) {
