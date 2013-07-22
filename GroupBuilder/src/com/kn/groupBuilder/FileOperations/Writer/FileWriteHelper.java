@@ -43,7 +43,7 @@ public class FileWriteHelper {
             new PrintJobHelper(pojo).printAllGroups();
         }
         if (pojo.getSettings().isSendMailAutomatically()) {
-            new EmailJobHelper().initializeEmailSending(pojo);
+            new EmailJobHelper().sendMailsToAll(pojo);
         }
     }
 
