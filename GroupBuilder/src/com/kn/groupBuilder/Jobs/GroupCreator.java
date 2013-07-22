@@ -1,5 +1,7 @@
 package com.kn.groupBuilder.Jobs;
 
+import java.util.ArrayList;
+
 import com.kn.groupBuilder.Exceptions.DuplicateEntryException;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -41,11 +43,13 @@ public class GroupCreator {
     public final void createGroupsAutmatically(final int memberPerGroup) {
 
         final int numberOfGroups = this.pojo.getMemberList().size() / memberPerGroup;
-        // this.pojo.setGroupList(new ArrayList<Group>());
+        final ArrayList<Group> groupList = new ArrayList<Group>();
 
         for (int i = 0; i < numberOfGroups; i++) {
             this.pojo.getGroupList().add(new Group("Group" + i));
         }
+        this.pojo.setGroupList(groupList);
+
     }
 
     public final void removeGroup(final Group group) {

@@ -4,6 +4,8 @@
 		1.0.1.Umschalten auf CheckBoxes für einzelne Personen
 	
 	1.1.Gui Aussehen optimieren (Settings)
+		Keine TextFields + Buttons sondern Combi Objekte
+		Mehr abstand vom Rest zu save and close
 				
 	1.2.Messages for sucessfull actions			
 		
@@ -29,17 +31,19 @@
 
 3. Version 2.0:
 
-	3.0.Nur bei Gruppen mit Änderungen Drucken / E-Mail versenden.
-	
-	3.1.Nur bei Gruppen mit Änderungen Files schreiben?
+	3.0.Abfrage zum Speichern beim Beenden mit ungesicherten Änderungen
 
-	3.2.Mehrsprachen Unterstützung
+	3.1.Nur bei Gruppen mit Änderungen Drucken / E-Mail versenden.
 	
-	3.3.Fill HelpFrame
+	3.2.Nur bei Gruppen mit Änderungen Files schreiben?
+
+	3.3.Mehrsprachen Unterstützung
 	
-	3.4.Sort Tables.. alphabetisch nach den verschiedenen Kriterien (per Click)
+	3.4.Fill HelpFrame
 	
-	3.5.Copy & paste für Table Einträge
+	3.5.Sort Tables.. alphabetisch nach den verschiedenen Kriterien (per Click)
 	
-	3.6.Tastatursteuerung
+	3.6.Copy & paste für Table Einträge
+	
+	3.7.Tastatursteuerung
 	

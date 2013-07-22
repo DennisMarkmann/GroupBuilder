@@ -29,7 +29,6 @@ public class Pojo {
 
     public final void setGroupList(final ArrayList<Group> groupList) {
         this.groupList = groupList;
-
     }
 
     public final ArrayList<Group> getGroupList() {
