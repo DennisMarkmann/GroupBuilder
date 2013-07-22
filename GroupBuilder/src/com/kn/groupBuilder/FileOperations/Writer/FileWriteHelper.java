@@ -17,7 +17,6 @@ import com.kn.groupBuilder.Exceptions.WriteOperationException;
 import com.kn.groupBuilder.FileOperations.Output.EmailJobHelper;
 import com.kn.groupBuilder.FileOperations.Output.GroupFileArchiver;
 import com.kn.groupBuilder.FileOperations.Output.PrintJobHelper;
-import com.kn.groupBuilder.Main.PropertyHandler;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
@@ -39,7 +38,6 @@ public class FileWriteHelper {
         new GroupFileArchiver().archivGroupFiles(pojo);
         new SettingsFileWriter().createXmlFile(pojo);
         new FileCleaner().updateArchive(pojo);
-        new PropertyHandler().storeProperties(pojo);
 
         if (pojo.getSettings().isPrintAutomatically()) {
             new PrintJobHelper(pojo).printAllGroups();

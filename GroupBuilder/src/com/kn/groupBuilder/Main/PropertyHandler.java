@@ -21,11 +21,11 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class PropertyHandler {
 
-    public void storeProperties(final Pojo pojo) {
+    public void storeProperties(final String path) {
 
         final Properties properties = new Properties();
 
-        properties.put("path", pojo.getSettings().getPath());
+        properties.put("path", path);
 
         final String fileName = System.getProperty("user.home") + System.getProperty("file.separator")
                 + "groupBuilder.properties";
@@ -36,7 +36,7 @@ public class PropertyHandler {
         }
     }
 
-    public String getProperties() {
+    public String getProperties(final Pojo pojo) {
 
         final Properties properties = new Properties();
         BufferedInputStream stream = null;
@@ -46,6 +46,9 @@ public class PropertyHandler {
             properties.load(stream);
             stream.close();
 
+            if (path != null) {
+                pojo.getSettings().setPathInitially(properties.getProperty("path"));
+            }
         } catch (final FileNotFoundException e) {
             new NoFilesFoundException(path, e.getStackTrace());
         } catch (final IOException e) {

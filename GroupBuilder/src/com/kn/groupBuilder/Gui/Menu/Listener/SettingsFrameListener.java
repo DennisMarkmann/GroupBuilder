@@ -8,7 +8,10 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.FileOperations.Reader.FileReaderHelper;
 import com.kn.groupBuilder.Gui.Menu.SettingsFrame;
+import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
+import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Storage.Settings;
 
@@ -78,7 +81,7 @@ public class SettingsFrameListener implements ActionListener {
             settings.setArchivingDays(Integer.parseInt(this.archiveField.getText()));
             settings.setPath(this.pathField.getText());
             settings.setPrinter(this.printerField.getText());
-
+            this.refreshData(this.pojo);
             this.settingsFrame.closeWindow();
 
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
@@ -92,6 +95,13 @@ public class SettingsFrameListener implements ActionListener {
             return (true);
         }
         return (false);
+    }
 
+    private void refreshData(final Pojo pojo) {
+        if (pojo.getMemberList().size() == 0 && pojo.getGroupList().size() == 0) {
+            new FileReaderHelper().readXMLFiles(this.pojo);
+        }
+        GroupTableModel.refreshTable();
+        MemberTableModel.refreshTable();
     }
 }

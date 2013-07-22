@@ -1,6 +1,9 @@
 package com.kn.groupBuilder.Storage;
 
+import java.io.File;
+
 import com.kn.groupBuilder.FileOperations.Writer.FileCleaner;
+import com.kn.groupBuilder.Main.PropertyHandler;
 
 import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
 
@@ -14,7 +17,7 @@ import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
 
 public class Settings { // NO_UCD
 
-    private String path;
+    private String path = System.getProperty("user.home") + System.getProperty("file.separator") + "GroupBuilder";
 
     private String language = "english"; // german or english
     private boolean archive = true;
@@ -72,8 +75,11 @@ public class Settings { // NO_UCD
             path = path + "GroupBuilder\\";
         }
         if (!this.path.equals(path)) {
-            new FileCopy().copyFolder(this.path, path);
-            new FileCleaner().cleanFolder(this.path);
+            if (new File(this.path).listFiles() != null) {
+                new FileCopy().copyFolder(this.path, path);
+                new FileCleaner().cleanFolder(this.path);
+            }
+            new PropertyHandler().storeProperties(path);
             this.path = path;
         }
     }
