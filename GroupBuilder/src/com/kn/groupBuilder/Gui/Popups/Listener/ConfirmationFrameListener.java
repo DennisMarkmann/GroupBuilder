@@ -18,6 +18,8 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
+
 /**
  * Listener for the confirmation frame. Allows to start several operations.
  * 
@@ -94,6 +96,9 @@ public class ConfirmationFrameListener implements ActionListener {
             } else if (this.action.equals("removeGroup")) {
                 new GroupCreator(this.pojo).removeGroup(this.pojo.getGroupList().get((int) (this.object)));
                 GroupTableModel.refreshTable();
+            } else if (this.action.equals("close the window")) {
+                final DefaultFrame frame = (DefaultFrame) this.object;
+                frame.closeWindow();
             }
         }
         this.confirmationFrame.closeWindow();

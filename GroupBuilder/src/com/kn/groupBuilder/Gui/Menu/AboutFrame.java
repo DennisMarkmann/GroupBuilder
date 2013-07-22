@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.Menu.Listener.AboutFrameListener;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
@@ -25,7 +26,6 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
     private static final long serialVersionUID = -7650216557475857971L;
 
     private AboutFrame(final Pojo pojo) {
-
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - About");
         this.setSize(600, 230);
         this.addWindowListener(new MyWindowAdapter(this));
@@ -49,8 +49,14 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
     }
 
     @Override
+    public void openClosingDialog(final String text) {
+        ConfirmationFrame.getInstance(null, text, this);
+    }
+
+    @Override
     public void closeWindow() {
         this.dispose();
         instance = null;
     }
+
 }

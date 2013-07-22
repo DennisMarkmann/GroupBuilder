@@ -25,6 +25,8 @@ public final class Main { // NO_UCD
     public static void main(final String[] args) throws IOException {
 
         final Pojo pojo = new Pojo();
+        pojo.getSettings().setPathInitially(new PropertyHandler().getProperties());
+
         // new PojoContentTester().initializeDefaultTest(pojo);
         new FileReaderHelper().readXMLFiles(pojo);
         // new DefaultTestCreator().startTests(pojo);

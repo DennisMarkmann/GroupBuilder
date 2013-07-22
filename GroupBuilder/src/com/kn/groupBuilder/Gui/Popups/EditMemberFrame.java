@@ -70,12 +70,6 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
         return instance;
     }
 
-    @Override
-    public void closeWindow() {
-        this.dispose();
-        instance = null;
-    }
-
     private void fillFields(
             final Pojo pojo,
             final int rowID,
@@ -100,5 +94,16 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
             }
         }
         return 0;
+    }
+
+    @Override
+    public void openClosingDialog(final String text) {
+        ConfirmationFrame.getInstance(null, text, this);
+    }
+
+    @Override
+    public void closeWindow() {
+        this.dispose();
+        instance = null;
     }
 }

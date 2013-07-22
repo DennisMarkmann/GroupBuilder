@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Menu.Listener.SettingsFrameListener;
+import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Storage.Settings;
 
@@ -145,6 +146,11 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
             instance.toFront();
         }
         return instance;
+    }
+
+    @Override
+    public void openClosingDialog(final String text) {
+        ConfirmationFrame.getInstance(null, text, this);
     }
 
     @Override
