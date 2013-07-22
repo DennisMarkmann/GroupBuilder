@@ -21,7 +21,7 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class PropertyHandler {
 
-    public void storeProperties(final String path) {
+    public final void storeProperties(final String path) {
 
         final Properties properties = new Properties();
 
@@ -36,7 +36,7 @@ public class PropertyHandler {
         }
     }
 
-    public String getProperties(final Pojo pojo) {
+    public final String getProperties(final Pojo pojo) {
 
         final Properties properties = new Properties();
         BufferedInputStream stream = null;

@@ -29,12 +29,12 @@ public class MemberCreator {
         this.addMemberToList(new Member(this.correctFormat(firstName), this.correctFormat(lastName), eMailAdress));
     }
 
-    public void createMember(final String firstName, final String lastName, final String eMailAdress, final Group group) {
+    public final void createMember(final String firstName, final String lastName, final String eMailAdress, final Group group) {
         this.addMemberToList(new Member(this.correctFormat(firstName), this.correctFormat(lastName), eMailAdress, group));
 
     }
 
-    private final void addMemberToList(final Member member) {
+    private void addMemberToList(final Member member) {
         try {
             this.checkDuplicates(member.getFirstName(), member.getLastName());
         } catch (final DuplicateEntryException e) {

@@ -28,7 +28,7 @@ public class GroupCreator {
         this.addGroupToList(new Group(this.correctFormat(name), description, fixSize));
     }
 
-    private final void addGroupToList(final Group group) {
+    private void addGroupToList(final Group group) {
         try {
             this.checkDuplicates(group.getName());
         } catch (final DuplicateEntryException e) {

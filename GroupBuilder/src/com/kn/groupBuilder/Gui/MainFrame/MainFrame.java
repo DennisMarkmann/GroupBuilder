@@ -72,12 +72,12 @@ public class MainFrame extends JFrame implements DefaultFrame {
     }
 
     @Override
-    public void openClosingDialog(final String text) {
+    public final void openClosingDialog(final String text) {
         ConfirmationFrame.getInstance(null, text, this);
     }
 
     @Override
-    public void closeWindow() {
+    public final void closeWindow() {
         System.exit(1);
     }
 }

@@ -34,7 +34,7 @@ public class FileCleaner {
         }
     }
 
-    public void cleanFolder(final String path) {
+    public final void cleanFolder(final String path) {
 
         final File filePath = new File(path);
         try {

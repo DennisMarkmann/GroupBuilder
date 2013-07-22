@@ -47,11 +47,11 @@ public class Member implements Comparable<Member> {
         this.lastName = lastName;
     }
 
-    public Group getGroup() {
+    public final Group getGroup() {
         return this.group;
     }
 
-    public void setGroup(final Group group) {
+    public final void setGroup(final Group group) {
         this.group = group;
     }
 

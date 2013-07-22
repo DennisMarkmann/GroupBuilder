@@ -88,11 +88,11 @@ public class Settings { // NO_UCD
         this.path = path;
     }
 
-    public String getPrinter() {
+    public final String getPrinter() {
         return this.printer;
     }
 
-    public void setPrinter(final String printer) {
+    public final void setPrinter(final String printer) {
         this.printer = printer;
     }
 
