@@ -34,6 +34,11 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
         this.setSize(500, 370);
 
+        // final JPanel pathPanel = BUILDER.createCombiPanel(this, "pathButton", "Change Path", "pathField", TEXT_FIELD_SIZE, 1,
+        // 0);
+        // final JTextField pathField = (JTextField) pathPanel.getComponent(0);
+        // final JButton pathButton = (JButton) pathPanel.getComponent(1);
+
         // path
         BUILDER.createLabel(this, "Path:", 0, 0);
         final JTextField pathField = BUILDER.createTextField(this, "pathField", TEXT_FIELD_SIZE, 1, 0);
@@ -48,6 +53,17 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         final JCheckBox archivingBox = BUILDER.createCheckBox(this, "archivingBox", "", 1, 2);
         BUILDER.createLabel(this, "Duration [in days]:", 0, 3);
         final JTextField archiveField = BUILDER.createTextField(this, "archiveField", TEXT_FIELD_SIZE, 1, 3);
+
+        // final JPanel printerPanel = BUILDER.createCombiPanel(
+        // this,
+        // "printerButton",
+        // "Change Printer",
+        // "printerField",
+        // TEXT_FIELD_SIZE,
+        // 1,
+        // 4);
+        // final JTextField printerField = (JTextField) printerPanel.getComponent(0);
+        // final JButton printerButton = (JButton) printerPanel.getComponent(1);
 
         // print
         BUILDER.createLabel(this, "Printer:", 0, 4);
