@@ -32,7 +32,8 @@ public class GroupTabListener implements ActionListener {
 
         if (buttonClicked.getName().compareTo("addButton") == 0) {
             CreateGroupFrame.getInstance(this.pojo);
-
+        } else if (buttonClicked.getName().compareTo("createGroupsButton") == 0) {
+            ConfirmationFrame.getInstance(this.pojo, "automatically create groups", null);
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
             ConfirmationFrame.getInstance(this.pojo, "save", null);
         }

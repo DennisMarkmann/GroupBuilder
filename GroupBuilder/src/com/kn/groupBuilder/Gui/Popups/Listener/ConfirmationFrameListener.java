@@ -96,6 +96,10 @@ public class ConfirmationFrameListener implements ActionListener {
             } else if (this.action.equals("removeGroup")) {
                 new GroupCreator(this.pojo).removeGroup(this.pojo.getGroupList().get((int) (this.object)));
                 GroupTableModel.refreshTable();
+            } else if (this.action.equals("automatically create groups")) {
+                final int number = 3;
+                new GroupCreator(this.pojo).createGroupsAutmatically(number);
+                GroupTableModel.refreshTable();
             } else if (this.action.equals("close the window")) {
                 final DefaultFrame frame = (DefaultFrame) this.object;
                 frame.closeWindow();

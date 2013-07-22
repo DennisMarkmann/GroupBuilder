@@ -41,6 +41,7 @@ public class GroupCreator {
     public final void createGroupsAutmatically(final int memberPerGroup) {
 
         final int numberOfGroups = this.pojo.getMemberList().size() / memberPerGroup;
+        // this.pojo.setGroupList(new ArrayList<Group>());
 
         for (int i = 0; i < numberOfGroups; i++) {
             this.pojo.getGroupList().add(new Group("Group" + i));

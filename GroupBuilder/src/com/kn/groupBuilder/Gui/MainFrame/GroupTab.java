@@ -36,11 +36,13 @@ class GroupTab extends JPanel implements DefaultTab {
 
         BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
         final JButton addButton = BUILDER.createButton(this, "addButton", "Add Group", 0, 5);
+        final JButton createGroupsButton = BUILDER.createButton(this, "createGroupsButton", "Create Groups", 0, 6);
         final JButton saveButton = BUILDER.createButton(this, "saveButton", "Save", 0, 7);
 
         final GroupTabListener listener = new GroupTabListener(pojo);
 
         addButton.addActionListener(listener);
+        createGroupsButton.addActionListener(listener);
         saveButton.addActionListener(listener);
     }
 }
