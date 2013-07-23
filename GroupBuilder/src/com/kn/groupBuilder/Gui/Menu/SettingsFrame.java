@@ -40,9 +40,9 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         // final JButton pathButton = (JButton) pathPanel.getComponent(1);
 
         // path
-        BUILDER.createLabel(this, "Path:", 0, 0);
+        // BUILDER.createLabel(this, "Path:", 0, 0);
+        final JButton pathButton = BUILDER.createButton(this, "pathButton", "Change Path", 0, 0);
         final JTextField pathField = BUILDER.createTextField(this, "pathField", TEXT_FIELD_SIZE, 1, 0);
-        final JButton pathButton = BUILDER.createButton(this, "pathButton", "Change Path", 2, 0);
 
         // language
         BUILDER.createLabel(this, "Language:", 0, 1);
@@ -66,9 +66,11 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         // final JButton printerButton = (JButton) printerPanel.getComponent(1);
 
         // print
-        BUILDER.createLabel(this, "Printer:", 0, 4);
+        // BUILDER.createLabel(this, "Printer:", 0, 4);
+        final JButton printerButton = BUILDER.createButton(this, "printerButton", "Change Printer", 0, 4);
         final JTextField printerField = BUILDER.createTextField(this, "printerField", TEXT_FIELD_SIZE, 1, 4);
-        final JButton printerButton = BUILDER.createButton(this, "printerButton", "Change Printer", 2, 4);
+
+        BUILDER.createLabel(this, "", 0, 5);
 
         // automatic
         final JCheckBox printOutAutomatically = BUILDER.createCheckBox(
@@ -76,18 +78,20 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
                 "printOutAutomatically",
                 "Print automatically: ",
                 1,
-                5);
+                6);
 
         final JCheckBox sendMailsAutomatically = BUILDER.createCheckBox(
                 this,
                 "sendMailsAutomatically",
                 "Send e-Mails automatically: ",
                 0,
-                5);
+                6);
 
+        BUILDER.createLabel(this, "", 0, 7);
+        BUILDER.createLabel(this, "", 0, 8);
         // close
-        final JButton saveButton = BUILDER.createButton(this, "saveButton", "Save", 0, 6);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 6);
+        final JButton saveButton = BUILDER.createButton(this, "saveButton", "Save", 0, 9);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 9);
 
         final SettingsFrameListener listener = new SettingsFrameListener(
                 this,

@@ -15,7 +15,8 @@ public class Pojo {
 
     private ArrayList<Member> memberList = new ArrayList<Member>();;
     private ArrayList<Group> groupList = new ArrayList<Group>();
-    private final String[] languageList = { "English", "German" };
+    private final String[] languageList = { "English" };
+    // private final String[] languageList = { "English", "German" };
     private final String[] formatList = { "XML", "TXT" };
     private final Settings settings = new Settings();
 
