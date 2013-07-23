@@ -1,11 +1,14 @@
 package com.kn.groupBuilder.Gui.Menu;
 
+import java.util.ArrayList;
+
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
-import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Menu.Listener.EmailFrameListener;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
+import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
@@ -29,16 +32,27 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Email");
         this.addWindowListener(new MyWindowAdapter(this));
 
-        final JTextField addressField = BUILDER.createTextField(this, "addressField", TEXT_FIELD_SIZE, 0, 0);
-        final JButton sendButton = BUILDER.createButton(this, "sendButton", "Send", 1, 0);
+        int x = 0;
+        int y = 0;
+        final ArrayList<JCheckBox> checkBoxList = new ArrayList<JCheckBox>();
+        for (final Group group : pojo.getGroupList()) {
+            if (x == 3) {
+                y++;
+                x = 0;
+            }
+            final String groupName = group.getName();
+            final JCheckBox checkBox = BUILDER.createCheckBox(this, groupName, groupName, x, y);
+            checkBox.setSelected(true);
+            checkBoxList.add(checkBox);
+            x++;
+        }
 
-        final JButton sendAllButton = BUILDER.createButton(this, "sendAllButton", "SendToAll", 0, 1);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 1);
+        final JButton sendButton = BUILDER.createButton(this, "sendButton", "Send", 0, y + 1);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, y + 1);
 
-        final EmailFrameListener listener = new EmailFrameListener(this, pojo, addressField);
+        final EmailFrameListener listener = new EmailFrameListener(this, pojo, checkBoxList);
 
         sendButton.addActionListener(listener);
-        sendAllButton.addActionListener(listener);
         closeButton.addActionListener(listener);
     }
 

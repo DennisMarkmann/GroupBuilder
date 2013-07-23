@@ -2,14 +2,14 @@ package com.kn.groupBuilder.Gui.Menu.Listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JTextField;
+import javax.swing.JCheckBox;
 
-import com.kn.groupBuilder.Exceptions.DataNotFoundException;
 import com.kn.groupBuilder.Gui.Menu.EmailFrame;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
-import com.kn.groupBuilder.Storage.Member;
+import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
@@ -24,12 +24,12 @@ public class EmailFrameListener implements ActionListener {
 
     private final EmailFrame emailFrame;
     private final Pojo pojo;
-    private final JTextField addressField;
+    private final ArrayList<JCheckBox> checkBoxList;
 
-    public EmailFrameListener(final EmailFrame emailFrame, final Pojo pojo, final JTextField addressField) {
+    public EmailFrameListener(final EmailFrame emailFrame, final Pojo pojo, final ArrayList<JCheckBox> checkBoxList) {
         this.emailFrame = emailFrame;
         this.pojo = pojo;
-        this.addressField = addressField;
+        this.checkBoxList = checkBoxList;
     }
 
     @Override
@@ -38,17 +38,15 @@ public class EmailFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("sendButton") == 0) {
-            final String eMailAddress = this.addressField.getText();
-            for (final Member member : this.pojo.getMemberList()) {
-                if (eMailAddress.equals(member.getEMailAdress())) {
-                    ConfirmationFrame.getInstance(this.pojo, "sendMail", member);
-                } else {
-                    new DataNotFoundException("EmailAddress: \"" + eMailAddress + "\"").showDialog();
-                    return;
+            final ArrayList<Group> groupList = new ArrayList<Group>();
+            for (final JCheckBox checkBox : this.checkBoxList) {
+                if (checkBox.isSelected()) {
+                    groupList.add(this.pojo.getGroupByName(checkBox.getName()));
                 }
             }
-        } else if (buttonClicked.getName().compareTo("sendAllButton") == 0) {
-            ConfirmationFrame.getInstance(this.pojo, "sendMailToAll", null);
+
+            ConfirmationFrame.getInstance(this.pojo, "sendMail", groupList);
+
         }
         this.emailFrame.closeWindow();
 

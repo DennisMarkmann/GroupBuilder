@@ -46,7 +46,7 @@ public class FileWriteHelper {
             new PrintJobHelper(pojo).printAllGroups();
         }
         if (pojo.getSettings().isSendMailAutomatically()) {
-            new EmailJobHelper().sendMailsToAll(pojo);
+            new EmailJobHelper().sendMailToGroups(pojo, pojo.getGroupList());
         }
     }
 

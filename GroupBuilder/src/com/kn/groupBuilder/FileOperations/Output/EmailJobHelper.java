@@ -26,17 +26,18 @@ public class EmailJobHelper {
         return new EmailSettings("GroupBuilder@gmx.de", "buildGroups", "GroupBuilder@gmx.de", "GroupBuilder", "smtp.gmx.net");
     }
 
-    public final void sendMailsToAll(final Pojo pojo) {
+    public final void sendMailToGroups(final Pojo pojo, final ArrayList<Group> groupList) {
 
-        final ArrayList<EmailObject> emailList = this.createEmailObjects(pojo);
+        final ArrayList<EmailObject> emailList = this.createEmailObjects(pojo, groupList);
         new EmailJob().sendMail(this.setEmailSettings(), emailList);
     }
 
-    public final void sendSingleMail(final Pojo pojo, final Member member) {
-        final ArrayList<EmailObject> emailList = new ArrayList<EmailObject>();
-        emailList.add(this.createSingleEmailObject(pojo, member));
-        new EmailJob().sendMail(this.setEmailSettings(), emailList);
-    }
+    //
+    // public final void sendSingleMail(final Pojo pojo, final Member member) {
+    // final ArrayList<EmailObject> emailList = new ArrayList<EmailObject>();
+    // emailList.add(this.createSingleEmailObject(pojo, member));
+    // new EmailJob().sendMail(this.setEmailSettings(), emailList);
+    // }
 
     private String generateMailText(final Group group, final String path) {
 
@@ -52,12 +53,12 @@ public class EmailJobHelper {
         return sb.toString();
     }
 
-    private ArrayList<EmailObject> createEmailObjects(final Pojo pojo) {
+    private ArrayList<EmailObject> createEmailObjects(final Pojo pojo, final ArrayList<Group> groupList) {
 
         final ArrayList<EmailObject> emailList = new ArrayList<EmailObject>();
         final String path = pojo.getSettings().getPath();
 
-        for (final Group group : pojo.getGroupList()) {
+        for (final Group group : groupList) {
 
             final EmailObject emailObject = new EmailObject();
             emailList.add(emailObject);
@@ -74,22 +75,21 @@ public class EmailJobHelper {
         }
         return emailList;
     }
-
-    private EmailObject createSingleEmailObject(final Pojo pojo, final Member member) {
-
-        final EmailObject emailObject = new EmailObject();
-
-        final ArrayList<String> emailAddresList = emailObject.getEmailAddressList();
-        emailAddresList.add(member.getEMailAdress());
-
-        final Group group = member.getGroup();
-        final String path = pojo.getSettings().getPath();
-
-        final String emailText = this.generateMailText(group, path);
-        final File file = new File(path + "Groups//" + group.getName() + ".xml");
-
-        new EmailContentCreator().createMailContent(emailText, file, emailObject);
-
-        return emailObject;
-    }
+    // private EmailObject createSingleEmailObject(final Pojo pojo, final Member member) {
+    //
+    // final EmailObject emailObject = new EmailObject();
+    //
+    // final ArrayList<String> emailAddresList = emailObject.getEmailAddressList();
+    // emailAddresList.add(member.getEMailAdress());
+    //
+    // final Group group = member.getGroup();
+    // final String path = pojo.getSettings().getPath();
+    //
+    // final String emailText = this.generateMailText(group, path);
+    // final File file = new File(path + "Groups//" + group.getName() + ".xml");
+    //
+    // new EmailContentCreator().createMailContent(emailText, file, emailObject);
+    //
+    // return emailObject;
+    // }
 }

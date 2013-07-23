@@ -73,29 +73,19 @@ public class ConfirmationFrameListener implements ActionListener {
             } else if (this.action.equals("printOutAll")) {
                 new PrintJobHelper(this.pojo).printAllGroups();
                 OperationSuccessfullFrame.getInstance("All groups were successfully printed.");
-            } else if (this.action.equals("sendMailToAll")) {
-                new EmailJobHelper().sendMailsToAll(this.pojo);
-                OperationSuccessfullFrame.getInstance("All groups were successfully sent.");
             } else if (this.action.equals("printOut")) {
                 final String groupName = (String) this.object;
                 new PrintJobHelper(this.pojo).printGroup(groupName);
                 OperationSuccessfullFrame.getInstance("Group " + groupName + " was successfully printed.");
             } else if (this.action.equals("sendMail")) {
-                final String mailAddress = (String) this.object;
-                for (final Member member : this.pojo.getMemberList()) {
-                    if (member.getEMailAdress().equals(mailAddress)) {
-                        new EmailJobHelper().sendSingleMail(this.pojo, member);
-                    }
-                }
-                OperationSuccessfullFrame.getInstance("Email was succesfully send to " + mailAddress);
+                new EmailJobHelper().sendMailToGroups(this.pojo, (ArrayList<Group>) this.object);
+                OperationSuccessfullFrame.getInstance("Emails were succesfully send.");
             } else if (this.action.equals("save")) {
                 new FileWriteHelper().createXMLFiles(this.pojo);
                 OperationSuccessfullFrame.getInstance("All files were successfully saved.");
-
             } else if (this.action.equals("editMember")) {
                 final Member oldMember = ((ArrayList<Member>) this.object).get(0);
                 final Member newMember = ((ArrayList<Member>) this.object).get(1);
-
                 new MemberCreator(this.pojo).editMember(oldMember, newMember);
                 MemberTableModel.refreshTable();
                 OperationSuccessfullFrame.getInstance("Member " + oldMember.getFirstName() + " " + oldMember.getLastName()
