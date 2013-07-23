@@ -13,6 +13,7 @@ import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Gui.Popups.OperationSuccessfullFrame;
 import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
 import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
+import com.kn.groupBuilder.Jobs.GroupBuilder;
 import com.kn.groupBuilder.Jobs.GroupCreator;
 import com.kn.groupBuilder.Jobs.MemberCreator;
 import com.kn.groupBuilder.Storage.Group;
@@ -118,6 +119,7 @@ public class ConfirmationFrameListener implements ActionListener {
                 OperationSuccessfullFrame.getInstance("Group " + group.getName() + " was succesfully removed.");
             } else if (this.action.equals("automatically create groups")) {
                 new GroupCreator(this.pojo).createGroupsAutmatically((int) this.object);
+                new GroupBuilder().buildGroups(this.pojo);
                 GroupTableModel.refreshTable();
                 OperationSuccessfullFrame.getInstance("All groups were automatically created.");
             } else if (this.action.equals("close the window")) {

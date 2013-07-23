@@ -42,19 +42,19 @@ public class GroupCreator {
 
     public final void createGroupsAutmatically(final int memberPerGroup) {
 
-        final int numberOfGroups = this.pojo.getMemberList().size() / memberPerGroup;
-        final ArrayList<Group> groupList = new ArrayList<Group>();
+        // parsing to double to avoid problems with odd numbers
+        final double numberOfGroups = (double) this.pojo.getMemberList().size() / (double) memberPerGroup;
+
+        this.cleanGroupList();
 
         for (int i = 0; i < numberOfGroups; i++) {
             this.pojo.getGroupList().add(new Group("Group" + i));
         }
-        this.pojo.setGroupList(groupList);
 
     }
 
     public final void removeGroup(final Group group) {
         this.pojo.getGroupList().remove(this.pojo.getGroupByName(group.getName()));
-
     }
 
     public final void editGroup(final Group oldGroup, final Group newGroup) {
@@ -64,6 +64,17 @@ public class GroupCreator {
         group.setFixSize(newGroup.getFixSize());
         // group.setMemberList(newGroup.getMemberList());
 
+    }
+
+    private final void cleanGroupList() {
+        final ArrayList<Group> tempList = new ArrayList<Group>();
+
+        for (final Group group : this.pojo.getGroupList()) {
+            tempList.add(group);
+        }
+        for (final Group group : tempList) {
+            this.pojo.getGroupList().remove(group);
+        }
     }
 
     private void checkDuplicates(final String name) throws DuplicateEntryException {

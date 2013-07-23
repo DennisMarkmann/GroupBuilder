@@ -48,7 +48,7 @@ public final class ConfirmationFrame extends JFrame implements DefaultFrame {
 
     @Override
     public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(null, text, this);
+        this.closeWindow();
     }
 
     @Override

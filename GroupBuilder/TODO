@@ -6,10 +6,7 @@
 	1.1.Gui Aussehen optimieren (Settings)
 		Keine TextFields + Buttons sondern Combi Objekte
 		Mehr abstand vom Rest zu save and close
-						
-	1.2.Implement groups automatically functionality
-		(neues Erstellen der Liste / Remove der Groups in GroupCreator buggy)
-	
+
 	1.3.Email to single Person
 		(zuhause testen wie der Stand ist)
 	
@@ -25,6 +22,8 @@
 	2.3.Remove mail.jar
 	
 	2.4.Edit / Create Member und Group Frames zusammen fassen
+	
+	2.5.ConfirmationFrameListener.. auslagern etc.
 
 
 3. Version 2.0:
