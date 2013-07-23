@@ -20,17 +20,15 @@ public class FileCleaner {
 
     final void updateArchive(final Pojo pojo) {
 
-        if (pojo.getSettings().isArchived()) {
-            final File filePath = new File(pojo.getSettings().getPath() + "Archive\\");
-            try {
-                for (final File file : filePath.listFiles()) {
-                    if (this.checkDeletionDate(file.getName(), pojo)) {
-                        this.cleanFolder(file.getPath());
-                    }
+        final File filePath = new File(pojo.getSettings().getPath() + "Archive\\");
+        try {
+            for (final File file : filePath.listFiles()) {
+                if (pojo.getSettings().isArchived() == false || this.checkDeletionDate(file.getName(), pojo)) {
+                    this.cleanFolder(file.getPath());
                 }
-            } catch (final java.lang.NullPointerException e) {
-                new NotToHandleException(e.getStackTrace());
             }
+        } catch (final java.lang.NullPointerException e) {
+            new NotToHandleException(e.getStackTrace());
         }
     }
 
@@ -58,7 +56,7 @@ public class FileCleaner {
         helper.addTime(0, 0, -pojo.getSettings().getArchivingDays(), 0, 0, 0);
         final Date deletionDate = helper.parseStringToDate(helper.getDate());
 
-        if (archiveDate.before(deletionDate)) {
+        if (archiveDate.before(deletionDate) || archiveDate.equals(deletionDate)) {
             return true;
         }
         return false;

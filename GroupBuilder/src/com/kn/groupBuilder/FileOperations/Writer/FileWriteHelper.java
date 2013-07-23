@@ -35,8 +35,11 @@ public class FileWriteHelper {
         new MemberListWriter().createXmlFile(pojo);
         new GroupListWriter().createXmlFile(pojo);
         new GroupFileWriter().initializeXMLPrint(pojo);
-        new GroupFileArchiver().archivGroupFiles(pojo);
         new SettingsFileWriter().createXmlFile(pojo);
+
+        if (pojo.getSettings().isArchived()) {
+            new GroupFileArchiver().archivGroupFiles(pojo);
+        }
         new FileCleaner().updateArchive(pojo);
 
         if (pojo.getSettings().isPrintAutomatically()) {
