@@ -17,11 +17,13 @@ import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
 
 public class Settings { // NO_UCD
 
+    private static final int DEFAULT_ARCHIVING_DAYS = 7;
+
     private String path = System.getProperty("user.home") + System.getProperty("file.separator") + "GroupBuilder";
 
     private String language = "english"; // german or english
     private boolean archive = true;
-    private int archivingDays = 7; // if the value is 0 the archiving will be disabled
+    private int archivingDays = DEFAULT_ARCHIVING_DAYS; // if the value is 0 the archiving will be disabled
     private boolean sendMailAutomatically = false;
     private boolean printAutomatically = false;
     private String printer;

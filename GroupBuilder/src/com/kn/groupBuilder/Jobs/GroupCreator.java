@@ -66,7 +66,7 @@ public class GroupCreator {
 
     }
 
-    private final void cleanGroupList() {
+    private void cleanGroupList() {
         final ArrayList<Group> tempList = new ArrayList<Group>();
 
         for (final Group group : this.pojo.getGroupList()) {

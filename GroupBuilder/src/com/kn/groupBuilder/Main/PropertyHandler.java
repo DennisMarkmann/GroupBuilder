@@ -36,7 +36,7 @@ public class PropertyHandler {
         }
     }
 
-    public final String getProperties(final Pojo pojo) {
+    final String getProperties(final Pojo pojo) {
 
         final Properties properties = new Properties();
         BufferedInputStream stream = null;

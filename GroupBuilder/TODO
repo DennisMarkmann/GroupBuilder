@@ -20,9 +20,9 @@
 	
 	2.3.Remove mail.jar
 	
-	2.4.Edit / Create Member und Group Frames zusammen fassen
+	2.4.Edit / Create Member und Group Frames zusammen fassen (praktisch identisch)
 	
-	2.5.ConfirmationFrameListener.. auslagern etc.
+	2.5.ConfirmationFrameListener rework.. methoden auslagern, entschlanken, ...
 
 
 3. Version 2.0:
