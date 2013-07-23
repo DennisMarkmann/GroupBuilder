@@ -1,9 +1,7 @@
 1. Additional Content:
 			
-	1.0.Print und Emailframes umgestalten. (Chechboxes für jede Gruppe, default selected)
-		1.0.1.Umschalten auf CheckBoxes für einzelne Personen
-		1.0.2.Email to single Person functionality
-	
+	1.0.Printframe umgestalten
+		
 	1.1.Gui Aussehen optimieren (Settings)
 		Keine TextFields + Buttons sondern Combi Objekte ?
 	
@@ -40,4 +38,6 @@
 	3.6.Copy & paste für Table Einträge
 	
 	3.7.Tastatursteuerung
+	
+	3.8.Bei Print und Email auch Einzelpersonen ermöglichen
 	
