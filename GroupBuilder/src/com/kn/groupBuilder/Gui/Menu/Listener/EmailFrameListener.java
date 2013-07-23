@@ -44,9 +44,18 @@ public class EmailFrameListener implements ActionListener {
                     groupList.add(this.pojo.getGroupByName(checkBox.getName()));
                 }
             }
-
             ConfirmationFrame.getInstance(this.pojo, "sendMail", groupList);
+        } else if (buttonClicked.getName().compareTo("selectAllButton") == 0) {
+            boolean select = true;
+            if (this.emailFrame.isSelected() == true) {
+                select = false;
+            }
+            this.emailFrame.setSelected(select);
 
+            for (final JCheckBox checkBox : this.checkBoxList) {
+                checkBox.setSelected(select);
+            }
+            return;
         }
         this.emailFrame.closeWindow();
 

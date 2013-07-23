@@ -26,6 +26,7 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
 
     private static EmailFrame instance = null;
     private static final long serialVersionUID = 4767991083504569016L;
+    private boolean selected = true;
 
     private EmailFrame(final Pojo pojo) {
 
@@ -47,11 +48,13 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
             x++;
         }
 
-        final JButton sendButton = BUILDER.createButton(this, "sendButton", "Send", 0, y + 1);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, y + 1);
+        final JButton selectAllButton = BUILDER.createButton(this, "selectAllButton", "Select All", 0, y + 1);
+        final JButton sendButton = BUILDER.createButton(this, "sendButton", "Send", 0, y + 2);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, y + 2);
 
         final EmailFrameListener listener = new EmailFrameListener(this, pojo, checkBoxList);
 
+        selectAllButton.addActionListener(listener);
         sendButton.addActionListener(listener);
         closeButton.addActionListener(listener);
     }
@@ -76,4 +79,11 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
         instance = null;
     }
 
+    public boolean isSelected() {
+        return this.selected;
+    }
+
+    public void setSelected(final boolean selected) {
+        this.selected = selected;
+    }
 }
