@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.kn.groupBuilder.Gui.Menu.Listener.SettingsFrameListener;
@@ -31,18 +32,12 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Settings");
         this.addWindowListener(new MyWindowAdapter(this));
-
-        this.setSize(500, 370);
-
-        // final JPanel pathPanel = BUILDER.createCombiPanel(this, "pathButton", "Change Path", "pathField", TEXT_FIELD_SIZE, 1,
-        // 0);
-        // final JTextField pathField = (JTextField) pathPanel.getComponent(0);
-        // final JButton pathButton = (JButton) pathPanel.getComponent(1);
+        this.setSize(555, 370);
 
         // path
-        // BUILDER.createLabel(this, "Path:", 0, 0);
-        final JButton pathButton = BUILDER.createButton(this, "pathButton", "Change Path", 0, 0);
-        final JTextField pathField = BUILDER.createTextField(this, "pathField", TEXT_FIELD_SIZE, 1, 0);
+        final JPanel pathPanel = BUILDER.createCombiPanel(this, "pathButton", "Change Path", "pathField", 37, 0, 0);
+        final JTextField pathField = (JTextField) pathPanel.getComponent(0);
+        final JButton pathButton = (JButton) pathPanel.getComponent(1);
 
         // language
         BUILDER.createLabel(this, "Language:", 0, 1);
@@ -54,21 +49,10 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         BUILDER.createLabel(this, "Duration [in days]:", 0, 3);
         final JTextField archiveField = BUILDER.createTextField(this, "archiveField", TEXT_FIELD_SIZE, 1, 3);
 
-        // final JPanel printerPanel = BUILDER.createCombiPanel(
-        // this,
-        // "printerButton",
-        // "Change Printer",
-        // "printerField",
-        // TEXT_FIELD_SIZE,
-        // 1,
-        // 4);
-        // final JTextField printerField = (JTextField) printerPanel.getComponent(0);
-        // final JButton printerButton = (JButton) printerPanel.getComponent(1);
-
-        // print
-        // BUILDER.createLabel(this, "Printer:", 0, 4);
-        final JButton printerButton = BUILDER.createButton(this, "printerButton", "Change Printer", 0, 4);
-        final JTextField printerField = BUILDER.createTextField(this, "printerField", TEXT_FIELD_SIZE, 1, 4);
+        // printer
+        final JPanel printerPanel = BUILDER.createCombiPanel(this, "printerButton", "Change Printer", "printerField", 36, 0, 4);
+        final JTextField printerField = (JTextField) printerPanel.getComponent(0);
+        final JButton printerButton = (JButton) printerPanel.getComponent(1);
 
         BUILDER.createLabel(this, "", 0, 5);
 

@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.Exceptions.NotToHandleException;
 import com.kn.groupBuilder.FileOperations.Reader.FileReaderHelper;
 import com.kn.groupBuilder.FileOperations.Writer.SettingsFileWriter;
 import com.kn.groupBuilder.Gui.Menu.SettingsFrame;
@@ -68,7 +69,11 @@ public class SettingsFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("pathButton") == 0) {
-            this.settingsFrame.updatePathField(this.pathField, new PathChooser().changePath());
+            try {
+                this.settingsFrame.updatePathField(this.pathField, new PathChooser().changePath());
+            } catch (final java.lang.NullPointerException e) {
+                new NotToHandleException(e.getStackTrace());
+            }
 
         } else if (buttonClicked.getName().compareTo("printerButton") == 0) {
             this.settingsFrame.updatePrinterField(this.printerField, new PrinterSelector().selectPrinter().getName());
