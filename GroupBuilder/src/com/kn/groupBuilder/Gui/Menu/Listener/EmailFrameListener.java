@@ -47,7 +47,7 @@ public class EmailFrameListener implements ActionListener {
             ConfirmationFrame.getInstance(this.pojo, "sendMail", groupList);
         } else if (buttonClicked.getName().compareTo("selectAllButton") == 0) {
             boolean select = true;
-            if (this.emailFrame.isSelected() == true) {
+            if (this.emailFrame.isSelected()) {
                 select = false;
             }
             this.emailFrame.setSelected(select);

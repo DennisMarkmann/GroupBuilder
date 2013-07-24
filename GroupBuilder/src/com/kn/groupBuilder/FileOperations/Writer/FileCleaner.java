@@ -23,7 +23,7 @@ public class FileCleaner {
         final File filePath = new File(pojo.getSettings().getPath() + "Archive\\");
         try {
             for (final File file : filePath.listFiles()) {
-                if (pojo.getSettings().isArchived() == false || this.checkDeletionDate(file.getName(), pojo)) {
+                if (!pojo.getSettings().isArchived() || this.checkDeletionDate(file.getName(), pojo)) {
                     this.cleanFolder(file.getPath());
                 }
             }

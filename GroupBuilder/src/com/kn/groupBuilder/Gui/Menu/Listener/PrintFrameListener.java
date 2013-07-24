@@ -47,7 +47,7 @@ public class PrintFrameListener implements ActionListener {
             ConfirmationFrame.getInstance(this.pojo, "print", groupList);
         } else if (buttonClicked.getName().compareTo("selectAllButton") == 0) {
             boolean select = true;
-            if (this.printFrame.isSelected() == true) {
+            if (this.printFrame.isSelected()) {
                 select = false;
             }
             this.printFrame.setSelected(select);
