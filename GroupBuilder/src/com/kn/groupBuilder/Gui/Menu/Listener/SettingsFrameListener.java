@@ -76,7 +76,11 @@ public class SettingsFrameListener implements ActionListener {
             }
 
         } else if (buttonClicked.getName().compareTo("printerButton") == 0) {
-            this.settingsFrame.updatePrinterField(this.printerField, new PrinterSelector().selectPrinter().getName());
+            try {
+                this.settingsFrame.updatePrinterField(this.printerField, new PrinterSelector().selectPrinter().getName());
+            } catch (final java.lang.NullPointerException e) {
+                new NotToHandleException(e.getStackTrace());
+            }
 
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
             final Settings settings = this.pojo.getSettings();
