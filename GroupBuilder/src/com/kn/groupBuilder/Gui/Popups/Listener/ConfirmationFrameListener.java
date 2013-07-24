@@ -3,6 +3,8 @@ package com.kn.groupBuilder.Gui.Popups.Listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.JButton;
 
@@ -30,8 +32,17 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.Default
  * @version 1.0
  */
 
+@SuppressWarnings("unchecked")
 public class ConfirmationFrameListener implements ActionListener {
 
+    private static final List<String> OUTPUT_OPERATIONS = Arrays.asList("print", "sendMail", "save");
+    private static final List<String> MEMBER_OPERATIONS = Arrays.asList("addMember", "editMember", "removeMember");
+    private static final List<String> GROUP_OPERATIONS = Arrays.asList(
+            "addGroup",
+            "editGroup",
+            "removeGroup",
+            "automatically create groups");
+    private String message = "";
     private final ConfirmationFrame confirmationFrame;
     private final Pojo pojo;
     private final String action;
@@ -42,78 +53,121 @@ public class ConfirmationFrameListener implements ActionListener {
             final Pojo pojo,
             final String action,
             final Object object) {
+
         this.confirmationFrame = confirmationFrame;
         this.pojo = pojo;
         this.action = action;
         this.object = object;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public final void actionPerformed(final ActionEvent event) {
 
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
-            if (this.action.equals("addGroup")) {
-                final Group group = (Group) this.object;
-                new GroupCreator(this.pojo).createGroup(group.getName(), group.getDescription(), group.getFixSize());
-                GroupTableModel.refreshTable();
-                OperationSuccessfullFrame.getInstance("Group " + group.getName() + " was succesfully added.");
-            } else if (this.action.equals("addMember")) {
-                final Member member = (Member) this.object;
-                new MemberCreator(this.pojo).createMember(
-                        member.getFirstName(),
-                        member.getLastName(),
-                        member.getEMailAdress(),
-                        member.getGroup());
-                MemberTableModel.refreshTable();
-                OperationSuccessfullFrame.getInstance("Member " + member.getFirstName() + " " + member.getLastName()
-                        + " was succesfully added.");
-            } else if (this.action.equals("print")) {
-                new PrintJobHelper().printOutForGroups(this.pojo, (ArrayList<Group>) this.object);
-                OperationSuccessfullFrame.getInstance("All groups were successfully printed.");
-            } else if (this.action.equals("sendMail")) {
-                new EmailJobHelper().sendMailToGroups(this.pojo, (ArrayList<Group>) this.object);
-                OperationSuccessfullFrame.getInstance("Emails were succesfully send.");
-            } else if (this.action.equals("save")) {
-                new FileWriteHelper().createXMLFiles(this.pojo);
-                OperationSuccessfullFrame.getInstance("All files were successfully saved.");
-            } else if (this.action.equals("editMember")) {
-                final Member oldMember = ((ArrayList<Member>) this.object).get(0);
-                final Member newMember = ((ArrayList<Member>) this.object).get(1);
-                new MemberCreator(this.pojo).editMember(oldMember, newMember);
-                MemberTableModel.refreshTable();
-                OperationSuccessfullFrame.getInstance("Member " + oldMember.getFirstName() + " " + oldMember.getLastName()
-                        + " was succesfully edited.");
-            } else if (this.action.equals("removeMember")) {
-                final Member member = this.pojo.getMemberList().get((int) (this.object));
-                new MemberCreator(this.pojo).removeMember(member);
-                MemberTableModel.refreshTable();
-                OperationSuccessfullFrame.getInstance("Member " + member.getFirstName() + " " + member.getLastName()
-                        + " was succesfully removed.");
-            } else if (this.action.equals("editGroup")) {
-                final Group oldGroup = ((ArrayList<Group>) this.object).get(0);
-                final Group newGroup = ((ArrayList<Group>) this.object).get(1);
-                new GroupCreator(this.pojo).editGroup(oldGroup, newGroup);
-                GroupTableModel.refreshTable();
-                OperationSuccessfullFrame.getInstance("Group " + oldGroup.getName() + " was succesfully edited.");
-            } else if (this.action.equals("removeGroup")) {
-                final Group group = this.pojo.getGroupList().get((int) (this.object));
-                new GroupCreator(this.pojo).removeGroup(group);
-                GroupTableModel.refreshTable();
-                OperationSuccessfullFrame.getInstance("Group " + group.getName() + " was succesfully removed.");
-            } else if (this.action.equals("automatically create groups")) {
-                new GroupCreator(this.pojo).createGroupsAutmatically((int) this.object);
-                new GroupBuilder().buildGroups(this.pojo);
-                GroupTableModel.refreshTable();
-                OperationSuccessfullFrame.getInstance("All groups were automatically created.");
+
+            if (OUTPUT_OPERATIONS.contains(this.action)) {
+                this.useOutputOperation();
+            } else if (MEMBER_OPERATIONS.contains(this.action)) {
+                this.useMemberOperation();
+            } else if (GROUP_OPERATIONS.contains(this.action)) {
+                this.useGroupOperation();
             } else if (this.action.equals("close the window")) {
-                final DefaultFrame frame = (DefaultFrame) this.object;
-                frame.closeWindow();
+                ((DefaultFrame) this.object).closeWindow();
+                this.confirmationFrame.closeWindow();
+                return;
             }
         }
+        this.showSuccessMessage(this.message);
         this.confirmationFrame.closeWindow();
 
+    }
+
+    private void useOutputOperation() {
+
+        if (this.action.equals("print")) {
+            new PrintJobHelper().printOutForGroups(this.pojo, (ArrayList<Group>) this.object);
+            this.message = "All groups were successfully printed.";
+
+        } else if (this.action.equals("sendMail")) {
+            new EmailJobHelper().sendMailToGroups(this.pojo, (ArrayList<Group>) this.object);
+            this.message = "All e-mails were successfully send.";
+
+        } else if (this.action.equals("save")) {
+            new FileWriteHelper().createXMLFiles(this.pojo);
+            this.message = "All files were successfully saved.";
+        }
+    }
+
+    private void useMemberOperation() {
+
+        if (this.action.equals("addMember")) {
+            final Member member = (Member) this.object;
+
+            new MemberCreator(this.pojo).correctMemberFormat(member);
+            this.generateMemberMessage(member, "added");
+
+        } else if (this.action.equals("editMember")) {
+            final Member oldMember = ((ArrayList<Member>) this.object).get(0);
+            final Member newMember = ((ArrayList<Member>) this.object).get(1);
+
+            new MemberCreator(this.pojo).editMember(oldMember, newMember);
+            this.generateMemberMessage(oldMember, "edited");
+
+        } else if (this.action.equals("removeMember")) {
+            final Member member = this.pojo.getMemberList().get((int) (this.object));
+
+            new MemberCreator(this.pojo).removeMember(member);
+            this.generateMemberMessage(member, "removed");
+
+        }
+        MemberTableModel.refreshTable();
+    }
+
+    private void useGroupOperation() {
+
+        if (this.action.equals("addGroup")) {
+            final Group group = (Group) this.object;
+
+            new GroupCreator(this.pojo).createGroup(group.getName(), group.getDescription(), group.getFixSize());
+            this.generateGroupMessage(group, "added");
+
+        } else if (this.action.equals("editGroup")) {
+            final Group oldGroup = ((ArrayList<Group>) this.object).get(0);
+            final Group newGroup = ((ArrayList<Group>) this.object).get(1);
+
+            new GroupCreator(this.pojo).editGroup(oldGroup, newGroup);
+            this.generateGroupMessage(oldGroup, "edited");
+
+        } else if (this.action.equals("removeGroup")) {
+            final Group group = this.pojo.getGroupList().get((int) (this.object));
+
+            new GroupCreator(this.pojo).removeGroup(group);
+            this.generateGroupMessage(group, "removed");
+
+        } else if (this.action.equals("automatically create groups")) {
+            new GroupCreator(this.pojo).createGroupsAutmatically((int) this.object);
+            new GroupBuilder().buildGroups(this.pojo);
+            this.message = "All groups were automatically created.";
+        }
+        GroupTableModel.refreshTable();
+    }
+
+    private void generateMemberMessage(final Member member, final String operation) {
+
+        final String firstName = member.getFirstName();
+        final String lastName = member.getLastName();
+        this.message = "Member " + firstName + " " + lastName + " was succesfully " + operation + ".";
+    }
+
+    private void generateGroupMessage(final Group group, final String operation) {
+
+        final String groupName = group.getName();
+        this.message = "Group " + groupName + " was succesfully " + operation + ".";
+    }
+
+    private void showSuccessMessage(final String text) {
+        OperationSuccessfullFrame.getInstance(text);
     }
 }

@@ -22,7 +22,7 @@ public final class OperationSuccessfullFrame extends JFrame implements DefaultFr
     private static final long serialVersionUID = 416901635761617562L;
 
     private OperationSuccessfullFrame(final String text) {
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Help");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - SucessFull");
         this.addWindowListener(new MyWindowAdapter(this));
         BUILDER.createLabel(this, text, 0, 1);
         final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Okay", 1, 3);

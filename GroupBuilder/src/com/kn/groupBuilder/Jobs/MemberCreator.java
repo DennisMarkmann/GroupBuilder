@@ -31,7 +31,16 @@ public class MemberCreator {
 
     public final void createMember(final String firstName, final String lastName, final String eMailAdress, final Group group) {
         this.addMemberToList(new Member(this.correctFormat(firstName), this.correctFormat(lastName), eMailAdress, group));
+    }
 
+    public final void correctMemberFormat(final Member member) {
+
+        final String firstName = member.getFirstName();
+        final String lastName = member.getLastName();
+        final String eMailAdress = member.getEMailAdress();
+        final Group group = member.getGroup();
+
+        this.addMemberToList(new Member(this.correctFormat(firstName), this.correctFormat(lastName), eMailAdress, group));
     }
 
     private void addMemberToList(final Member member) {
