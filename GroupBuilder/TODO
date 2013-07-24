@@ -1,42 +1,54 @@
-1. Additional Content:
+1. Version 1.0:
 					
 	1.0.Gui Aussehen optimieren (Settings)
-		Keine TextFields + Buttons sondern Combi Objekte ?
+			Keine TextFields + Buttons sondern Combi Objekte?
 	
 
 2. CleanUp:
 
-	2.0.Methoden aus frames auslagern (getInstance & closeWindow)
+	2.0.Methoden aus Frames auslagern (getInstance & closeWindow)
+		2.0.1.Statt des DefaultFrame Interfaces eine SuperClass schreiben und die Methoden erben?
 
 	2.1.Einzelne GUI Komponenten nicht mitgeben, sondern aus dem gesamten Frame ziehen?(Alle Listener)
 	
 	2.2.JUnit Tests statt sysos
+		2.2.1.Erstellung der Testdaten davon trennen
+		2.2.2.Tests implementieren
+		2.2.3.Syso Klassen entfernen
 	
 	2.3.Remove mail.jar
+		(Wird bei der Weitergabe an den Library EmailJob momentan noch gebraucht)
 	
-	2.4.Edit / Create Member und Group Frames zusammen fassen (praktisch identisch)
+	2.4.Edit- / CreateMemberFrame & Edit- / CreateGroupFrame zusammenfassen
 	
-	2.5.Print und EmailFrame sowie listener zusammenfassen
+	2.5.Print- / EmailFrame & Print- / EmailFrameListener zusammenfassen
 		
 
 
 3. Version 2.0:
 
-	3.0.Abfrage zum Speichern beim Beenden mit ungesicherten Änderungen
+	3.0. Änderungen loggen:
+		3.0.1.'Changed' Attribut für Gruppen implementieren
+		3.0.1.Abfrage zum Speichern beim Beenden mit ungesicherten Änderungen
+		3.0.2.Nur bei Gruppen mit Änderungen Drucken / E-Mail versenden. (Beim automatischen Prozess während des Speicherns)
+		3.0.3.Nur bei Gruppen mit Änderungen Files schreiben
 
-	3.1.Nur bei Gruppen mit Änderungen Drucken / E-Mail versenden.
+	3.1.Mehrsprachen Unterstützung
+		3.1.1.Deutsch als nächste Sprache
 	
-	3.2.Nur bei Gruppen mit Änderungen Files schreiben?
-
-	3.3.Mehrsprachen Unterstützung
+	3.2.Implementieren der Hilfe (HelpFrame)
 	
-	3.4.Fill HelpFrame
+	3.3.Copy & paste für Tabellen Einträge
 	
-	3.5.Sort Tables.. alphabetisch nach den verschiedenen Kriterien (per Click)
+	3.4.Tastatursteuerung ermöglichen
+		3.4.1.Tabreihenfolge ändern
+		3.4.2.DefaultButtons und Selects festlegen
+		3.4.3.KeyListener für Elemente (Enter & Escape)
 	
-	3.6.Copy & paste für Table Einträge
+	3.5.Bei Print und E-Mail Operationen auch Einzelpersonen ermöglichen
+		3.5.1.Operationen für Personen statt nur für Gruppen implementieren 
+		3.5.2.Umschalten von Gruppen auf Personen (Wie genau?)
 	
-	3.7.Tastatursteuerung
+	3.6.Sortier Funktion für Tabellen (Nach den jeweiligen Spalten der Tabelle)
 	
-	3.8.Bei Print und Email auch Einzelpersonen ermöglichen
 	
