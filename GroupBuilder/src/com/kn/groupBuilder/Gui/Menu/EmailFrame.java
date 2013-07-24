@@ -48,9 +48,14 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
             x++;
         }
 
-        final JButton selectAllButton = BUILDER.createButton(this, "selectAllButton", "Select All", 0, y + 1);
-        final JButton sendButton = BUILDER.createButton(this, "sendButton", "Send", 0, y + 2);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, y + 2);
+        // line filler
+        y++;
+        BUILDER.createLabel(this, "", 0, y);
+        y++;
+
+        final JButton selectAllButton = BUILDER.createButton(this, "selectAllButton", "Select All", 0, y);
+        final JButton sendButton = BUILDER.createButton(this, "sendButton", "Send", 1, y);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 2, y);
 
         final EmailFrameListener listener = new EmailFrameListener(this, pojo, checkBoxList);
 
