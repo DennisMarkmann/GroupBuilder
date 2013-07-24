@@ -78,10 +78,9 @@ public class ConfirmationFrameListener implements ActionListener {
                 this.confirmationFrame.closeWindow();
                 return;
             }
+            this.showSuccessMessage(this.message);
         }
-        this.showSuccessMessage(this.message);
         this.confirmationFrame.closeWindow();
-
     }
 
     private void useOutputOperation() {
