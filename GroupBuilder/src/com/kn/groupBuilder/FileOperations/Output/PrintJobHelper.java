@@ -1,5 +1,7 @@
 package com.kn.groupBuilder.FileOperations.Output;
 
+import java.util.ArrayList;
+
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
 
@@ -19,27 +21,22 @@ import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
 
 public class PrintJobHelper {
 
-    private final Pojo pojo;
+    public final void printOutForGroups(final Pojo pojo, final ArrayList<Group> groupList) {
+        this.selectPrinter(pojo);
 
-    public PrintJobHelper(final Pojo pojo) {
-        this.pojo = pojo;
-        this.selectPrinter();
-    }
-
-    public final void printAllGroups() {
-        for (final Group group : this.pojo.getGroupList()) {
-            this.printGroup(group.getName());
+        for (final Group group : groupList) {
+            this.printGroup(pojo, group.getName());
         }
     }
 
-    public final void printGroup(final String groupName) {
-        final String printText = new TextCreator().createText(this.pojo.getGroupByName(groupName));
+    private final void printGroup(final Pojo pojo, final String groupName) {
+        final String printText = new TextCreator().createText(pojo.getGroupByName(groupName));
         new PrintJob(printText).printText();
     }
 
-    private void selectPrinter() {
+    private void selectPrinter(final Pojo pojo) {
         for (final PrintService printer : PrintServiceLookup.lookupPrintServices(null, null)) {
-            if (printer.getName().equals(this.pojo.getSettings().getPrinter())) {
+            if (printer.getName().equals(pojo.getSettings().getPrinter())) {
                 PrinterSelector.getInstance().setPrinter(printer);
             }
         }

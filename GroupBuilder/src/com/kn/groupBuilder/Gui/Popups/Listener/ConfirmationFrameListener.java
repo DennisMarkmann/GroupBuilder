@@ -70,13 +70,9 @@ public class ConfirmationFrameListener implements ActionListener {
                 MemberTableModel.refreshTable();
                 OperationSuccessfullFrame.getInstance("Member " + member.getFirstName() + " " + member.getLastName()
                         + " was succesfully added.");
-            } else if (this.action.equals("printOutAll")) {
-                new PrintJobHelper(this.pojo).printAllGroups();
+            } else if (this.action.equals("print")) {
+                new PrintJobHelper().printOutForGroups(this.pojo, (ArrayList<Group>) this.object);
                 OperationSuccessfullFrame.getInstance("All groups were successfully printed.");
-            } else if (this.action.equals("printOut")) {
-                final String groupName = (String) this.object;
-                new PrintJobHelper(this.pojo).printGroup(groupName);
-                OperationSuccessfullFrame.getInstance("Group " + groupName + " was successfully printed.");
             } else if (this.action.equals("sendMail")) {
                 new EmailJobHelper().sendMailToGroups(this.pojo, (ArrayList<Group>) this.object);
                 OperationSuccessfullFrame.getInstance("Emails were succesfully send.");

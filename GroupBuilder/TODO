@@ -1,8 +1,6 @@
 1. Additional Content:
-			
-	1.0.Printframe umgestalten
-		
-	1.1.Gui Aussehen optimieren (Settings)
+					
+	1.0.Gui Aussehen optimieren (Settings)
 		Keine TextFields + Buttons sondern Combi Objekte ?
 	
 
@@ -18,7 +16,10 @@
 	
 	2.4.Edit / Create Member und Group Frames zusammen fassen (praktisch identisch)
 	
-	2.5.ConfirmationFrameListener rework.. methoden auslagern, entschlanken, ...
+	2.5.Print und EmailFrame sowie listener zusammenfassen
+	
+	2.6.ConfirmationFrameListener rework.. methoden auslagern, entschlanken, ...
+	
 
 
 3. Version 2.0:

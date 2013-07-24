@@ -1,11 +1,14 @@
 package com.kn.groupBuilder.Gui.Menu;
 
+import java.util.ArrayList;
+
 import javax.swing.JButton;
-import javax.swing.JComboBox;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.Menu.Listener.PrintFrameListener;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
+import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
@@ -23,22 +26,36 @@ public final class PrintFrame extends JFrame implements DefaultFrame {
 
     private static PrintFrame instance = null;
     private static final long serialVersionUID = 4767991083504569016L;
+    private boolean selected = true;
 
     private PrintFrame(final Pojo pojo) {
 
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Print");
         this.addWindowListener(new MyWindowAdapter(this));
 
-        final JComboBox<String> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 0, 0);
-        final JButton printButton = BUILDER.createButton(this, "printOutButton", "Print", 1, 0);
+        int x = 0;
+        int y = 0;
+        final ArrayList<JCheckBox> checkBoxList = new ArrayList<JCheckBox>();
+        for (final Group group : pojo.getGroupList()) {
+            if (x == 3) {
+                y++;
+                x = 0;
+            }
+            final String groupName = group.getName();
+            final JCheckBox checkBox = BUILDER.createCheckBox(this, groupName, groupName, x, y);
+            checkBox.setSelected(true);
+            checkBoxList.add(checkBox);
+            x++;
+        }
 
-        final JButton printAllButton = BUILDER.createButton(this, "printOutAllButton", "PrintAll", 0, 1);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 1);
+        final JButton selectAllButton = BUILDER.createButton(this, "selectAllButton", "Select All", 0, y + 1);
+        final JButton printButton = BUILDER.createButton(this, "printButton", "Print", 0, y + 2);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, y + 2);
 
-        final PrintFrameListener listener = new PrintFrameListener(this, pojo, groupBox);
+        final PrintFrameListener listener = new PrintFrameListener(this, pojo, checkBoxList);
 
+        selectAllButton.addActionListener(listener);
         printButton.addActionListener(listener);
-        printAllButton.addActionListener(listener);
         closeButton.addActionListener(listener);
     }
 
@@ -60,5 +77,13 @@ public final class PrintFrame extends JFrame implements DefaultFrame {
     public void closeWindow() {
         this.dispose();
         instance = null;
+    }
+
+    public boolean isSelected() {
+        return this.selected;
+    }
+
+    public void setSelected(final boolean selected) {
+        this.selected = selected;
     }
 }
