@@ -30,27 +30,42 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
     private SettingsFrame(final Pojo pojo) {
 
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Settings");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("Settings"));
         this.addWindowListener(new MyWindowAdapter(this));
         this.setSize(555, 370);
 
         // path
-        final JPanel pathPanel = BUILDER.createCombiPanel(this, "pathButton", "Change Path", "pathField", 37, 0, 0);
+        final JPanel pathPanel = BUILDER.createCombiPanel(
+                this,
+                "pathButton",
+                pojo.getMessages("ChangePath"),
+                "pathField",
+                37,
+                0,
+                0);
+
         final JTextField pathField = (JTextField) pathPanel.getComponent(0);
         final JButton pathButton = (JButton) pathPanel.getComponent(1);
 
         // language
-        BUILDER.createLabel(this, "Language:", 0, 1);
+        BUILDER.createLabel(this, pojo.getMessages("Language"), 0, 1);
         final JComboBox<String> languageBox = BUILDER.createComboBox(this, "languageBox", pojo.getLanguageList(), 1, 1);
 
         // archiving
-        BUILDER.createLabel(this, "Archiving:", 0, 2);
+        BUILDER.createLabel(this, pojo.getMessages("Archiving"), 0, 2);
         final JCheckBox archivingBox = BUILDER.createCheckBox(this, "archivingBox", "", 1, 2);
-        BUILDER.createLabel(this, "Duration [in days]:", 0, 3);
+        BUILDER.createLabel(this, pojo.getMessages("Duration"), 0, 3);
         final JTextField archiveField = BUILDER.createTextField(this, "archiveField", TEXT_FIELD_SIZE, 1, 3);
 
         // printer
-        final JPanel printerPanel = BUILDER.createCombiPanel(this, "printerButton", "Change Printer", "printerField", 36, 0, 4);
+        final JPanel printerPanel = BUILDER.createCombiPanel(
+                this,
+                "printerButton",
+                pojo.getMessages("ChangePrinter"),
+                "printerField",
+                36,
+                0,
+                4);
         final JTextField printerField = (JTextField) printerPanel.getComponent(0);
         final JButton printerButton = (JButton) printerPanel.getComponent(1);
 
@@ -60,22 +75,22 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         final JCheckBox printOutAutomatically = BUILDER.createCheckBox(
                 this,
                 "printOutAutomatically",
-                "Print automatically: ",
+                pojo.getMessages("PrintAutomatically"),
                 1,
                 6);
 
         final JCheckBox sendMailsAutomatically = BUILDER.createCheckBox(
                 this,
                 "sendMailsAutomatically",
-                "Send e-Mails automatically: ",
+                pojo.getMessages("SendEmailsAutomatically"),
                 0,
                 6);
 
         BUILDER.createLabel(this, "", 0, 7);
         BUILDER.createLabel(this, "", 0, 8);
         // close
-        final JButton saveButton = BUILDER.createButton(this, "saveButton", "Save", 0, 9);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 9);
+        final JButton saveButton = BUILDER.createButton(this, "saveButton", pojo.getMessages("Save"), 0, 9);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", pojo.getMessages("Close"), 1, 9);
 
         final SettingsFrameListener listener = new SettingsFrameListener(
                 this,

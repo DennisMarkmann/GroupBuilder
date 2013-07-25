@@ -28,8 +28,14 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
     private static final long serialVersionUID = -7650216557475857971L;
 
     private AboutFrame(final Pojo pojo) {
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - About");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("About"));
         this.setSize(600, 230);
+
+        // The frame is too small for the long German text.
+        if (pojo.getSettings().getLanguage().equals("German")) {
+            this.setSize(800, 230);
+        }
+
         this.addWindowListener(new MyWindowAdapter(this));
         final JLabel headLineLabel = BUILDER.createLabel(this, "GroupBuilder", 1, 0);
         headLineLabel.setFont(new Font("Arial", Font.BOLD, 22));

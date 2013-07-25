@@ -24,11 +24,11 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
     private static final long serialVersionUID = 416901635761617562L;
 
     private HelpFrame(final Pojo pojo) {
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Help");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("Help"));
         this.addWindowListener(new MyWindowAdapter(this));
-        BUILDER.createLabel(this, "The documentation is still in progress.", 0, 1);
-        BUILDER.createLabel(this, "It will be added in a later release.", 0, 2);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 3);
+        BUILDER.createLabel(this, pojo.getMessages("HelpFrameLineOne"), 0, 1);
+        BUILDER.createLabel(this, pojo.getMessages("HelpFrameLineTwo"), 0, 2);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", pojo.getMessages("Close"), 1, 3);
 
         final HelpFrameListener listener = new HelpFrameListener(this);
 
