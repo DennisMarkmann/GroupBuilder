@@ -29,7 +29,7 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
 
     private AboutFrame(final Pojo pojo) {
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - About");
-        this.setSize(600, 230);
+        this.setSize(566, 230);
         this.addWindowListener(new MyWindowAdapter(this));
         final JLabel headLineLabel = BUILDER.createLabel(this, "GroupBuilder", 1, 0);
         headLineLabel.setFont(new Font("Arial", Font.BOLD, 22));
