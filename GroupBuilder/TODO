@@ -17,10 +17,12 @@
 	
 	2.3.Remove mail.jar
 		(Wird bei der Weitergabe an den Library EmailJob momentan noch gebraucht)
+		
+	2.4.Bei Settings nur Einstellungen anpassen, die auch tatsächlich geändert wurden
+		
+	2.5.Edit- / CreateMemberFrame & Edit- / CreateGroupFrame zusammenfassen
 	
-	2.4.Edit- / CreateMemberFrame & Edit- / CreateGroupFrame zusammenfassen
-	
-	2.5.Print- / EmailFrame & Print- / EmailFrameListener zusammenfassen
+	2.6.Print- / EmailFrame & Print- / EmailFrameListener zusammenfassen
 		
 
 
@@ -32,22 +34,24 @@
 		3.0.2.Nur bei Gruppen mit Änderungen Drucken / E-Mail versenden. (Beim automatischen Prozess während des Speicherns)
 		3.0.3.Nur bei Gruppen mit Änderungen Files schreiben
 
-	3.1.Mehrsprachen Unterstützung
-		3.1.1.Deutsch als nächste Sprache
+	3.1.Implementieren der Hilfe (HelpFrame)
 	
-	3.2.Implementieren der Hilfe (HelpFrame)
+	3.2.Copy & paste für Tabellen Einträge
 	
-	3.3.Copy & paste für Tabellen Einträge
+	3.3.Tastatursteuerung ermöglichen
+		3.3.1.Tabreihenfolge ändern
+		3.3.2.DefaultButtons und Selects festlegen
+		3.3.3.KeyListener für Elemente (Enter & Escape)
 	
-	3.4.Tastatursteuerung ermöglichen
-		3.4.1.Tabreihenfolge ändern
-		3.4.2.DefaultButtons und Selects festlegen
-		3.4.3.KeyListener für Elemente (Enter & Escape)
+	3.4.Bei Print und E-Mail Operationen auch Einzelpersonen ermöglichen
+		3.4.1.Operationen für Personen statt nur für Gruppen implementieren 
+		3.4.2.Umschalten von Gruppen auf Personen (Wie genau?)
 	
-	3.5.Bei Print und E-Mail Operationen auch Einzelpersonen ermöglichen
-		3.5.1.Operationen für Personen statt nur für Gruppen implementieren 
-		3.5.2.Umschalten von Gruppen auf Personen (Wie genau?)
+	3.5.Sortier Funktion für Tabellen (Nach den jeweiligen Spalten der Tabelle)
 	
-	3.6.Sortier Funktion für Tabellen (Nach den jeweiligen Spalten der Tabelle)
+	3.6.Mehrsprachen Unterstützung
+		3.6.1.Deutsch als nächste Sprache
+		3.6.2.Sprache zur Laufzeit ändern (MainFrame nervt..)
+	
 	
 	

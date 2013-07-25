@@ -15,6 +15,7 @@ import com.kn.groupBuilder.Gui.Menu.SettingsFrame;
 import com.kn.groupBuilder.Gui.Popups.OperationSuccessfullFrame;
 import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
 import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
+import com.kn.groupBuilder.Main.LanguageChooser;
 import com.kn.groupBuilder.Storage.Pojo;
 import com.kn.groupBuilder.Storage.Settings;
 
@@ -89,6 +90,7 @@ public class SettingsFrameListener implements ActionListener {
             settings.setSendMailAutomatically(this.readCheckBox(this.sendMailsAutomatically));
             settings.setPrintAutomatically(this.readCheckBox(this.printOutAutomatically));
             settings.setLanguage(this.pojo.getLanguageList()[this.languageBox.getSelectedIndex()]);
+            new LanguageChooser().chooseLanguage(this.pojo);
             settings.setArchivingDays(Integer.parseInt(this.archiveField.getText()));
             settings.setPath(this.pathField.getText());
             settings.setPrinter(this.printerField.getText());

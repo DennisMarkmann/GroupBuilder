@@ -28,6 +28,7 @@ public class MainFrame extends JFrame implements DefaultFrame {
     private static final long serialVersionUID = -5660805007314188894L;
     private final JTabbedPane tabBar = new JTabbedPane();
     private final JMenu menu = new JMenu("Extras");
+    private static MainFrame instance = null;
 
     public final void createGui(final Pojo pojo) {
 
@@ -79,5 +80,14 @@ public class MainFrame extends JFrame implements DefaultFrame {
     @Override
     public final void closeWindow() {
         System.exit(1);
+    }
+
+    public static MainFrame getInstance() {
+        if (instance == null) {
+            instance = new MainFrame();
+        } else {
+            instance.toFront();
+        }
+        return instance;
     }
 }

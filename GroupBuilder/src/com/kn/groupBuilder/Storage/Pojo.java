@@ -1,6 +1,7 @@
 package com.kn.groupBuilder.Storage;
 
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 /**
  * Storage of the application. Contains various elements and is reached through the whole program. Most of the content can be
@@ -15,10 +16,11 @@ public class Pojo {
 
     private ArrayList<Member> memberList = new ArrayList<Member>();;
     private ArrayList<Group> groupList = new ArrayList<Group>();
-    private final String[] languageList = { "English" };
+    private final String[] languageList = { "English", "German" };
     // private final String[] languageList = { "English", "German" };
     private final String[] formatList = { "XML", "TXT" };
     private final Settings settings = new Settings();
+    private ResourceBundle messages;
 
     public final ArrayList<Member> getMemberList() {
         return this.memberList;
@@ -74,5 +76,13 @@ public class Pojo {
             groupListArray[i] = this.groupList.get(i - 1).getName();
         }
         return groupListArray;
+    }
+
+    public String getMessages(final String string) {
+        return this.messages.getString(string);
+    }
+
+    public void setMessages(final ResourceBundle messages) {
+        this.messages = messages;
     }
 }

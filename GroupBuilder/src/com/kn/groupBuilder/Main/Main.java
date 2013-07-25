@@ -29,6 +29,8 @@ public final class Main { // NO_UCD
 
         // new PojoContentTester().initializeDefaultTest(pojo);
         new FileReaderHelper().readXMLFiles(pojo);
+        new LanguageChooser().chooseLanguage(pojo);
+
         // new DefaultTestCreator().startTests(pojo);
 
         new MainFrame().createGui(pojo);

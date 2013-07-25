@@ -28,7 +28,7 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
         this.addWindowListener(new MyWindowAdapter(this));
         BUILDER.createLabel(this, "The documentation is still in progress.", 0, 1);
         BUILDER.createLabel(this, "It will be added in a later release.", 0, 2);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "close", 1, 3);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", "Close", 1, 3);
 
         final HelpFrameListener listener = new HelpFrameListener(this);
 
