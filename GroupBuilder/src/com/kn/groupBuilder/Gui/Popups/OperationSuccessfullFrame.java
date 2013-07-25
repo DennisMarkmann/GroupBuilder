@@ -44,7 +44,7 @@ public final class OperationSuccessfullFrame extends JFrame implements DefaultFr
 
     @Override
     public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(null, text, this);
+        this.closeWindow();
     }
 
     @Override

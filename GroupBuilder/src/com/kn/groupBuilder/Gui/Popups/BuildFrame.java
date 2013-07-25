@@ -27,23 +27,23 @@ public final class BuildFrame extends JFrame implements DefaultFrame {
 
     private BuildFrame(final Pojo pojo) {
 
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Build Groups");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("BuildGroups"));
         this.addWindowListener(new MyWindowAdapter(this));
 
         final JCheckBox buildCompleteCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
                 this,
                 "buildCompleteCheckBox",
-                "Build Everything",
+                pojo.getMessages("BuildEverything"),
                 0,
                 0);
         final JCheckBox buildUnassignedCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(
                 this,
                 "buildUnassignedCheckBox",
-                "Build Unassigned",
+                pojo.getMessages("BuildUnassigned"),
                 0,
                 2);
 
-        final JButton buildButton = BUILDER.createButton(this, "buildButton", "Build", 0, 4);
+        final JButton buildButton = BUILDER.createButton(this, "buildButton", pojo.getMessages("Build"), 0, 4);
         this.pack();
 
         final BuildFrameListener listener = new BuildFrameListener(this, pojo, buildCompleteCheckBox, buildUnassignedCheckBox);
