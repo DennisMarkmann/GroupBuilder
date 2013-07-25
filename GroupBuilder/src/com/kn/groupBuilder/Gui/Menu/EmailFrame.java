@@ -27,9 +27,11 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
     private static EmailFrame instance = null;
     private static final long serialVersionUID = 4767991083504569016L;
     private boolean selected = true;
+    private Pojo pojo = null;
 
     private EmailFrame(final Pojo pojo) {
 
+        this.pojo = pojo;
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - Email");
         this.addWindowListener(new MyWindowAdapter(this));
 
@@ -75,7 +77,7 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
 
     @Override
     public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(null, text, this);
+        ConfirmationFrame.getInstance(this.pojo, text, this);
     }
 
     @Override

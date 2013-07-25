@@ -27,9 +27,11 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
     private static SettingsFrame instance = null;
     private static final long serialVersionUID = 3141095634381522203L;
+    private Pojo pojo = null;
 
     private SettingsFrame(final Pojo pojo) {
 
+        this.pojo = pojo;
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("Settings"));
         this.addWindowListener(new MyWindowAdapter(this));
         this.setSize(555, 370);
@@ -169,7 +171,7 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
     @Override
     public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(null, text, this);
+        ConfirmationFrame.getInstance(this.pojo, text, this);
     }
 
     @Override

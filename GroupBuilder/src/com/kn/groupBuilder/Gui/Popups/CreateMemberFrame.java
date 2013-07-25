@@ -23,9 +23,11 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
 
     private static CreateMemberFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;
+    private Pojo pojo = null;
 
     private CreateMemberFrame(final Pojo pojo) {
 
+        this.pojo = pojo;
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - CreateMember");
         this.addWindowListener(new MyWindowAdapter(this));
 
@@ -66,7 +68,7 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
 
     @Override
     public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(null, text, this);
+        ConfirmationFrame.getInstance(this.pojo, text, this);
     }
 
     @Override

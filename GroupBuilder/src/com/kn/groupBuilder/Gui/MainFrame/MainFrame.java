@@ -29,9 +29,11 @@ public class MainFrame extends JFrame implements DefaultFrame {
     private final JTabbedPane tabBar = new JTabbedPane();
     private final JMenu menu = new JMenu("Extras");
     private static MainFrame instance = null;
+    private Pojo pojo = null;
 
     public final void createGui(final Pojo pojo) {
 
+        this.pojo = pojo;
         // basic attributes
         this.setTitle("GroupBuilder - Dennis Markmann");
         this.setSize(800, 680);
@@ -74,7 +76,7 @@ public class MainFrame extends JFrame implements DefaultFrame {
 
     @Override
     public final void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(null, text, this);
+        ConfirmationFrame.getInstance(this.pojo, text, this);
     }
 
     @Override

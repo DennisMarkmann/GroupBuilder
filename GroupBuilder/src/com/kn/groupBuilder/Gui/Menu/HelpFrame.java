@@ -22,8 +22,11 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
 
     private static HelpFrame instance = null;
     private static final long serialVersionUID = 416901635761617562L;
+    private Pojo pojo = null;
 
     private HelpFrame(final Pojo pojo) {
+
+        this.pojo = pojo;
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("Help"));
         this.addWindowListener(new MyWindowAdapter(this));
         BUILDER.createLabel(this, pojo.getMessages("HelpFrameLineOne"), 0, 1);
@@ -47,7 +50,7 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
 
     @Override
     public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(null, text, this);
+        ConfirmationFrame.getInstance(this.pojo, text, this);
     }
 
     @Override

@@ -26,8 +26,11 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
 
     private static AboutFrame instance = null;
     private static final long serialVersionUID = -7650216557475857971L;
+    private Pojo pojo = null;
 
     private AboutFrame(final Pojo pojo) {
+
+        this.pojo = pojo;
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("About"));
         this.setSize(600, 230);
 
@@ -63,7 +66,7 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
 
     @Override
     public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(null, text, this);
+        ConfirmationFrame.getInstance(this.pojo, text, this);
     }
 
     @Override

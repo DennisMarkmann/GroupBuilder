@@ -22,9 +22,11 @@ public final class CreateGroupFrame extends JFrame implements DefaultFrame {
 
     private static CreateGroupFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;
+    private Pojo pojo = null;
 
     private CreateGroupFrame(final Pojo pojo) {
 
+        this.pojo = pojo;
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("CreateGroup"));
         this.addWindowListener(new MyWindowAdapter(this));
 
@@ -63,7 +65,7 @@ public final class CreateGroupFrame extends JFrame implements DefaultFrame {
 
     @Override
     public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(null, text, this);
+        ConfirmationFrame.getInstance(this.pojo, text, this);
     }
 
     @Override

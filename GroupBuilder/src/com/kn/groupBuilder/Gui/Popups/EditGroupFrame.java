@@ -23,9 +23,11 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
 
     private static EditGroupFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;
+    private Pojo pojo = null;
 
     private EditGroupFrame(final Pojo pojo, final int rowID) {
 
+        this.pojo = pojo;
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - EditGroup");
         this.addWindowListener(new MyWindowAdapter(this));
 
@@ -67,7 +69,7 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
 
     @Override
     public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(null, text, this);
+        ConfirmationFrame.getInstance(this.pojo, text, this);
     }
 
     @Override
