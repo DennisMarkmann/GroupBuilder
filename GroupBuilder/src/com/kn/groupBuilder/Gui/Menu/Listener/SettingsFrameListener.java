@@ -97,7 +97,7 @@ public class SettingsFrameListener implements ActionListener {
             this.refreshData(this.pojo);
             this.settingsFrame.closeWindow();
             new SettingsFileWriter().createXmlFile(this.pojo);
-            OperationSuccessfullFrame.getInstance("Settings were successfully changed.");
+            OperationSuccessfullFrame.getInstance("Settings were successfully changed.", this.pojo);
 
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
             this.settingsFrame.closeWindow();

@@ -50,11 +50,11 @@
 	3.5.Sortier Funktion für Tabellen (Nach den jeweiligen Spalten der Tabelle)
 	
 	3.6.Mehrsprachen Unterstützung
-		3.6.1.Deutsch als nächste Sprache
-		3.6.2.Sprache zur Laufzeit ändern (MainFrame nervt..)
-		3.6.3.Menü Auswahl nicht nach dem Text sondern dem Namen durchführen !
-		3.6.4.ConfirmationFrame auch die actions auf deutsch mitgeben
+		3.6.1.Sprache zur Laufzeit ändern (MainFrame nervt..)
+		3.6.2.Menü Auswahl nicht nach dem Text sondern dem Namen durchführen !
+		3.6.3.ConfirmationFrame auch die actions auf deutsch mitgeben
 			Vielleicht actions extra auflösen? (intern einfache, kurze Bezeichnungen & extern komplex und aussagekräftig)
+		3.6.4.Fehlernachrichten auch auf Deutsch anpassen (pojo mitgeben)
 	
 	
 	

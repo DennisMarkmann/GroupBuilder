@@ -87,15 +87,15 @@ public class ConfirmationFrameListener implements ActionListener {
 
         if (this.action.equals("print")) {
             new PrintJobHelper().printOutForGroups(this.pojo, (ArrayList<Group>) this.object);
-            this.message = "All groups were successfully printed.";
+            this.message = this.pojo.getMessages("PrintSuccess");
 
         } else if (this.action.equals("sendMail")) {
             new EmailJobHelper().sendMailToGroups(this.pojo, (ArrayList<Group>) this.object);
-            this.message = "All e-mails were successfully send.";
+            this.message = this.pojo.getMessages("MainSuccess");
 
         } else if (this.action.equals("save")) {
             new FileWriteHelper().createXMLFiles(this.pojo);
-            this.message = "All files were successfully saved.";
+            this.message = this.pojo.getMessages("SaveSuccess");
         }
     }
 
@@ -148,7 +148,7 @@ public class ConfirmationFrameListener implements ActionListener {
         } else if (this.action.equals("automatically create groups")) {
             new GroupCreator(this.pojo).createGroupsAutmatically((int) this.object);
             new GroupBuilder().buildGroups(this.pojo);
-            this.message = "All groups were automatically created.";
+            this.message = this.pojo.getMessages("GroupsCreatedSuccess");
         }
         GroupTableModel.refreshTable();
     }
@@ -157,16 +157,18 @@ public class ConfirmationFrameListener implements ActionListener {
 
         final String firstName = member.getFirstName();
         final String lastName = member.getLastName();
-        this.message = "Member " + firstName + " " + lastName + " was succesfully " + operation + ".";
+        this.message = this.pojo.getMessages("Member") + " " + firstName + " " + lastName + " "
+                + this.pojo.getMessages("WasSuccessfully") + " " + operation + ".";
     }
 
     private void generateGroupMessage(final Group group, final String operation) {
 
         final String groupName = group.getName();
-        this.message = "Group " + groupName + " was succesfully " + operation + ".";
+        this.message = this.pojo.getMessages("Group") + " " + groupName + " " + this.pojo.getMessages("WasSuccessfully") + " "
+                + operation + ".";
     }
 
     private void showSuccessMessage(final String text) {
-        OperationSuccessfullFrame.getInstance(text);
+        OperationSuccessfullFrame.getInstance(text, this.pojo);
     }
 }

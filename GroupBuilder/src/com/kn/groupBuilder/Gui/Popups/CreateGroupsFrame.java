@@ -27,12 +27,12 @@ public final class CreateGroupsFrame extends JFrame implements DefaultFrame {
     private CreateGroupsFrame(final Pojo pojo) {
 
         this.pojo = pojo;
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - CreateGroups");
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("CreateGroups"));
         this.addWindowListener(new MyWindowAdapter(this));
-        BUILDER.createLabel(this, "Assigned members per group: ", 0, 0);
+        BUILDER.createLabel(this, pojo.getMessages("CreateGroupsText"), 0, 0);
         final JTextField numberField = BUILDER.createTextField(this, "numberField", TEXT_FIELD_SIZE, 1, 0);
-        final JButton createButton = BUILDER.createButton(this, "createButton", "create", 0, 1);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", "close", 1, 1);
+        final JButton createButton = BUILDER.createButton(this, "createButton", pojo.getMessages("Create"), 0, 1);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", pojo.getMessages("Close"), 1, 1);
 
         final CreateGroupsFrameListener listener = new CreateGroupsFrameListener(this, pojo, numberField);
 

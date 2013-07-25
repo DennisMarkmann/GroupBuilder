@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import com.kn.groupBuilder.Gui.Popups.Listener.OperationSuccessfullFrameListener;
+import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
@@ -21,11 +22,11 @@ public final class OperationSuccessfullFrame extends JFrame implements DefaultFr
     private static OperationSuccessfullFrame instance = null;
     private static final long serialVersionUID = 416901635761617562L;
 
-    private OperationSuccessfullFrame(final String text) {
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - SucessFull");
+    private OperationSuccessfullFrame(final String text, final Pojo pojo) {
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("SucessFull"));
         this.addWindowListener(new MyWindowAdapter(this));
         BUILDER.createLabel(this, text, 0, 1);
-        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", "Okay", 1, 3);
+        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getMessages("Okay"), 1, 3);
 
         final OperationSuccessfullFrameListener listener = new OperationSuccessfullFrameListener(this);
 
@@ -33,9 +34,9 @@ public final class OperationSuccessfullFrame extends JFrame implements DefaultFr
 
     }
 
-    public static OperationSuccessfullFrame getInstance(final String text) {
+    public static OperationSuccessfullFrame getInstance(final String text, final Pojo pojo) {
         if (instance == null) {
-            instance = new OperationSuccessfullFrame(text);
+            instance = new OperationSuccessfullFrame(text, pojo);
         } else {
             instance.toFront();
         }

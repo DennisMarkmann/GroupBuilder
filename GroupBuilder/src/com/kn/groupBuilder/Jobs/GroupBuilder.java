@@ -19,9 +19,11 @@ import com.kn.groupBuilder.Storage.Pojo;
 public class GroupBuilder {
 
     private int memberIndex = 0;
+    private Pojo pojo;
 
     public final void buildGroups(final Pojo pojo) {
 
+        this.pojo = pojo;
         new GroupListSorter().sortArrayListForPriority(pojo);
         this.assignGroups(this.mixList(pojo.getMemberList()), pojo.getGroupList());
     }
@@ -37,9 +39,9 @@ public class GroupBuilder {
         }
         this.assignGroups(this.mixList(unassignedMemberList), pojo.getGroupList());
         if (unassignedMemberList.size() != 0) {
-            OperationSuccessfullFrame.getInstance("Unassigned groups were successfully build.");
+            OperationSuccessfullFrame.getInstance(pojo.getMessages("UnassignedSuccess"), pojo);
         } else {
-            OperationSuccessfullFrame.getInstance("No changes. All groups were allready assigned.");
+            OperationSuccessfullFrame.getInstance(pojo.getMessages("NoChangesAssigned"), pojo);
         }
     }
 
@@ -73,7 +75,7 @@ public class GroupBuilder {
 
         }
         this.assignGroups(memberList, groupList);
-        OperationSuccessfullFrame.getInstance("All groups were successfully build.");
+        OperationSuccessfullFrame.getInstance(this.pojo.getMessages("BuildSuccess"), this.pojo);
     }
 
     private void addMemberToGroup(final Group group, final ArrayList<Member> memberList, final int fixSize) {
