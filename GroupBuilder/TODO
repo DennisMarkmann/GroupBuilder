@@ -43,18 +43,14 @@
 		3.3.2.DefaultButtons und Selects festlegen
 		3.3.3.KeyListener für Elemente (Enter & Escape)
 	
-	3.4.Bei Print und E-Mail Operationen auch Einzelpersonen ermöglichen
-		3.4.1.Operationen für Personen statt nur für Gruppen implementieren 
-		3.4.2.Umschalten von Gruppen auf Personen (Wie genau?)
+	3.4.Sortier Funktion für Tabellen (Nach den jeweiligen Spalten der Tabelle)
 	
-	3.5.Sortier Funktion für Tabellen (Nach den jeweiligen Spalten der Tabelle)
-	
-	3.6.Mehrsprachen Unterstützung
+	3.5.Mehrsprachen Unterstützung
 		3.6.1.Sprache zur Laufzeit ändern (MainFrame nervt..)
-		3.6.2.Menü Auswahl nicht nach dem Text sondern dem Namen durchführen !
 		3.6.3.ConfirmationFrame auch die actions auf deutsch mitgeben
 			Vielleicht actions extra auflösen? (intern einfache, kurze Bezeichnungen & extern komplex und aussagekräftig)
 		3.6.4.Fehlernachrichten auch auf Deutsch anpassen (pojo mitgeben)
 	
+	3.6.Pojo �berall verf�gbar machen und nicht mitgeben
 	
 	

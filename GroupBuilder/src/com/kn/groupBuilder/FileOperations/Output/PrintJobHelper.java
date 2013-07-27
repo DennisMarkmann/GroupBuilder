@@ -21,24 +21,27 @@ import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
 
 public class PrintJobHelper {
 
-    public final void printOutForGroups(final Pojo pojo, final ArrayList<Group> groupList) {
-        this.selectPrinter(pojo);
+	public final void printOutForGroups(final Pojo pojo,
+			final ArrayList<Group> groupList) {
+		this.selectPrinter(pojo);
 
-        for (final Group group : groupList) {
-            this.printGroup(pojo, group.getName());
-        }
-    }
+		for (final Group group : groupList) {
+			this.printGroup(pojo, group.getName());
+		}
+	}
 
-    private void printGroup(final Pojo pojo, final String groupName) {
-        final String printText = new TextCreator().createText(pojo.getGroupByName(groupName));
-        new PrintJob(printText).printText();
-    }
+	private void printGroup(final Pojo pojo, final String groupName) {
+		final String printText = new TextCreator().createGroupText(pojo
+				.getGroupByName(groupName));
+		new PrintJob(printText).printText();
+	}
 
-    private void selectPrinter(final Pojo pojo) {
-        for (final PrintService printer : PrintServiceLookup.lookupPrintServices(null, null)) {
-            if (printer.getName().equals(pojo.getSettings().getPrinter())) {
-                PrinterSelector.getInstance().setPrinter(printer);
-            }
-        }
-    }
+	private void selectPrinter(final Pojo pojo) {
+		for (final PrintService printer : PrintServiceLookup
+				.lookupPrintServices(null, null)) {
+			if (printer.getName().equals(pojo.getSettings().getPrinter())) {
+				PrinterSelector.getInstance().setPrinter(printer);
+			}
+		}
+	}
 }
