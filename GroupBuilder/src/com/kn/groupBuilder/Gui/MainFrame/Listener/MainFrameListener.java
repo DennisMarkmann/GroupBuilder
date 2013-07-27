@@ -24,30 +24,30 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class MainFrameListener extends MouseAdapter {
 
-    private final Pojo pojo;
+	private final Pojo pojo;
 
-    public MainFrameListener(final JMenu menu, final Pojo pojo) {
-        this.pojo = pojo;
-        for (final Component component : menu.getMenuComponents()) {
-            component.addMouseListener(this);
-        }
-    }
+	public MainFrameListener(final JMenu menu, final Pojo pojo) {
+		this.pojo = pojo;
+		for (final Component component : menu.getMenuComponents()) {
+			component.addMouseListener(this);
+		}
+	}
 
-    @Override
-    public final void mouseReleased(final MouseEvent event) {
-        final JMenuItem menuItem = (JMenuItem) event.getSource();
+	@Override
+	public final void mouseReleased(final MouseEvent event) {
+		final JMenuItem menuItem = (JMenuItem) event.getSource();
 
-        if (menuItem.getText().equals("Settings")) {
-            SettingsFrame.getInstance(this.pojo);
-        } else if (menuItem.getText().equals("E-Mail")) {
-            EmailFrame.getInstance(this.pojo);
-        } else if (menuItem.getText().equals("Print")) {
-            PrintFrame.getInstance(this.pojo);
-        } else if (menuItem.getText().equals("Help")) {
-            HelpFrame.getInstance(this.pojo);
-        } else if (menuItem.getText().equals("About")) {
-            AboutFrame.getInstance(this.pojo);
-        }
-    }
+		if (menuItem.getName().equals("Settings")) {
+			SettingsFrame.getInstance(this.pojo);
+		} else if (menuItem.getName().equals("E-Mail")) {
+			EmailFrame.getInstance(this.pojo);
+		} else if (menuItem.getName().equals("Print")) {
+			PrintFrame.getInstance(this.pojo);
+		} else if (menuItem.getName().equals("Help")) {
+			HelpFrame.getInstance(this.pojo);
+		} else if (menuItem.getName().equals("About")) {
+			AboutFrame.getInstance(this.pojo);
+		}
+	}
 
 }

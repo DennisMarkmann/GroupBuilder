@@ -65,7 +65,7 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
                 "printerButton",
                 pojo.getMessages("ChangePrinter"),
                 "printerField",
-                36,
+                35,
                 0,
                 4);
         final JTextField printerField = (JTextField) printerPanel.getComponent(0);
