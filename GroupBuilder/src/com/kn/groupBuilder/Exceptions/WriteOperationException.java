@@ -2,6 +2,8 @@ package com.kn.groupBuilder.Exceptions;
 
 import javax.swing.JOptionPane;
 
+import com.kn.groupBuilder.Storage.Pojo;
+
 /**
  * Exception thrown if a file can't be written sucessfully.
  * 
@@ -15,7 +17,7 @@ public class WriteOperationException extends Exception implements ExceptionDialo
     private static final long serialVersionUID = 6498733673905740756L;
 
     public WriteOperationException(final String path, final StackTraceElement[] stackTraceElements) {
-        super("An error occured writing the file: \"" + path + "\"");
+        super(Pojo.getPojo().getMessages("WriteOperationText") + path);
     }
 
     @Override

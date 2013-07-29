@@ -1,6 +1,12 @@
 1. Version 1.0:
 					
-
+	1.0.Mehrsprachen Unterstützung
+		1.0.1.Sprache zur Laufzeit ändern (MainFrame nervt..)
+		1.0.2.ConfirmationFrame auch die actions auf deutsch mitgeben
+			Vielleicht actions extra auflösen? (intern einfache, kurze Bezeichnungen & extern komplex und aussagekräftig)
+		
+	Bugs:
+		Erfolgreich Message nach Fehlerhafter Membererstellung etc. ersetzen (Nach DuplicateEntryException zB)
 	
 
 2. CleanUp:
@@ -44,13 +50,3 @@
 		3.3.3.KeyListener für Elemente (Enter & Escape)
 	
 	3.4.Sortier Funktion für Tabellen (Nach den jeweiligen Spalten der Tabelle)
-	
-	3.5.Mehrsprachen Unterstützung
-		3.6.1.Sprache zur Laufzeit ändern (MainFrame nervt..)
-		3.6.3.ConfirmationFrame auch die actions auf deutsch mitgeben
-			Vielleicht actions extra auflösen? (intern einfache, kurze Bezeichnungen & extern komplex und aussagekräftig)
-		3.6.4.Fehlernachrichten auch auf Deutsch anpassen (pojo mitgeben)
-	
-	3.6.Pojo �berall verf�gbar machen und nicht mitgeben
-	
-	

@@ -2,6 +2,8 @@ package com.kn.groupBuilder.Exceptions;
 
 import javax.swing.JOptionPane;
 
+import com.kn.groupBuilder.Storage.Pojo;
+
 /**
  * Exception without any specified solution.
  * 
@@ -15,7 +17,7 @@ public class UnknownErrorException extends Exception implements ExceptionDialogI
     private static final long serialVersionUID = -4565962119370664301L;
 
     public UnknownErrorException(final String operation, final StackTraceElement[] stackTraceElements) {
-        super("An unknown error happened processing the \"" + operation + "\" operation.");
+        super(Pojo.getPojo().getMessages("UnknownErrorLineOne") + operation + Pojo.getPojo().getMessages("UnknownErrorLineTwo"));
     }
 
     @Override

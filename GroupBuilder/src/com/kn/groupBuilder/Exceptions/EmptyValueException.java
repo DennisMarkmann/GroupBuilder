@@ -2,6 +2,8 @@ package com.kn.groupBuilder.Exceptions;
 
 import javax.swing.JOptionPane;
 
+import com.kn.groupBuilder.Storage.Pojo;
+
 /**
  * Exception thrown in case a value is empty but needed.
  * 
@@ -15,7 +17,7 @@ public class EmptyValueException extends Exception implements ExceptionDialogInt
     private static final long serialVersionUID = -4565962119370664301L;
 
     public EmptyValueException(final String field) {
-        super("The value of \"" + field + "\" is not allow to be empty.");
+        super(Pojo.getPojo().getMessages("EmptyValueLineOne") + field + Pojo.getPojo().getMessages("EmptyValueLineTwo"));
     }
 
     @Override

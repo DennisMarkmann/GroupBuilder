@@ -21,6 +21,11 @@ public class Pojo {
     private final String[] formatList = { "XML", "TXT" };
     private final Settings settings = new Settings();
     private ResourceBundle messages;
+    private static Pojo instance;
+
+    public Pojo() {
+        instance = this;
+    }
 
     public final ArrayList<Member> getMemberList() {
         return this.memberList;
@@ -84,5 +89,9 @@ public class Pojo {
 
     public void setMessages(final ResourceBundle messages) {
         this.messages = messages;
+    }
+
+    public static Pojo getPojo() {
+        return instance;
     }
 }

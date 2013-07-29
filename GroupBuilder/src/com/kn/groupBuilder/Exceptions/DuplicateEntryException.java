@@ -2,6 +2,8 @@ package com.kn.groupBuilder.Exceptions;
 
 import javax.swing.JOptionPane;
 
+import com.kn.groupBuilder.Storage.Pojo;
+
 /**
  * Exception thrown if a the sendEmail operation fails.
  * 
@@ -15,7 +17,7 @@ public class DuplicateEntryException extends Exception implements ExceptionDialo
     private static final long serialVersionUID = -4565962119370664301L;
 
     public DuplicateEntryException(final String name) {
-        super("The entry with the name \"" + name + "\" allready exists.");
+        super(Pojo.getPojo().getMessages("DuplicateEntryLineOne") + name + Pojo.getPojo().getMessages("DuplicateEntryLineTwo"));
     }
 
     @Override
