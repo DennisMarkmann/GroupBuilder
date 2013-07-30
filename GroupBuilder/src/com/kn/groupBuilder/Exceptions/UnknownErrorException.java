@@ -23,5 +23,6 @@ public class UnknownErrorException extends Exception implements ExceptionDialogI
     @Override
     public final void showDialog() {
         JOptionPane.showMessageDialog(null, this.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        Pojo.getPojo().setError(true);
     }
 }

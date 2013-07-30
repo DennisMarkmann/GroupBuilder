@@ -78,7 +78,11 @@ public class ConfirmationFrameListener implements ActionListener {
                 this.confirmationFrame.closeWindow();
                 return;
             }
-            this.showSuccessMessage(this.message);
+            if (!this.pojo.hasError()) {
+                this.showSuccessMessage(this.message);
+            } else {
+                this.pojo.setError(false);
+            }
         }
         this.confirmationFrame.closeWindow();
     }

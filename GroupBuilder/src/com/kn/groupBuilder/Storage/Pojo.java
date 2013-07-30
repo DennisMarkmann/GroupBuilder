@@ -21,6 +21,7 @@ public class Pojo {
     private final String[] formatList = { "XML", "TXT" };
     private final Settings settings = new Settings();
     private ResourceBundle messages;
+    private boolean error;
     private static Pojo instance;
 
     public Pojo() {
@@ -93,5 +94,13 @@ public class Pojo {
 
     public static Pojo getPojo() {
         return instance;
+    }
+
+    public boolean hasError() {
+        return this.error;
+    }
+
+    public void setError(final boolean error) {
+        this.error = error;
     }
 }

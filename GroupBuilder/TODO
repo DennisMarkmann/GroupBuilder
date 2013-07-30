@@ -4,11 +4,8 @@
 		1.0.1.Sprache zur Laufzeit ändern (MainFrame nervt..)
 		1.0.2.ConfirmationFrame auch die actions auf deutsch mitgeben
 			Vielleicht actions extra auflösen? (intern einfache, kurze Bezeichnungen & extern komplex und aussagekräftig)
-			
-	Bugs:
-		Erfolgreich Message nach Fehlerhafter Membererstellung etc. ersetzen (Nach DuplicateEntryException zB)
 	
-
+	
 2. CleanUp:
 
 	2.0.Methoden aus Frames auslagern (getInstance & closeWindow)
