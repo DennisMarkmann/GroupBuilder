@@ -76,7 +76,7 @@ public class EditMemberFrameListener implements ActionListener {
             memberList.add(this.pojo.getMemberList().get(this.rowID));
             memberList.add(new Member(firstName, lastName, email, group));
 
-            ConfirmationFrame.getInstance(this.pojo, "editMember", memberList);
+            ConfirmationFrame.getInstance(this.pojo, this.pojo.getMessages("EditMember"), memberList);
         }
         this.editMemberFrame.closeWindow();
 

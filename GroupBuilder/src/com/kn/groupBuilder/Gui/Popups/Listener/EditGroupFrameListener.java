@@ -70,7 +70,7 @@ public class EditGroupFrameListener implements ActionListener {
             groupList.add(this.pojo.getGroupList().get(this.rowID));
             groupList.add(new Group(groupName, description, fixSize));
 
-            ConfirmationFrame.getInstance(this.pojo, "editGroup", groupList);
+            ConfirmationFrame.getInstance(this.pojo, this.pojo.getMessages("EditGroup"), groupList);
         }
         this.editGroupFrame.closeWindow();
 

@@ -44,7 +44,7 @@ public class CreateGroupsFrameListener implements ActionListener {
             this.createGroupsAutomaticallyFrame.closeWindow();
             final int memberPerGroup = Integer.parseInt(this.numberField.getText());
 
-            ConfirmationFrame.getInstance(this.pojo, "automatically create groups", memberPerGroup);
+            ConfirmationFrame.getInstance(this.pojo, this.pojo.getMessages("AutoCreateGroups"), memberPerGroup);
 
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
             this.createGroupsAutomaticallyFrame.closeWindow();

@@ -63,7 +63,10 @@ public class CreateGroupFrameListener implements ActionListener {
                 return;
             }
 
-            ConfirmationFrame.getInstance(this.pojo, "addGroup", new Group(groupName, description, fixSize));
+            ConfirmationFrame.getInstance(this.pojo, this.pojo.getMessages("AddGroup"), new Group(
+                    groupName,
+                    description,
+                    fixSize));
         }
         this.createGroupFrame.closeWindow();
 
