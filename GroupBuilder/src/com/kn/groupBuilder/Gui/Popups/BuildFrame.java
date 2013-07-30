@@ -29,7 +29,7 @@ public final class BuildFrame extends JFrame implements DefaultFrame {
     private BuildFrame(final Pojo pojo) {
 
         this.pojo = pojo;
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("BuildGroups"));
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("AssignGroups"));
         this.addWindowListener(new MyWindowAdapter(this));
 
         final JCheckBox buildCompleteCheckBox = this.checkBoxHelper.createSingleSelectionCheckBox(

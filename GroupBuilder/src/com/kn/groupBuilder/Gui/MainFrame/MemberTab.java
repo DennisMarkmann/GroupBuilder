@@ -36,7 +36,7 @@ class MemberTab extends JPanel implements DefaultTab {
 
         BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
         final JButton addButton = BUILDER.createButton(this, "addButton", "Add Member", 0, 5);
-        final JButton buildButton = BUILDER.createButton(this, "buildButton", "Build Groups", 0, 6);
+        final JButton buildButton = BUILDER.createButton(this, "assignButton", "Assign Groups", 0, 6);
         final JButton saveButton = BUILDER.createButton(this, "saveButton", "Save", 0, 7);
 
         final MemberTabListener listener = new MemberTabListener(pojo);
