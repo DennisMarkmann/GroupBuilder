@@ -4,6 +4,8 @@
 		1.0.1.Sprache zur Laufzeit ändern (MainFrame nervt..)
 		1.0.2.ConfirmationFrame auch die actions auf deutsch mitgeben
 			Vielleicht actions extra auflösen? (intern einfache, kurze Bezeichnungen & extern komplex und aussagekräftig)
+			
+	1.1. BuildGroups zu AssignGroups ändern (GUI und eventuell im Programm)
 		
 	Bugs:
 		Erfolgreich Message nach Fehlerhafter Membererstellung etc. ersetzen (Nach DuplicateEntryException zB)
