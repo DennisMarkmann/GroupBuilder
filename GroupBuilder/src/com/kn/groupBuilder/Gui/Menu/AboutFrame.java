@@ -49,7 +49,7 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
         BUILDER.createLabel(this, pojo.getTranslation("AboutLineTwo"), 1, 5);
         BUILDER.createLabel(this, pojo.getTranslation("AboutLineThree"), 1, 6);
         final JButton closeButton = BUILDER.createButton(this, "closeButton", pojo.getTranslation("Close"), 2, 7);
-
+        this.getRootPane().setDefaultButton(closeButton);
         final ActionListener listener = new AboutFrameListener(this);
 
         closeButton.addActionListener(listener);
