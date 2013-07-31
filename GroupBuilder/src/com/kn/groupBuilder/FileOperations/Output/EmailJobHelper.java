@@ -30,7 +30,7 @@ public class EmailJobHelper {
     public final void sendMailToGroups(final Pojo pojo, final ArrayList<Group> groupList) {
 
         if (groupList.size() == 0) {
-            new NothingToDoExeption("send").showDialog();
+            new NothingToDoExeption(pojo.getMessages("Send")).showDialog();
             return;
         }
 

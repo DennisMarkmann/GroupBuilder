@@ -36,7 +36,7 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
 
         // The frame is too small for the long German text.
         if (pojo.getSettings().getLanguage().equals("German")) {
-            this.setSize(800, 230);
+            this.setSize(700, 230);
         }
 
         this.addWindowListener(new MyWindowAdapter(this));

@@ -104,7 +104,7 @@ public class ConfirmationFrameListener implements ActionListener {
 
         } else if (this.action.equals(this.pojo.getMessages("SendMail"))) {
             new EmailJobHelper().sendMailToGroups(this.pojo, (ArrayList<Group>) this.object);
-            this.message = this.pojo.getMessages("MainSuccess");
+            this.message = this.pojo.getMessages("MailSuccess");
 
         } else if (this.action.equals(this.pojo.getMessages("Save"))) {
             new FileWriteHelper().createXMLFiles(this.pojo);
