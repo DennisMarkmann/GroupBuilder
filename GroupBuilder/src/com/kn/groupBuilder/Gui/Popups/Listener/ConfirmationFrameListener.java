@@ -22,6 +22,7 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Member;
 import com.kn.groupBuilder.Storage.Pojo;
 
+import dennis.markmann.MyLibraries.General.LanguageChooser;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 
 /**
@@ -81,7 +82,7 @@ public class ConfirmationFrameListener implements ActionListener {
                 this.useMemberOperation();
             } else if (GROUP_OPERATIONS.contains(this.action)) {
                 this.useGroupOperation();
-            } else if (this.action.equals(this.pojo.getMessages("CloseWindow"))) {
+            } else if (this.action.equals(LanguageChooser.getMessages("CloseWindow"))) {
                 ((DefaultFrame) this.object).closeWindow();
                 this.confirmationFrame.closeWindow();
                 return;

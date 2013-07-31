@@ -8,17 +8,23 @@ import com.kn.groupBuilder.Storage.Pojo;
 public class LanguageChooser {
 
     public void chooseLanguage(final Pojo pojo) {
-        String language = new String("en");
-        String country = new String("US");
 
-        if (pojo.getSettings().getLanguage().equals("English")) {
+        final String pojoLanguage = pojo.getSettings().getLanguage();
+        String language = "";
+        String country = "";
+
+        if (pojoLanguage.equals("English")) {
             language = new String("en");
             country = new String("US");
-        } else if (pojo.getSettings().getLanguage().equals("German")) {
+        } else if (pojoLanguage.equals("German")) {
             language = new String("de");
+            country = new String("US");
+        } else {
+            language = new String("en");
             country = new String("US");
         }
         pojo.setMessages(ResourceBundle.getBundle("Properties/LanguageFile", new Locale(language, country)));
+        new dennis.markmann.MyLibraries.General.LanguageChooser().chooseLanguage(pojoLanguage);
         // this.repaintMLJComponents();
     }
 
