@@ -30,6 +30,7 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
         this.pojo = pojo;
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("CreateMember"));
         this.addWindowListener(new MyWindowAdapter(this));
+        this.setSize(350, 200);
 
         BUILDER.createLabel(this, pojo.getMessages("FirstName"), 0, 1);
         BUILDER.createLabel(this, pojo.getMessages("LastName"), 0, 2);
@@ -42,8 +43,6 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
         final JComboBox<String> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 1, 4);
         final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getMessages("Confirm"), 0, 5);
         final JButton abortButton = BUILDER.createButton(this, "abortButton", pojo.getMessages("Abort"), 1, 5);
-
-        this.pack();
 
         final CreateMemberFrameListener listener = new CreateMemberFrameListener(
                 this,

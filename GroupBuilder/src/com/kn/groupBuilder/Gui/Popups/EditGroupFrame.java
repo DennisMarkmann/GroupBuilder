@@ -30,6 +30,7 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
         this.pojo = pojo;
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("EditGroup"));
         this.addWindowListener(new MyWindowAdapter(this));
+        this.setSize(350, 200);
 
         BUILDER.createLabel(this, pojo.getMessages("GroupName"), 0, 1);
         BUILDER.createLabel(this, pojo.getMessages("Description"), 0, 2);
@@ -41,8 +42,6 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
 
         final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getMessages("Confirm"), 0, 4);
         final JButton abortButton = BUILDER.createButton(this, "abortButton", pojo.getMessages("Abort"), 1, 4);
-
-        this.pack();
 
         this.fillFields(pojo, rowID, groupNameField, groupDescField, groupSizeField);
 

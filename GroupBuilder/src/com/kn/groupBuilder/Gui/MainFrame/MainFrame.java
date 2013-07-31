@@ -95,4 +95,8 @@ public class MainFrame extends JFrame implements DefaultFrame {
         }
         return instance;
     }
+
+    public void reload(final MainFrame instance) {
+        instance.dispose();
+    }
 }
