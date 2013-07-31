@@ -30,6 +30,8 @@ public class GroupBuilder {
 
     public final void buildUnassignedGroups(final Pojo pojo) {
 
+        this.pojo = pojo;
+
         new GroupListSorter().sortArrayListForPriority(pojo);
         final ArrayList<Member> unassignedMemberList = new ArrayList<Member>();
         for (final Member member : pojo.getMemberList()) {

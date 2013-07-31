@@ -7,7 +7,7 @@ import com.kn.groupBuilder.Gui.MainFrame.MainFrame;
 import com.kn.groupBuilder.Storage.Pojo;
 
 /**
- * Main class for the project. Creates the pojo to store all data in. Starts the read operation for stored GroupBuilder files.
+ * Main class for the project. Creates the POJO to store all data in. Starts the read operation for stored GroupBuilder files.
  * Creates the GUI for the user.
  * 
  * @author dennis.markmann

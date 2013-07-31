@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import com.kn.groupBuilder.Exceptions.NoFilesFoundException;
+import com.kn.groupBuilder.Exceptions.NotToHandleException;
 import com.kn.groupBuilder.Exceptions.WriteOperationException;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -36,26 +36,26 @@ public class PropertyHandler {
         }
     }
 
-    final String getProperties(final Pojo pojo) {
+    final void getProperties(final Pojo pojo) {
 
         final Properties properties = new Properties();
         BufferedInputStream stream = null;
-        final String path = System.getProperty("user.home") + System.getProperty("file.separator") + "groupBuilder.properties";
+        final String propertyPath = System.getProperty("user.home") + System.getProperty("file.separator")
+                + "groupBuilder.properties";
         try {
-            stream = new BufferedInputStream(new FileInputStream(path));
+            stream = new BufferedInputStream(new FileInputStream(propertyPath));
             properties.load(stream);
             stream.close();
+            final String path = properties.getProperty("path");
 
             if (path != null) {
-                pojo.getSettings().setPathInitially(properties.getProperty("path"));
+                pojo.getSettings().setPathInitially(path);
             }
         } catch (final FileNotFoundException e) {
-            new NoFilesFoundException(path, e.getStackTrace());
+            new NotToHandleException(e.getStackTrace());
         } catch (final IOException e) {
             e.printStackTrace();
         }
-
-        return properties.getProperty("path");
 
     }
 }
