@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
 
+import com.kn.groupBuilder.Exceptions.NothingToDoExeption;
 import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
@@ -23,6 +24,11 @@ public class PrintJobHelper {
 
     public final void printOutForGroups(final Pojo pojo, final ArrayList<Group> groupList) {
         this.selectPrinter(pojo);
+
+        if (groupList.size() == 0) {
+            new NothingToDoExeption("print").showDialog();
+            return;
+        }
 
         for (final Group group : groupList) {
             this.printGroup(pojo, group.getName());
