@@ -39,9 +39,9 @@ public class TableListener implements ActionListener {
             ConfirmationFrame.getInstance(this.pojo, this.action, this.rowID);
 
         } else if (buttonClicked.getName().compareTo("EditButton") == 0) {
-            if (this.action.equals(this.pojo.getMessages("EditMember"))) {
+            if (this.action.equals(this.pojo.getTranslation("EditMember"))) {
                 EditMemberFrame.getInstance(this.pojo, this.rowID);
-            } else if (this.action.equals(this.pojo.getMessages("EditGroup"))) {
+            } else if (this.action.equals(this.pojo.getTranslation("EditGroup"))) {
                 EditGroupFrame.getInstance(this.pojo, this.rowID);
             }
         }

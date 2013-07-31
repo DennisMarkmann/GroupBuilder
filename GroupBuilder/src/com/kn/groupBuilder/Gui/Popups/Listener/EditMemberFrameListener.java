@@ -65,18 +65,18 @@ public class EditMemberFrameListener implements ActionListener {
             final Group group = this.pojo.getGroupByName(groupName);
 
             if (firstName.equals("")) {
-                new EmptyValueException(this.pojo.getMessages("FirstName")).showDialog();
+                new EmptyValueException(this.pojo.getTranslation("FirstName")).showDialog();
                 return;
             }
             if (lastName.equals("")) {
-                new EmptyValueException(this.pojo.getMessages("LastName")).showDialog();
+                new EmptyValueException(this.pojo.getTranslation("LastName")).showDialog();
                 return;
             }
 
             memberList.add(this.pojo.getMemberList().get(this.rowID));
             memberList.add(new Member(firstName, lastName, email, group));
 
-            ConfirmationFrame.getInstance(this.pojo, this.pojo.getMessages("EditMember"), memberList);
+            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("EditMember"), memberList);
         }
         this.editMemberFrame.closeWindow();
 

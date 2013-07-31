@@ -17,7 +17,7 @@ public class DuplicateEntryException extends Exception implements ExceptionDialo
     private static final long serialVersionUID = -4565962119370664301L;
 
     public DuplicateEntryException(final String name) {
-        super(Pojo.getPojo().getMessages("DuplicateEntryLineOne") + name + Pojo.getPojo().getMessages("DuplicateEntryLineTwo"));
+        super(Pojo.getPojo().getTranslation("DuplicateEntryLineOne") + name + Pojo.getPojo().getTranslation("DuplicateEntryLineTwo"));
     }
 
     @Override

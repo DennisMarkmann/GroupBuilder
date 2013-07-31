@@ -27,11 +27,11 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
     private HelpFrame(final Pojo pojo) {
 
         this.pojo = pojo;
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("Help"));
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getTranslation("Help"));
         this.addWindowListener(new MyWindowAdapter(this));
-        BUILDER.createLabel(this, pojo.getMessages("HelpFrameLineOne"), 0, 1);
-        BUILDER.createLabel(this, pojo.getMessages("HelpFrameLineTwo"), 0, 2);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", pojo.getMessages("Close"), 1, 3);
+        BUILDER.createLabel(this, pojo.getTranslation("HelpFrameLineOne"), 0, 1);
+        BUILDER.createLabel(this, pojo.getTranslation("HelpFrameLineTwo"), 0, 2);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", pojo.getTranslation("Close"), 1, 3);
 
         final HelpFrameListener listener = new HelpFrameListener(this);
 

@@ -17,7 +17,7 @@ public class EmptyValueException extends Exception implements ExceptionDialogInt
     private static final long serialVersionUID = -4565962119370664301L;
 
     public EmptyValueException(final String field) {
-        super(Pojo.getPojo().getMessages("EmptyValueLineOne") + field + Pojo.getPojo().getMessages("EmptyValueLineTwo"));
+        super(Pojo.getPojo().getTranslation("EmptyValueLineOne") + field + Pojo.getPojo().getTranslation("EmptyValueLineTwo"));
     }
 
     @Override

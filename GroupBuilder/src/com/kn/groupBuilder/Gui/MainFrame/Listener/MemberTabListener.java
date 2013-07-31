@@ -38,7 +38,7 @@ public class MemberTabListener implements ActionListener {
             BuildFrame.getInstance(this.pojo);
 
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
-            ConfirmationFrame.getInstance(this.pojo, this.pojo.getMessages("Save"), null);
+            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("Save"), null);
         }
 
     }

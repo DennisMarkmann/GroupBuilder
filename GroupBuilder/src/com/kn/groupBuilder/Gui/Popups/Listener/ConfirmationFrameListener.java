@@ -36,9 +36,9 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.Default
 @SuppressWarnings("unchecked")
 public class ConfirmationFrameListener implements ActionListener {
 
-    private static List<String> OUTPUT_OPERATIONS;
-    private static List<String> MEMBER_OPERATIONS;
-    private static List<String> GROUP_OPERATIONS;
+    private static List<String> outputOperations;
+    private static List<String> memberOperations;
+    private static List<String> groupOperations;
     private String message = "";
     private final ConfirmationFrame confirmationFrame;
     private final Pojo pojo;
@@ -56,16 +56,19 @@ public class ConfirmationFrameListener implements ActionListener {
         this.action = action;
         this.object = object;
 
-        OUTPUT_OPERATIONS = Arrays.asList(pojo.getMessages("Print"), pojo.getMessages("SendMail"), pojo.getMessages("Save"));
-        MEMBER_OPERATIONS = Arrays.asList(
-                pojo.getMessages("AddMember"),
-                pojo.getMessages("EditMember"),
-                pojo.getMessages("RemoveMember"));
-        GROUP_OPERATIONS = Arrays.asList(
-                pojo.getMessages("AddGroup"),
-                pojo.getMessages("EditGroup"),
-                pojo.getMessages("RemoveGroup"),
-                pojo.getMessages("AutoCreateGroups"));
+        outputOperations = Arrays.asList(
+                pojo.getTranslation("Print"),
+                pojo.getTranslation("SendMail"),
+                pojo.getTranslation("Save"));
+        memberOperations = Arrays.asList(
+                pojo.getTranslation("AddMember"),
+                pojo.getTranslation("EditMember"),
+                pojo.getTranslation("RemoveMember"));
+        groupOperations = Arrays.asList(
+                pojo.getTranslation("AddGroup"),
+                pojo.getTranslation("EditGroup"),
+                pojo.getTranslation("RemoveGroup"),
+                pojo.getTranslation("AutoCreateGroups"));
 
     }
 
@@ -76,11 +79,11 @@ public class ConfirmationFrameListener implements ActionListener {
 
         if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
 
-            if (OUTPUT_OPERATIONS.contains(this.action)) {
+            if (outputOperations.contains(this.action)) {
                 this.useOutputOperation();
-            } else if (MEMBER_OPERATIONS.contains(this.action)) {
+            } else if (memberOperations.contains(this.action)) {
                 this.useMemberOperation();
-            } else if (GROUP_OPERATIONS.contains(this.action)) {
+            } else if (groupOperations.contains(this.action)) {
                 this.useGroupOperation();
             } else if (this.action.equals(LanguageChooser.getMessages("CloseWindow"))) {
                 ((DefaultFrame) this.object).closeWindow();
@@ -98,36 +101,36 @@ public class ConfirmationFrameListener implements ActionListener {
 
     private void useOutputOperation() {
 
-        if (this.action.equals(this.pojo.getMessages("Print"))) {
+        if (this.action.equals(this.pojo.getTranslation("Print"))) {
             new PrintJobHelper().printOutForGroups(this.pojo, (ArrayList<Group>) this.object);
-            this.message = this.pojo.getMessages("PrintSuccess");
+            this.message = this.pojo.getTranslation("PrintSuccess");
 
-        } else if (this.action.equals(this.pojo.getMessages("SendMail"))) {
+        } else if (this.action.equals(this.pojo.getTranslation("SendMail"))) {
             new EmailJobHelper().sendMailToGroups(this.pojo, (ArrayList<Group>) this.object);
-            this.message = this.pojo.getMessages("MailSuccess");
+            this.message = this.pojo.getTranslation("MailSuccess");
 
-        } else if (this.action.equals(this.pojo.getMessages("Save"))) {
+        } else if (this.action.equals(this.pojo.getTranslation("Save"))) {
             new FileWriteHelper().createXMLFiles(this.pojo);
-            this.message = this.pojo.getMessages("SaveSuccess");
+            this.message = this.pojo.getTranslation("SaveSuccess");
         }
     }
 
     private void useMemberOperation() {
 
-        if (this.action.equals(this.pojo.getMessages("AddMember"))) {
+        if (this.action.equals(this.pojo.getTranslation("AddMember"))) {
             final Member member = (Member) this.object;
 
             new MemberCreator(this.pojo).correctMemberFormat(member);
             this.generateMemberMessage(member, "Added");
 
-        } else if (this.action.equals(this.pojo.getMessages("EditMember"))) {
+        } else if (this.action.equals(this.pojo.getTranslation("EditMember"))) {
             final Member oldMember = ((ArrayList<Member>) this.object).get(0);
             final Member newMember = ((ArrayList<Member>) this.object).get(1);
 
             new MemberCreator(this.pojo).editMember(oldMember, newMember);
             this.generateMemberMessage(oldMember, "Edited");
 
-        } else if (this.action.equals(this.pojo.getMessages("RemoveMember"))) {
+        } else if (this.action.equals(this.pojo.getTranslation("RemoveMember"))) {
             final Member member = this.pojo.getMemberList().get((int) (this.object));
 
             new MemberCreator(this.pojo).removeMember(member);
@@ -139,29 +142,29 @@ public class ConfirmationFrameListener implements ActionListener {
 
     private void useGroupOperation() {
 
-        if (this.action.equals(this.pojo.getMessages("AddGroup"))) {
+        if (this.action.equals(this.pojo.getTranslation("AddGroup"))) {
             final Group group = (Group) this.object;
 
             new GroupCreator(this.pojo).createGroup(group.getName(), group.getDescription(), group.getFixSize());
             this.generateGroupMessage(group, "Added");
 
-        } else if (this.action.equals(this.pojo.getMessages("EditGroup"))) {
+        } else if (this.action.equals(this.pojo.getTranslation("EditGroup"))) {
             final Group oldGroup = ((ArrayList<Group>) this.object).get(0);
             final Group newGroup = ((ArrayList<Group>) this.object).get(1);
 
             new GroupCreator(this.pojo).editGroup(oldGroup, newGroup);
             this.generateGroupMessage(oldGroup, "Edited");
 
-        } else if (this.action.equals(this.pojo.getMessages("RemoveGroup"))) {
+        } else if (this.action.equals(this.pojo.getTranslation("RemoveGroup"))) {
             final Group group = this.pojo.getGroupList().get((int) (this.object));
 
             new GroupCreator(this.pojo).removeGroup(group);
             this.generateGroupMessage(group, "Removed");
 
-        } else if (this.action.equals(this.pojo.getMessages("AutoCreateGroups"))) {
+        } else if (this.action.equals(this.pojo.getTranslation("AutoCreateGroups"))) {
             new GroupCreator(this.pojo).createGroupsAutmatically((int) this.object);
             new GroupBuilder().buildGroups(this.pojo);
-            this.message = this.pojo.getMessages("GroupsCreatedSuccess");
+            this.message = this.pojo.getTranslation("GroupsCreatedSuccess");
         }
         GroupTableModel.refreshTable();
     }
@@ -170,15 +173,15 @@ public class ConfirmationFrameListener implements ActionListener {
 
         final String firstName = member.getFirstName();
         final String lastName = member.getLastName();
-        this.message = this.pojo.getMessages("Member") + " " + firstName + " " + lastName + " "
-                + this.pojo.getMessages("WasSuccessfully") + " " + this.pojo.getMessages(operation) + ".";
+        this.message = this.pojo.getTranslation("Member") + " " + firstName + " " + lastName + " "
+                + this.pojo.getTranslation("WasSuccessfully") + " " + this.pojo.getTranslation(operation) + ".";
     }
 
     private void generateGroupMessage(final Group group, final String operation) {
 
         final String groupName = group.getName();
-        this.message = this.pojo.getMessages("Group") + " " + groupName + " " + this.pojo.getMessages("WasSuccessfully") + " "
-                + this.pojo.getMessages(operation) + ".";
+        this.message = this.pojo.getTranslation("Group") + " " + groupName + " " + this.pojo.getTranslation("WasSuccessfully")
+                + " " + this.pojo.getTranslation(operation) + ".";
     }
 
     private void showSuccessMessage(final String text) {

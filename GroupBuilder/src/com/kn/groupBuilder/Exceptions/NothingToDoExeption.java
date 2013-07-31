@@ -17,7 +17,7 @@ public class NothingToDoExeption extends Exception implements ExceptionDialogInt
     private static final long serialVersionUID = -4565962119370664301L;
 
     public NothingToDoExeption(final String operation) {
-        super(Pojo.getPojo().getMessages("NothingSelectedText") + operation + ".");
+        super(Pojo.getPojo().getTranslation("NothingSelectedText") + operation + ".");
     }
 
     @Override

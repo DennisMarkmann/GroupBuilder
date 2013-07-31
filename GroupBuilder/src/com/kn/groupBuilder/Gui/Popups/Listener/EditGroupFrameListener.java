@@ -64,13 +64,13 @@ public class EditGroupFrameListener implements ActionListener {
                 new NotToHandleException(e.getStackTrace());
             }
             if (groupName.equals("")) {
-                new EmptyValueException(this.pojo.getMessages("GroupName")).showDialog();
+                new EmptyValueException(this.pojo.getTranslation("GroupName")).showDialog();
                 return;
             }
             groupList.add(this.pojo.getGroupList().get(this.rowID));
             groupList.add(new Group(groupName, description, fixSize));
 
-            ConfirmationFrame.getInstance(this.pojo, this.pojo.getMessages("EditGroup"), groupList);
+            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("EditGroup"), groupList);
         }
         this.editGroupFrame.closeWindow();
 

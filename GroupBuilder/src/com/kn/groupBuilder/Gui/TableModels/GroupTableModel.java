@@ -97,7 +97,7 @@ public final class GroupTableModel extends AbstractTableModel {
             } else if (this.cols[columnIndex].equals("Edit")) {
                 button.setIcon(new IconHelper().getIcon("com/kn/groupBuilder/Gui/TableModels/Icons/Edit_Icon.png"));
             }
-            button.addActionListener(new TableListener(this.pojo, rowIndex, this.pojo.getMessages(this.cols[columnIndex]
+            button.addActionListener(new TableListener(this.pojo, rowIndex, this.pojo.getTranslation(this.cols[columnIndex]
                     + "Group")));
             return button;
 

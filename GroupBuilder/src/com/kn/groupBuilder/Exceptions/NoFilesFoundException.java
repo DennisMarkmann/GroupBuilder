@@ -17,7 +17,7 @@ public class NoFilesFoundException extends Exception implements ExceptionDialogI
     private static final long serialVersionUID = -4565962119370664301L;
 
     public NoFilesFoundException(final String path, final StackTraceElement[] stackTraceElements) {
-        super(Pojo.getPojo().getMessages("NoFilesFoundText") + path);
+        super(Pojo.getPojo().getTranslation("NoFilesFoundText") + path);
     }
 
     @Override

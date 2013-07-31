@@ -29,14 +29,14 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
     private EditMemberFrame(final Pojo pojo, final int rowID) {
 
         this.pojo = pojo;
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("EditMember"));
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getTranslation("EditMember"));
         this.addWindowListener(new MyWindowAdapter(this));
         this.setSize(350, 200);
 
-        BUILDER.createLabel(this, pojo.getMessages("FirstName"), 0, 1);
-        BUILDER.createLabel(this, pojo.getMessages("LastName"), 0, 2);
-        BUILDER.createLabel(this, pojo.getMessages("E-Mail"), 0, 3);
-        BUILDER.createLabel(this, pojo.getMessages("Group"), 0, 4);
+        BUILDER.createLabel(this, pojo.getTranslation("FirstName"), 0, 1);
+        BUILDER.createLabel(this, pojo.getTranslation("LastName"), 0, 2);
+        BUILDER.createLabel(this, pojo.getTranslation("E-Mail"), 0, 3);
+        BUILDER.createLabel(this, pojo.getTranslation("Group"), 0, 4);
 
         // TODO initially fill these fields with the current member values
         final JTextField firstNameField = BUILDER.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
@@ -44,8 +44,8 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
         final JTextField eMailField = BUILDER.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
         final JComboBox<String> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 1, 4);
 
-        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getMessages("Confirm"), 0, 5);
-        final JButton abortButton = BUILDER.createButton(this, "abortButton", pojo.getMessages("Abort"), 1, 5);
+        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getTranslation("Confirm"), 0, 5);
+        final JButton abortButton = BUILDER.createButton(this, "abortButton", pojo.getTranslation("Abort"), 1, 5);
 
         this.fillFields(pojo, rowID, firstNameField, lastNameField, eMailField, groupBox);
 

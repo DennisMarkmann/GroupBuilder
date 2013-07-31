@@ -44,7 +44,7 @@ public class PrintFrameListener implements ActionListener {
                     groupList.add(this.pojo.getGroupByName(checkBox.getName()));
                 }
             }
-            ConfirmationFrame.getInstance(this.pojo, this.pojo.getMessages("Print"), groupList);
+            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("Print"), groupList);
         } else if (buttonClicked.getName().compareTo("selectAllButton") == 0) {
             boolean select = true;
             if (this.printFrame.isSelected()) {

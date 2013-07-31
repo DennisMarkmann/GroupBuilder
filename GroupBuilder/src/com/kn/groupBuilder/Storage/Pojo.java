@@ -20,7 +20,7 @@ public class Pojo {
     // private final String[] languageList = { "English", "German" };
     private final String[] formatList = { "XML", "TXT" };
     private final Settings settings = new Settings();
-    private ResourceBundle messages;
+    private ResourceBundle languageBundle;
     private boolean error;
     private static Pojo instance;
 
@@ -84,23 +84,23 @@ public class Pojo {
         return groupListArray;
     }
 
-    public String getMessages(final String string) {
-        return this.messages.getString(string);
+    public final String getTranslation(final String string) {
+        return this.languageBundle.getString(string);
     }
 
-    public void setMessages(final ResourceBundle messages) {
-        this.messages = messages;
+    public final void setLanguageBundle(final ResourceBundle languageBundle) {
+        this.languageBundle = languageBundle;
     }
 
     public static Pojo getPojo() {
         return instance;
     }
 
-    public boolean hasError() {
+    public final boolean hasError() {
         return this.error;
     }
 
-    public void setError(final boolean error) {
+    public final void setError(final boolean error) {
         this.error = error;
     }
 }

@@ -17,7 +17,7 @@ public class UnknownErrorException extends Exception implements ExceptionDialogI
     private static final long serialVersionUID = -4565962119370664301L;
 
     public UnknownErrorException(final String operation, final StackTraceElement[] stackTraceElements) {
-        super(Pojo.getPojo().getMessages("UnknownErrorLineOne") + operation + Pojo.getPojo().getMessages("UnknownErrorLineTwo"));
+        super(Pojo.getPojo().getTranslation("UnknownErrorLineOne") + operation + Pojo.getPojo().getTranslation("UnknownErrorLineTwo"));
     }
 
     @Override

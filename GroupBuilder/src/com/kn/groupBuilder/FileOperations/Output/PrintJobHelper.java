@@ -26,7 +26,7 @@ public class PrintJobHelper {
         this.selectPrinter(pojo);
 
         if (groupList.size() == 0) {
-            new NothingToDoExeption(pojo.getMessages("Print")).showDialog();
+            new NothingToDoExeption(pojo.getTranslation("Print")).showDialog();
             return;
         }
 

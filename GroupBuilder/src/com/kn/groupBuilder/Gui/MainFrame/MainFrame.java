@@ -42,18 +42,18 @@ public class MainFrame extends JFrame implements DefaultFrame {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         // adds menuItems
-        this.addMenuItem(pojo.getMessages("Settings"));
-        this.addMenuItem(pojo.getMessages("E-Mail"));
-        this.addMenuItem(pojo.getMessages("Print"));
+        this.addMenuItem(pojo.getTranslation("Settings"));
+        this.addMenuItem(pojo.getTranslation("E-Mail"));
+        this.addMenuItem(pojo.getTranslation("Print"));
         // this.addMenuItem(pojo.getMessages("Help"));
-        this.addMenuItem(pojo.getMessages("About"));
+        this.addMenuItem(pojo.getTranslation("About"));
 
         final JMenuBar menuBar = new JMenuBar();
         menuBar.add(this.menu);
         this.setJMenuBar(menuBar);
 
-        this.addPane(pojo.getMessages("Member"), new MemberTab(pojo));
-        this.addPane(pojo.getMessages("Groups"), new GroupTab(pojo));
+        this.addPane(pojo.getTranslation("Member"), new MemberTab(pojo));
+        this.addPane(pojo.getTranslation("Groups"), new GroupTab(pojo));
 
         this.add(this.tabBar);
         this.setVisible(true);
@@ -96,7 +96,7 @@ public class MainFrame extends JFrame implements DefaultFrame {
         return instance;
     }
 
-    public void reload() {
+    public final void reload() {
         instance.dispose();
         instance = new MainFrame();
         instance.createGui(this.pojo);

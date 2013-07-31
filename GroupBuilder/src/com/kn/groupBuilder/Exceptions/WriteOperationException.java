@@ -17,7 +17,7 @@ public class WriteOperationException extends Exception implements ExceptionDialo
     private static final long serialVersionUID = 6498733673905740756L;
 
     public WriteOperationException(final String path, final StackTraceElement[] stackTraceElements) {
-        super(Pojo.getPojo().getMessages("WriteOperationText") + path);
+        super(Pojo.getPojo().getTranslation("WriteOperationText") + path);
     }
 
     @Override

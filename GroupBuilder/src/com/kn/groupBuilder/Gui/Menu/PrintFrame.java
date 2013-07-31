@@ -32,7 +32,7 @@ public final class PrintFrame extends JFrame implements DefaultFrame {
     private PrintFrame(final Pojo pojo) {
 
         this.pojo = pojo;
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("Print"));
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getTranslation("Print"));
         this.addWindowListener(new MyWindowAdapter(this));
 
         int x = 0;
@@ -55,9 +55,9 @@ public final class PrintFrame extends JFrame implements DefaultFrame {
         BUILDER.createLabel(this, "", 0, y);
         y++;
 
-        final JButton selectAllButton = BUILDER.createButton(this, "selectAllButton", pojo.getMessages("SelectAll"), 0, y);
-        final JButton printButton = BUILDER.createButton(this, "printButton", pojo.getMessages("Print"), 1, y);
-        final JButton closeButton = BUILDER.createButton(this, "closeButton", pojo.getMessages("Close"), 2, y);
+        final JButton selectAllButton = BUILDER.createButton(this, "selectAllButton", pojo.getTranslation("SelectAll"), 0, y);
+        final JButton printButton = BUILDER.createButton(this, "printButton", pojo.getTranslation("Print"), 1, y);
+        final JButton closeButton = BUILDER.createButton(this, "closeButton", pojo.getTranslation("Close"), 2, y);
 
         final PrintFrameListener listener = new PrintFrameListener(this, pojo, checkBoxList);
 

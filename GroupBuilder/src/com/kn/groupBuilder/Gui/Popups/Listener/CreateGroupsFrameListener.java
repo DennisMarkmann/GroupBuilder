@@ -46,11 +46,11 @@ public class CreateGroupsFrameListener implements ActionListener {
             try {
                 memberPerGroup = Integer.parseInt(this.numberField.getText());
             } catch (final java.lang.NumberFormatException e) {
-                new EmptyValueException(this.pojo.getMessages("MemberPerGroup")).showDialog();
+                new EmptyValueException(this.pojo.getTranslation("MemberPerGroup")).showDialog();
                 return;
             }
 
-            ConfirmationFrame.getInstance(this.pojo, this.pojo.getMessages("AutoCreateGroups"), memberPerGroup);
+            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("AutoCreateGroups"), memberPerGroup);
             this.createGroupsAutomaticallyFrame.closeWindow();
 
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {

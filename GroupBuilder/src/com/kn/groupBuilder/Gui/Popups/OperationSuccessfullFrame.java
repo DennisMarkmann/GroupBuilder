@@ -23,13 +23,13 @@ public final class OperationSuccessfullFrame extends JFrame implements DefaultFr
     private static final long serialVersionUID = 416901635761617562L;
 
     private OperationSuccessfullFrame(final String text, final Pojo pojo) {
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("SucessFull"));
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getTranslation("SucessFull"));
         if (text.length() > 50) {
             this.setSize(450, 200);
         }
         this.addWindowListener(new MyWindowAdapter(this));
         BUILDER.createLabel(this, text, 0, 1);
-        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getMessages("Okay"), 1, 3);
+        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getTranslation("Okay"), 1, 3);
 
         final OperationSuccessfullFrameListener listener = new OperationSuccessfullFrameListener(this);
 

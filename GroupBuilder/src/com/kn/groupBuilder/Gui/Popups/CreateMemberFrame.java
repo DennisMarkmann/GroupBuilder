@@ -28,21 +28,21 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
     private CreateMemberFrame(final Pojo pojo) {
 
         this.pojo = pojo;
-        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("CreateMember"));
+        BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getTranslation("CreateMember"));
         this.addWindowListener(new MyWindowAdapter(this));
         this.setSize(350, 200);
 
-        BUILDER.createLabel(this, pojo.getMessages("FirstName"), 0, 1);
-        BUILDER.createLabel(this, pojo.getMessages("LastName"), 0, 2);
-        BUILDER.createLabel(this, pojo.getMessages("E-Mail"), 0, 3);
-        BUILDER.createLabel(this, pojo.getMessages("Group"), 0, 4);
+        BUILDER.createLabel(this, pojo.getTranslation("FirstName"), 0, 1);
+        BUILDER.createLabel(this, pojo.getTranslation("LastName"), 0, 2);
+        BUILDER.createLabel(this, pojo.getTranslation("E-Mail"), 0, 3);
+        BUILDER.createLabel(this, pojo.getTranslation("Group"), 0, 4);
 
         final JTextField firstNameField = BUILDER.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
         final JTextField lastNameField = BUILDER.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
         final JTextField eMailField = BUILDER.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
         final JComboBox<String> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 1, 4);
-        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getMessages("Confirm"), 0, 5);
-        final JButton abortButton = BUILDER.createButton(this, "abortButton", pojo.getMessages("Abort"), 1, 5);
+        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getTranslation("Confirm"), 0, 5);
+        final JButton abortButton = BUILDER.createButton(this, "abortButton", pojo.getTranslation("Abort"), 1, 5);
 
         final CreateMemberFrameListener listener = new CreateMemberFrameListener(
                 this,

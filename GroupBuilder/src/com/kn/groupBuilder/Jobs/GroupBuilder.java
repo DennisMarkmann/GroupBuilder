@@ -39,9 +39,9 @@ public class GroupBuilder {
         }
         this.assignGroups(this.mixList(unassignedMemberList), pojo.getGroupList());
         if (unassignedMemberList.size() != 0) {
-            OperationSuccessfullFrame.getInstance(pojo.getMessages("UnassignedSuccess"), pojo);
+            OperationSuccessfullFrame.getInstance(pojo.getTranslation("UnassignedSuccess"), pojo);
         } else {
-            OperationSuccessfullFrame.getInstance(pojo.getMessages("NoChangesAssigned"), pojo);
+            OperationSuccessfullFrame.getInstance(pojo.getTranslation("NoChangesAssigned"), pojo);
         }
     }
 
@@ -75,7 +75,7 @@ public class GroupBuilder {
 
         }
         this.assignGroups(memberList, groupList);
-        OperationSuccessfullFrame.getInstance(this.pojo.getMessages("BuildSuccess"), this.pojo);
+        OperationSuccessfullFrame.getInstance(this.pojo.getTranslation("BuildSuccess"), this.pojo);
     }
 
     private void addMemberToGroup(final Group group, final ArrayList<Member> memberList, final int fixSize) {

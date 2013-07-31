@@ -15,7 +15,7 @@ import com.kn.groupBuilder.Storage.Pojo;
 
 public class LanguageChooser {
 
-    public void chooseLanguage(final Pojo pojo) {
+    public final void chooseLanguage(final Pojo pojo) {
 
         final String pojoLanguage = pojo.getSettings().getLanguage();
         String language = "";
@@ -31,7 +31,7 @@ public class LanguageChooser {
             language = new String("en");
             country = new String("US");
         }
-        pojo.setMessages(ResourceBundle.getBundle("com/kn/groupBuilder/LanguageFiles/LanguageFile", new Locale(
+        pojo.setLanguageBundle(ResourceBundle.getBundle("com/kn/groupBuilder/LanguageFiles/LanguageFile", new Locale(
                 language,
                 country)));
         new dennis.markmann.MyLibraries.General.LanguageChooser().chooseLanguage(pojoLanguage);
