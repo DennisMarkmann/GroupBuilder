@@ -5,6 +5,9 @@
 		1.0.2.ConfirmationFrame auch die actions auf deutsch mitgeben
 			Vielleicht actions extra auflösen? (intern einfache, kurze Bezeichnungen & extern komplex und aussagekräftig)
 
+	Edit button buggy
+	Bestätigung für verschickte Mails prüfen
+	Bestätigung nach leeren Print / Email Operationen anpassen (Nichts ausgewählt)
 	
 2. CleanUp:
 

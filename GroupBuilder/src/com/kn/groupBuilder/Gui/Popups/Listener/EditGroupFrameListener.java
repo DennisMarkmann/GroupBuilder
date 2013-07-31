@@ -64,7 +64,7 @@ public class EditGroupFrameListener implements ActionListener {
                 new NotToHandleException(e.getStackTrace());
             }
             if (groupName.equals("")) {
-                new EmptyValueException("groupName").showDialog();
+                new EmptyValueException(this.pojo.getMessages("GroupName")).showDialog();
                 return;
             }
             groupList.add(this.pojo.getGroupList().get(this.rowID));

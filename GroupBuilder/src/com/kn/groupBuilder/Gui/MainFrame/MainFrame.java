@@ -25,74 +25,74 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindo
 
 public class MainFrame extends JFrame implements DefaultFrame {
 
-	private static final long serialVersionUID = -5660805007314188894L;
-	private final JTabbedPane tabBar = new JTabbedPane();
-	private final JMenu menu = new JMenu("Extras");
-	private static MainFrame instance = null;
-	private Pojo pojo = null;
+    private static final long serialVersionUID = -5660805007314188894L;
+    private final JTabbedPane tabBar = new JTabbedPane();
+    private final JMenu menu = new JMenu("Extras");
+    private static MainFrame instance = null;
+    private Pojo pojo = null;
 
-	public final void createGui(final Pojo pojo) {
+    public final void createGui(final Pojo pojo) {
 
-		this.pojo = pojo;
-		// basic attributes
-		this.setTitle("GroupBuilder - Dennis Markmann");
-		this.setSize(800, 680);
-		this.setLocationRelativeTo(null);
-		this.addWindowListener(new MyWindowAdapter(this));
-		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.pojo = pojo;
+        // basic attributes
+        this.setTitle("GroupBuilder - Dennis Markmann");
+        this.setSize(800, 680);
+        this.setLocationRelativeTo(null);
+        this.addWindowListener(new MyWindowAdapter(this));
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-		// adds menuItems
-		this.addMenuItem(pojo.getMessages("Settings"));
-		this.addMenuItem(pojo.getMessages("E-Mail"));
-		this.addMenuItem(pojo.getMessages("Print"));
-		// this.addMenuItem(pojo.getMessages("Help"));
-		this.addMenuItem(pojo.getMessages("About"));
+        // adds menuItems
+        this.addMenuItem(pojo.getMessages("Settings"));
+        this.addMenuItem(pojo.getMessages("E-Mail"));
+        this.addMenuItem(pojo.getMessages("Print"));
+        // this.addMenuItem(pojo.getMessages("Help"));
+        this.addMenuItem(pojo.getMessages("About"));
 
-		final JMenuBar menuBar = new JMenuBar();
-		menuBar.add(this.menu);
-		this.setJMenuBar(menuBar);
+        final JMenuBar menuBar = new JMenuBar();
+        menuBar.add(this.menu);
+        this.setJMenuBar(menuBar);
 
-		this.addPane(pojo.getMessages("Member"), new MemberTab(pojo));
-		this.addPane(pojo.getMessages("Groups"), new GroupTab(pojo));
+        this.addPane(pojo.getMessages("Member"), new MemberTab(pojo));
+        this.addPane(pojo.getMessages("Groups"), new GroupTab(pojo));
 
-		this.add(this.tabBar);
-		this.setVisible(true);
-		new MainFrameListener(this.menu, pojo);
+        this.add(this.tabBar);
+        this.setVisible(true);
+        new MainFrameListener(this.menu, pojo);
 
-	}
+    }
 
-	// method to add new panes
-	private void addPane(final String title, final JPanel panel) {
-		this.tabBar.add(title, panel);
+    // method to add new panes
+    private void addPane(final String title, final JPanel panel) {
+        this.tabBar.add(title, panel);
 
-		final JPanel titlePanel = new JPanel();
-		titlePanel.add(new JLabel(title));
+        final JPanel titlePanel = new JPanel();
+        titlePanel.add(new JLabel(title));
 
-	}
+    }
 
-	private void addMenuItem(final String menuName) {
-		JMenuItem menuItem = new JMenuItem();
-		menuItem.setName(menuName);
-		menuItem.setText(menuName);
-		this.menu.add(menuItem);
-	}
+    private void addMenuItem(final String menuName) {
+        final JMenuItem menuItem = new JMenuItem();
+        menuItem.setName(menuName);
+        menuItem.setText(menuName);
+        this.menu.add(menuItem);
+    }
 
-	@Override
-	public final void openClosingDialog(final String text) {
-		ConfirmationFrame.getInstance(this.pojo, text, this);
-	}
+    @Override
+    public final void openClosingDialog(final String text) {
+        ConfirmationFrame.getInstance(this.pojo, text, this);
+    }
 
-	@Override
-	public final void closeWindow() {
-		System.exit(1);
-	}
+    @Override
+    public final void closeWindow() {
+        System.exit(1);
+    }
 
-	public static MainFrame getInstance() {
-		if (instance == null) {
-			instance = new MainFrame();
-		} else {
-			instance.toFront();
-		}
-		return instance;
-	}
+    public static MainFrame getInstance() {
+        if (instance == null) {
+            instance = new MainFrame();
+        } else {
+            instance.toFront();
+        }
+        return instance;
+    }
 }

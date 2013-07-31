@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import com.kn.groupBuilder.Exceptions.EmptyValueException;
 import com.kn.groupBuilder.Gui.Popups.ConfirmationFrame;
 import com.kn.groupBuilder.Gui.Popups.CreateGroupsFrame;
 import com.kn.groupBuilder.Storage.Pojo;
@@ -41,10 +42,16 @@ public class CreateGroupsFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("createButton") == 0) {
-            this.createGroupsAutomaticallyFrame.closeWindow();
-            final int memberPerGroup = Integer.parseInt(this.numberField.getText());
+            final int memberPerGroup;
+            try {
+                memberPerGroup = Integer.parseInt(this.numberField.getText());
+            } catch (final java.lang.NumberFormatException e) {
+                new EmptyValueException(this.pojo.getMessages("MemberPerGroup")).showDialog();
+                return;
+            }
 
             ConfirmationFrame.getInstance(this.pojo, this.pojo.getMessages("AutoCreateGroups"), memberPerGroup);
+            this.createGroupsAutomaticallyFrame.closeWindow();
 
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
             this.createGroupsAutomaticallyFrame.closeWindow();

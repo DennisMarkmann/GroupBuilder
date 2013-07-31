@@ -24,6 +24,9 @@ public final class OperationSuccessfullFrame extends JFrame implements DefaultFr
 
     private OperationSuccessfullFrame(final String text, final Pojo pojo) {
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getMessages("SucessFull"));
+        if (text.length() > 50) {
+            this.setSize(450, 200);
+        }
         this.addWindowListener(new MyWindowAdapter(this));
         BUILDER.createLabel(this, text, 0, 1);
         final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getMessages("Okay"), 1, 3);

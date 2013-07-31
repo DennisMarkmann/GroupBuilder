@@ -59,7 +59,7 @@ public class CreateGroupFrameListener implements ActionListener {
                 new NotToHandleException(e.getStackTrace());
             }
             if (groupName.equals("")) {
-                new EmptyValueException("groupName").showDialog();
+                new EmptyValueException(this.pojo.getMessages("GroupName")).showDialog();
                 return;
             }
 

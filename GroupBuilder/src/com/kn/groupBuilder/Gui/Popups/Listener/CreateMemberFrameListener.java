@@ -60,11 +60,11 @@ public class CreateMemberFrameListener implements ActionListener {
             final Group group = this.pojo.getGroupByName(groupName);
 
             if (firstName.equals("")) {
-                new EmptyValueException("firstName").showDialog();
+                new EmptyValueException(this.pojo.getMessages("FirstName")).showDialog();
                 return;
             }
             if (lastName.equals("")) {
-                new EmptyValueException("lastName").showDialog();
+                new EmptyValueException(this.pojo.getMessages("LastName")).showDialog();
                 return;
             }
 
