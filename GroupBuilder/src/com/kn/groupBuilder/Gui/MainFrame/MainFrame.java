@@ -96,7 +96,9 @@ public class MainFrame extends JFrame implements DefaultFrame {
         return instance;
     }
 
-    public void reload(final MainFrame instance) {
+    public void reload() {
         instance.dispose();
+        instance = new MainFrame();
+        instance.createGui(this.pojo);
     }
 }

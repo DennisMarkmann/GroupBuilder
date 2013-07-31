@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import com.kn.groupBuilder.Exceptions.NotToHandleException;
 import com.kn.groupBuilder.FileOperations.Reader.FileReaderHelper;
 import com.kn.groupBuilder.FileOperations.Writer.SettingsFileWriter;
+import com.kn.groupBuilder.Gui.MainFrame.MainFrame;
 import com.kn.groupBuilder.Gui.Menu.SettingsFrame;
 import com.kn.groupBuilder.Gui.Popups.OperationSuccessfullFrame;
 import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
@@ -98,7 +99,7 @@ public class SettingsFrameListener implements ActionListener {
             this.settingsFrame.closeWindow();
             new SettingsFileWriter().createXmlFile(this.pojo);
             OperationSuccessfullFrame.getInstance(this.pojo.getMessages("SettingsChanged"), this.pojo);
-            // MainFrame.getInstance().reload(MainFrame.getInstance());
+            MainFrame.getInstance().reload();
 
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {
             this.settingsFrame.closeWindow();

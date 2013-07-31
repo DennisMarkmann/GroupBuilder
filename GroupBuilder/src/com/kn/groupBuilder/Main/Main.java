@@ -34,7 +34,7 @@ public final class Main { // NO_UCD
 
         // new DefaultTestCreator().startTests(pojo);
 
-        new MainFrame().createGui(pojo);
+        MainFrame.getInstance().createGui(pojo);
 
     }
 }

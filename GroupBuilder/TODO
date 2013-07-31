@@ -1,8 +1,7 @@
 1. Version 1.0:
 					
 	1.0.Mehrsprachen Unterstützung
-		1.0.1.Sprache zur Laufzeit ändern (MainFrame nervt..)
-		1.0.2.ConfirmationFrame auch die actions auf deutsch mitgeben
+		1.0.1.ConfirmationFrame auch die actions auf deutsch mitgeben
 			Vielleicht actions extra auflösen? (intern einfache, kurze Bezeichnungen & extern komplex und aussagekräftig)
 
 	
