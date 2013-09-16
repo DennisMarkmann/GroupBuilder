@@ -1,9 +1,13 @@
 1. Version 1.0:
 
-	ExceptionHandling !!!
+	1.0.Sortier Funktion für Tabellen (Nach den jeweiligen Spalten der Tabelle)
 
-	Hinzufügen zu Gruppen / Ausdrucken und Email überprüfen (Memberliste unvollständig)
-	Übersetzen der Tabellen Header
+	1.1.ExceptionHandling !!!
+	
+	1.2.Vollständige Übersetzung (WindowClosing / Directory / Tabellen)
+
+	1.3.Hinzufügen zu Gruppen / Ausdrucken und Email überprüfen (Memberliste unvollständig)
+		Übersetzen der Tabellen Header
 
 	
 2. CleanUp:
@@ -46,4 +50,3 @@
 		3.3.2.DefaultButtons und Selects festlegen
 		3.3.3.KeyListener für Elemente (Enter & Escape)
 	
-	3.4.Sortier Funktion für Tabellen (Nach den jeweiligen Spalten der Tabelle)
