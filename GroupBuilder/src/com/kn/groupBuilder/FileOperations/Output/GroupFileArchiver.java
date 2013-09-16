@@ -5,6 +5,7 @@ import java.io.File;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
+import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.CopyOperationException;
 import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
 
 /**
@@ -17,22 +18,31 @@ import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
 
 public class GroupFileArchiver {
 
-    public final void archivGroupFiles(final Pojo pojo) {
+	public final void archivGroupFiles(final Pojo pojo) {
 
-        final String archivPath = this.createArchivFolder(pojo.getSettings().getPath());
+		final String archivPath = this.createArchivFolder(pojo.getSettings()
+				.getPath());
 
-        final File[] files = new File(pojo.getSettings().getPath() + "Groups//").listFiles();
+		final File[] files = new File(pojo.getSettings().getPath() + "Groups//")
+				.listFiles();
 
-        for (final File file : files) {
-            new FileCopy().copy(file.getAbsolutePath(), archivPath + file.getName());
-        }
-    }
+		for (final File file : files) {
+			try {
+				new FileCopy().copy(file.getAbsolutePath(),
+						archivPath + file.getName());
+			} catch (final CopyOperationException e) {
+				// TODO
+				e.printStackTrace();
+			}
+		}
+	}
 
-    private String createArchivFolder(final String path) {
-        final String archivPath = path + "Archive//" + new DateHelper().getFullDate() + "//";
-        new File(archivPath).mkdirs();
-        return archivPath;
+	private String createArchivFolder(final String path) {
+		final String archivPath = path + "Archive//"
+				+ new DateHelper().getFullDate() + "//";
+		new File(archivPath).mkdirs();
+		return archivPath;
 
-    }
+	}
 
 }

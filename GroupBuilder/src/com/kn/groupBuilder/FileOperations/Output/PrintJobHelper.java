@@ -10,6 +10,8 @@ import com.kn.groupBuilder.Storage.Group;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.DefaultJobs.Print.PrintJob;
+import dennis.markmann.MyLibraries.DefaultJobs.Print.PrintOperationException;
+import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelectionException;
 import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
 
 /**
@@ -22,29 +24,40 @@ import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
 
 public class PrintJobHelper {
 
-    public final void printOutForGroups(final Pojo pojo, final ArrayList<Group> groupList) {
-        this.selectPrinter(pojo);
+	public final void printOutForGroups(final Pojo pojo,
+			final ArrayList<Group> groupList) {
+		this.selectPrinter(pojo);
 
-        if (groupList.size() == 0) {
-            new NothingToDoExeption(pojo.getTranslation("Print")).showDialog();
-            return;
-        }
+		if (groupList.size() == 0) {
+			new NothingToDoExeption(pojo.getTranslation("Print")).showDialog();
+			return;
+		}
 
-        for (final Group group : groupList) {
-            this.printGroup(pojo, group.getName());
-        }
-    }
+		for (final Group group : groupList) {
+			this.printGroup(pojo, group.getName());
+		}
+	}
 
-    private void printGroup(final Pojo pojo, final String groupName) {
-        final String printText = new TextCreator().createGroupText(pojo.getGroupByName(groupName));
-        new PrintJob().printText(printText);
-    }
+	private void printGroup(final Pojo pojo, final String groupName) {
+		final String printText = new TextCreator().createGroupText(pojo
+				.getGroupByName(groupName));
+		try {
+			new PrintJob().printText(printText);
+		} catch (final PrinterSelectionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (final PrintOperationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
-    private void selectPrinter(final Pojo pojo) {
-        for (final PrintService printer : PrintServiceLookup.lookupPrintServices(null, null)) {
-            if (printer.getName().equals(pojo.getSettings().getPrinter())) {
-                PrinterSelector.getInstance().setPrinter(printer);
-            }
-        }
-    }
+	private void selectPrinter(final Pojo pojo) {
+		for (final PrintService printer : PrintServiceLookup
+				.lookupPrintServices(null, null)) {
+			if (printer.getName().equals(pojo.getSettings().getPrinter())) {
+				PrinterSelector.getInstance().setPrinter(printer);
+			}
+		}
+	}
 }
