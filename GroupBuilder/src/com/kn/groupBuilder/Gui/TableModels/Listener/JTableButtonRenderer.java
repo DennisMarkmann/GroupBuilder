@@ -1,4 +1,4 @@
-package com.kn.groupBuilder.Gui.TableModels.Implementations;
+package com.kn.groupBuilder.Gui.TableModels.Listener;
 
 import java.awt.Component;
 

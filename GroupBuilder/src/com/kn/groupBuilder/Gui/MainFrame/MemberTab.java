@@ -2,48 +2,91 @@ package com.kn.groupBuilder.Gui.MainFrame;
 
 import java.awt.GridBagConstraints;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import com.kn.groupBuilder.Gui.MainFrame.Listener.MemberTabListener;
 import com.kn.groupBuilder.Gui.TableModels.MemberTableModel;
+import com.kn.groupBuilder.Gui.TableModels.Listener.JTableButtonMouseListener;
+import com.kn.groupBuilder.Gui.TableModels.Listener.JTableButtonRenderer;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultTab;
 
 /**
- * Main tab of the GUI. Used to access many other operations and to see the different member via table.
+ * Main tab of the GUI. Used to access many other operations and to see the
+ * different member via table.
  * 
  * @author dennis.markmann
  * @since JDK.1.7.0_21
  * @version 1.0
  */
 
-class MemberTab extends JPanel implements DefaultTab {
+public class MemberTab extends JPanel implements DefaultTab {
 
-    private static final long serialVersionUID = 3210114640051532404L;
+	private final TableRowSorter<TableModel> sorter;
 
-    MemberTab(final Pojo pojo) {
+	private static final long serialVersionUID = 3210114640051532404L;
 
-        final ArrayList<String> buttonRenderCols = new ArrayList<String>();
-        buttonRenderCols.add("Edit");
-        buttonRenderCols.add("Remove");
+	MemberTab(final Pojo pojo) {
 
-        BUILDER.setDefaultTabSettings(this);
-        BUILDER.createTable(this, 0, 0, new JTable(MemberTableModel.createTable(pojo)), buttonRenderCols);
+		final ArrayList<String> buttonRenderCols = new ArrayList<String>();
+		buttonRenderCols.add("Edit");
+		buttonRenderCols.add("Remove");
 
-        BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
-        final JButton addButton = BUILDER.createButton(this, "addButton", "Add Member", 0, 5);
-        final JButton buildButton = BUILDER.createButton(this, "assignButton", "Assign Groups", 0, 6);
-        final JButton saveButton = BUILDER.createButton(this, "saveButton", "Save", 0, 7);
+		BUILDER.setDefaultTabSettings(this);
 
-        final MemberTabListener listener = new MemberTabListener(pojo);
+		final TableModel model = MemberTableModel.createTable(pojo);
 
-        addButton.addActionListener(listener);
-        buildButton.addActionListener(listener);
-        saveButton.addActionListener(listener);
+		//
+		final JTable table = new JTable(model);
+		final TableCellRenderer buttonRenderer = new JTableButtonRenderer();
 
-    }
+		for (final String rowName : buttonRenderCols) {
+			table.getColumn(rowName).setCellRenderer(buttonRenderer);
+		}
+		table.addMouseListener(new JTableButtonMouseListener(table, null, this));
+		table.getTableHeader().addMouseListener(
+				new JTableButtonMouseListener(table, null, this));
+
+		final JScrollPane scrollPane = new JScrollPane(table);
+		table.setFillsViewportHeight(true);
+
+		BUILDER.setPosition(this, BUILDER.getGridBagConstraints(), 0, 0,
+				scrollPane);
+		//
+		this.sorter = new TableRowSorter<TableModel>();
+		table.setRowSorter(this.sorter);
+		this.sorter.setModel(model);
+		// this.sorter.setComparator(1, new LastNameComparator());
+		//
+		// BUILDER.createTable(this, 0, 0, new
+		// JTable(MemberTableModel.createTable(pojo)), buttonRenderCols);
+
+		BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
+		final JButton addButton = BUILDER.createButton(this, "addButton",
+				"Add Member", 0, 5);
+		final JButton buildButton = BUILDER.createButton(this, "assignButton",
+				"Assign Groups", 0, 6);
+		final JButton saveButton = BUILDER.createButton(this, "saveButton",
+				"Save", 0, 7);
+
+		final MemberTabListener listener = new MemberTabListener(pojo);
+
+		addButton.addActionListener(listener);
+		buildButton.addActionListener(listener);
+		saveButton.addActionListener(listener);
+
+	}
+
+	public void sort(final int columnIndex, final Comparator<?> comparator) {
+		this.sorter.setComparator(columnIndex, comparator);
+	}
 }

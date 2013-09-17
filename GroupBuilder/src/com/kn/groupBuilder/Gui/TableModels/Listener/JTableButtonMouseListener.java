@@ -1,10 +1,13 @@
-package com.kn.groupBuilder.Gui.TableModels.Implementations;
+package com.kn.groupBuilder.Gui.TableModels.Listener;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JTable;
+
+import com.kn.groupBuilder.Gui.MainFrame.GroupTab;
+import com.kn.groupBuilder.Gui.MainFrame.MemberTab;
 
 /**
  * MouseListener to enable mouse events on JTables.
@@ -17,9 +20,15 @@ import javax.swing.JTable;
 public class JTableButtonMouseListener extends MouseAdapter {
 
 	private final JTable table;
+	private final GroupTab groupTab;
+	private final MemberTab memberTab;
 
-	public JTableButtonMouseListener(final JTable table) {
+	public JTableButtonMouseListener(final JTable table,
+			final GroupTab groupTab, final MemberTab memberTab) {
+
 		this.table = table;
+		this.groupTab = groupTab;
+		this.memberTab = memberTab;
 	}
 
 	@Override
@@ -30,8 +39,14 @@ public class JTableButtonMouseListener extends MouseAdapter {
 		final int index = this.table.columnAtPoint(e.getPoint());
 
 		if (index >= 0) {
-			// TODO
-			// System.out.println(this.table.getColumnName(index));
+
+			System.out.println(this.table.getColumnName(index));
+			// if (this.groupTab != null) {
+			// // this.groupTab.sort(index, new LastNameComparator());
+			// }
+			// if (this.memberTab != null) {
+			// this.memberTab.sort(index, new LastNameComparator());
+			// }
 		}
 
 		if (row < this.table.getRowCount() && row >= 0

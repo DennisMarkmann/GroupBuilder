@@ -2,17 +2,20 @@ package com.kn.groupBuilder.Gui.MainFrame;
 
 import java.awt.GridBagConstraints;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import com.kn.groupBuilder.Gui.MainFrame.Listener.GroupTabListener;
 import com.kn.groupBuilder.Gui.TableModels.GroupTableModel;
-import com.kn.groupBuilder.Gui.TableModels.Implementations.JTableButtonMouseListener;
-import com.kn.groupBuilder.Gui.TableModels.Implementations.JTableButtonRenderer;
+import com.kn.groupBuilder.Gui.TableModels.Listener.JTableButtonMouseListener;
+import com.kn.groupBuilder.Gui.TableModels.Listener.JTableButtonRenderer;
 import com.kn.groupBuilder.Storage.Pojo;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultTab;
@@ -26,7 +29,9 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.Default
  * @version 1.0
  */
 
-class GroupTab extends JPanel implements DefaultTab {
+public class GroupTab extends JPanel implements DefaultTab {
+
+	private final TableRowSorter<TableModel> sorter;
 
 	private static final long serialVersionUID = 1673516265342795696L;
 
@@ -38,17 +43,23 @@ class GroupTab extends JPanel implements DefaultTab {
 
 		BUILDER.setDefaultTabSettings(this);
 
+		final TableModel model = GroupTableModel.createTable(pojo);
 		//
-		final JTable table = new JTable(GroupTableModel.createTable(pojo));
+		final JTable table = new JTable(model);
 		final TableCellRenderer buttonRenderer = new JTableButtonRenderer();
 
 		for (final String rowName : buttonRenderCols) {
 			table.getColumn(rowName).setCellRenderer(buttonRenderer);
 		}
-		table.addMouseListener(new JTableButtonMouseListener(table));
+		table.addMouseListener(new JTableButtonMouseListener(table, this, null));
 		table.getTableHeader().addMouseListener(
-				new JTableButtonMouseListener(table));
-
+				new JTableButtonMouseListener(table, this, null));
+		//
+		this.sorter = new TableRowSorter<TableModel>();
+		table.setRowSorter(this.sorter);
+		this.sorter.setModel(model);
+		// this.sorter.setComparator(2, new LastNameComparator());
+		//
 		final JScrollPane scrollPane = new JScrollPane(table);
 		table.setFillsViewportHeight(true);
 
@@ -71,5 +82,9 @@ class GroupTab extends JPanel implements DefaultTab {
 		addButton.addActionListener(listener);
 		createGroupsButton.addActionListener(listener);
 		saveButton.addActionListener(listener);
+	}
+
+	public void sort(final int columnIndex, final Comparator<?> comparator) {
+		this.sorter.setComparator(columnIndex, comparator);
 	}
 }
