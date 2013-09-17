@@ -44,30 +44,24 @@ public class GroupTab extends JPanel implements DefaultTab {
 		BUILDER.setDefaultTabSettings(this);
 
 		final TableModel model = GroupTableModel.createTable(pojo);
-		//
+
 		final JTable table = new JTable(model);
 		final TableCellRenderer buttonRenderer = new JTableButtonRenderer();
 
 		for (final String rowName : buttonRenderCols) {
 			table.getColumn(rowName).setCellRenderer(buttonRenderer);
 		}
-		table.addMouseListener(new JTableButtonMouseListener(table, this, null));
-		table.getTableHeader().addMouseListener(
-				new JTableButtonMouseListener(table, this, null));
-		//
+		table.addMouseListener(new JTableButtonMouseListener(table));
+
 		this.sorter = new TableRowSorter<TableModel>();
 		table.setRowSorter(this.sorter);
 		this.sorter.setModel(model);
-		// this.sorter.setComparator(2, new LastNameComparator());
-		//
+
 		final JScrollPane scrollPane = new JScrollPane(table);
 		table.setFillsViewportHeight(true);
 
 		BUILDER.setPosition(this, BUILDER.getGridBagConstraints(), 0, 0,
 				scrollPane);
-
-		// BUILDER.createTable(this, 0, 0,
-		// new JTable(GroupTableModel.createTable(pojo)), buttonRenderCols);
 
 		BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
 		final JButton addButton = BUILDER.createButton(this, "addButton",

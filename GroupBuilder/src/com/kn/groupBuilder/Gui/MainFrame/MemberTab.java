@@ -2,7 +2,6 @@ package com.kn.groupBuilder.Gui.MainFrame;
 
 import java.awt.GridBagConstraints;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -45,30 +44,25 @@ public class MemberTab extends JPanel implements DefaultTab {
 
 		final TableModel model = MemberTableModel.createTable(pojo);
 
-		//
 		final JTable table = new JTable(model);
 		final TableCellRenderer buttonRenderer = new JTableButtonRenderer();
 
 		for (final String rowName : buttonRenderCols) {
 			table.getColumn(rowName).setCellRenderer(buttonRenderer);
 		}
-		table.addMouseListener(new JTableButtonMouseListener(table, null, this));
-		table.getTableHeader().addMouseListener(
-				new JTableButtonMouseListener(table, null, this));
+		table.addMouseListener(new JTableButtonMouseListener(table));
+		// table.getTableHeader().addMouseListener(
+		// new JTableButtonMouseListener(table, null, this));
 
 		final JScrollPane scrollPane = new JScrollPane(table);
 		table.setFillsViewportHeight(true);
 
 		BUILDER.setPosition(this, BUILDER.getGridBagConstraints(), 0, 0,
 				scrollPane);
-		//
+
 		this.sorter = new TableRowSorter<TableModel>();
 		table.setRowSorter(this.sorter);
 		this.sorter.setModel(model);
-		// this.sorter.setComparator(1, new LastNameComparator());
-		//
-		// BUILDER.createTable(this, 0, 0, new
-		// JTable(MemberTableModel.createTable(pojo)), buttonRenderCols);
 
 		BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
 		final JButton addButton = BUILDER.createButton(this, "addButton",
@@ -86,7 +80,4 @@ public class MemberTab extends JPanel implements DefaultTab {
 
 	}
 
-	public void sort(final int columnIndex, final Comparator<?> comparator) {
-		this.sorter.setComparator(columnIndex, comparator);
-	}
 }
