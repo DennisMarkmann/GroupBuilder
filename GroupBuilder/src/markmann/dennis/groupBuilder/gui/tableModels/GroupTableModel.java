@@ -24,95 +24,95 @@ import dennis.markmann.MyLibraries.GuiJobs.Builder.ComponentBuilder;
 
 public final class GroupTableModel extends AbstractTableModel {
 
-	private static final long serialVersionUID = -3758449082711896808L;
-	private final ComponentBuilder componentBuilder = new ComponentBuilder();
-	private static GroupTableModel instance = null;
-	private Pojo pojo = null;
-	private final ArrayList<Group> groupList;
-	private final String[] cols = { "GroupName", "Description", "FixSize",
-			"Edit", "Remove" };
-	private final Class<?>[] columnTypes = new Class<?>[] { String.class,
-			String.class, String.class, JButton.class, JButton.class };
+    private static final long serialVersionUID = -3758449082711896808L;
+    private final ComponentBuilder componentBuilder = new ComponentBuilder();
+    private static GroupTableModel instance = null;
+    private Pojo pojo = null;
+    private final ArrayList<Group> groupList;
+    private final String[] cols = { "GroupName", "Description", "FixSize", "Edit", "Remove" };
+    private final Class<?>[] columnTypes = new Class<?>[] {
+            String.class,
+            String.class,
+            String.class,
+            JButton.class,
+            JButton.class };
 
-	private GroupTableModel(final Pojo pojo) {
-		this.pojo = pojo;
-		this.groupList = pojo.getGroupList();
-		Collections.sort(this.groupList);
-	}
+    private GroupTableModel(final Pojo pojo) {
+        this.pojo = pojo;
+        this.groupList = pojo.getGroupList();
+        Collections.sort(this.groupList);
+    }
 
-	public static TableModel createTable(final Pojo pojo) {
-		if (instance == null) {
-			instance = new GroupTableModel(pojo);
-		}
-		return instance;
-	}
+    public static TableModel createTable(final Pojo pojo) {
+        if (instance == null) {
+            instance = new GroupTableModel(pojo);
+        }
+        return instance;
+    }
 
-	public static void refreshTable() {
-		Collections.sort(instance.groupList);
-		instance.fireTableDataChanged();
-	}
+    public static void refreshTable() {
+        Collections.sort(instance.groupList);
+        instance.fireTableDataChanged();
+    }
 
-	@Override
-	public int getRowCount() {
-		return this.groupList.size();
-	}
+    @Override
+    public int getRowCount() {
+        return this.groupList.size();
+    }
 
-	@Override
-	public int getColumnCount() {
-		return this.cols.length;
-	}
+    @Override
+    public int getColumnCount() {
+        return this.cols.length;
+    }
 
-	@Override
-	public String getColumnName(final int col) {
-		return this.cols[col];
-	}
+    @Override
+    public String getColumnName(final int col) {
+        return this.cols[col];
+    }
 
-	@Override
-	public Class<?> getColumnClass(final int columnIndex) {
-		return this.columnTypes[columnIndex];
-	}
+    @Override
+    public Class<?> getColumnClass(final int columnIndex) {
+        return this.columnTypes[columnIndex];
+    }
 
-	@Override
-	public Object getValueAt(final int rowIndex, final int columnIndex) {
+    @Override
+    public Object getValueAt(final int rowIndex, final int columnIndex) {
 
-		switch (columnIndex) {
-		case 0:
-			return this.groupList.get(rowIndex).getName();
+        switch (columnIndex) {
+        case 0:
+            return this.groupList.get(rowIndex).getName();
 
-		case 1:
-			return this.groupList.get(rowIndex).getDescription();
+        case 1:
+            return this.groupList.get(rowIndex).getDescription();
 
-		case 2:
-			return this.groupList.get(rowIndex).getFixSize() + "";
+        case 2:
+            return this.groupList.get(rowIndex).getFixSize() + "";
 
-		case 3:
-		case 4:
-			final JButton button = this.componentBuilder.createButton(
-					this.cols[columnIndex] + "Button", "");
+        case 3:
+        case 4:
+            final JButton button = this.componentBuilder.createButton(this.cols[columnIndex] + "Button", "");
 
-			if (this.cols[columnIndex].equals("Remove")) {
-				try {
-					button.setIcon(new IconHelper()
-							.getIcon("com/kn/groupBuilder/Gui/TableModels/Icons/Delete_Icon.png"));
-				} catch (final FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			} else if (this.cols[columnIndex].equals("Edit")) {
-				try {
-					button.setIcon(new IconHelper()
-							.getIcon("com/kn/groupBuilder/Gui/TableModels/Icons/Edit_Icon.png"));
-				} catch (final FileNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			button.addActionListener(new TableListener(this.pojo, rowIndex,
-					this.pojo.getTranslation(this.cols[columnIndex] + "Group")));
-			return button;
+            if (this.cols[columnIndex].equals("Remove")) {
+                try {
+                    button.setIcon(new IconHelper().getIcon("markmann/dennis/groupBuilder/gui/tableModels/icons/Delete_Icon.png"));
+                } catch (final FileNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            } else if (this.cols[columnIndex].equals("Edit")) {
+                try {
+                    button.setIcon(new IconHelper().getIcon("markmann/dennis/groupBuilder/gui/tableModels/icons/Edit_Icon.png"));
+                } catch (final FileNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            button.addActionListener(new TableListener(this.pojo, rowIndex, this.pojo.getTranslation(this.cols[columnIndex]
+                    + "Group")));
+            return button;
 
-		default:
-			return "Error";
-		}
-	}
+        default:
+            return "Error";
+        }
+    }
 }
