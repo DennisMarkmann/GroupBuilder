@@ -1,7 +1,5 @@
 package markmann.dennis.groupBuilder.exceptions;
 
-import markmann.dennis.groupBuilder.fileOperations.output.ExceptionLogger;
-
 /**
  * Exception thrown if a file can't be written sucessfully.
  * 
@@ -24,7 +22,6 @@ public class EmailAddressException extends SuperException implements
 
 		// TODO deutsche Übersetzung
 		super(errorTitel, errorMessage);
-		new ExceptionLogger().logException(this);
 		this.message = (e.getErrorMessage());
 	}
 

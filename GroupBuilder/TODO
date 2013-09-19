@@ -1,14 +1,14 @@
-1. Version 1.0:
+1. Fehler:
 
-	1.1.ExceptionHandling
-		
-		ExceptionLogging verbessern : Nicht die statische sondern die dynamische Meldung loggen
-		Übersetzung der Meldungen auf Deutsch (Siehe TODOs)
+	1.0.ExceptionHandling
+		1.0.1.ExceptionLogging verbessern : Nicht die statische sondern die dynamische Meldung loggen
+		1.0.2.Übersetzung der Meldungen auf Deutsch (Siehe TODOs)
 	
-	1.2.Vollständige Übersetzung (WindowClosing / Directory / Tabellen)
-		Übersetzen der Tabellen Header
+	1.1.Vollständige Übersetzung
+		1.1.1.WindowClosing / Directory Fehler?
+		1.1.2.Übersetzen der Tabellen Header
 
-	1.3.Hinzufügen zu Gruppen / Ausdrucken und Email überprüfen (Memberliste unvollständig)
+	1.2.Hinzufügen zu Gruppen / Ausdrucken und Email überprüfen (Memberliste unvollständig)
 
 	
 2. CleanUp:
@@ -31,10 +31,11 @@
 	2.5.Edit- / CreateMemberFrame & Edit- / CreateGroupFrame zusammenfassen
 	
 	2.6.Print- / EmailFrame & Print- / EmailFrameListener zusammenfassen
-		
+	
+	2.7.Zum aktualisieren (z.B. der Sprache) Observer implementieren.	
 
 
-3. Version 2.0:
+3. Features:
 
 	3.0. Änderungen loggen:
 		3.0.1.'Changed' Attribut für Gruppen implementieren
