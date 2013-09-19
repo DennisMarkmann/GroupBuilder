@@ -1,6 +1,7 @@
 package markmann.dennis.groupBuilder.exceptions;
 
 import markmann.dennis.groupBuilder.storage.Pojo;
+import dennis.markmann.MyLibraries.DefaultJobs.IconHelper.FileNotFoundException;
 
 /**
  * Exception thrown if no file can't be found at the chosen location.
@@ -23,6 +24,12 @@ public class NoFilesFoundException extends SuperException implements
 
 		super(errorTitel, errorMessage);
 		this.message = (Pojo.getPojo().getTranslation("NoFilesFoundText") + path);
+	}
+
+	public NoFilesFoundException(final FileNotFoundException e) {
+		super(errorTitel, errorMessage);
+		// TODO deutsche Übersetzung
+		this.message = (e.getErrorMessage());
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package markmann.dennis.groupBuilder.exceptions;
 
 import markmann.dennis.groupBuilder.fileOperations.output.ExceptionLogger;
-import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Exception thrown if a file can't be written sucessfully.
@@ -11,21 +10,22 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * @version 1.0
  */
 
-public class WriteOperationException extends SuperException implements
+public class EmailSendingException extends SuperException implements
 		ExceptionDialogInterface {
 
-	private static final String errorTitel = "WriteOperationException";
-	private static final String errorMessage = "An error appeared while trying to fullfill the operation. Cookie was invalid.";
+	private static final String errorTitel = "EmailSendingException";
+	private static final String errorMessage = "An error appeared while trying to send a mail.";
 	private final String message;
 
 	private static final long serialVersionUID = 6498733673905740756L;
 
-	public WriteOperationException(final String path) {
+	public EmailSendingException(
+			final dennis.markmann.MyLibraries.DefaultJobs.Email.EmailSendingException e) {
 
+		// TODO deutsche Übersetzung
 		super(errorTitel, errorMessage);
 		new ExceptionLogger().logException(this);
-		this.message = (Pojo.getPojo().getTranslation("WriteOperationText") + path);
-		Pojo.getPojo().setError(true);
+		this.message = (e.getErrorMessage());
 	}
 
 	@Override

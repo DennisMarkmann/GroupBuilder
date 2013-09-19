@@ -2,6 +2,7 @@ package markmann.dennis.groupBuilder.fileOperations.output;
 
 import java.io.File;
 
+import markmann.dennis.groupBuilder.exceptions.CopyException;
 import markmann.dennis.groupBuilder.storage.Pojo;
 import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
 import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.CopyOperationException;
@@ -30,8 +31,7 @@ public class GroupFileArchiver {
 				new FileCopy().copy(file.getAbsolutePath(),
 						archivPath + file.getName());
 			} catch (final CopyOperationException e) {
-				// TODO
-				e.printStackTrace();
+				new CopyException(e).showDialog();
 			}
 		}
 	}

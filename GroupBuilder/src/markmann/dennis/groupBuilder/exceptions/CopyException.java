@@ -1,7 +1,7 @@
 package markmann.dennis.groupBuilder.exceptions;
 
 import markmann.dennis.groupBuilder.fileOperations.output.ExceptionLogger;
-import markmann.dennis.groupBuilder.storage.Pojo;
+import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.CopyOperationException;
 
 /**
  * Exception thrown if a file can't be written sucessfully.
@@ -11,21 +11,20 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * @version 1.0
  */
 
-public class WriteOperationException extends SuperException implements
+public class CopyException extends SuperException implements
 		ExceptionDialogInterface {
 
-	private static final String errorTitel = "WriteOperationException";
-	private static final String errorMessage = "An error appeared while trying to fullfill the operation. Cookie was invalid.";
+	private static final String errorTitel = "CopyException";
+	private static final String errorMessage = "An error appeared while trying to copy a file.";
 	private final String message;
 
 	private static final long serialVersionUID = 6498733673905740756L;
 
-	public WriteOperationException(final String path) {
-
+	public CopyException(final CopyOperationException e) {
+		// TODO deutsche Übersetzung
 		super(errorTitel, errorMessage);
 		new ExceptionLogger().logException(this);
-		this.message = (Pojo.getPojo().getTranslation("WriteOperationText") + path);
-		Pojo.getPojo().setError(true);
+		this.message = (e.getErrorMessage());
 	}
 
 	@Override

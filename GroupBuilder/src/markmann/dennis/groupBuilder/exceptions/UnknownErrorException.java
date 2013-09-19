@@ -25,11 +25,11 @@ public class UnknownErrorException extends SuperException implements
 		this.message = (Pojo.getPojo().getTranslation("UnknownErrorLineOne")
 				+ operation + Pojo.getPojo().getTranslation(
 				"UnknownErrorLineTwo"));
+		Pojo.getPojo().setError(true);
 	}
 
 	@Override
 	public final void showDialog() {
 		super.showDialog(this.message);
-		Pojo.getPojo().setError(true);
 	}
 }

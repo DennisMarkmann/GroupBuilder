@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import markmann.dennis.groupBuilder.storage.Pojo;
-
 /**
  * Used as super class for other exceptions to implement the showErrorMessage
  * method.
@@ -52,6 +50,5 @@ public class SuperException extends Exception {
 	public final void showDialog(final String message) {
 		JOptionPane.showMessageDialog(null, message, "Error",
 				JOptionPane.ERROR_MESSAGE);
-		Pojo.getPojo().setError(true);
 	}
 }

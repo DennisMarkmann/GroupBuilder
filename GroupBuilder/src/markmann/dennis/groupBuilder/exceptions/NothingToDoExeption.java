@@ -24,11 +24,11 @@ public class NothingToDoExeption extends SuperException implements
 		super(errorTitel, errorMessage);
 		this.message = (Pojo.getPojo().getTranslation("NothingSelectedText")
 				+ operation + ".");
+		Pojo.getPojo().setError(true);
 	}
 
 	@Override
 	public final void showDialog() {
 		super.showDialog(this.message);
-		Pojo.getPojo().setError(true);
 	}
 }

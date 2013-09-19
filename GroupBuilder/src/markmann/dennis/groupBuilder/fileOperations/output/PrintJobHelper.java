@@ -43,11 +43,11 @@ public class PrintJobHelper {
 		try {
 			new PrintJob().printText(printText);
 		} catch (final PrinterSelectionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			new markmann.dennis.groupBuilder.exceptions.PrinterSelectionException(
+					e);
 		} catch (final PrintOperationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			new markmann.dennis.groupBuilder.exceptions.PrintOperationException(
+					e);
 		}
 	}
 

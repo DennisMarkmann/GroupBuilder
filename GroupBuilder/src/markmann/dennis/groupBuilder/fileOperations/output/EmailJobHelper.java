@@ -43,11 +43,9 @@ public class EmailJobHelper {
 		try {
 			new EmailJob().sendMail(this.setEmailSettings(), emailList);
 		} catch (final EmailSendingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			new markmann.dennis.groupBuilder.exceptions.EmailSendingException(e);
 		} catch (final EmailAddressException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			new markmann.dennis.groupBuilder.exceptions.EmailAddressException(e);
 		}
 	}
 
