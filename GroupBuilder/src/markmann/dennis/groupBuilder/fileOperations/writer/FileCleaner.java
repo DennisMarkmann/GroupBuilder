@@ -17,48 +17,52 @@ import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
 
 public class FileCleaner {
 
-    final void updateArchive(final Pojo pojo) {
+	final void updateArchive(final Pojo pojo) {
 
-        final File filePath = new File(pojo.getSettings().getPath() + "Archive\\");
-        try {
-            for (final File file : filePath.listFiles()) {
-                if (!pojo.getSettings().isArchived() || this.checkDeletionDate(file.getName(), pojo)) {
-                    this.cleanFolder(file.getPath());
-                }
-            }
-        } catch (final java.lang.NullPointerException e) {
-            new NotToHandleException(e.getStackTrace());
-        }
-    }
+		final File filePath = new File(pojo.getSettings().getPath()
+				+ "Archive\\");
+		try {
+			for (final File file : filePath.listFiles()) {
+				if (!pojo.getSettings().isArchived()
+						|| this.checkDeletionDate(file.getName(), pojo)) {
+					this.cleanFolder(file.getPath());
+				}
+			}
+		} catch (final java.lang.NullPointerException e) {
+			new NotToHandleException();
+		}
+	}
 
-    public final void cleanFolder(final String path) {
+	public final void cleanFolder(final String path) {
 
-        final File filePath = new File(path);
-        try {
-            for (final File file : filePath.listFiles()) {
-                if (!file.isDirectory()) {
-                    file.delete();
-                } else {
-                    this.cleanFolder(file.getAbsolutePath());
-                }
-            }
-            filePath.delete();
-        } catch (final java.lang.NullPointerException e) {
-            new NotToHandleException(e.getStackTrace());
-        }
-    }
+		final File filePath = new File(path);
+		try {
+			for (final File file : filePath.listFiles()) {
+				if (!file.isDirectory()) {
+					file.delete();
+				} else {
+					this.cleanFolder(file.getAbsolutePath());
+				}
+			}
+			filePath.delete();
+		} catch (final java.lang.NullPointerException e) {
+			new NotToHandleException();
+		}
+	}
 
-    private boolean checkDeletionDate(final String fileName, final Pojo pojo) {
-        final DateHelper helper = new DateHelper();
+	private boolean checkDeletionDate(final String fileName, final Pojo pojo) {
+		final DateHelper helper = new DateHelper();
 
-        final Date archiveDate = helper.parseStringToDate(fileName.substring(0, fileName.indexOf("_")));
-        helper.addTime(0, 0, -pojo.getSettings().getArchivingDays(), 0, 0, 0);
-        final Date deletionDate = helper.parseStringToDate(helper.getDate());
+		final Date archiveDate = helper.parseStringToDate(fileName.substring(0,
+				fileName.indexOf("_")));
+		helper.addTime(0, 0, -pojo.getSettings().getArchivingDays(), 0, 0, 0);
+		final Date deletionDate = helper.parseStringToDate(helper.getDate());
 
-        if (archiveDate.before(deletionDate) || archiveDate.equals(deletionDate)) {
-            return true;
-        }
-        return false;
+		if (archiveDate.before(deletionDate)
+				|| archiveDate.equals(deletionDate)) {
+			return true;
+		}
+		return false;
 
-    }
+	}
 }

@@ -1,7 +1,5 @@
 package markmann.dennis.groupBuilder.exceptions;
 
-import javax.swing.JOptionPane;
-
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
@@ -12,17 +10,24 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * @version 1.0
  */
 
-public class DuplicateEntryException extends Exception implements ExceptionDialogInterface {
+public class DuplicateEntryException extends SuperException implements
+		ExceptionDialogInterface {
 
-    private static final long serialVersionUID = -4565962119370664301L;
+	private final static String errorTitel = "DuplicateEntryException";
+	private final static String errorMessage = "The entry already exists.";
+	private final String message;
 
-    public DuplicateEntryException(final String name) {
-        super(Pojo.getPojo().getTranslation("DuplicateEntryLineOne") + name + Pojo.getPojo().getTranslation("DuplicateEntryLineTwo"));
-    }
+	private static final long serialVersionUID = -4565962119370664301L;
 
-    @Override
-    public final void showDialog() {
-        JOptionPane.showMessageDialog(null, this.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        Pojo.getPojo().setError(true);
-    }
+	public DuplicateEntryException(final String name) {
+
+		super(errorTitel, errorMessage);
+		this.message = (Pojo.getPojo().getTranslation("DuplicateEntryLineOne")
+				+ name + Pojo.getPojo().getTranslation("DuplicateEntryLineTwo"));
+	}
+
+	@Override
+	public final void showDialog() {
+		super.showDialog(this.message);
+	}
 }

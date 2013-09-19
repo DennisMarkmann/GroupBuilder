@@ -1,7 +1,5 @@
 package markmann.dennis.groupBuilder.exceptions;
 
-import javax.swing.JOptionPane;
-
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
@@ -12,17 +10,23 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * @version 1.0
  */
 
-public class NoFilesFoundException extends Exception implements ExceptionDialogInterface {
+public class NoFilesFoundException extends SuperException implements
+		ExceptionDialogInterface {
 
-    private static final long serialVersionUID = -4565962119370664301L;
+	private static final String errorTitel = "NoFilesFoundException";
+	private static final String errorMessage = "No valid data was found at the chosen path.";
+	private final String message;
 
-    public NoFilesFoundException(final String path, final StackTraceElement[] stackTraceElements) {
-        super(Pojo.getPojo().getTranslation("NoFilesFoundText") + path);
-    }
+	private static final long serialVersionUID = -4565962119370664301L;
 
-    @Override
-    public final void showDialog() {
-        JOptionPane.showMessageDialog(null, this.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        Pojo.getPojo().setError(true);
-    }
+	public NoFilesFoundException(final String path) {
+
+		super(errorTitel, errorMessage);
+		this.message = (Pojo.getPojo().getTranslation("NoFilesFoundText") + path);
+	}
+
+	@Override
+	public final void showDialog() {
+		super.showDialog(this.message);
+	}
 }

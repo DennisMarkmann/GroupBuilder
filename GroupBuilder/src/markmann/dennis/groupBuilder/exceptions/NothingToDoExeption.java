@@ -1,7 +1,5 @@
 package markmann.dennis.groupBuilder.exceptions;
 
-import javax.swing.JOptionPane;
-
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
@@ -12,17 +10,25 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * @version 1.0
  */
 
-public class NothingToDoExeption extends Exception implements ExceptionDialogInterface {
+public class NothingToDoExeption extends SuperException implements
+		ExceptionDialogInterface {
 
-    private static final long serialVersionUID = -4565962119370664301L;
+	private static final String errorTitel = "NothingToDoExeption";
+	private static final String errorMessage = "Nothing to do for the chosen operation.";
+	private final String message;
 
-    public NothingToDoExeption(final String operation) {
-        super(Pojo.getPojo().getTranslation("NothingSelectedText") + operation + ".");
-    }
+	private static final long serialVersionUID = -4565962119370664301L;
 
-    @Override
-    public final void showDialog() {
-        JOptionPane.showMessageDialog(null, this.getMessage(), "Warning", JOptionPane.WARNING_MESSAGE);
-        Pojo.getPojo().setError(true);
-    }
+	public NothingToDoExeption(final String operation) {
+
+		super(errorTitel, errorMessage);
+		this.message = (Pojo.getPojo().getTranslation("NothingSelectedText")
+				+ operation + ".");
+	}
+
+	@Override
+	public final void showDialog() {
+		super.showDialog(this.message);
+		Pojo.getPojo().setError(true);
+	}
 }

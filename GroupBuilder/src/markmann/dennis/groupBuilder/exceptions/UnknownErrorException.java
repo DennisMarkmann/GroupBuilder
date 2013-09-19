@@ -1,7 +1,5 @@
 package markmann.dennis.groupBuilder.exceptions;
 
-import javax.swing.JOptionPane;
-
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
@@ -12,17 +10,26 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * @version 1.0
  */
 
-public class UnknownErrorException extends Exception implements ExceptionDialogInterface {
+public class UnknownErrorException extends SuperException implements
+		ExceptionDialogInterface {
 
-    private static final long serialVersionUID = -4565962119370664301L;
+	private static final String errorTitel = "UnknownErrorException";
+	private static final String errorMessage = "An unknown error appeared.";
+	private final String message;
 
-    public UnknownErrorException(final String operation, final StackTraceElement[] stackTraceElements) {
-        super(Pojo.getPojo().getTranslation("UnknownErrorLineOne") + operation + Pojo.getPojo().getTranslation("UnknownErrorLineTwo"));
-    }
+	private static final long serialVersionUID = -4565962119370664301L;
 
-    @Override
-    public final void showDialog() {
-        JOptionPane.showMessageDialog(null, this.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        Pojo.getPojo().setError(true);
-    }
+	public UnknownErrorException(final String operation) {
+
+		super(errorTitel, errorMessage);
+		this.message = (Pojo.getPojo().getTranslation("UnknownErrorLineOne")
+				+ operation + Pojo.getPojo().getTranslation(
+				"UnknownErrorLineTwo"));
+	}
+
+	@Override
+	public final void showDialog() {
+		super.showDialog(this.message);
+		Pojo.getPojo().setError(true);
+	}
 }

@@ -1,7 +1,5 @@
 package markmann.dennis.groupBuilder.exceptions;
 
-import javax.swing.JOptionPane;
-
 /**
  * Exception without any handling needed.
  * 
@@ -10,16 +8,19 @@ import javax.swing.JOptionPane;
  * @version 1.0
  */
 
-public class NotToHandleException extends Exception implements ExceptionDialogInterface {
+public class NotToHandleException extends SuperException implements
+		ExceptionDialogInterface {
 
-    private static final long serialVersionUID = -4565962119370664301L;
+	private static final String errorTitel = "NotToHandleException";
+	private static final String errorMessage = "";
 
-    public NotToHandleException(final StackTraceElement[] stackTraceElements) {
-        super();
-    }
+	private static final long serialVersionUID = -4565962119370664301L;
 
-    @Override
-    public final void showDialog() {
-        JOptionPane.showMessageDialog(null, this.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    }
+	public NotToHandleException() {
+		super(errorTitel, errorMessage);
+	}
+
+	@Override
+	public final void showDialog() {
+	}
 }

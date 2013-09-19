@@ -1,7 +1,5 @@
 package markmann.dennis.groupBuilder.exceptions;
 
-import javax.swing.JOptionPane;
-
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
@@ -12,17 +10,24 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * @version 1.0
  */
 
-public class EmptyValueException extends Exception implements ExceptionDialogInterface {
+public class EmptyValueException extends SuperException implements
+		ExceptionDialogInterface {
 
-    private static final long serialVersionUID = -4565962119370664301L;
+	private static final String errorTitel = "EmptyValueException";
+	private static final String errorMessage = "The chosen value is not allowed to be empty.";
+	private final String message;
 
-    public EmptyValueException(final String field) {
-        super(Pojo.getPojo().getTranslation("EmptyValueLineOne") + field + Pojo.getPojo().getTranslation("EmptyValueLineTwo"));
-    }
+	private static final long serialVersionUID = -4565962119370664301L;
 
-    @Override
-    public final void showDialog() {
-        JOptionPane.showMessageDialog(null, this.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        Pojo.getPojo().setError(true);
-    }
+	public EmptyValueException(final String field) {
+
+		super(errorTitel, errorMessage);
+		this.message = (Pojo.getPojo().getTranslation("EmptyValueLineOne")
+				+ field + Pojo.getPojo().getTranslation("EmptyValueLineTwo"));
+	}
+
+	@Override
+	public final void showDialog() {
+		super.showDialog(this.message);
+	}
 }

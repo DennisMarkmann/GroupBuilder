@@ -2,13 +2,13 @@ package markmann.dennis.groupBuilder.main;
 
 import java.io.IOException;
 
-import markmann.dennis.groupBuilder.fileOperations.reader.FileReaderHelper;
 import markmann.dennis.groupBuilder.gui.mainFrame.MainFrame;
 import markmann.dennis.groupBuilder.storage.Pojo;
+import markmann.dennis.groupBuilder.test.PojoContentTester;
 
 /**
- * Main class for the project. Creates the POJO to store all data in. Starts the read operation for stored GroupBuilder files.
- * Creates the GUI for the user.
+ * Main class for the project. Creates the POJO to store all data in. Starts the
+ * read operation for stored GroupBuilder files. Creates the GUI for the user.
  * 
  * @author dennis.markmann
  * @since JDK.1.7.0_21
@@ -17,24 +17,24 @@ import markmann.dennis.groupBuilder.storage.Pojo;
 
 public final class Main { // NO_UCD
 
-    private Main() {
-        // Should prevent instantiation, throws an exception in case this still
-        // is called somehow.
-        throw new AssertionError("Instantiating utility class");
-    }
+	private Main() {
+		// Should prevent instantiation, throws an exception in case this still
+		// is called somehow.
+		throw new AssertionError("Instantiating utility class");
+	}
 
-    public static void main(final String[] args) throws IOException {
+	public static void main(final String[] args) throws IOException {
 
-        final Pojo pojo = new Pojo();
-        new PropertyHandler().getProperties(pojo);
+		final Pojo pojo = new Pojo();
+		new PropertyHandler().getProperties(pojo);
 
-        // new PojoContentTester().initializeDefaultTest(pojo);
-        new FileReaderHelper().readXMLFiles(pojo);
-        new LanguageChooser().chooseLanguage(pojo);
+		new PojoContentTester().initializeDefaultTest(pojo);
+		// new FileReaderHelper().readXMLFiles(pojo);
+		new LanguageChooser().chooseLanguage(pojo);
 
-        // new DefaultTestCreator().startTests(pojo);
+		// new DefaultTestCreator().startTests(pojo);
 
-        MainFrame.getInstance().createGui(pojo);
+		MainFrame.getInstance().createGui(pojo);
 
-    }
+	}
 }

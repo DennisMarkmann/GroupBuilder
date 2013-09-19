@@ -1,6 +1,7 @@
 1. Version 1.0:
 
 	1.1.ExceptionHandling !!!
+		Reaktion auf printExceptions
 	
 	1.2.Vollständige Übersetzung (WindowClosing / Directory / Tabellen)
 		Übersetzen der Tabellen Header
