@@ -32,7 +32,9 @@
 	
 	2.6.Print- / EmailFrame & Print- / EmailFrameListener zusammenfassen
 	
-	2.7.Zum aktualisieren (z.B. der Sprache) Observer implementieren.	
+	2.7.Zum aktualisieren (z.B. der Sprache) Observer implementieren.
+	
+	2.8.Maven Integration
 
 
 3. Features:
@@ -52,3 +54,4 @@
 		3.3.2.DefaultButtons und Selects festlegen
 		3.3.3.KeyListener für Elemente (Enter & Escape)
 	
+	3.4. Threads fürs Drucken und E-Mail Versand
