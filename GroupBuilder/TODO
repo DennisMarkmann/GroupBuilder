@@ -36,7 +36,8 @@
 	
 	2.8.Maven Integration
 
-
+	2.9.XStream zum Lesen und Schreiben der XML Files verwenden?
+	
 3. Features:
 
 	3.0. Änderungen loggen:
