@@ -31,8 +31,6 @@ public class LanguageChooser {
             language = new String("en");
             country = new String("US");
         }
-        pojo.setLanguageBundle(ResourceBundle.getBundle("markmann/dennis/groupBuilder/languageFiles/languageFile", new Locale(
-                language,
-                country)));
+        pojo.setLanguageBundle(ResourceBundle.getBundle("languageFiles/languageFile", new Locale(language, country)));
     }
 }
