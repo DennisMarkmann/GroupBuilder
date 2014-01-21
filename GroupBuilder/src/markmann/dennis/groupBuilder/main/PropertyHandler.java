@@ -22,20 +22,18 @@ import markmann.dennis.groupBuilder.storage.Pojo;
 
 public class PropertyHandler {
 
+	final String propertyPath = "./groupBuilder.properties";
+
 	public final void storeProperties(final String path) {
 
 		final Properties properties = new Properties();
 
 		properties.put("path", path);
-
-		final String fileName = System.getProperty("user.home")
-				+ System.getProperty("file.separator")
-				+ "groupBuilder.properties";
 		try {
-			properties.store(new FileOutputStream(fileName),
+			properties.store(new FileOutputStream(propertyPath),
 					"groupBuilderProperties");
 		} catch (final Exception e) {
-			new WriteOperationException(fileName);
+			new WriteOperationException(propertyPath);
 		}
 	}
 
@@ -43,9 +41,7 @@ public class PropertyHandler {
 
 		final Properties properties = new Properties();
 		BufferedInputStream stream = null;
-		final String propertyPath = System.getProperty("user.home")
-				+ System.getProperty("file.separator")
-				+ "groupBuilder.properties";
+
 		try {
 			stream = new BufferedInputStream(new FileInputStream(propertyPath));
 			properties.load(stream);

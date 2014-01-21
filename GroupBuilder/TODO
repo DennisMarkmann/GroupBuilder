@@ -37,12 +37,10 @@ Prio:
 	2.6.Print- / EmailFrame & Print- / EmailFrameListener zusammenfassen
 	
 	2.7.Zum aktualisieren (z.B. der Sprache) Observer implementieren.
-	
-	2.8.Maven Integration
 
-	2.9.XStream zum Lesen und Schreiben der XML Files verwenden?
+	2.8.XStream zum Lesen und Schreiben der XML Files verwenden?
 	
-	3.0.Errorlogging mit log4j?
+	2.9.Errorlogging mit log4j?
 	
 3. Features:
 
