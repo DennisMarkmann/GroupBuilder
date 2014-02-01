@@ -6,8 +6,12 @@ import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
 
 import markmann.dennis.groupBuilder.exceptions.NothingToDoExeption;
+import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Pojo;
+
+import org.apache.log4j.Logger;
+
 import dennis.markmann.MyLibraries.DefaultJobs.Print.PrintJob;
 import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
 
@@ -20,6 +24,8 @@ import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
  */
 
 public class PrintJobHelper {
+
+    private static final Logger logger = LogHandler.getLogger("./logs/Output.log");
 
     public final void printOutForGroups(final Pojo pojo, final ArrayList<Group> groupList) {
         this.selectPrinter(pojo);
@@ -35,6 +41,8 @@ public class PrintJobHelper {
     }
 
     private void printGroup(final Pojo pojo, final String groupName) {
+        logger.info("Printing out group: " + groupName + ".");
+
         final String printText = new TextCreator().createGroupText(pojo.getGroupByName(groupName));
         // try {
         final Thread printThread = new Thread(new PrintJob(printText));
@@ -48,6 +56,8 @@ public class PrintJobHelper {
     }
 
     private void selectPrinter(final Pojo pojo) {
+        logger.info("Selecting printer.");
+
         for (final PrintService printer : PrintServiceLookup.lookupPrintServices(null, null)) {
             if (printer.getName().equals(pojo.getSettings().getPrinter())) {
                 PrinterSelector.getInstance().setPrinter(printer);

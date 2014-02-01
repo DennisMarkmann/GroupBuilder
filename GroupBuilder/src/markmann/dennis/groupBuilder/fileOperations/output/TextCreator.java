@@ -1,11 +1,13 @@
 package markmann.dennis.groupBuilder.fileOperations.output;
 
+import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Member;
 
+import org.apache.log4j.Logger;
+
 /**
- * Class for generating the default text used for output operations. (email &
- * print)
+ * Class for generating the default text used for output operations. (email & print)
  * 
  * @author dennis.markmann
  * @since JDK.1.7.0_21
@@ -14,46 +16,50 @@ import markmann.dennis.groupBuilder.storage.Member;
 
 class TextCreator {
 
-	String createGroupText(final Group group) {
+    private static final Logger logger = LogHandler.getLogger("./logs/Output.log");
 
-		final StringBuilder sb = new StringBuilder();
+    String createGroupText(final Group group) {
+        logger.info("Creating groupText for group: " + group + ".");
 
-		sb.append("GroupName: ");
-		sb.append(group.getName());
-		sb.append(System.lineSeparator());
-		sb.append("GroupSize: ");
-		sb.append(group.getMemberList().size());
-		sb.append(System.lineSeparator());
-		sb.append("Decription: ");
-		sb.append(group.getDescription());
-		sb.append(System.lineSeparator());
-		sb.append(System.lineSeparator());
-		sb.append("Member: ");
-		sb.append(System.lineSeparator());
+        final StringBuilder sb = new StringBuilder();
 
-		for (final Member member : group.getMemberList()) {
-			sb.append(member.getLastName());
-			sb.append(", ");
-			sb.append(member.getFirstName());
-			sb.append(" : ");
-			sb.append(member.getEMailAdress());
-			sb.append(System.lineSeparator());
-		}
-		return sb.toString();
-	}
+        sb.append("GroupName: ");
+        sb.append(group.getName());
+        sb.append(System.lineSeparator());
+        sb.append("GroupSize: ");
+        sb.append(group.getMemberList().size());
+        sb.append(System.lineSeparator());
+        sb.append("Decription: ");
+        sb.append(group.getDescription());
+        sb.append(System.lineSeparator());
+        sb.append(System.lineSeparator());
+        sb.append("Member: ");
+        sb.append(System.lineSeparator());
 
-	String generateMailText(final Group group, final String path) {
+        for (final Member member : group.getMemberList()) {
+            sb.append(member.getLastName());
+            sb.append(", ");
+            sb.append(member.getFirstName());
+            sb.append(" : ");
+            sb.append(member.getEMailAdress());
+            sb.append(System.lineSeparator());
+        }
+        return sb.toString();
+    }
 
-		final StringBuilder sb = new StringBuilder();
+    String generateMailText(final Group group, final String path) {
+        logger.info("Creating mailText for group: " + group + ".");
 
-		sb.append("Hello! ");
-		sb.append(System.lineSeparator());
-		sb.append("This is an autmatic generated mail by the groupBuilder of Dennis Markmann.");
-		sb.append(System.lineSeparator());
-		sb.append(System.lineSeparator());
-		sb.append(new TextCreator().createGroupText(group));
+        final StringBuilder sb = new StringBuilder();
 
-		return sb.toString();
-	}
+        sb.append("Hello! ");
+        sb.append(System.lineSeparator());
+        sb.append("This is an autmatic generated mail by the groupBuilder of Dennis Markmann.");
+        sb.append(System.lineSeparator());
+        sb.append(System.lineSeparator());
+        sb.append(new TextCreator().createGroupText(group));
+
+        return sb.toString();
+    }
 
 }

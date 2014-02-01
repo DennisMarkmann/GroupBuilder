@@ -9,11 +9,13 @@ import java.util.Properties;
 
 import markmann.dennis.groupBuilder.exceptions.NotToHandleException;
 import markmann.dennis.groupBuilder.exceptions.WriteOperationException;
+import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
+import org.apache.log4j.Logger;
+
 /**
- * Handler to write down and read in the applications default properties. Saves
- * the application path for the pojo.
+ * Handler to write down and read in the applications default properties. Saves the application path for the pojo.
  * 
  * @author dennis.markmann
  * @since JDK.1.7.0_21
@@ -22,40 +24,44 @@ import markmann.dennis.groupBuilder.storage.Pojo;
 
 public class PropertyHandler {
 
-	final String propertyPath = "./groupBuilder.properties";
+    private static final Logger logger = LogHandler.getLogger("./logs/GroupBuilder.log");
 
-	public final void storeProperties(final String path) {
+    final String propertyPath = "./groupBuilder.properties";
 
-		final Properties properties = new Properties();
+    public final void storeProperties(final String path) {
 
-		properties.put("path", path);
-		try {
-			properties.store(new FileOutputStream(propertyPath),
-					"groupBuilderProperties");
-		} catch (final Exception e) {
-			new WriteOperationException(propertyPath);
-		}
-	}
+        logger.info("Storing properties.");
+        final Properties properties = new Properties();
 
-	public final void getProperties(final Pojo pojo) {
+        properties.put("path", path);
+        try {
+            properties.store(new FileOutputStream(this.propertyPath), "groupBuilderProperties");
+        } catch (final Exception e) {
+            new WriteOperationException(this.propertyPath);
+        }
+    }
 
-		final Properties properties = new Properties();
-		BufferedInputStream stream = null;
+    public final void getProperties(final Pojo pojo) {
 
-		try {
-			stream = new BufferedInputStream(new FileInputStream(propertyPath));
-			properties.load(stream);
-			stream.close();
-			final String path = properties.getProperty("path");
+        logger.info("Get properties.");
 
-			if (path != null) {
-				pojo.getSettings().setPathInitially(path);
-			}
-		} catch (final FileNotFoundException e) {
-			new NotToHandleException();
-		} catch (final IOException e) {
-			e.printStackTrace();
-		}
+        final Properties properties = new Properties();
+        BufferedInputStream stream = null;
 
-	}
+        try {
+            stream = new BufferedInputStream(new FileInputStream(this.propertyPath));
+            properties.load(stream);
+            stream.close();
+            final String path = properties.getProperty("path");
+
+            if (path != null) {
+                pojo.getSettings().setPathInitially(path);
+            }
+        } catch (final FileNotFoundException e) {
+            new NotToHandleException();
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

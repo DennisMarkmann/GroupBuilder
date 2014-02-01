@@ -3,8 +3,10 @@ package markmann.dennis.groupBuilder.fileOperations.reader;
 import java.io.File;
 
 import markmann.dennis.groupBuilder.jobs.GroupCreator;
+import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -20,7 +22,11 @@ import org.w3c.dom.NodeList;
 
 class GroupListReader {
 
+    private static final Logger logger = LogHandler.getLogger("./logs/XMLFile.log");
+
     final void readXmlFile(final Pojo pojo) {
+
+        logger.info("Reading group XML files.");
 
         final FileReaderHelper helper = new FileReaderHelper();
         final GroupCreator creator = new GroupCreator(pojo);

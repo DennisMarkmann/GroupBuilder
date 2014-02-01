@@ -2,9 +2,11 @@ package markmann.dennis.groupBuilder.fileOperations.reader;
 
 import java.io.File;
 
+import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Pojo;
 import markmann.dennis.groupBuilder.storage.Settings;
 
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -19,7 +21,11 @@ import org.w3c.dom.Node;
 
 class SettingsFileReader {
 
+    private static final Logger logger = LogHandler.getLogger("./logs/XMLFile.log");
+
     final void readXmlFile(final Pojo pojo) {
+
+        logger.info("Reading settings XML files.");
 
         final FileReaderHelper helper = new FileReaderHelper();
 

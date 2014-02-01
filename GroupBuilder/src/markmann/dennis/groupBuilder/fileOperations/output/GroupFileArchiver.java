@@ -3,7 +3,11 @@ package markmann.dennis.groupBuilder.fileOperations.output;
 import java.io.File;
 
 import markmann.dennis.groupBuilder.exceptions.CopyException;
+import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Pojo;
+
+import org.apache.log4j.Logger;
+
 import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
 import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.CopyOperationException;
 import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
@@ -18,30 +22,30 @@ import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
 
 public class GroupFileArchiver {
 
-	public final void archivGroupFiles(final Pojo pojo) {
+    private static final Logger logger = LogHandler.getLogger("./logs/Output.log");
 
-		final String archivPath = this.createArchivFolder(pojo.getSettings()
-				.getPath());
+    public final void archivGroupFiles(final Pojo pojo) {
 
-		final File[] files = new File(pojo.getSettings().getPath() + "Groups//")
-				.listFiles();
+        logger.info("Archiving group files.");
 
-		for (final File file : files) {
-			try {
-				new FileCopy().copy(file.getAbsolutePath(),
-						archivPath + file.getName());
-			} catch (final CopyOperationException e) {
-				new CopyException(e).showDialog();
-			}
-		}
-	}
+        final String archivPath = this.createArchivFolder(pojo.getSettings().getPath());
 
-	private String createArchivFolder(final String path) {
-		final String archivPath = path + "Archive//"
-				+ new DateHelper().getFullDate() + "//";
-		new File(archivPath).mkdirs();
-		return archivPath;
+        final File[] files = new File(pojo.getSettings().getPath() + "Groups//").listFiles();
 
-	}
+        for (final File file : files) {
+            try {
+                new FileCopy().copy(file.getAbsolutePath(), archivPath + file.getName());
+            } catch (final CopyOperationException e) {
+                new CopyException(e).showDialog();
+            }
+        }
+    }
+
+    private String createArchivFolder(final String path) {
+        final String archivPath = path + "Archive//" + new DateHelper().getFullDate() + "//";
+        new File(archivPath).mkdirs();
+        return archivPath;
+
+    }
 
 }

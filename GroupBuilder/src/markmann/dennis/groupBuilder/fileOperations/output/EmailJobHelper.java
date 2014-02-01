@@ -4,9 +4,13 @@ import java.io.File;
 import java.util.ArrayList;
 
 import markmann.dennis.groupBuilder.exceptions.NothingToDoExeption;
+import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Member;
 import markmann.dennis.groupBuilder.storage.Pojo;
+
+import org.apache.log4j.Logger;
+
 import dennis.markmann.MyLibraries.DefaultJobs.Email.EmailContentCreator;
 import dennis.markmann.MyLibraries.DefaultJobs.Email.EmailJob;
 import dennis.markmann.MyLibraries.DefaultJobs.Email.EmailObject;
@@ -22,11 +26,15 @@ import dennis.markmann.MyLibraries.DefaultJobs.Email.EmailSettings;
 
 public class EmailJobHelper {
 
+    private static final Logger logger = LogHandler.getLogger("./logs/Output.log");
+
     private EmailSettings setEmailSettings() {
         return new EmailSettings("GroupBuilder@gmx.de", "buildGroups", "GroupBuilder@gmx.de", "GroupBuilder", "smtp.gmx.net");
     }
 
     public final void sendMailToGroups(final Pojo pojo, final ArrayList<Group> groupList) {
+
+        logger.info("Sending eMails to groups.");
 
         if (groupList.size() == 0) {
             new NothingToDoExeption(pojo.getTranslation("Send")).showDialog();

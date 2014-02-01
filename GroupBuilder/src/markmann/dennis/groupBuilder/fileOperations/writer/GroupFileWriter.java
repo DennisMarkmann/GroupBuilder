@@ -1,9 +1,11 @@
 package markmann.dennis.groupBuilder.fileOperations.writer;
 
+import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Member;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -18,6 +20,7 @@ import org.w3c.dom.Element;
 
 class GroupFileWriter {
 
+    private static final Logger logger = LogHandler.getLogger("./logs/XMLFile.log");
     private String path = "";
 
     final void initializeXMLPrint(final Pojo pojo) {
@@ -30,6 +33,8 @@ class GroupFileWriter {
     }
 
     private void createXmlFile(final Group group) {
+
+        logger.info("Creating group XML file for: " + group + ".");
 
         int memberNumber = 0;
         final FileWriteHelper helper = new FileWriteHelper();

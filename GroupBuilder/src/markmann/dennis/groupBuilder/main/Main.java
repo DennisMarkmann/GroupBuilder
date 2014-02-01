@@ -1,10 +1,16 @@
 package markmann.dennis.groupBuilder.main;
 
 import java.io.IOException;
+import java.io.PrintStream;
 
 import markmann.dennis.groupBuilder.gui.mainFrame.MainFrame;
+import markmann.dennis.groupBuilder.logging.LogHandler;
+import markmann.dennis.groupBuilder.logging.LoggingOutputStream;
 import markmann.dennis.groupBuilder.storage.Pojo;
 import markmann.dennis.groupBuilder.test.PojoContentTester;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 /**
  * Main class for the project. Creates the POJO to store all data in. Starts the read operation for stored GroupBuilder files.
@@ -17,6 +23,8 @@ import markmann.dennis.groupBuilder.test.PojoContentTester;
 
 public final class Main { // NO_UCD
 
+    private static final Logger logger = LogHandler.getLogger("./logs/GroupBuilder.log");
+
     private Main() {
         // Should prevent instantiation, throws an exception in case this still
         // is called somehow.
@@ -24,6 +32,11 @@ public final class Main { // NO_UCD
     }
 
     public static void main(final String[] args) throws IOException {
+
+        System.setOut(new PrintStream(new LoggingOutputStream(logger, Level.INFO), true));
+        System.setErr(new PrintStream(new LoggingOutputStream(logger, Level.ERROR), true));
+
+        logger.info("Application starting.");
 
         final Pojo pojo = new Pojo();
         new PropertyHandler().getProperties(pojo);

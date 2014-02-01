@@ -1,8 +1,10 @@
 package markmann.dennis.groupBuilder.fileOperations.writer;
 
+import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Pojo;
 import markmann.dennis.groupBuilder.storage.Settings;
 
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -16,7 +18,11 @@ import org.w3c.dom.Element;
 
 public class SettingsFileWriter {
 
+    private static final Logger logger = LogHandler.getLogger("./logs/XMLFile.log");
+
     public final void createXmlFile(final Pojo pojo) {
+
+        logger.info("Creating XML files for settings.");
 
         final FileWriteHelper helper = new FileWriteHelper();
         final Document doc = helper.createDocument();

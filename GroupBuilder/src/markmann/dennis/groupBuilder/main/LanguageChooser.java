@@ -3,7 +3,10 @@ package markmann.dennis.groupBuilder.main;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Pojo;
+
+import org.apache.log4j.Logger;
 
 /**
  * Used to change the language for the application. Default language is English.
@@ -15,26 +18,28 @@ import markmann.dennis.groupBuilder.storage.Pojo;
 
 public class LanguageChooser {
 
-	public final void chooseLanguage(final Pojo pojo) {
+    private static final Logger logger = LogHandler.getLogger("./logs/GroupBuilder.log");
 
-		final String pojoLanguage = pojo.getSettings().getLanguage();
-		String language = "";
-		String country = "";
+    public final void chooseLanguage(final Pojo pojo) {
 
-		if (pojoLanguage.equals("English")) {
-			language = new String("en");
-			country = new String("US");
-		} else if (pojoLanguage.equals("German")) {
-			language = new String("de");
-			country = new String("US");
-		} else {
-			language = new String("en");
-			country = new String("US");
-		}
-		;
+        final String pojoLanguage = pojo.getSettings().getLanguage();
+        logger.info("Choosing " + pojoLanguage + " as application language.");
+        String language = "";
+        String country = "";
 
-		pojo.setLanguageBundle(ResourceBundle.getBundle(
-				"markmann/dennis/groupBuilder/languageFiles/languageFile",
-				new Locale(language, country)));
-	}
+        if (pojoLanguage.equals("English")) {
+            language = new String("en");
+            country = new String("US");
+        } else if (pojoLanguage.equals("German")) {
+            language = new String("de");
+            country = new String("US");
+        } else {
+            language = new String("en");
+            country = new String("US");
+        }
+
+        pojo.setLanguageBundle(ResourceBundle.getBundle("markmann/dennis/groupBuilder/languageFiles/languageFile", new Locale(
+                language,
+                country)));
+    }
 }

@@ -19,7 +19,7 @@ public class PojoContentTester {
         final TestDataCreator testListCreator = new TestDataCreator();
         testListCreator.fillTestMemberList(pojo);
         testListCreator.fillTestGroupList(pojo);
-        this.testLists(pojo);
+        // this.testLists(pojo);
 
     }
 
