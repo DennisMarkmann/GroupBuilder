@@ -9,8 +9,6 @@ import markmann.dennis.groupBuilder.exceptions.NothingToDoExeption;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Pojo;
 import dennis.markmann.MyLibraries.DefaultJobs.Print.PrintJob;
-import dennis.markmann.MyLibraries.DefaultJobs.Print.PrintOperationException;
-import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelectionException;
 import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
 
 /**
@@ -23,40 +21,37 @@ import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
 
 public class PrintJobHelper {
 
-	public final void printOutForGroups(final Pojo pojo,
-			final ArrayList<Group> groupList) {
-		this.selectPrinter(pojo);
+    public final void printOutForGroups(final Pojo pojo, final ArrayList<Group> groupList) {
+        this.selectPrinter(pojo);
 
-		if (groupList.size() == 0) {
-			new NothingToDoExeption(pojo.getTranslation("Print")).showDialog();
-			return;
-		}
+        if (groupList.size() == 0) {
+            new NothingToDoExeption(pojo.getTranslation("Print")).showDialog();
+            return;
+        }
 
-		for (final Group group : groupList) {
-			this.printGroup(pojo, group.getName());
-		}
-	}
+        for (final Group group : groupList) {
+            this.printGroup(pojo, group.getName());
+        }
+    }
 
-	private void printGroup(final Pojo pojo, final String groupName) {
-		final String printText = new TextCreator().createGroupText(pojo
-				.getGroupByName(groupName));
-		try {
-			new PrintJob().printText(printText);
-		} catch (final PrinterSelectionException e) {
-			new markmann.dennis.groupBuilder.exceptions.PrinterSelectionException(
-					e);
-		} catch (final PrintOperationException e) {
-			new markmann.dennis.groupBuilder.exceptions.PrintOperationException(
-					e);
-		}
-	}
+    private void printGroup(final Pojo pojo, final String groupName) {
+        final String printText = new TextCreator().createGroupText(pojo.getGroupByName(groupName));
+        // try {
+        final Thread printThread = new Thread(new PrintJob(printText));
+        printThread.run();
 
-	private void selectPrinter(final Pojo pojo) {
-		for (final PrintService printer : PrintServiceLookup
-				.lookupPrintServices(null, null)) {
-			if (printer.getName().equals(pojo.getSettings().getPrinter())) {
-				PrinterSelector.getInstance().setPrinter(printer);
-			}
-		}
-	}
+        // } catch (final PrinterSelectionException e) {
+        // new markmann.dennis.groupBuilder.exceptions.PrinterSelectionException(e);
+        // } catch (final PrintOperationException e) {
+        // new markmann.dennis.groupBuilder.exceptions.PrintOperationException(e);
+        // }
+    }
+
+    private void selectPrinter(final Pojo pojo) {
+        for (final PrintService printer : PrintServiceLookup.lookupPrintServices(null, null)) {
+            if (printer.getName().equals(pojo.getSettings().getPrinter())) {
+                PrinterSelector.getInstance().setPrinter(printer);
+            }
+        }
+    }
 }
