@@ -34,6 +34,7 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getTranslation("Settings"));
         this.addWindowListener(new MyWindowAdapter(this));
         this.setSize(555, 370);
+        this.setResizable(false);
 
         // path
         final JPanel pathPanel = BUILDER.createCombiPanel(

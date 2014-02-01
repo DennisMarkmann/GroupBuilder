@@ -13,7 +13,8 @@ Prio:
 		1.1.2.Übersetzen der Tabellen Header
 
 	1.2.Hinzufügen zu Gruppen / Ausdrucken und Email überprüfen (Memberliste unvollständig)
-
+	
+	1.3.Logging Kommentare sinnvoller gestalten
 	
 2. CleanUp:
 
@@ -56,3 +57,5 @@ Prio:
 		3.3.1.Tabreihenfolge ändern
 		3.3.2.DefaultButtons und Selects festlegen
 		3.3.3.KeyListener für Elemente (Enter & Escape)
+		
+	3.4.Remove / Edit nicht per Tabellenspalte sondern per Button + Checkbox Auswahl
