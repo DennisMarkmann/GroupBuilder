@@ -16,37 +16,36 @@ import org.apache.log4j.RollingFileAppender;
 
 public class LogHandler implements Serializable {
 
-	private static final long serialVersionUID = 8262395849529211245L;
-	private static RollingFileAppender appender = null;
-	private static Logger log = null;
+    private static final long serialVersionUID = 8262395849529211245L;
+    private static RollingFileAppender appender = null;
+    private static Logger log = null;
 
-	private static Logger createLogAppender(final String logFilePath) {
-		final String logFileName = logFilePath.substring((logFilePath
-				.lastIndexOf("/") + 1));
+    private static Logger createLogAppender(final String logFilePath) {
+        final String logFileName = logFilePath.substring((logFilePath.lastIndexOf("/") + 1));
 
-		final Logger log = Logger.getLogger(logFileName);
-		final PatternLayout layout = new PatternLayout();
-		layout.setConversionPattern("%d{dd.MM.yyyy HH:mm:ss,SSS} %5p [%t] (%F:%L) - %m%n");
+        final Logger log = Logger.getLogger(logFileName);
+        final PatternLayout layout = new PatternLayout();
+        layout.setConversionPattern("%d{dd.MM.yyyy HH:mm:ss,SSS} %5p [%t] (%F:%L) - %m%n");
 
-		// Create appender
-		appender = new RollingFileAppender();
-		appender.setFile(logFilePath);
-		appender.setMaxFileSize("5MB");
-		appender.setMaxBackupIndex(5);
-		appender.setLayout(layout);
-		appender.activateOptions();
-		log.setLevel(Level.ALL);
-		log.addAppender(LogHandler.appender);
+        // Create appender
+        appender = new RollingFileAppender();
+        appender.setFile(logFilePath);
+        appender.setMaxFileSize("5MB");
+        appender.setMaxBackupIndex(5);
+        appender.setLayout(layout);
+        appender.activateOptions();
+        log.setLevel(Level.ALL);
+        log.addAppender(LogHandler.appender);
 
-		return log;
-	}
+        return log;
+    }
 
-	public static Logger getLogger(final String logfileName) {
-		if (log != null) {
-			return log;
-		} else {
-			log = createLogAppender(logfileName);
-			return log;
-		}
-	}
+    public static Logger getLogger(final String logfileName) {
+        if (log != null) {
+            return log;
+        } else {
+            log = createLogAppender(logfileName);
+            return log;
+        }
+    }
 }

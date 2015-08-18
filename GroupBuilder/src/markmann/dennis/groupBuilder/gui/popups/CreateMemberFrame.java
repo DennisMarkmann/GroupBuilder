@@ -40,7 +40,8 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
         final JTextField lastNameField = BUILDER.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
         final JTextField eMailField = BUILDER.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
         final JComboBox<String> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 1, 4);
-        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getTranslation("Confirm"), 0, 5);
+        final JButton confirmationButton = BUILDER
+                .createButton(this, "confirmationButton", pojo.getTranslation("Confirm"), 0, 5);
         final JButton abortButton = BUILDER.createButton(this, "abortButton", pojo.getTranslation("Abort"), 1, 5);
 
         final CreateMemberFrameListener listener = new CreateMemberFrameListener(

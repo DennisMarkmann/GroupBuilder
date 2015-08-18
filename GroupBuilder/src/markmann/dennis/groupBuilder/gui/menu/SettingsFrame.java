@@ -37,14 +37,8 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         this.setResizable(false);
 
         // path
-        final JPanel pathPanel = BUILDER.createCombiPanel(
-                this,
-                "pathButton",
-                pojo.getTranslation("ChangePath"),
-                "pathField",
-                37,
-                0,
-                0);
+        final JPanel pathPanel = BUILDER
+                .createCombiPanel(this, "pathButton", pojo.getTranslation("ChangePath"), "pathField", 37, 0, 0);
 
         final JTextField pathField = (JTextField) pathPanel.getComponent(0);
         final JButton pathButton = (JButton) pathPanel.getComponent(1);
@@ -60,33 +54,19 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         final JTextField archiveField = BUILDER.createTextField(this, "archiveField", TEXT_FIELD_SIZE, 1, 3);
 
         // printer
-        final JPanel printerPanel = BUILDER.createCombiPanel(
-                this,
-                "printerButton",
-                pojo.getTranslation("ChangePrinter"),
-                "printerField",
-                35,
-                0,
-                4);
+        final JPanel printerPanel = BUILDER
+                .createCombiPanel(this, "printerButton", pojo.getTranslation("ChangePrinter"), "printerField", 35, 0, 4);
         final JTextField printerField = (JTextField) printerPanel.getComponent(0);
         final JButton printerButton = (JButton) printerPanel.getComponent(1);
 
         BUILDER.createLabel(this, "", 0, 5);
 
         // automatic
-        final JCheckBox printOutAutomatically = BUILDER.createCheckBox(
-                this,
-                "printOutAutomatically",
-                pojo.getTranslation("PrintAutomatically"),
-                1,
-                6);
+        final JCheckBox printOutAutomatically = BUILDER
+                .createCheckBox(this, "printOutAutomatically", pojo.getTranslation("PrintAutomatically"), 1, 6);
 
-        final JCheckBox sendMailsAutomatically = BUILDER.createCheckBox(
-                this,
-                "sendMailsAutomatically",
-                pojo.getTranslation("SendEmailsAutomatically"),
-                0,
-                6);
+        final JCheckBox sendMailsAutomatically = BUILDER
+                .createCheckBox(this, "sendMailsAutomatically", pojo.getTranslation("SendEmailsAutomatically"), 0, 6);
 
         BUILDER.createLabel(this, "", 0, 7);
         BUILDER.createLabel(this, "", 0, 8);

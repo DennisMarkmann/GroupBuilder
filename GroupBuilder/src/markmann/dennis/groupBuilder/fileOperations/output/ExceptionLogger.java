@@ -17,51 +17,49 @@ import markmann.dennis.groupBuilder.exceptions.SuperException;
 
 public class ExceptionLogger {
 
-	private boolean failed = false;
+    private boolean failed = false;
 
-	public final boolean logException(final SuperException exception) {
-		final String path = System.getProperty("user.home")
-				+ System.getProperty("file.separator") + "GroupBuilder_log.txt";
+    public final boolean logException(final SuperException exception) {
+        final String path = System.getProperty("user.home") + System.getProperty("file.separator") + "GroupBuilder_log.txt";
 
-		final String text = this.readFile(path);
-		this.writeFile(text, exception, path);
+        final String text = this.readFile(path);
+        this.writeFile(text, exception, path);
 
-		return this.failed;
-	}
+        return this.failed;
+    }
 
-	private String readFile(final String path) {
+    private String readFile(final String path) {
 
-		final StringBuffer sb = new StringBuffer();
+        final StringBuffer sb = new StringBuffer();
 
-		try {
-			final FileReader fr = new FileReader(path);
-			int ch;
-			while ((ch = fr.read()) != -1) {
-				sb.append((char) ch);
-			}
-			fr.close();
+        try {
+            final FileReader fr = new FileReader(path);
+            int ch;
+            while ((ch = fr.read()) != -1) {
+                sb.append((char) ch);
+            }
+            fr.close();
 
-		} catch (final IOException e) {
-		}
-		return sb.toString();
-	}
+        } catch (final IOException e) {
+        }
+        return sb.toString();
+    }
 
-	private void writeFile(final String text, final SuperException exception,
-			final String path) {
-		try {
-			final PrintWriter writer = new PrintWriter(new FileWriter(path));
+    private void writeFile(final String text, final SuperException exception, final String path) {
+        try {
+            final PrintWriter writer = new PrintWriter(new FileWriter(path));
 
-			final StringBuilder sb = new StringBuilder();
-			sb.append(text);
-			sb.append(exception.createLogingMessage());
-			writer.println(sb.toString());
+            final StringBuilder sb = new StringBuilder();
+            sb.append(text);
+            sb.append(exception.createLogingMessage());
+            writer.println(sb.toString());
 
-			writer.flush();
-			writer.close();
+            writer.flush();
+            writer.close();
 
-		} catch (final IOException e) {
-			this.failed = true;
-			// no way to handle an error when the error handling fails
-		}
-	}
+        } catch (final IOException e) {
+            this.failed = true;
+            // no way to handle an error when the error handling fails
+        }
+    }
 }

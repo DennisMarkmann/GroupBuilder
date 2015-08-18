@@ -38,7 +38,8 @@ public final class CreateGroupFrame extends JFrame implements DefaultFrame {
         final JTextField groupDescField = BUILDER.createTextField(this, "groupDescField", TEXT_FIELD_SIZE, 1, 2);
         final JTextField groupSizeField = BUILDER.createTextField(this, "groupSizeField", TEXT_FIELD_SIZE, 1, 3);
 
-        final JButton confirmationButton = BUILDER.createButton(this, "confirmationButton", pojo.getTranslation("Confirm"), 0, 4);
+        final JButton confirmationButton = BUILDER
+                .createButton(this, "confirmationButton", pojo.getTranslation("Confirm"), 0, 4);
         final JButton abortButton = BUILDER.createButton(this, "abortButton", pojo.getTranslation("Abort"), 1, 4);
 
         final CreateGroupFrameListener listener = new CreateGroupFrameListener(

@@ -10,24 +10,23 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * @version 1.0
  */
 
-public class DuplicateEntryException extends SuperException implements
-		ExceptionDialogInterface {
+public class DuplicateEntryException extends SuperException implements ExceptionDialogInterface {
 
-	private final static String errorTitel = "DuplicateEntryException";
-	private final static String errorMessage = "The entry already exists.";
-	private final String message;
+    private final static String errorTitel = "DuplicateEntryException";
+    private final static String errorMessage = "The entry already exists.";
+    private final String message;
 
-	private static final long serialVersionUID = -4565962119370664301L;
+    private static final long serialVersionUID = -4565962119370664301L;
 
-	public DuplicateEntryException(final String name) {
+    public DuplicateEntryException(final String name) {
 
-		super(errorTitel, errorMessage);
-		this.message = (Pojo.getPojo().getTranslation("DuplicateEntryLineOne")
-				+ name + Pojo.getPojo().getTranslation("DuplicateEntryLineTwo"));
-	}
+        super(errorTitel, errorMessage);
+        this.message = (Pojo.getPojo().getTranslation("DuplicateEntryLineOne") + name
+                + Pojo.getPojo().getTranslation("DuplicateEntryLineTwo"));
+    }
 
-	@Override
-	public final void showDialog() {
-		super.showDialog(this.message);
-	}
+    @Override
+    public final void showDialog() {
+        super.showDialog(this.message);
+    }
 }

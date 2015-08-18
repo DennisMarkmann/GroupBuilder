@@ -10,26 +10,24 @@ import markmann.dennis.groupBuilder.fileOperations.output.ExceptionLogger;
  * @version 1.0
  */
 
-public class PrinterSelectionException extends SuperException implements
-		ExceptionDialogInterface {
+public class PrinterSelectionException extends SuperException implements ExceptionDialogInterface {
 
-	private static final String errorTitel = "PrinterSelectionException";
-	private static final String errorMessage = "The chosen printer is not available.";
-	private final String message;
+    private static final String errorTitel = "PrinterSelectionException";
+    private static final String errorMessage = "The chosen printer is not available.";
+    private final String message;
 
-	private static final long serialVersionUID = 6498733673905740756L;
+    private static final long serialVersionUID = 6498733673905740756L;
 
-	public PrinterSelectionException(
-			final dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelectionException e) {
+    public PrinterSelectionException(final dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelectionException e) {
 
-		// TODO deutsche Übersetzung
-		super(errorTitel, errorMessage);
-		new ExceptionLogger().logException(this);
-		this.message = (e.getErrorMessage());
-	}
+        // TODO deutsche Übersetzung
+        super(errorTitel, errorMessage);
+        new ExceptionLogger().logException(this);
+        this.message = (e.getErrorMessage());
+    }
 
-	@Override
-	public final void showDialog() {
-		super.showDialog(this.message);
-	}
+    @Override
+    public final void showDialog() {
+        super.showDialog(this.message);
+    }
 }

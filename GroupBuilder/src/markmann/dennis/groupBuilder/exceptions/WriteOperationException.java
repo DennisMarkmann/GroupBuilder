@@ -11,25 +11,24 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * @version 1.0
  */
 
-public class WriteOperationException extends SuperException implements
-		ExceptionDialogInterface {
+public class WriteOperationException extends SuperException implements ExceptionDialogInterface {
 
-	private static final String errorTitel = "WriteOperationException";
-	private static final String errorMessage = "An error appeared while trying to fullfill the operation. Cookie was invalid.";
-	private final String message;
+    private static final String errorTitel = "WriteOperationException";
+    private static final String errorMessage = "An error appeared while trying to fullfill the operation. Cookie was invalid.";
+    private final String message;
 
-	private static final long serialVersionUID = 6498733673905740756L;
+    private static final long serialVersionUID = 6498733673905740756L;
 
-	public WriteOperationException(final String path) {
+    public WriteOperationException(final String path) {
 
-		super(errorTitel, errorMessage);
-		new ExceptionLogger().logException(this);
-		this.message = (Pojo.getPojo().getTranslation("WriteOperationText") + path);
-		Pojo.getPojo().setError(true);
-	}
+        super(errorTitel, errorMessage);
+        new ExceptionLogger().logException(this);
+        this.message = (Pojo.getPojo().getTranslation("WriteOperationText") + path);
+        Pojo.getPojo().setError(true);
+    }
 
-	@Override
-	public final void showDialog() {
-		super.showDialog(this.message);
-	}
+    @Override
+    public final void showDialog() {
+        super.showDialog(this.message);
+    }
 }

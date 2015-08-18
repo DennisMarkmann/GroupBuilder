@@ -29,7 +29,14 @@ public class EmailJobHelper {
     private static final Logger logger = LogHandler.getLogger("./logs/Output.log");
 
     private EmailSettings setEmailSettings() {
-        return new EmailSettings("GroupBuilder@gmx.de", "buildGroups", "GroupBuilder@gmx.de", "GroupBuilder", "smtp.gmx.net");
+        return new EmailSettings(
+                "GroupBuilder@gmx.de",
+                "buildGroups",
+                "GroupBuilder@gmx.de",
+                "GroupBuilder",
+                "smtp.gmx.net",
+                "587",
+                true);
     }
 
     public final void sendMailToGroups(final Pojo pojo, final ArrayList<Group> groupList) {

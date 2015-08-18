@@ -8,25 +8,23 @@ package markmann.dennis.groupBuilder.exceptions;
  * @version 1.0
  */
 
-public class EmailAddressException extends SuperException implements
-		ExceptionDialogInterface {
+public class EmailAddressException extends SuperException implements ExceptionDialogInterface {
 
-	private static final String errorTitel = "EmailAddressException";
-	private static final String errorMessage = "The chosen email address is not valid.";
-	private final String message;
+    private static final String errorTitel = "EmailAddressException";
+    private static final String errorMessage = "The chosen email address is not valid.";
+    private final String message;
 
-	private static final long serialVersionUID = 6498733673905740756L;
+    private static final long serialVersionUID = 6498733673905740756L;
 
-	public EmailAddressException(
-			final dennis.markmann.MyLibraries.DefaultJobs.Email.EmailAddressException e) {
+    public EmailAddressException(final dennis.markmann.MyLibraries.DefaultJobs.Email.EmailAddressException e) {
 
-		// TODO deutsche Übersetzung
-		super(errorTitel, errorMessage);
-		this.message = (e.getErrorMessage());
-	}
+        // TODO deutsche Übersetzung
+        super(errorTitel, errorMessage);
+        this.message = (e.getErrorMessage());
+    }
 
-	@Override
-	public final void showDialog() {
-		super.showDialog(this.message);
-	}
+    @Override
+    public final void showDialog() {
+        super.showDialog(this.message);
+    }
 }

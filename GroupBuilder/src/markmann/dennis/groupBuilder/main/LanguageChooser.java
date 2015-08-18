@@ -38,8 +38,8 @@ public class LanguageChooser {
             country = new String("US");
         }
 
-        pojo.setLanguageBundle(ResourceBundle.getBundle("markmann/dennis/groupBuilder/languageFiles/languageFile", new Locale(
-                language,
-                country)));
+        pojo.setLanguageBundle(
+                ResourceBundle
+                        .getBundle("markmann/dennis/groupBuilder/languageFiles/languageFile", new Locale(language, country)));
     }
 }

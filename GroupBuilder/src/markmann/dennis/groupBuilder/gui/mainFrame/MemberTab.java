@@ -19,8 +19,7 @@ import markmann.dennis.groupBuilder.storage.Pojo;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultTab;
 
 /**
- * Main tab of the GUI. Used to access many other operations and to see the
- * different member via table.
+ * Main tab of the GUI. Used to access many other operations and to see the different member via table.
  * 
  * @author dennis.markmann
  * @since JDK.1.7.0_21
@@ -29,54 +28,50 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.Default
 
 public class MemberTab extends JPanel implements DefaultTab {
 
-	private final TableRowSorter<TableModel> sorter;
+    private final TableRowSorter<TableModel> sorter;
 
-	private static final long serialVersionUID = 3210114640051532404L;
+    private static final long serialVersionUID = 3210114640051532404L;
 
-	MemberTab(final Pojo pojo) {
+    MemberTab(final Pojo pojo) {
 
-		final ArrayList<String> buttonRenderCols = new ArrayList<String>();
-		buttonRenderCols.add("Edit");
-		buttonRenderCols.add("Remove");
+        final ArrayList<String> buttonRenderCols = new ArrayList<String>();
+        buttonRenderCols.add("Edit");
+        buttonRenderCols.add("Remove");
 
-		BUILDER.setDefaultTabSettings(this);
+        BUILDER.setDefaultTabSettings(this);
 
-		final TableModel model = MemberTableModel.createTable(pojo);
+        final TableModel model = MemberTableModel.createTable(pojo);
 
-		final JTable table = new JTable(model);
-		final TableCellRenderer buttonRenderer = new JTableButtonRenderer();
+        final JTable table = new JTable(model);
+        final TableCellRenderer buttonRenderer = new JTableButtonRenderer();
 
-		for (final String rowName : buttonRenderCols) {
-			table.getColumn(rowName).setCellRenderer(buttonRenderer);
-		}
-		table.addMouseListener(new JTableButtonMouseListener(table));
-		// table.getTableHeader().addMouseListener(
-		// new JTableButtonMouseListener(table, null, this));
+        for (final String rowName : buttonRenderCols) {
+            table.getColumn(rowName).setCellRenderer(buttonRenderer);
+        }
+        table.addMouseListener(new JTableButtonMouseListener(table));
+        // table.getTableHeader().addMouseListener(
+        // new JTableButtonMouseListener(table, null, this));
 
-		final JScrollPane scrollPane = new JScrollPane(table);
-		table.setFillsViewportHeight(true);
+        final JScrollPane scrollPane = new JScrollPane(table);
+        table.setFillsViewportHeight(true);
 
-		BUILDER.setPosition(this, BUILDER.getGridBagConstraints(), 0, 0,
-				scrollPane);
+        BUILDER.setPosition(this, BUILDER.getGridBagConstraints(), 0, 0, scrollPane);
 
-		this.sorter = new TableRowSorter<TableModel>();
-		table.setRowSorter(this.sorter);
-		this.sorter.setModel(model);
+        this.sorter = new TableRowSorter<TableModel>();
+        table.setRowSorter(this.sorter);
+        this.sorter.setModel(model);
 
-		BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
-		final JButton addButton = BUILDER.createButton(this, "addButton",
-				"Add Member", 0, 5);
-		final JButton buildButton = BUILDER.createButton(this, "assignButton",
-				"Assign Groups", 0, 6);
-		final JButton saveButton = BUILDER.createButton(this, "saveButton",
-				"Save", 0, 7);
+        BUILDER.getGridBagConstraints().fill = GridBagConstraints.NONE;
+        final JButton addButton = BUILDER.createButton(this, "addButton", "Add Member", 0, 5);
+        final JButton buildButton = BUILDER.createButton(this, "assignButton", "Assign Groups", 0, 6);
+        final JButton saveButton = BUILDER.createButton(this, "saveButton", "Save", 0, 7);
 
-		final MemberTabListener listener = new MemberTabListener(pojo);
+        final MemberTabListener listener = new MemberTabListener(pojo);
 
-		addButton.addActionListener(listener);
-		buildButton.addActionListener(listener);
-		saveButton.addActionListener(listener);
+        addButton.addActionListener(listener);
+        buildButton.addActionListener(listener);
+        saveButton.addActionListener(listener);
 
-	}
+    }
 
 }

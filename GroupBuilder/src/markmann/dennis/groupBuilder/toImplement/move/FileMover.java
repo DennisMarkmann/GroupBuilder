@@ -14,17 +14,17 @@ import org.apache.commons.io.FileUtils;
 
 class FileMover {
 
-	private final File destFolder;
+    private final File destFolder;
 
-	FileMover(final String destPath) {
-		destFolder = new File(destPath);
-	}
+    FileMover(final String destPath) {
+        destFolder = new File(destPath);
+    }
 
-	final void moveFile(final File file) {
-		try {
-			FileUtils.moveFileToDirectory(file, destFolder, true);
-		} catch (final IOException e) {
-			e.printStackTrace();
-		}
-	}
+    final void moveFile(final File file) {
+        try {
+            FileUtils.moveFileToDirectory(file, destFolder, true);
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

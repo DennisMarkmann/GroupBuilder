@@ -68,11 +68,10 @@ public class CreateMemberFrameListener implements ActionListener {
                 return;
             }
 
-            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("AddMember"), new Member(
-                    firstName,
-                    lastName,
-                    eMailAdress,
-                    group));
+            ConfirmationFrame.getInstance(
+                    this.pojo,
+                    this.pojo.getTranslation("AddMember"),
+                    new Member(firstName, lastName, eMailAdress, group));
         }
         this.createMemberFrame.closeWindow();
 

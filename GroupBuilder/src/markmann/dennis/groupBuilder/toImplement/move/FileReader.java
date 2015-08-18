@@ -13,9 +13,8 @@ import markmann.dennis.groupBuilder.logging.LogHandler;
 import org.apache.log4j.Logger;
 
 /**
- * Used to read files from the given sourcePath (number of files is given via
- * property file*2). And to start the moving of the files to the given
- * destination.
+ * Used to read files from the given sourcePath (number of files is given via property file*2). And to start the moving of the
+ * files to the given destination.
  * 
  * @author dennis.markmann
  * 
@@ -23,55 +22,51 @@ import org.apache.log4j.Logger;
 
 public class FileReader {
 
-	private static Logger logger = LogHandler.getLogger("./logs/FileMover.log");
-	private int i = 0;
+    private static Logger logger = LogHandler.getLogger("./logs/FileMover.log");
+    private int i = 0;
 
-	public final void readFiles(final String sourcePath, final String destPath,
-			final int filesToLoad) {
+    public final void readFiles(final String sourcePath, final String destPath, final int filesToLoad) {
 
-		final FileMover mover = new FileMover(destPath);
-		final Path path = FileSystems.getDefault().getPath(sourcePath);
+        final FileMover mover = new FileMover(destPath);
+        final Path path = FileSystems.getDefault().getPath(sourcePath);
 
-		try {
-			Files.walkFileTree(path, new FileVisitor<Path>() {
-				@Override
-				public FileVisitResult preVisitDirectory(final Path dir,
-						final BasicFileAttributes attrs) throws IOException {
-					return FileVisitResult.CONTINUE;
-				}
+        try {
+            Files.walkFileTree(path, new FileVisitor<Path>() {
 
-				@Override
-				public FileVisitResult visitFile(final Path file,
-						final BasicFileAttributes attrs) throws IOException {
-					mover.moveFile(file.toFile());
-					i++;
-					if (i == filesToLoad) {
-						logger.info("Completed moving files.");
-						return FileVisitResult.TERMINATE;
-					}
-					return FileVisitResult.CONTINUE;
-				}
+                @Override
+                public FileVisitResult preVisitDirectory(final Path dir, final BasicFileAttributes attrs) throws IOException {
+                    return FileVisitResult.CONTINUE;
+                }
 
-				@Override
-				public FileVisitResult visitFileFailed(final Path file,
-						final IOException exc) throws IOException {
-					return FileVisitResult.TERMINATE;
-				}
+                @Override
+                public FileVisitResult visitFile(final Path file, final BasicFileAttributes attrs) throws IOException {
+                    mover.moveFile(file.toFile());
+                    i++;
+                    if (i == filesToLoad) {
+                        logger.info("Completed moving files.");
+                        return FileVisitResult.TERMINATE;
+                    }
+                    return FileVisitResult.CONTINUE;
+                }
 
-				@Override
-				public FileVisitResult postVisitDirectory(final Path dir,
-						final IOException exc) throws IOException {
-					return FileVisitResult.CONTINUE;
-				}
-			});
+                @Override
+                public FileVisitResult visitFileFailed(final Path file, final IOException exc) throws IOException {
+                    return FileVisitResult.TERMINATE;
+                }
 
-			if (i != filesToLoad) {
-				logger.info("Number of files actually moved: " + i + ".");
-				logger.info("Completed moving files.");
-			}
+                @Override
+                public FileVisitResult postVisitDirectory(final Path dir, final IOException exc) throws IOException {
+                    return FileVisitResult.CONTINUE;
+                }
+            });
 
-		} catch (final IOException e) {
-			e.printStackTrace();
-		}
-	}
+            if (i != filesToLoad) {
+                logger.info("Number of files actually moved: " + i + ".");
+                logger.info("Completed moving files.");
+            }
+
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

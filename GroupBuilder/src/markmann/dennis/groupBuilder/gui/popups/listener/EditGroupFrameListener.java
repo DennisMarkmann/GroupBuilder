@@ -24,53 +24,55 @@ import markmann.dennis.groupBuilder.storage.Pojo;
 
 public class EditGroupFrameListener implements ActionListener {
 
-	private final EditGroupFrame editGroupFrame;
-	private final Pojo pojo;
-	private final int rowID;
-	private final JTextField groupNameField;
-	private final JTextField groupDescField;
-	private final JTextField groupSizeField;
+    private final EditGroupFrame editGroupFrame;
+    private final Pojo pojo;
+    private final int rowID;
+    private final JTextField groupNameField;
+    private final JTextField groupDescField;
+    private final JTextField groupSizeField;
 
-	public EditGroupFrameListener(final EditGroupFrame editGroupFrame,
-			final Pojo pojo, final int rowID, final JTextField groupNameField,
-			final JTextField groupDescField, final JTextField groupSizeField) {
+    public EditGroupFrameListener(
+            final EditGroupFrame editGroupFrame,
+            final Pojo pojo,
+            final int rowID,
+            final JTextField groupNameField,
+            final JTextField groupDescField,
+            final JTextField groupSizeField) {
 
-		this.editGroupFrame = editGroupFrame;
-		this.pojo = pojo;
-		this.rowID = rowID;
-		this.groupNameField = groupNameField;
-		this.groupDescField = groupDescField;
-		this.groupSizeField = groupSizeField;
-	}
+        this.editGroupFrame = editGroupFrame;
+        this.pojo = pojo;
+        this.rowID = rowID;
+        this.groupNameField = groupNameField;
+        this.groupDescField = groupDescField;
+        this.groupSizeField = groupSizeField;
+    }
 
-	@Override
-	public final void actionPerformed(final ActionEvent event) {
+    @Override
+    public final void actionPerformed(final ActionEvent event) {
 
-		final JButton buttonClicked = (JButton) event.getSource();
+        final JButton buttonClicked = (JButton) event.getSource();
 
-		if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
+        if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
 
-			final ArrayList<Group> groupList = new ArrayList<Group>();
-			int fixSize = 0;
-			final String groupName = this.groupNameField.getText();
-			final String description = this.groupDescField.getText();
-			try {
-				fixSize = Integer.parseInt(this.groupSizeField.getText());
-			} catch (final NumberFormatException e) {
-				new NotToHandleException();
-			}
-			if (groupName.equals("")) {
-				new EmptyValueException(this.pojo.getTranslation("GroupName"))
-						.showDialog();
-				return;
-			}
-			groupList.add(this.pojo.getGroupList().get(this.rowID));
-			groupList.add(new Group(groupName, description, fixSize));
+            final ArrayList<Group> groupList = new ArrayList<Group>();
+            int fixSize = 0;
+            final String groupName = this.groupNameField.getText();
+            final String description = this.groupDescField.getText();
+            try {
+                fixSize = Integer.parseInt(this.groupSizeField.getText());
+            } catch (final NumberFormatException e) {
+                new NotToHandleException();
+            }
+            if (groupName.equals("")) {
+                new EmptyValueException(this.pojo.getTranslation("GroupName")).showDialog();
+                return;
+            }
+            groupList.add(this.pojo.getGroupList().get(this.rowID));
+            groupList.add(new Group(groupName, description, fixSize));
 
-			ConfirmationFrame.getInstance(this.pojo,
-					this.pojo.getTranslation("EditGroup"), groupList);
-		}
-		this.editGroupFrame.closeWindow();
+            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("EditGroup"), groupList);
+        }
+        this.editGroupFrame.closeWindow();
 
-	}
+    }
 }

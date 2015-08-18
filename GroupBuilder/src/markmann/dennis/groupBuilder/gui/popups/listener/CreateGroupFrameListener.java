@@ -23,49 +23,50 @@ import markmann.dennis.groupBuilder.storage.Pojo;
 
 public class CreateGroupFrameListener implements ActionListener {
 
-	private final CreateGroupFrame createGroupFrame;
-	private final Pojo pojo;
-	private final JTextField groupNameField;
-	private final JTextField groupDescField;
-	private final JTextField groupSizeField;
+    private final CreateGroupFrame createGroupFrame;
+    private final Pojo pojo;
+    private final JTextField groupNameField;
+    private final JTextField groupDescField;
+    private final JTextField groupSizeField;
 
-	public CreateGroupFrameListener(final CreateGroupFrame createGroupFrame,
-			final Pojo pojo, final JTextField groupNameField,
-			final JTextField groupDescField, final JTextField groupSizeField) {
+    public CreateGroupFrameListener(
+            final CreateGroupFrame createGroupFrame,
+            final Pojo pojo,
+            final JTextField groupNameField,
+            final JTextField groupDescField,
+            final JTextField groupSizeField) {
 
-		this.createGroupFrame = createGroupFrame;
-		this.pojo = pojo;
-		this.groupNameField = groupNameField;
-		this.groupDescField = groupDescField;
-		this.groupSizeField = groupSizeField;
-	}
+        this.createGroupFrame = createGroupFrame;
+        this.pojo = pojo;
+        this.groupNameField = groupNameField;
+        this.groupDescField = groupDescField;
+        this.groupSizeField = groupSizeField;
+    }
 
-	@Override
-	public final void actionPerformed(final ActionEvent event) {
+    @Override
+    public final void actionPerformed(final ActionEvent event) {
 
-		final JButton buttonClicked = (JButton) event.getSource();
+        final JButton buttonClicked = (JButton) event.getSource();
 
-		if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
+        if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
 
-			int fixSize = 0;
-			final String groupName = this.groupNameField.getText();
-			final String description = this.groupDescField.getText();
-			try {
-				fixSize = Integer.parseInt(this.groupSizeField.getText());
-			} catch (final NumberFormatException e) {
-				new NotToHandleException();
-			}
-			if (groupName.equals("")) {
-				new EmptyValueException(this.pojo.getTranslation("GroupName"))
-						.showDialog();
-				return;
-			}
+            int fixSize = 0;
+            final String groupName = this.groupNameField.getText();
+            final String description = this.groupDescField.getText();
+            try {
+                fixSize = Integer.parseInt(this.groupSizeField.getText());
+            } catch (final NumberFormatException e) {
+                new NotToHandleException();
+            }
+            if (groupName.equals("")) {
+                new EmptyValueException(this.pojo.getTranslation("GroupName")).showDialog();
+                return;
+            }
 
-			ConfirmationFrame.getInstance(this.pojo, this.pojo
-					.getTranslation("AddGroup"), new Group(groupName,
-					description, fixSize));
-		}
-		this.createGroupFrame.closeWindow();
+            ConfirmationFrame
+                    .getInstance(this.pojo, this.pojo.getTranslation("AddGroup"), new Group(groupName, description, fixSize));
+        }
+        this.createGroupFrame.closeWindow();
 
-	}
+    }
 }
