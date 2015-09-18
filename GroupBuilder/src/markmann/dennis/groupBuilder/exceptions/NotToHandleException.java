@@ -16,7 +16,7 @@ public class NotToHandleException extends SuperException implements ExceptionDia
     private static final long serialVersionUID = -4565962119370664301L;
 
     public NotToHandleException() {
-        super(errorTitel, errorMessage);
+        super(errorTitel, errorMessage, false, null);
     }
 
     @Override

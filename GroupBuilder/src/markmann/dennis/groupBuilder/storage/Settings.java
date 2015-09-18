@@ -77,21 +77,22 @@ public class Settings { // NO_UCD
     }
 
     public final void setPath(String path) {
-        if (!path.contains("GroupBuilder")) {
+        if (this.path.equals(path)) {
+            return;
+        }
+        if (!path.endsWith("GroupBuilder")) {
             path = path + "GroupBuilder\\";
         }
-        if (!this.path.equals(path)) {
-            if (new File(this.path).listFiles() != null) {
-                try {
-                    new FileCopy().copyFolder(this.path, path, true);
-                } catch (final CopyOperationException e) {
-                    new CopyException(e).showDialog();
-                }
-                new FileCleaner().cleanFolder(this.path);
+        if (new File(this.path).listFiles() != null) {
+            try {
+                new FileCopy().copyFolder(this.path, path, true);
+            } catch (final CopyOperationException e) {
+                new CopyException(e).showDialog();
             }
-            new PropertyHandler().storeProperties(path);
-            this.path = path;
+            new FileCleaner().cleanFolder(this.path);
         }
+        new PropertyHandler().storeProperties(path);
+        this.path = path;
     }
 
     public final void setPathInitially(final String path) {

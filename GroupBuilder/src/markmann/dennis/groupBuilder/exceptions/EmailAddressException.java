@@ -16,11 +16,11 @@ public class EmailAddressException extends SuperException implements ExceptionDi
 
     private static final long serialVersionUID = 6498733673905740756L;
 
-    public EmailAddressException(final dennis.markmann.MyLibraries.DefaultJobs.Email.EmailAddressException e) {
+    public EmailAddressException(final EmailAddressException e) {
 
         // TODO deutsche Übersetzung
-        super(errorTitel, errorMessage);
-        this.message = (e.getErrorMessage());
+        super(errorTitel, errorMessage, true, e);
+        this.message = (e.getMessage());
     }
 
     @Override

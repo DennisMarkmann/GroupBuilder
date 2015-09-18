@@ -18,12 +18,12 @@ public class PrintOperationException extends SuperException implements Exception
 
     private static final long serialVersionUID = 6498733673905740756L;
 
-    public PrintOperationException(final dennis.markmann.MyLibraries.DefaultJobs.Print.PrintOperationException e) {
+    public PrintOperationException(final PrintOperationException e) {
 
         // TODO deutsche Übersetzung
-        super(errorTitel, errorMessage);
+        super(errorTitel, errorMessage, true, e);
         new ExceptionLogger().logException(this);
-        this.message = (e.getErrorMessage());
+        this.message = (e.getMessage());
     }
 
     @Override

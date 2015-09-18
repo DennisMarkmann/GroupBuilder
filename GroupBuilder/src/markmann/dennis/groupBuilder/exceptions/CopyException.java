@@ -1,6 +1,6 @@
 package markmann.dennis.groupBuilder.exceptions;
 
-import markmann.dennis.groupBuilder.fileOperations.output.ExceptionLogger;
+import markmann.dennis.groupBuilder.storage.Pojo;
 import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.CopyOperationException;
 
 /**
@@ -19,11 +19,10 @@ public class CopyException extends SuperException implements ExceptionDialogInte
 
     private static final long serialVersionUID = 6498733673905740756L;
 
-    public CopyException(final CopyOperationException e) {
+    public CopyException(CopyOperationException e) {
         // TODO deutsche Übersetzung
-        super(errorTitel, errorMessage);
-        new ExceptionLogger().logException(this);
-        this.message = (e.getErrorMessage());
+        super(errorTitel, errorMessage, true, e);
+        this.message = (Pojo.getPojo().getTranslation("CopyExceptionMessage"));
     }
 
     @Override

@@ -18,12 +18,12 @@ public class EmailSendingException extends SuperException implements ExceptionDi
 
     private static final long serialVersionUID = 6498733673905740756L;
 
-    public EmailSendingException(final dennis.markmann.MyLibraries.DefaultJobs.Email.EmailSendingException e) {
+    public EmailSendingException(final EmailSendingException e) {
 
         // TODO deutsche Übersetzung
-        super(errorTitel, errorMessage);
+        super(errorTitel, errorMessage, true, e);
         new ExceptionLogger().logException(this);
-        this.message = (e.getErrorMessage());
+        this.message = (e.getMessage());
     }
 
     @Override

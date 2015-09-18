@@ -1,6 +1,6 @@
 Prio:
 
-- Speichern der Dateien der Jar als Standard Pfad
+- Speichern der Dateien im Folder der ausgeführten Jar als Standard Pfad
 
 1. Fehler:
 
@@ -56,6 +56,6 @@ Prio:
 	3.3.Tastatursteuerung ermöglichen
 		3.3.1.Tabreihenfolge ändern
 		3.3.2.DefaultButtons und Selects festlegen
-		3.3.3.KeyListener für Elemente (Enter & Escape)
+		3.3.3.KeyListener für Elemente (Enter, ESC, Strg + S, Tab, Strg + leer für multiselect)
 		
 	3.4.Remove / Edit nicht per Tabellenspalte sondern per Button + Checkbox Auswahl
