@@ -21,8 +21,7 @@ public class NoFilesFoundException extends SuperException implements ExceptionDi
 
     public NoFilesFoundException(final FileNotFoundException e) {
         super(errorTitel, errorMessage, true, e);
-        // TODO deutsche Übersetzung
-        this.message = (e.getErrorMessage());
+        this.message = (Pojo.getPojo().getTranslation("NoFilesFoundExceptionMessageNoPath"));
     }
 
     public NoFilesFoundException(final String path) {

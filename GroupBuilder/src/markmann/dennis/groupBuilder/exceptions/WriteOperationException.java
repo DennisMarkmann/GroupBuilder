@@ -1,6 +1,5 @@
 package markmann.dennis.groupBuilder.exceptions;
 
-import markmann.dennis.groupBuilder.fileOperations.output.ExceptionLogger;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
@@ -22,7 +21,6 @@ public class WriteOperationException extends SuperException implements Exception
     public WriteOperationException(final String path) {
 
         super(errorTitel, errorMessage, true, null);
-        new ExceptionLogger().logException(this);
         this.message = (Pojo.getPojo().getTranslation("WriteOperationExceptionMessage") + path);
         Pojo.getPojo().setError(true);
     }

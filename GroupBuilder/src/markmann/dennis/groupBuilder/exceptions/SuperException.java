@@ -21,13 +21,15 @@ public class SuperException extends Exception {
     private String errorTitel = "";
     private String errorMessage = "";
     private Date date = null;
+    private Exception exceptionBody = null;
 
-    public SuperException(final String errorTitel, final String errorMessage, boolean logException, Exception e) {
+    public SuperException(final String errorTitel, final String errorMessage, boolean logException, Exception exceptionBody) {
         super(errorMessage);
         // TODO use exception for logging?
         this.errorTitel = errorTitel;
         this.errorMessage = errorMessage;
         this.date = new Date();
+        this.exceptionBody = exceptionBody;
         if (logException) {
             new ExceptionLogger().logException(this);
         }
@@ -39,6 +41,7 @@ public class SuperException extends Exception {
         sb.append("' Titel'");
         sb.append(this.errorTitel);
         sb.append("'");
+        sb.append("/n" + this.exceptionBody);
         return sb.toString();
     }
 

@@ -6,7 +6,7 @@ Prio:
 
 	1.0.ExceptionHandling
 		1.0.1.ExceptionLogging verbessern : Nicht die statische sondern die dynamische Meldung loggen
-		1.0.2.Übersetzung der Meldungen auf Deutsch (Siehe TODOs)
+		1.0.2.Übersetzung der Meldungen auf Deutsch pruefen
 	
 	1.1.Vollständige Übersetzung
 		1.1.1.WindowClosing / Directory Fehler?
