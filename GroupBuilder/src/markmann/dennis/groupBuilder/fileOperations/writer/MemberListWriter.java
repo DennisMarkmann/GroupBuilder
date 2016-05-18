@@ -18,11 +18,11 @@ import org.w3c.dom.Element;
 
 class MemberListWriter {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/XMLFile.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/XMLFile.log");
 
     final void createXmlFile(final Pojo pojo) {
 
-        logger.info("Creating XML files for all members.");
+        LOGGER.info("Creating XML files for all members.");
 
         int memberNumber = 0;
 

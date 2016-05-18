@@ -20,7 +20,7 @@ import org.w3c.dom.Element;
 
 class GroupFileWriter {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/XMLFile.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/XMLFile.log");
     private String path = "";
 
     final void initializeXMLPrint(final Pojo pojo) {
@@ -34,7 +34,7 @@ class GroupFileWriter {
 
     private void createXmlFile(final Group group) {
 
-        logger.info("Creating group XML file for: " + group + ".");
+        LOGGER.info("Creating group XML file for: " + group + ".");
 
         int memberNumber = 0;
         final FileWriteHelper helper = new FileWriteHelper();

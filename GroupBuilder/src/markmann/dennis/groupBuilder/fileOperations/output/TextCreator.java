@@ -16,10 +16,10 @@ import org.apache.log4j.Logger;
 
 class TextCreator {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/Output.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/Output.log");
 
     String createGroupText(final Group group) {
-        logger.info("Creating groupText for group: " + group + ".");
+        LOGGER.info("Creating groupText for group: " + group + ".");
 
         final StringBuilder sb = new StringBuilder();
 
@@ -48,7 +48,7 @@ class TextCreator {
     }
 
     String generateMailText(final Group group, final String path) {
-        logger.info("Creating mailText for group: " + group + ".");
+        LOGGER.info("Creating mailText for group: " + group + ".");
 
         final StringBuilder sb = new StringBuilder();
 

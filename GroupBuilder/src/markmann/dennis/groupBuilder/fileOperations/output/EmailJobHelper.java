@@ -26,7 +26,7 @@ import dennis.markmann.MyLibraries.DefaultJobs.Email.EmailSettings;
 
 public class EmailJobHelper {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/Output.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/Output.log");
 
     private EmailSettings setEmailSettings() {
         return new EmailSettings(
@@ -41,7 +41,7 @@ public class EmailJobHelper {
 
     public final void sendMailToGroups(final Pojo pojo, final ArrayList<Group> groupList) {
 
-        logger.info("Sending eMails to groups.");
+        LOGGER.info("Sending eMails to groups.");
 
         if (groupList.size() == 0) {
             new NothingToDoExeption(pojo.getTranslation("Send")).showDialog();

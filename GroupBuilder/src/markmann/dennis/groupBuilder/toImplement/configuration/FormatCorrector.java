@@ -21,7 +21,7 @@ import org.apache.log4j.Logger;
 
 public class FormatCorrector {
 
-    private static Logger logger = LogHandler.getLogger("./logs/FileMover.log");
+    private static Logger LOGGER = LogHandler.getLogger("./logs/FileMover.log");
 
     /**
      * Only replaces the property file in case there are backslashes contained.
@@ -35,7 +35,7 @@ public class FormatCorrector {
             final ArrayList<String> propertyContext = this.readIn(file);
             if (this.isWrongFormat(propertyContext)) {
                 this.printOut(file, propertyContext);
-                logger.info("Corrected format of property file.");
+                LOGGER.info("Corrected format of property file.");
             }
 
         } catch (final IOException e) {

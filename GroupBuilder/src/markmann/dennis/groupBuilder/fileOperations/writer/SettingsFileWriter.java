@@ -18,11 +18,11 @@ import org.w3c.dom.Element;
 
 public class SettingsFileWriter {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/XMLFile.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/XMLFile.log");
 
     public final void createXmlFile(final Pojo pojo) {
 
-        logger.info("Creating XML files for settings.");
+        LOGGER.info("Creating XML files for settings.");
 
         final FileWriteHelper helper = new FileWriteHelper();
         final Document doc = helper.createDocument();

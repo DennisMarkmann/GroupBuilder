@@ -32,11 +32,11 @@ import org.w3c.dom.Element;
 
 public class FileWriteHelper {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/XMLFile.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/XMLFile.log");
 
     public final void createXMLFiles(final Pojo pojo) {
 
-        logger.info("Start creation of XML files.");
+        LOGGER.info("Start creation of XML files.");
 
         new MemberListWriter().createXmlFile(pojo);
         new GroupListWriter().createXmlFile(pojo);

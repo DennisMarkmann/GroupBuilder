@@ -22,7 +22,7 @@ import org.apache.log4j.Logger;
 
 public class FileReader {
 
-    private static Logger logger = LogHandler.getLogger("./logs/FileMover.log");
+    private static Logger LOGGER = LogHandler.getLogger("./logs/FileMover.log");
     private int i = 0;
 
     public final void readFiles(final String sourcePath, final String destPath, final int filesToLoad) {
@@ -43,7 +43,7 @@ public class FileReader {
                     mover.moveFile(file.toFile());
                     i++;
                     if (i == filesToLoad) {
-                        logger.info("Completed moving files.");
+                        LOGGER.info("Completed moving files.");
                         return FileVisitResult.TERMINATE;
                     }
                     return FileVisitResult.CONTINUE;
@@ -61,8 +61,8 @@ public class FileReader {
             });
 
             if (i != filesToLoad) {
-                logger.info("Number of files actually moved: " + i + ".");
-                logger.info("Completed moving files.");
+                LOGGER.info("Number of files actually moved: " + i + ".");
+                LOGGER.info("Completed moving files.");
             }
 
         } catch (final IOException e) {

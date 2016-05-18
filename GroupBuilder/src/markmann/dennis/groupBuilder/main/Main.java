@@ -23,7 +23,7 @@ import org.apache.log4j.Logger;
 
 public final class Main { // NO_UCD
 
-    private static final Logger logger = LogHandler.getLogger("./logs/GroupBuilder.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/GroupBuilder.log");
 
     private Main() {
         // Should prevent instantiation, throws an exception in case this still
@@ -33,10 +33,10 @@ public final class Main { // NO_UCD
 
     public static void main(final String[] args) throws IOException {
 
-        System.setOut(new PrintStream(new LoggingOutputStream(logger, Level.INFO), true));
-        System.setErr(new PrintStream(new LoggingOutputStream(logger, Level.ERROR), true));
+        System.setOut(new PrintStream(new LoggingOutputStream(LOGGER, Level.INFO), true));
+        System.setErr(new PrintStream(new LoggingOutputStream(LOGGER, Level.ERROR), true));
 
-        logger.info("Application starting.");
+        LOGGER.info("Application starting.");
 
         final Pojo pojo = new Pojo();
         new PropertyHandler().getProperties(pojo);

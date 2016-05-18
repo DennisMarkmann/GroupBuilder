@@ -18,12 +18,12 @@ import org.apache.log4j.Logger;
 
 public class LanguageChooser {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/GroupBuilder.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/GroupBuilder.log");
 
     public final void chooseLanguage(final Pojo pojo) {
 
         final String pojoLanguage = pojo.getSettings().getLanguage();
-        logger.info("Choosing " + pojoLanguage + " as application language.");
+        LOGGER.info("Choosing " + pojoLanguage + " as application language.");
         String language = "";
         String country = "";
 

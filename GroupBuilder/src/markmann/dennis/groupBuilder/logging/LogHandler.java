@@ -9,9 +9,9 @@ import org.apache.log4j.RollingFileAppender;
 
 /**
  * LogHandler for creating a new Logger with one Appender.
- * 
+ *
  * @author dennis.markmann
- * 
+ *
  */
 
 public class LogHandler implements Serializable {
@@ -25,7 +25,7 @@ public class LogHandler implements Serializable {
 
         final Logger log = Logger.getLogger(logFileName);
         final PatternLayout layout = new PatternLayout();
-        layout.setConversionPattern("%d{dd.MM.yyyy HH:mm:ss,SSS} %5p [%t] (%F:%L) - %m%n");
+        layout.setConversionPattern("%d{dd.MM.yyyy HH:mm:ss} %5p (%F:%L) - %m%n");
 
         // Create appender
         appender = new RollingFileAppender();

@@ -26,11 +26,11 @@ import org.xml.sax.SAXException;
 
 public class FileReaderHelper {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/XMLFile.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/XMLFile.log");
 
     public final void readXMLFiles(final Pojo pojo) {
 
-        logger.info("Reading all XML files.");
+        LOGGER.info("Reading all XML files.");
 
         new GroupListReader().readXmlFile(pojo);
         new MemberListReader().readXmlFile(pojo);

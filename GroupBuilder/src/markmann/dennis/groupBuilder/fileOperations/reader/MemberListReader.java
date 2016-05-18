@@ -24,11 +24,11 @@ import org.w3c.dom.NodeList;
 
 class MemberListReader {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/XMLFile.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/XMLFile.log");
 
     final void readXmlFile(final Pojo pojo) {
 
-        logger.info("Reading member XML files.");
+        LOGGER.info("Reading member XML files.");
 
         final FileReaderHelper helper = new FileReaderHelper();
         final MemberCreator creator = new MemberCreator(pojo);

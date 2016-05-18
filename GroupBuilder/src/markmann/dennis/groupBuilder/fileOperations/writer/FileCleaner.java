@@ -21,11 +21,11 @@ import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
 
 public class FileCleaner {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/FileCleaning.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/FileCleaning.log");
 
     final void updateArchive(final Pojo pojo) {
 
-        logger.info("Updating archive.");
+        LOGGER.info("Updating archive.");
 
         final File filePath = new File(pojo.getSettings().getPath() + "Archive\\");
         try {
@@ -41,7 +41,7 @@ public class FileCleaner {
 
     public final void cleanFolder(final String path) {
 
-        logger.info("Cleaning folder: " + path + ".");
+        LOGGER.info("Cleaning folder: " + path + ".");
 
         final File filePath = new File(path);
         try {

@@ -24,13 +24,13 @@ import org.apache.log4j.Logger;
 
 public class PropertyHandler {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/GroupBuilder.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/GroupBuilder.log");
 
     final String propertyPath = "./groupBuilder.properties";
 
     public final void storeProperties(final String path) {
 
-        logger.info("Storing properties.");
+        LOGGER.info("Storing properties.");
         final Properties properties = new Properties();
 
         properties.put("path", path);
@@ -43,7 +43,7 @@ public class PropertyHandler {
 
     public final void getProperties(final Pojo pojo) {
 
-        logger.info("Get properties.");
+        LOGGER.info("Get properties.");
 
         final Properties properties = new Properties();
         BufferedInputStream stream = null;

@@ -19,10 +19,10 @@ import org.apache.log4j.Logger;
 
 class GroupListSorter {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/GroupBuilder.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/GroupBuilder.log");
 
     final void sortArrayListForPriority(final Pojo pojo) {
-        logger.info("Sorting groupList.");
+        LOGGER.info("Sorting groupList.");
 
         boolean hasFixSize = false;
         final ArrayList<Group> groupList = pojo.getGroupList();

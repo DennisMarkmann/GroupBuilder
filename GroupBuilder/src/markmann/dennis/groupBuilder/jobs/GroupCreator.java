@@ -2,16 +2,16 @@ package markmann.dennis.groupBuilder.jobs;
 
 import java.util.ArrayList;
 
+import org.apache.log4j.Logger;
+
 import markmann.dennis.groupBuilder.exceptions.DuplicateEntryException;
 import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
-import org.apache.log4j.Logger;
-
 /**
  * Used to create new group objects.
- * 
+ *
  * @author dennis.markmann
  * @since JDK.1.7.0_21
  * @version 1.0
@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
 
 public class GroupCreator {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/GroupBuilder.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/GroupBuilder.log");
 
     private final Pojo pojo;
 
@@ -27,19 +27,7 @@ public class GroupCreator {
         this.pojo = pojo;
     }
 
-    public final void createGroup(final String name, final String description) {
-        logger.info("Creating group " + name + ".");
-        this.addGroupToList(new Group(this.correctFormat(name), description));
-    }
-
-    public final void createGroup(final String name, final String description, final int fixSize) {
-        logger.info("Creating group " + name + ".");
-        this.addGroupToList(new Group(this.correctFormat(name), description, fixSize));
-    }
-
     private void addGroupToList(final Group group) {
-        logger.info("Adding group " + group + "to list.");
-
         try {
             this.checkDuplicates(group.getName());
         } catch (final DuplicateEntryException e) {
@@ -49,8 +37,47 @@ public class GroupCreator {
         this.pojo.getGroupList().add(group);
     }
 
+    private void checkDuplicates(final String name) throws DuplicateEntryException {
+        LOGGER.info("Checking for duplicates named " + name + ".");
+
+        if (this.pojo.getGroupByName(name) != null) {
+            throw new DuplicateEntryException(name);
+        }
+    }
+
+    private void cleanGroupList() {
+
+        LOGGER.info("Cleaning groupList.");
+
+        final ArrayList<Group> tempList = new ArrayList<Group>();
+
+        for (final Group group : this.pojo.getGroupList()) {
+            tempList.add(group);
+        }
+        for (final Group group : tempList) {
+            this.pojo.getGroupList().remove(group);
+        }
+    }
+
+    private String correctFormat(String string) {
+        string = string.trim();
+        string = string.toLowerCase();
+        string = string.substring(0, 1).toUpperCase() + string.substring(1);
+        return string;
+    }
+
+    public final void createGroup(final String name, final String description) {
+        LOGGER.info("Creating group " + name + ".");
+        this.addGroupToList(new Group(this.correctFormat(name), description));
+    }
+
+    public final void createGroup(final String name, final String description, final int fixSize) {
+        LOGGER.info("Creating group " + name + ".");
+        this.addGroupToList(new Group(this.correctFormat(name), description, fixSize));
+    }
+
     public final void createGroupsAutmatically(final int memberPerGroup) {
-        logger.info("Creating groups automatically");
+        LOGGER.info("Creating groups automatically.");
 
         // parsing to double to avoid problems with odd numbers
         final double numberOfGroups = (double) this.pojo.getMemberList().size() / (double) memberPerGroup;
@@ -63,15 +90,9 @@ public class GroupCreator {
 
     }
 
-    public final void removeGroup(final Group group) {
-        logger.info("Removing group " + group + ".");
-
-        this.pojo.getGroupList().remove(this.pojo.getGroupByName(group.getName()));
-    }
-
     public final void editGroup(final Group oldGroup, final Group newGroup) {
 
-        logger.info("Editing group " + oldGroup + ".");
+        LOGGER.info("Editing group " + oldGroup + ".");
 
         final Group group = this.pojo.getGroupByName(oldGroup.getName());
         group.setName(newGroup.getName());
@@ -81,33 +102,10 @@ public class GroupCreator {
 
     }
 
-    private void cleanGroupList() {
+    public final void removeGroup(final Group group) {
+        LOGGER.info("Removing group " + group + ".");
 
-        logger.info("Cleaning groupList.");
-
-        final ArrayList<Group> tempList = new ArrayList<Group>();
-
-        for (final Group group : this.pojo.getGroupList()) {
-            tempList.add(group);
-        }
-        for (final Group group : tempList) {
-            this.pojo.getGroupList().remove(group);
-        }
-    }
-
-    private void checkDuplicates(final String name) throws DuplicateEntryException {
-        logger.info("Checking for duplicates groupList.");
-
-        if (this.pojo.getGroupByName(name) != null) {
-            throw new DuplicateEntryException(name);
-        }
-    }
-
-    private String correctFormat(String string) {
-        string = string.trim();
-        string = string.toLowerCase();
-        string = string.substring(0, 1).toUpperCase() + string.substring(1);
-        return string;
+        this.pojo.getGroupList().remove(this.pojo.getGroupByName(group.getName()));
     }
 
 }

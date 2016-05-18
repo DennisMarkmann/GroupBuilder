@@ -2,19 +2,18 @@ package markmann.dennis.groupBuilder.fileOperations.output;
 
 import java.io.File;
 
-import markmann.dennis.groupBuilder.exceptions.CopyException;
-import markmann.dennis.groupBuilder.logging.LogHandler;
-import markmann.dennis.groupBuilder.storage.Pojo;
-
 import org.apache.log4j.Logger;
 
 import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
 import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.CopyOperationException;
 import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
+import markmann.dennis.groupBuilder.exceptions.CopyException;
+import markmann.dennis.groupBuilder.logging.LogHandler;
+import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Used to create archive files (copys) of the current group files.
- * 
+ *
  * @author dennis.markmann
  * @since JDK.1.7.0_21
  * @version 1.0
@@ -22,11 +21,11 @@ import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
 
 public class GroupFileArchiver {
 
-    private static final Logger logger = LogHandler.getLogger("./logs/Output.log");
+    private static final Logger LOGGER = LogHandler.getLogger("./logs/Output.log");
 
     public final void archivGroupFiles(final Pojo pojo) {
 
-        logger.info("Archiving group files.");
+        LOGGER.info("Archiving group files.");
 
         final String archivPath = this.createArchivFolder(pojo.getSettings().getPath());
 
