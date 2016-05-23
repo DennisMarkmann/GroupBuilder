@@ -15,7 +15,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Used to assign or unassign members to groups.
  *
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

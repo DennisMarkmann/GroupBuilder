@@ -16,7 +16,6 @@ import org.w3c.dom.NodeList;
  * Used to get and store the values of the groupList.xml in the pojo.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

@@ -27,7 +27,6 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.Default
  * Listener for the confirmation frame. Allows to start several operations.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

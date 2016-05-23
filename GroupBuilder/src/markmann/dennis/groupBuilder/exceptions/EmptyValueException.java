@@ -6,7 +6,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Exception thrown in case a value is empty but needed.
  *
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

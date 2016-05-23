@@ -7,7 +7,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Exception thrown if a file can't be written sucessfully.
  *
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

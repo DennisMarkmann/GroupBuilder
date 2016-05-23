@@ -12,7 +12,6 @@ import org.apache.log4j.Logger;
  * Used to change the language for the application. Default language is English.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

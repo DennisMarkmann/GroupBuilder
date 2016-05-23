@@ -12,7 +12,6 @@ import org.w3c.dom.Element;
  * Used to create the groupList.xml file and to store group information in it.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

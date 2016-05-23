@@ -23,7 +23,6 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.Default
  * Second tab of the GUI. Used to access many other operations and to see the different groups via table.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

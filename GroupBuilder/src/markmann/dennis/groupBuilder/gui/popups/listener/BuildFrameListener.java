@@ -14,7 +14,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Listener for the build frame. Allows to build all groups, build unassigned groups and close it.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

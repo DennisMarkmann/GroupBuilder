@@ -18,7 +18,6 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindo
  * Main GUI Frame. Used to access all other GUI components.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

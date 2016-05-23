@@ -20,7 +20,6 @@ import dennis.markmann.MyLibraries.DefaultJobs.Email.EmailSettings;
  * Helper class used to initialize the emailSending and to create the emails to send.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

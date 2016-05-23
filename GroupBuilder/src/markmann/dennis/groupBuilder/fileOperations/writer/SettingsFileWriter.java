@@ -12,7 +12,6 @@ import org.w3c.dom.Element;
  * Writer class used to create an XML file for storing the settings.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

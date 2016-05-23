@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * Group object. Contains various elements and is able to get members assigned to.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

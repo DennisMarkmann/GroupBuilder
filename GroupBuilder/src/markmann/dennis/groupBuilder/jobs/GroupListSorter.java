@@ -13,7 +13,6 @@ import org.apache.log4j.Logger;
  * others. Important for building groups.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

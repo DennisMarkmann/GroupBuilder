@@ -11,7 +11,6 @@ import markmann.dennis.groupBuilder.gui.popups.OperationSuccessfullFrame;
  * Listener for the helpFrame. Used to close the window.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

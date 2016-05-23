@@ -12,7 +12,6 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindo
  * Frame used to ask if a operation should really be done.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

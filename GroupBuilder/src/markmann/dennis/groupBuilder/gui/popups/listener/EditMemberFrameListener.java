@@ -19,7 +19,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Listener for the createMemberFrame. Allows to start edit member and close the window.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

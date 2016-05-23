@@ -17,7 +17,6 @@ import org.apache.log4j.Logger;
  * Creates the GUI for the user.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

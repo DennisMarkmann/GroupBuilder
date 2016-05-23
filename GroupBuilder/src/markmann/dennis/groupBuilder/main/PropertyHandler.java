@@ -18,7 +18,6 @@ import org.apache.log4j.Logger;
  * Handler to write down and read in the applications default properties. Saves the application path for the pojo.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

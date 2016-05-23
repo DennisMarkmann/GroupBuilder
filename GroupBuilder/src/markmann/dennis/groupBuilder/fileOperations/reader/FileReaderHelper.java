@@ -20,7 +20,6 @@ import org.xml.sax.SAXException;
  * Used to start the different reading processes. Has general methods used by the readClasses.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

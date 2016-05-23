@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
  * Class for generating the default text used for output operations. (email & print)
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

@@ -10,7 +10,6 @@ import markmann.dennis.groupBuilder.fileOperations.output.ExceptionLogger;
  * Used as super class for other exceptions to implement the showErrorMessage method.
  *
  * @author dennis.markmann
- * @since JDK.1.7.0_25
  * @version 1.0
  */
 

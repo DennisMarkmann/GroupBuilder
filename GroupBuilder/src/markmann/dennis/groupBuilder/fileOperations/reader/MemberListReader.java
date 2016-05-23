@@ -18,7 +18,6 @@ import org.w3c.dom.NodeList;
  * 
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

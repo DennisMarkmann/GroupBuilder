@@ -15,7 +15,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Used to create archive files (copys) of the current group files.
  *
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

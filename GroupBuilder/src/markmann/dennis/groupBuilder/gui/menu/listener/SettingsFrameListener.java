@@ -26,7 +26,6 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.PathChooser;
  * Listener for the settings frame. Used to fill the different values and to close the window.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

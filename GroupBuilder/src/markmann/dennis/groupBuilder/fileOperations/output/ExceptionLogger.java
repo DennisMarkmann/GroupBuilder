@@ -11,7 +11,6 @@ import markmann.dennis.groupBuilder.exceptions.SuperException;
  * Used to log exceptions thrown into a TXT file.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_25
  * @version 1.0
  */
 

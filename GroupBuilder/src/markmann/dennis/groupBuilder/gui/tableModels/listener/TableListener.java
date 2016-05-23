@@ -14,7 +14,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Listener for the tableModels. Allows to edit and remove groups or member.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

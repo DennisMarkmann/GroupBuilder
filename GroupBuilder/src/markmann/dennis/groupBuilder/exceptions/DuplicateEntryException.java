@@ -6,7 +6,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Exception thrown if a the sendEmail operation fails.
  *
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

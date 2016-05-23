@@ -8,7 +8,6 @@ import java.util.ResourceBundle;
  * saved via XML files.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

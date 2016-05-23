@@ -11,7 +11,6 @@ import markmann.dennis.groupBuilder.gui.menu.AboutFrame;
  * Listener for the aboutFrame. Allows to close it.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

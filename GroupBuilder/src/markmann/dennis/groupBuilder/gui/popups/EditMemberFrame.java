@@ -15,7 +15,6 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindo
  * Frame used to start member editition.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

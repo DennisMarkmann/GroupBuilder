@@ -18,7 +18,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Listener for the mainFrame. Allows to start operations via menubar.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

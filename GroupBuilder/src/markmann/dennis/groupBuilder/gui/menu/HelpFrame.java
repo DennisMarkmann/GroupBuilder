@@ -13,7 +13,6 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindo
  * Frame used to show some useful introductions about the software.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

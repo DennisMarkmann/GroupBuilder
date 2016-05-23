@@ -19,7 +19,6 @@ import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
  * Initializes the different print operations.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

@@ -6,7 +6,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Used to start the default test operations. Is going to be replaced with a JUnit test.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

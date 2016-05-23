@@ -12,7 +12,6 @@ import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
  * Storage for the settings used in the application. Contains various elements that can be saved via XML file.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 

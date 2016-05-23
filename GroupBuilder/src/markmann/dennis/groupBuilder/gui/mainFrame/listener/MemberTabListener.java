@@ -14,7 +14,6 @@ import markmann.dennis.groupBuilder.storage.Pojo;
  * Listener for the memberTab. Used to add member, start groupBuild processes and save all changes.
  * 
  * @author dennis.markmann
- * @since JDK.1.7.0_21
  * @version 1.0
  */
 
