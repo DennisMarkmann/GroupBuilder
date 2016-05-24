@@ -9,9 +9,8 @@ import javax.swing.table.TableCellRenderer;
 
 /**
  * Renderer to enable adding JButtons to JTables.
- * 
+ *
  * @author dennis.markmann
- * @since jdk1.7.0_21
  * @version 1.0
  */
 
