@@ -63,7 +63,7 @@ public class MemberCreator {
         this.createMember(firstName, lastName, null);
     }
 
-    public final void createMember(final String firstName, final String lastName, final String eMailAdress) {
+    private final void createMember(final String firstName, final String lastName, final String eMailAdress) {
         this.createMember(firstName, lastName, eMailAdress, null);
     }
 

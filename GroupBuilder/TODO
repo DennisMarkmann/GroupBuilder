@@ -1,5 +1,7 @@
 Prio:
-
+- Umbau von POJO auf Verwendung eines Observable Patterns
+- Storage Objekte zu Fachwerten umbauen (final etc.)
+- Tests umbauen auf JUnit Tests
 - Speichern der Dateien im Folder der ausgeführten Jar als Standard Pfad
 
 1. Fehler:

@@ -11,25 +11,25 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultTab;
 import markmann.dennis.groupBuilder.gui.mainFrame.listener.MemberTabListener;
 import markmann.dennis.groupBuilder.gui.tableModels.MemberTableModel;
 import markmann.dennis.groupBuilder.gui.tableModels.listener.JTableButtonMouseListener;
 import markmann.dennis.groupBuilder.gui.tableModels.listener.JTableButtonRenderer;
 import markmann.dennis.groupBuilder.storage.Pojo;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultTab;
 
 /**
  * Main tab of the GUI. Used to access many other operations and to see the different member via table.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
 
-public class MemberTab extends JPanel implements DefaultTab {
-
-    private final TableRowSorter<TableModel> sorter;
+class MemberTab extends JPanel implements DefaultTab {
 
     private static final long serialVersionUID = 3210114640051532404L;
+
+    private final TableRowSorter<TableModel> sorter;
 
     MemberTab(final Pojo pojo) {
 

@@ -4,12 +4,12 @@ import java.util.Properties;
 
 /**
  * This will hold the and reload the configuration.
- * 
+ *
  * @author dennis.markmann
- * 
+ *
  */
 
-public class Configuration {
+class Configuration {
 
     /**
      * This is the public variable to hold all configuration parts.
@@ -20,7 +20,7 @@ public class Configuration {
 
     /**
      * Starts the loader thread.
-     * 
+     *
      * @param location - path an filename to the property file.
      */
     public static void loader(final String location) {

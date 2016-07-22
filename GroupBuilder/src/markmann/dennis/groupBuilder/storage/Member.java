@@ -14,14 +14,6 @@ public class Member implements Comparable<Member> {
     private Group group;
     private String eMailAdress;
 
-    public Member(final String firstName, final String lastName) {
-        this(firstName, lastName, null);
-    }
-
-    public Member(final String firstName, final String lastName, final String eMailAdress) {
-        this(firstName, lastName, eMailAdress, null);
-    }
-
     public Member(final String firstName, final String lastName, final String eMailAdress, final Group group) {
 
         if (firstName == null) {

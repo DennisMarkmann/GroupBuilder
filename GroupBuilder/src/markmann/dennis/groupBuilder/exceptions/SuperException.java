@@ -22,7 +22,7 @@ public class SuperException extends Exception {
     private Date date = null;
     private Exception exceptionBody = null;
 
-    public SuperException(final String errorTitel, final String errorMessage, boolean logException, Exception exceptionBody) {
+    SuperException(final String errorTitel, final String errorMessage, boolean logException, Exception exceptionBody) {
         super(errorMessage);
         // TODO use exception for logging?
         this.errorTitel = errorTitel;
@@ -44,7 +44,7 @@ public class SuperException extends Exception {
         return sb.toString();
     }
 
-    public final void showDialog(final String message) {
+    final void showDialog(final String message) {
         JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
 

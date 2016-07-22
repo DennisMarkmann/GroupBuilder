@@ -12,25 +12,25 @@ import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultTab;
 import markmann.dennis.groupBuilder.gui.mainFrame.listener.GroupTabListener;
 import markmann.dennis.groupBuilder.gui.tableModels.GroupTableModel;
 import markmann.dennis.groupBuilder.gui.tableModels.listener.JTableButtonMouseListener;
 import markmann.dennis.groupBuilder.gui.tableModels.listener.JTableButtonRenderer;
 import markmann.dennis.groupBuilder.storage.Pojo;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultTab;
 
 /**
  * Second tab of the GUI. Used to access many other operations and to see the different groups via table.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
 
-public class GroupTab extends JPanel implements DefaultTab {
-
-    private final TableRowSorter<TableModel> sorter;
+class GroupTab extends JPanel implements DefaultTab {
 
     private static final long serialVersionUID = 1673516265342795696L;
+
+    private final TableRowSorter<TableModel> sorter;
 
     GroupTab(final Pojo pojo) {
 

@@ -1,17 +1,17 @@
 package markmann.dennis.tests;
 
+import org.junit.Before;
+import org.junit.Test;
+
 import junit.framework.TestCase;
 import markmann.dennis.groupBuilder.jobs.GroupCreator;
 import markmann.dennis.groupBuilder.jobs.MemberCreator;
 import markmann.dennis.groupBuilder.main.PropertyHandler;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
-import org.junit.Before;
-import org.junit.Test;
-
 public class DataCreationTest extends TestCase {
 
-    MemberCreator creator;
+    private MemberCreator creator;
     GroupCreator groupCreator;
 
     @Override
@@ -21,6 +21,16 @@ public class DataCreationTest extends TestCase {
         new PropertyHandler().getProperties(pojo);
         this.creator = new MemberCreator(pojo);
         this.groupCreator = new GroupCreator(pojo);
+    }
+
+    @Test
+    public void testGroupCreation() {
+
+        this.groupCreator.createGroup("Group1", "");
+        this.groupCreator.createGroup("Group2", "");
+        this.groupCreator.createGroup("Group3", "");
+        this.groupCreator.createGroup("Group4", "");
+        this.groupCreator.createGroup("Group5", "");
     }
 
     @Test
@@ -49,16 +59,6 @@ public class DataCreationTest extends TestCase {
         this.creator.createMember("Thorben", "Nehls");
         this.creator.createMember("Timo", "Litzbarski");
         this.creator.createMember("Yasin", "Avcioglu");
-    }
-
-    @Test
-    public void testGroupCreation() {
-
-        this.groupCreator.createGroup("Group1", "");
-        this.groupCreator.createGroup("Group2", "");
-        this.groupCreator.createGroup("Group3", "");
-        this.groupCreator.createGroup("Group4", "");
-        this.groupCreator.createGroup("Group5", "");
     }
 
 }
