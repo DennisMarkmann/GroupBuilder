@@ -65,6 +65,8 @@ Prio:
 	3.5. Add open log and change log location function in Settings
 		(Open log in this application itself)
 	
+	3.6. GUI Umbau auf JavaFX
+	
 4. Minor GUI changes:
 
 	4.0. Archiving duration as comboBox with options: 1d, 3d, 7d, 14d, 1month (prob some changes required for months), forever
