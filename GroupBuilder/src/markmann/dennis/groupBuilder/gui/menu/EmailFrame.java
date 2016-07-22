@@ -6,16 +6,16 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
-import markmann.dennis.groupBuilder.gui.menu.listener.EmailFrameListener;
-import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
-import markmann.dennis.groupBuilder.storage.Group;
-import markmann.dennis.groupBuilder.storage.Pojo;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
+import markmann.dennis.groupBuilder.gui.menu.listener.EmailFrameListener;
+import markmann.dennis.groupBuilder.storage.Group;
+import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Frame used to start emailMail sending.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -24,7 +24,18 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
 
     private static EmailFrame instance = null;
     private static final long serialVersionUID = 4767991083504569016L;
+
+    public static EmailFrame getInstance(final Pojo pojo) {
+        if (instance == null) {
+            instance = new EmailFrame(pojo);
+        } else {
+            instance.toFront();
+        }
+        return instance;
+    }
+
     private boolean selected = true;
+
     private Pojo pojo = null;
 
     private EmailFrame(final Pojo pojo) {
@@ -64,19 +75,10 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
         closeButton.addActionListener(listener);
     }
 
-    public static EmailFrame getInstance(final Pojo pojo) {
-        if (instance == null) {
-            instance = new EmailFrame(pojo);
-        } else {
-            instance.toFront();
-        }
-        return instance;
-    }
-
-    @Override
-    public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(this.pojo, text, this);
-    }
+    // @Override
+    // public void openClosingDialog(final String text) {
+    // ConfirmationFrame.getInstance(this.pojo, text, this);
+    // }
 
     @Override
     public void closeWindow() {
@@ -86,6 +88,11 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
 
     public boolean isSelected() {
         return this.selected;
+    }
+
+    @Override
+    public void openClosingDialog(WindowCloseDialogOptions request) {
+        // TODO implement + remove old one
     }
 
     public void setSelected(final boolean selected) {

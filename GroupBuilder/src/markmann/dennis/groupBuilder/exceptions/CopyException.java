@@ -1,6 +1,6 @@
 package markmann.dennis.groupBuilder.exceptions;
 
-import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.CopyOperationException;
+import dennis.markmann.MyLibraries.DefaultJobs.File.CopyOperationException;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**

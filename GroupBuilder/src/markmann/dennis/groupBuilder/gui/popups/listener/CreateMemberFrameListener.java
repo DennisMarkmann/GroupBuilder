@@ -16,7 +16,7 @@ import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Listener for the createMemberFrame. Allows to start create member and close the window.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -28,7 +28,7 @@ public class CreateMemberFrameListener implements ActionListener {
     private final JTextField firstNameField;
     private final JTextField lastNameField;
     private final JTextField eMailField;
-    private final JComboBox<String> groupBox;
+    private final JComboBox<Object> groupBox;
 
     public CreateMemberFrameListener(
             final CreateMemberFrame createMemberFrame,
@@ -36,7 +36,7 @@ public class CreateMemberFrameListener implements ActionListener {
             final JTextField firstNameField,
             final JTextField lastNameField,
             final JTextField eMailField,
-            final JComboBox<String> groupBox) {
+            final JComboBox<Object> groupBox) {
 
         this.createMemberFrame = createMemberFrame;
         this.pojo = pojo;

@@ -5,15 +5,16 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
 import markmann.dennis.groupBuilder.gui.popups.listener.EditMemberFrameListener;
 import markmann.dennis.groupBuilder.storage.Member;
 import markmann.dennis.groupBuilder.storage.Pojo;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
 /**
  * Frame used to start member editition.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -22,6 +23,16 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
 
     private static EditMemberFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;
+
+    public static EditMemberFrame getInstance(final Pojo pojo, final int rowID) {
+        if (instance == null) {
+            instance = new EditMemberFrame(pojo, rowID);
+        } else {
+            instance.toFront();
+        }
+        return instance;
+    }
+
     private Pojo pojo = null;
 
     private EditMemberFrame(final Pojo pojo, final int rowID) {
@@ -39,7 +50,7 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
         final JTextField firstNameField = BUILDER.createTextField(this, "firstNameField", TEXT_FIELD_SIZE, 1, 1);
         final JTextField lastNameField = BUILDER.createTextField(this, "lastNameField", TEXT_FIELD_SIZE, 1, 2);
         final JTextField eMailField = BUILDER.createTextField(this, "eMailField", TEXT_FIELD_SIZE, 1, 3);
-        final JComboBox<String> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 1, 4);
+        final JComboBox<Object> groupBox = BUILDER.createComboBox(this, "groupBox", pojo.getGroupListAsArray(), 1, 4);
 
         final JButton confirmationButton = BUILDER
                 .createButton(this, "confirmationButton", pojo.getTranslation("Confirm"), 0, 5);
@@ -60,13 +71,10 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
         abortButton.addActionListener(listener);
     }
 
-    public static EditMemberFrame getInstance(final Pojo pojo, final int rowID) {
-        if (instance == null) {
-            instance = new EditMemberFrame(pojo, rowID);
-        } else {
-            instance.toFront();
-        }
-        return instance;
+    @Override
+    public void closeWindow() {
+        this.dispose();
+        instance = null;
     }
 
     private void fillFields(
@@ -75,7 +83,7 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
             final JTextField firstNameField,
             final JTextField lastNameField,
             final JTextField eMailField,
-            final JComboBox<String> groupBox) {
+            final JComboBox<Object> groupBox) {
         final Member member = pojo.getMemberList().get(rowID);
         firstNameField.setText(member.getFirstName());
         lastNameField.setText(member.getLastName());
@@ -95,14 +103,13 @@ public final class EditMemberFrame extends JFrame implements DefaultFrame {
         return 0;
     }
 
-    @Override
-    public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(this.pojo, text, this);
-    }
+    // @Override
+    // public void openClosingDialog(final String text) {
+    // ConfirmationFrame.getInstance(this.pojo, text, this);
+    // }
 
     @Override
-    public void closeWindow() {
-        this.dispose();
-        instance = null;
+    public void openClosingDialog(WindowCloseDialogOptions request) {
+        // TODO implement + remove old one
     }
 }

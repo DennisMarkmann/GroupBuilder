@@ -8,6 +8,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.PathChooser;
 import markmann.dennis.groupBuilder.exceptions.NotToHandleException;
 import markmann.dennis.groupBuilder.fileOperations.reader.FileReaderHelper;
 import markmann.dennis.groupBuilder.fileOperations.writer.SettingsFileWriter;
@@ -19,12 +21,10 @@ import markmann.dennis.groupBuilder.gui.tableModels.MemberTableModel;
 import markmann.dennis.groupBuilder.main.LanguageChooser;
 import markmann.dennis.groupBuilder.storage.Pojo;
 import markmann.dennis.groupBuilder.storage.Settings;
-import dennis.markmann.MyLibraries.DefaultJobs.Print.PrinterSelector;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.PathChooser;
 
 /**
  * Listener for the settings frame. Used to fill the different values and to close the window.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -34,7 +34,7 @@ public class SettingsFrameListener implements ActionListener {
     private final SettingsFrame settingsFrame;
     private final Pojo pojo;
     private final JTextField pathField;
-    private final JComboBox<String> languageBox;
+    private final JComboBox<Object> languageBox;
     private final JCheckBox archivingBox;
     private final JTextField archiveField;
     private final JTextField printerField;
@@ -45,7 +45,7 @@ public class SettingsFrameListener implements ActionListener {
             final SettingsFrame settingsFrame,
             final Pojo pojo,
             final JTextField pathField,
-            final JComboBox<String> languageBox,
+            final JComboBox<Object> languageBox,
             final JCheckBox archivingBox,
             final JTextField archiveField,
             final JTextField printerField,

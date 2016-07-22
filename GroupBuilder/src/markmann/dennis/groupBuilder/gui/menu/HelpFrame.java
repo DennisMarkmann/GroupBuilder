@@ -3,15 +3,16 @@ package markmann.dennis.groupBuilder.gui.menu;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
 import markmann.dennis.groupBuilder.gui.menu.listener.HelpFrameListener;
 import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.storage.Pojo;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
 /**
  * Frame used to show some useful introductions about the software.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -20,6 +21,16 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
 
     private static HelpFrame instance = null;
     private static final long serialVersionUID = 416901635761617562L;
+
+    public static HelpFrame getInstance(final Pojo pojo) {
+        if (instance == null) {
+            instance = new HelpFrame(pojo);
+        } else {
+            instance.toFront();
+        }
+        return instance;
+    }
+
     private Pojo pojo = null;
 
     private HelpFrame(final Pojo pojo) {
@@ -37,23 +48,19 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
 
     }
 
-    public static HelpFrame getInstance(final Pojo pojo) {
-        if (instance == null) {
-            instance = new HelpFrame(pojo);
-        } else {
-            instance.toFront();
-        }
-        return instance;
+    @Override
+    public void closeWindow() {
+        this.dispose();
+        instance = null;
     }
 
-    @Override
+    // @Override
     public void openClosingDialog(final String text) {
         ConfirmationFrame.getInstance(this.pojo, text, this);
     }
 
     @Override
-    public void closeWindow() {
-        this.dispose();
-        instance = null;
+    public void openClosingDialog(WindowCloseDialogOptions request) {
+        // TODO implement + remove old one
     }
 }

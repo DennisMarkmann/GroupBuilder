@@ -7,16 +7,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import markmann.dennis.groupBuilder.gui.menu.listener.SettingsFrameListener;
-import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
-import markmann.dennis.groupBuilder.storage.Pojo;
-import markmann.dennis.groupBuilder.storage.Settings;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
+import markmann.dennis.groupBuilder.gui.menu.listener.SettingsFrameListener;
+import markmann.dennis.groupBuilder.storage.Language;
+import markmann.dennis.groupBuilder.storage.Pojo;
+import markmann.dennis.groupBuilder.storage.Settings;
 
 /**
  * Frame used to change information concerning the behavior of the application.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -25,6 +26,16 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
     private static SettingsFrame instance = null;
     private static final long serialVersionUID = 3141095634381522203L;
+
+    public static SettingsFrame getInstance(final Pojo pojo) {
+        if (instance == null) {
+            instance = new SettingsFrame(pojo);
+        } else {
+            instance.toFront();
+        }
+        return instance;
+    }
+
     private Pojo pojo = null;
 
     private SettingsFrame(final Pojo pojo) {
@@ -44,7 +55,7 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
         // language
         BUILDER.createLabel(this, pojo.getTranslation("Language"), 0, 1);
-        final JComboBox<String> languageBox = BUILDER.createComboBox(this, "languageBox", pojo.getLanguageList(), 1, 1);
+        final JComboBox<Object> languageBox = BUILDER.createComboBox(this, "languageBox", Language.values(), 1, 1);
 
         // archiving
         BUILDER.createLabel(this, pojo.getTranslation("Archiving"), 0, 2);
@@ -102,10 +113,33 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         this.setVisible(true);
     }
 
+    @Override
+    public void closeWindow() {
+        this.dispose();
+        instance = null;
+    }
+
+    // @Override
+    // public void openClosingDialog(final String text) {
+    // ConfirmationFrame.getInstance(this.pojo, text, this);
+    // }
+
+    @Override
+    public void openClosingDialog(WindowCloseDialogOptions request) {
+        // TODO implement + remove old one
+    }
+
+    private boolean readCheckSettings(final boolean checked) {
+        if (checked) {
+            return true;
+        }
+        return false;
+    }
+
     private void updateFrame(
             final Pojo pojo,
             final JTextField pathField,
-            final JComboBox<String> languageBox,
+            final JComboBox<Object> languageBox,
             final JCheckBox archivingBox,
             final JTextField archiveField,
             final JTextField printerField,
@@ -124,38 +158,11 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
 
     }
 
-    public void updatePrinterField(final JTextField printerField, final String printer) {
-        printerField.setText(printer);
-    }
-
     public void updatePathField(final JTextField pathField, final String path) {
         pathField.setText(path);
     }
 
-    private boolean readCheckSettings(final boolean checked) {
-        if (checked) {
-            return true;
-        }
-        return false;
-    }
-
-    public static SettingsFrame getInstance(final Pojo pojo) {
-        if (instance == null) {
-            instance = new SettingsFrame(pojo);
-        } else {
-            instance.toFront();
-        }
-        return instance;
-    }
-
-    @Override
-    public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(this.pojo, text, this);
-    }
-
-    @Override
-    public void closeWindow() {
-        this.dispose();
-        instance = null;
+    public void updatePrinterField(final JTextField printerField, final String printer) {
+        printerField.setText(printer);
     }
 }

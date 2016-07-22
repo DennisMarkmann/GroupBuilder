@@ -17,7 +17,7 @@ import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Listener for the createMemberFrame. Allows to start edit member and close the window.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -30,7 +30,7 @@ public class EditMemberFrameListener implements ActionListener {
     private final JTextField firstNameField;
     private final JTextField lastNameField;
     private final JTextField eMailField;
-    private final JComboBox<String> groupBox;
+    private final JComboBox<Object> groupBox;
 
     public EditMemberFrameListener(
             final EditMemberFrame editMemberFrame,
@@ -39,7 +39,7 @@ public class EditMemberFrameListener implements ActionListener {
             final JTextField firstNameField,
             final JTextField lastNameField,
             final JTextField eMailField,
-            final JComboBox<String> groupBox) {
+            final JComboBox<Object> groupBox) {
 
         this.editMemberFrame = editMemberFrame;
         this.pojo = pojo;

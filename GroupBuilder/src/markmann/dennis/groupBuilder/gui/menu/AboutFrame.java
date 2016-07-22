@@ -7,15 +7,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import markmann.dennis.groupBuilder.gui.menu.listener.AboutFrameListener;
-import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
-import markmann.dennis.groupBuilder.storage.Pojo;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
+import markmann.dennis.groupBuilder.gui.menu.listener.AboutFrameListener;
+import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Frame showing information about the author.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -24,6 +24,16 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
 
     private static AboutFrame instance = null;
     private static final long serialVersionUID = -7650216557475857971L;
+
+    public static AboutFrame getInstance(final Pojo pojo) {
+        if (instance == null) {
+            instance = new AboutFrame(pojo);
+        } else {
+            instance.toFront();
+        }
+        return instance;
+    }
+
     private Pojo pojo = null;
 
     private AboutFrame(final Pojo pojo) {
@@ -53,24 +63,20 @@ public final class AboutFrame extends JFrame implements DefaultFrame {
         closeButton.addActionListener(listener);
     }
 
-    public static AboutFrame getInstance(final Pojo pojo) {
-        if (instance == null) {
-            instance = new AboutFrame(pojo);
-        } else {
-            instance.toFront();
-        }
-        return instance;
-    }
-
-    @Override
-    public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(this.pojo, text, this);
-    }
+    // @Override
+    // public void openClosingDialog(final String text) {
+    // ConfirmationFrame.getInstance(this.pojo, text, this);
+    // }
 
     @Override
     public void closeWindow() {
         this.dispose();
         instance = null;
+    }
+
+    @Override
+    public void openClosingDialog(WindowCloseDialogOptions request) {
+        // TODO implement + remove old one
     }
 
 }

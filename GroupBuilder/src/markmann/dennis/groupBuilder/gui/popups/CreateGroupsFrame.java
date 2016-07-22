@@ -4,14 +4,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import markmann.dennis.groupBuilder.gui.popups.listener.CreateGroupsFrameListener;
-import markmann.dennis.groupBuilder.storage.Pojo;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
+import markmann.dennis.groupBuilder.gui.popups.listener.CreateGroupsFrameListener;
+import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Frame used to automatically create groups.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -20,6 +21,16 @@ public final class CreateGroupsFrame extends JFrame implements DefaultFrame {
 
     private static CreateGroupsFrame instance = null;
     private static final long serialVersionUID = 416901635761617562L;
+
+    public static CreateGroupsFrame getInstance(final Pojo pojo) {
+        if (instance == null) {
+            instance = new CreateGroupsFrame(pojo);
+        } else {
+            instance.toFront();
+        }
+        return instance;
+    }
+
     private Pojo pojo = null;
 
     private CreateGroupsFrame(final Pojo pojo) {
@@ -40,23 +51,19 @@ public final class CreateGroupsFrame extends JFrame implements DefaultFrame {
 
     }
 
-    public static CreateGroupsFrame getInstance(final Pojo pojo) {
-        if (instance == null) {
-            instance = new CreateGroupsFrame(pojo);
-        } else {
-            instance.toFront();
-        }
-        return instance;
-    }
-
-    @Override
-    public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(this.pojo, text, this);
-    }
+    // @Override
+    // public void openClosingDialog(final String text) {
+    // ConfirmationFrame.getInstance(this.pojo, text, this);
+    // }
 
     @Override
     public void closeWindow() {
         this.dispose();
         instance = null;
+    }
+
+    @Override
+    public void openClosingDialog(WindowCloseDialogOptions request) {
+        // TODO implement + remove old one
     }
 }

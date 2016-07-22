@@ -4,15 +4,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
 import markmann.dennis.groupBuilder.gui.popups.listener.EditGroupFrameListener;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Pojo;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 
 /**
  * Frame used to edit information for the groups.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -21,6 +22,16 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
 
     private static EditGroupFrame instance = null;
     private static final long serialVersionUID = -2620743685703998617L;
+
+    public static EditGroupFrame getInstance(final Pojo pojo, final int rowID) {
+        if (instance == null) {
+            instance = new EditGroupFrame(pojo, rowID);
+        } else {
+            instance.toFront();
+        }
+        return instance;
+    }
+
     private Pojo pojo = null;
 
     private EditGroupFrame(final Pojo pojo, final int rowID) {
@@ -56,20 +67,6 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
         abortButton.addActionListener(listener);
     }
 
-    public static EditGroupFrame getInstance(final Pojo pojo, final int rowID) {
-        if (instance == null) {
-            instance = new EditGroupFrame(pojo, rowID);
-        } else {
-            instance.toFront();
-        }
-        return instance;
-    }
-
-    @Override
-    public void openClosingDialog(final String text) {
-        ConfirmationFrame.getInstance(this.pojo, text, this);
-    }
-
     @Override
     public void closeWindow() {
         this.dispose();
@@ -88,5 +85,15 @@ public final class EditGroupFrame extends JFrame implements DefaultFrame {
         groupDescField.setText(group.getDescription());
         groupSizeField.setText(group.getFixSize() + "");
 
+    }
+
+    // @Override
+    // public void openClosingDialog(final String text) {
+    // ConfirmationFrame.getInstance(this.pojo, text, this);
+    // }
+
+    @Override
+    public void openClosingDialog(WindowCloseDialogOptions request) {
+        // TODO implement + remove old one
     }
 }

@@ -2,15 +2,15 @@ package markmann.dennis.groupBuilder.storage;
 
 import java.io.File;
 
+import dennis.markmann.MyLibraries.DefaultJobs.File.CopyOperationException;
+import dennis.markmann.MyLibraries.DefaultJobs.File.FileCopy;
 import markmann.dennis.groupBuilder.exceptions.CopyException;
 import markmann.dennis.groupBuilder.fileOperations.writer.FileCleaner;
 import markmann.dennis.groupBuilder.main.PropertyHandler;
-import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.CopyOperationException;
-import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
 
 /**
  * Storage for the settings used in the application. Contains various elements that can be saved via XML file.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -31,48 +31,44 @@ public class Settings { // NO_UCD
     private boolean printAutomatically = false;
     private String printer;
 
+    public final int getArchivingDays() {
+        return this.archivingDays;
+    }
+
     public final String getLanguage() {
         return this.language;
     }
 
-    public final void setLanguage(final String language) {
-        this.language = language;
+    public final String getPath() {
+        return this.path;
+    }
+
+    public final String getPrinter() {
+        return this.printer;
     }
 
     public final boolean isArchived() {
         return this.archive;
     }
 
-    public final void setArchived(final boolean archive) {
-        this.archive = archive;
-    }
-
-    public final int getArchivingDays() {
-        return this.archivingDays;
-    }
-
-    public final void setArchivingDays(final int archivingDays) {
-        this.archivingDays = archivingDays;
+    public final boolean isPrintAutomatically() {
+        return this.printAutomatically;
     }
 
     public final boolean isSendMailAutomatically() {
         return this.sendMailAutomatically;
     }
 
-    public final void setSendMailAutomatically(final boolean sendMailAutomatically) {
-        this.sendMailAutomatically = sendMailAutomatically;
+    public final void setArchived(final boolean archive) {
+        this.archive = archive;
     }
 
-    public final boolean isPrintAutomatically() {
-        return this.printAutomatically;
+    public final void setArchivingDays(final int archivingDays) {
+        this.archivingDays = archivingDays;
     }
 
-    public final void setPrintAutomatically(final boolean printAutomatically) {
-        this.printAutomatically = printAutomatically;
-    }
-
-    public final String getPath() {
-        return this.path;
+    public final void setLanguage(final String language) {
+        this.language = language;
     }
 
     public final void setPath(String path) {
@@ -98,12 +94,16 @@ public class Settings { // NO_UCD
         this.path = path;
     }
 
-    public final String getPrinter() {
-        return this.printer;
+    public final void setPrintAutomatically(final boolean printAutomatically) {
+        this.printAutomatically = printAutomatically;
     }
 
     public final void setPrinter(final String printer) {
         this.printer = printer;
+    }
+
+    public final void setSendMailAutomatically(final boolean sendMailAutomatically) {
+        this.sendMailAutomatically = sendMailAutomatically;
     }
 
 }

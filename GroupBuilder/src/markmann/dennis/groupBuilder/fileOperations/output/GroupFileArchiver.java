@@ -5,8 +5,8 @@ import java.io.File;
 import org.apache.log4j.Logger;
 
 import dennis.markmann.MyLibraries.DefaultJobs.DateHelper;
-import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.CopyOperationException;
-import dennis.markmann.MyLibraries.DefaultJobs.FileCopy.FileCopy;
+import dennis.markmann.MyLibraries.DefaultJobs.File.CopyOperationException;
+import dennis.markmann.MyLibraries.DefaultJobs.File.FileCopy;
 import markmann.dennis.groupBuilder.exceptions.CopyException;
 import markmann.dennis.groupBuilder.logging.LogHandler;
 import markmann.dennis.groupBuilder.storage.Pojo;
