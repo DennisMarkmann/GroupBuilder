@@ -8,10 +8,8 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import markmann.dennis.groupBuilder.exceptions.EmptyValueException;
-import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.gui.popups.CreateMemberFrame;
 import markmann.dennis.groupBuilder.storage.Group;
-import markmann.dennis.groupBuilder.storage.Member;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
@@ -66,11 +64,11 @@ public class CreateMemberFrameListener implements ActionListener {
                 new EmptyValueException(this.pojo.getTranslation("LastName")).showDialog();
                 return;
             }
-
-            ConfirmationFrame.getInstance(
-                    this.pojo,
-                    this.pojo.getTranslation("AddMember"),
-                    new Member(firstName, lastName, eMailAdress, group));
+            // TODO add confirmationFrame
+            // ConfirmationFrame.getInstance(
+            // this.pojo,
+            // this.pojo.getTranslation("AddMember"),
+            // new Member(firstName, lastName, eMailAdress, group));
         }
         this.createMemberFrame.closeWindow();
 

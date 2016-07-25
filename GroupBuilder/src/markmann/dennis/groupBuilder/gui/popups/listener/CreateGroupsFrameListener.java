@@ -7,13 +7,12 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import markmann.dennis.groupBuilder.exceptions.EmptyValueException;
-import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.gui.popups.CreateGroupsFrame;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Listener for the createGroupsFrame. Automatically create groups.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -49,7 +48,8 @@ public class CreateGroupsFrameListener implements ActionListener {
                 return;
             }
 
-            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("AutoCreateGroups"), memberPerGroup);
+            // TODO add confirmationFrame
+            // ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("AutoCreateGroups"), memberPerGroup);
             this.createGroupsAutomaticallyFrame.closeWindow();
 
         } else if (buttonClicked.getName().compareTo("closeButton") == 0) {

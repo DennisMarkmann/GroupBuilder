@@ -9,7 +9,6 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import markmann.dennis.groupBuilder.exceptions.EmptyValueException;
-import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.gui.popups.EditMemberFrame;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Member;
@@ -75,7 +74,8 @@ public class EditMemberFrameListener implements ActionListener {
             memberList.add(this.pojo.getMemberList().get(this.rowID));
             memberList.add(new Member(firstName, lastName, email, group));
 
-            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("EditMember"), memberList);
+            // TODO add confirmationFrame
+            // ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("EditMember"), memberList);
         }
         this.editMemberFrame.closeWindow();
 

@@ -5,14 +5,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.gui.popups.EditGroupFrame;
 import markmann.dennis.groupBuilder.gui.popups.EditMemberFrame;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Listener for the tableModels. Allows to edit and remove groups or member.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -35,7 +34,8 @@ public class TableListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
 
         if (buttonClicked.getName().compareTo("RemoveButton") == 0) {
-            ConfirmationFrame.getInstance(this.pojo, this.action, this.rowID);
+            // TODO add confirmationFrame
+            // ConfirmationFrame.getInstance(this.pojo, this.action, this.rowID);
 
         } else if (buttonClicked.getName().compareTo("EditButton") == 0) {
             if (this.action.equals(this.pojo.getTranslation("EditMember"))) {

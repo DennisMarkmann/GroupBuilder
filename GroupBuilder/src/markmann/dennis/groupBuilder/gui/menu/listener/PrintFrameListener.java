@@ -8,13 +8,12 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 
 import markmann.dennis.groupBuilder.gui.menu.PrintFrame;
-import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Listener for the printFrame. Used to start the printing operation and to close the window.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -43,7 +42,8 @@ public class PrintFrameListener implements ActionListener {
                     groupList.add(this.pojo.getGroupByName(checkBox.getName()));
                 }
             }
-            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("Print"), groupList);
+            // TODO add confirmationFrame
+            // ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("Print"), groupList);
         } else if (buttonClicked.getName().compareTo("selectAllButton") == 0) {
             boolean select = true;
             if (this.printFrame.isSelected()) {

@@ -6,13 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import markmann.dennis.groupBuilder.gui.popups.BuildFrame;
-import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.gui.popups.CreateMemberFrame;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Listener for the memberTab. Used to add member, start groupBuild processes and save all changes.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -37,7 +36,8 @@ public class MemberTabListener implements ActionListener {
             BuildFrame.getInstance(this.pojo);
 
         } else if (buttonClicked.getName().compareTo("saveButton") == 0) {
-            ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("Save"), null);
+            // TODO add confirmationFrame
+            // ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("Save"), null);
         }
 
     }

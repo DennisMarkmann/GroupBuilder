@@ -8,14 +8,12 @@ import javax.swing.JTextField;
 
 import markmann.dennis.groupBuilder.exceptions.EmptyValueException;
 import markmann.dennis.groupBuilder.exceptions.NotToHandleException;
-import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.gui.popups.CreateGroupFrame;
-import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
  * Listener for the groupFrame. Used to create groups and close the window.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -62,8 +60,9 @@ public class CreateGroupFrameListener implements ActionListener {
                 return;
             }
 
-            ConfirmationFrame
-                    .getInstance(this.pojo, this.pojo.getTranslation("AddGroup"), new Group(groupName, description, fixSize));
+            // TODO add confirmationFrame
+            // ConfirmationFrame
+            // .getInstance(this.pojo, this.pojo.getTranslation("AddGroup"), new Group(groupName, description, fixSize));
         }
         this.createGroupFrame.closeWindow();
 

@@ -11,6 +11,7 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.Default
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
 import markmann.dennis.groupBuilder.gui.menu.listener.SettingsFrameListener;
+import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.storage.Language;
 import markmann.dennis.groupBuilder.storage.Pojo;
 import markmann.dennis.groupBuilder.storage.Settings;
@@ -125,8 +126,9 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
     // }
 
     @Override
-    public void openClosingDialog(WindowCloseDialogOptions request) {
+    public void openClosingDialog(WindowCloseDialogOptions dialogOption) {
         // TODO implement + remove old one
+        ConfirmationFrame.getInstance(this.pojo, dialogOption, this);
     }
 
     private boolean readCheckSettings(final boolean checked) {
