@@ -3,6 +3,7 @@
 	<name>GroupBuilder</name>
 	<comment></comment>
 	<projects>
+		<project>MyLibraries</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
