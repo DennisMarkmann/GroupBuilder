@@ -62,13 +62,8 @@ public final class BuildFrame extends JFrame implements DefaultFrame {
         instance = null;
     }
 
-    // @Override
-    // public void openClosingDialog(final String text) {
-    // ConfirmationFrame.getInstance(this.pojo, text, this);
-    // }
-
     @Override
     public void openClosingDialog(WindowCloseDialogOptions request) {
-        // TODO implement + remove old one
+        ConfirmationFrame.getInstance(this.pojo, request, this);
     }
 }

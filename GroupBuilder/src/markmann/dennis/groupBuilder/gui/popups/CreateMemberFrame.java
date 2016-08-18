@@ -72,13 +72,7 @@ public final class CreateMemberFrame extends JFrame implements DefaultFrame {
         instance = null;
     }
 
-    // @Override
-    // public void openClosingDialog(final String text) {
-    // ConfirmationFrame.getInstance(this.pojo, text, this);
-    // }
-
     @Override
     public void openClosingDialog(WindowCloseDialogOptions request) {
-        // TODO implement + remove old one
     }
 }

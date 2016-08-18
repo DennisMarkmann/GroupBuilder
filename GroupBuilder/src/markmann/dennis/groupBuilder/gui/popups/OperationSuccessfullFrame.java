@@ -51,13 +51,8 @@ public final class OperationSuccessfullFrame extends JFrame implements DefaultFr
         instance = null;
     }
 
-    // @Override
-    // public void openClosingDialog(final String text) {
-    // this.closeWindow();
-    // }
-
     @Override
     public void openClosingDialog(WindowCloseDialogOptions request) {
-        // TODO implement + remove old one
+        ConfirmationFrame.getInstance(null, request, this);
     }
 }

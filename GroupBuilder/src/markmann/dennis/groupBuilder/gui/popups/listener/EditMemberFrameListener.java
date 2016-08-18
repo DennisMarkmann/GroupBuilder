@@ -8,7 +8,9 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
 import markmann.dennis.groupBuilder.exceptions.EmptyValueException;
+import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.gui.popups.EditMemberFrame;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Member;
@@ -55,7 +57,7 @@ public class EditMemberFrameListener implements ActionListener {
         final JButton buttonClicked = (JButton) event.getSource();
         if (buttonClicked.getName().compareTo("confirmationButton") == 0) {
 
-            final ArrayList<Member> memberList = new ArrayList<Member>();
+            final ArrayList<Member> memberList = new ArrayList<>();
             final String firstName = this.firstNameField.getText();
             final String lastName = this.lastNameField.getText();
             final String email = this.eMailField.getText();
@@ -74,8 +76,7 @@ public class EditMemberFrameListener implements ActionListener {
             memberList.add(this.pojo.getMemberList().get(this.rowID));
             memberList.add(new Member(firstName, lastName, email, group));
 
-            // TODO add confirmationFrame
-            // ConfirmationFrame.getInstance(this.pojo, this.pojo.getTranslation("EditMember"), memberList);
+            ConfirmationFrame.getInstance(this.pojo, WindowCloseDialogOptions.EDIT_MEMBER, memberList);
         }
         this.editMemberFrame.closeWindow();
 

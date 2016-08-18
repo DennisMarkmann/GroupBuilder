@@ -2,7 +2,7 @@ package markmann.dennis.groupBuilder.storage;
 
 public enum MyWindowCloseDialogOptions {
 
-    REQUEST {
+    CLOSE_WINDOW {
 
         @Override
         public String toString() {
@@ -15,6 +15,14 @@ public enum MyWindowCloseDialogOptions {
         @Override
         public String toString() {
             return null;
+        }
+    },
+
+    EDIT_MEMBER {
+
+        @Override
+        public String toString() {
+            return "Do you really want to edit that member?";
         }
     },
 

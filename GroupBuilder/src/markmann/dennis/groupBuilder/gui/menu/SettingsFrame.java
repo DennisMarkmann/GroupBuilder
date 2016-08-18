@@ -120,15 +120,9 @@ public final class SettingsFrame extends JFrame implements DefaultFrame {
         instance = null;
     }
 
-    // @Override
-    // public void openClosingDialog(final String text) {
-    // ConfirmationFrame.getInstance(this.pojo, text, this);
-    // }
-
     @Override
-    public void openClosingDialog(WindowCloseDialogOptions dialogOption) {
-        // TODO implement + remove old one
-        ConfirmationFrame.getInstance(this.pojo, dialogOption, this);
+    public void openClosingDialog(WindowCloseDialogOptions request) {
+        ConfirmationFrame.getInstance(this.pojo, request, this);
     }
 
     private boolean readCheckSettings(final boolean checked) {

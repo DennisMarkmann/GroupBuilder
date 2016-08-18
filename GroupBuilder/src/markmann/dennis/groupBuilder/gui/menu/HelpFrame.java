@@ -7,6 +7,7 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.Default
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
 import markmann.dennis.groupBuilder.gui.menu.listener.HelpFrameListener;
+import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
@@ -53,14 +54,8 @@ public final class HelpFrame extends JFrame implements DefaultFrame {
         instance = null;
     }
 
-    // @Override
-    public void openClosingDialog(final String text) {
-        // TODO add confirmationFrame
-        // ConfirmationFrame.getInstance(this.pojo, text, this);
-    }
-
     @Override
     public void openClosingDialog(WindowCloseDialogOptions request) {
-        // TODO implement + remove old one
+        ConfirmationFrame.getInstance(this.pojo, request, this);
     }
 }

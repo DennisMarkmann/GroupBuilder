@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.swing.JButton;
 
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
+import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
 import markmann.dennis.groupBuilder.fileOperations.output.EmailJobHelper;
 import markmann.dennis.groupBuilder.fileOperations.output.PrintJobHelper;
 import markmann.dennis.groupBuilder.fileOperations.writer.FileWriteHelper;
@@ -21,11 +23,10 @@ import markmann.dennis.groupBuilder.jobs.MemberCreator;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Member;
 import markmann.dennis.groupBuilder.storage.Pojo;
-import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 
 /**
  * Listener for the confirmation frame. Allows to start several operations.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
@@ -33,19 +34,20 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.Default
 @SuppressWarnings("unchecked")
 public class ConfirmationFrameListener implements ActionListener {
 
+    // TODO: Switch Operations to dialogOptions
     private static List<String> outputOperations;
     private static List<String> memberOperations;
     private static List<String> groupOperations;
     private String message = "";
     private final ConfirmationFrame confirmationFrame;
     private final Pojo pojo;
-    private final String action;
+    private final WindowCloseDialogOptions action;
     private final Object object;
 
     public ConfirmationFrameListener(
             final ConfirmationFrame confirmationFrame,
             final Pojo pojo,
-            final String action,
+            final WindowCloseDialogOptions action,
             final Object object) {
 
         this.confirmationFrame = confirmationFrame;
@@ -80,7 +82,7 @@ public class ConfirmationFrameListener implements ActionListener {
                 this.useMemberOperation();
             } else if (groupOperations.contains(this.action)) {
                 this.useGroupOperation();
-            } else if (this.action.equals("CloseWindow")) {
+            } else if (this.action == WindowCloseDialogOptions.CLOSE_WINDOW) {
                 ((DefaultFrame) this.object).closeWindow();
                 this.confirmationFrame.closeWindow();
                 return;
@@ -94,45 +96,23 @@ public class ConfirmationFrameListener implements ActionListener {
         this.confirmationFrame.closeWindow();
     }
 
-    private void useOutputOperation() {
+    private void generateGroupMessage(final Group group, final String operation) {
 
-        if (this.action.equals(this.pojo.getTranslation("Print"))) {
-            new PrintJobHelper().printOutForGroups(this.pojo, (ArrayList<Group>) this.object);
-            this.message = this.pojo.getTranslation("PrintSuccess");
-
-        } else if (this.action.equals(this.pojo.getTranslation("SendMail"))) {
-            new EmailJobHelper().sendMailToGroups(this.pojo, (ArrayList<Group>) this.object);
-            this.message = this.pojo.getTranslation("MailSuccess");
-
-        } else if (this.action.equals(this.pojo.getTranslation("Save"))) {
-            new FileWriteHelper().createXMLFiles(this.pojo);
-            this.message = this.pojo.getTranslation("SaveSuccess");
-        }
+        final String groupName = group.getName();
+        this.message = this.pojo.getTranslation("Group") + " " + groupName + " " + this.pojo.getTranslation("WasSuccessfully")
+                + " " + this.pojo.getTranslation(operation) + ".";
     }
 
-    private void useMemberOperation() {
+    private void generateMemberMessage(final Member member, final String operation) {
 
-        if (this.action.equals(this.pojo.getTranslation("AddMember"))) {
-            final Member member = (Member) this.object;
+        final String firstName = member.getFirstName();
+        final String lastName = member.getLastName();
+        this.message = this.pojo.getTranslation("Member") + " " + firstName + " " + lastName + " "
+                + this.pojo.getTranslation("WasSuccessfully") + " " + this.pojo.getTranslation(operation) + ".";
+    }
 
-            new MemberCreator(this.pojo).correctMemberFormat(member);
-            this.generateMemberMessage(member, "Added");
-
-        } else if (this.action.equals(this.pojo.getTranslation("EditMember"))) {
-            final Member oldMember = ((ArrayList<Member>) this.object).get(0);
-            final Member newMember = ((ArrayList<Member>) this.object).get(1);
-
-            new MemberCreator(this.pojo).editMember(oldMember, newMember);
-            this.generateMemberMessage(oldMember, "Edited");
-
-        } else if (this.action.equals(this.pojo.getTranslation("RemoveMember"))) {
-            final Member member = this.pojo.getMemberList().get((int) (this.object));
-
-            new MemberCreator(this.pojo).removeMember(member);
-            this.generateMemberMessage(member, "Removed");
-
-        }
-        MemberTableModel.refreshTable();
+    private void showSuccessMessage(final String text) {
+        OperationSuccessfullFrame.getInstance(text, this.pojo);
     }
 
     private void useGroupOperation() {
@@ -164,22 +144,44 @@ public class ConfirmationFrameListener implements ActionListener {
         GroupTableModel.refreshTable();
     }
 
-    private void generateMemberMessage(final Member member, final String operation) {
+    private void useMemberOperation() {
 
-        final String firstName = member.getFirstName();
-        final String lastName = member.getLastName();
-        this.message = this.pojo.getTranslation("Member") + " " + firstName + " " + lastName + " "
-                + this.pojo.getTranslation("WasSuccessfully") + " " + this.pojo.getTranslation(operation) + ".";
+        if (this.action.equals(this.pojo.getTranslation("AddMember"))) {
+            final Member member = (Member) this.object;
+
+            new MemberCreator(this.pojo).correctMemberFormat(member);
+            this.generateMemberMessage(member, "Added");
+
+        } else if (this.action.equals(this.pojo.getTranslation("EditMember"))) {
+            final Member oldMember = ((ArrayList<Member>) this.object).get(0);
+            final Member newMember = ((ArrayList<Member>) this.object).get(1);
+
+            new MemberCreator(this.pojo).editMember(oldMember, newMember);
+            this.generateMemberMessage(oldMember, "Edited");
+
+        } else if (this.action.equals(this.pojo.getTranslation("RemoveMember"))) {
+            final Member member = this.pojo.getMemberList().get((int) (this.object));
+
+            new MemberCreator(this.pojo).removeMember(member);
+            this.generateMemberMessage(member, "Removed");
+
+        }
+        MemberTableModel.refreshTable();
     }
 
-    private void generateGroupMessage(final Group group, final String operation) {
+    private void useOutputOperation() {
 
-        final String groupName = group.getName();
-        this.message = this.pojo.getTranslation("Group") + " " + groupName + " " + this.pojo.getTranslation("WasSuccessfully")
-                + " " + this.pojo.getTranslation(operation) + ".";
-    }
+        if (this.action.equals(this.pojo.getTranslation("Print"))) {
+            new PrintJobHelper().printOutForGroups(this.pojo, (ArrayList<Group>) this.object);
+            this.message = this.pojo.getTranslation("PrintSuccess");
 
-    private void showSuccessMessage(final String text) {
-        OperationSuccessfullFrame.getInstance(text, this.pojo);
+        } else if (this.action.equals(this.pojo.getTranslation("SendMail"))) {
+            new EmailJobHelper().sendMailToGroups(this.pojo, (ArrayList<Group>) this.object);
+            this.message = this.pojo.getTranslation("MailSuccess");
+
+        } else if (this.action.equals(this.pojo.getTranslation("Save"))) {
+            new FileWriteHelper().createXMLFiles(this.pojo);
+            this.message = this.pojo.getTranslation("SaveSuccess");
+        }
     }
 }

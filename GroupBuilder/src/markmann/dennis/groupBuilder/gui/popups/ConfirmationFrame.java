@@ -21,29 +21,26 @@ public final class ConfirmationFrame extends JFrame implements DefaultFrame {
     private static ConfirmationFrame instance = null;
     private static final long serialVersionUID = -6013891923961668832L;
 
-    public static ConfirmationFrame getInstance(
-            final Pojo pojo,
-            final WindowCloseDialogOptions dialogOption,
-            final Object object) {
+    public static ConfirmationFrame getInstance(final Pojo pojo, final WindowCloseDialogOptions request, final Object object) {
         if (instance == null) {
-            instance = new ConfirmationFrame(pojo, dialogOption, object);
+            instance = new ConfirmationFrame(pojo, request, object);
         } else {
             instance.toFront();
         }
         return instance;
     }
 
-    private ConfirmationFrame(final Pojo pojo, final WindowCloseDialogOptions dialogOption, final Object object) {
+    private ConfirmationFrame(final Pojo pojo, final WindowCloseDialogOptions request, final Object object) {
 
         BUILDER.setDefaultFrameSettings(this, "GroupBuilder - " + pojo.getTranslation("Confirm"));
         this.addWindowListener(new MyWindowAdapter(this));
 
-        BUILDER.createLabel(this, pojo.getTranslation("ConfirmationText") + dialogOption.toString() + " ?", 0, 1);
+        BUILDER.createLabel(this, request.toString(), 0, 1);
         final JButton confirmationButton = BUILDER
                 .createButton(this, "confirmationButton", pojo.getTranslation("Confirm"), 0, 4);
         final JButton abortButton = BUILDER.createButton(this, "abortButton", pojo.getTranslation("Abort"), 3, 4);
 
-        final ConfirmationFrameListener listener = new ConfirmationFrameListener(this, pojo, dialogOption.toString(), object);
+        final ConfirmationFrameListener listener = new ConfirmationFrameListener(this, pojo, request, object);
 
         confirmationButton.addActionListener(listener);
         abortButton.addActionListener(listener);
@@ -55,13 +52,8 @@ public final class ConfirmationFrame extends JFrame implements DefaultFrame {
         instance = null;
     }
 
-    // @Override
-    // public void openClosingDialog(final String text) {
-    // this.closeWindow();
-    // }
-
     @Override
     public void openClosingDialog(WindowCloseDialogOptions request) {
-        // TODO implement + remove old one
+        ConfirmationFrame.getInstance(null, request, this);
     }
 }

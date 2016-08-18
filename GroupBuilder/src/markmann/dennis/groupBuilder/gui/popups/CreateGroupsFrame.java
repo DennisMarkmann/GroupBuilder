@@ -51,11 +51,6 @@ public final class CreateGroupsFrame extends JFrame implements DefaultFrame {
 
     }
 
-    // @Override
-    // public void openClosingDialog(final String text) {
-    // ConfirmationFrame.getInstance(this.pojo, text, this);
-    // }
-
     @Override
     public void closeWindow() {
         this.dispose();
@@ -64,6 +59,6 @@ public final class CreateGroupsFrame extends JFrame implements DefaultFrame {
 
     @Override
     public void openClosingDialog(WindowCloseDialogOptions request) {
-        // TODO implement + remove old one
+        ConfirmationFrame.getInstance(this.pojo, request, this);
     }
 }

@@ -10,6 +10,7 @@ import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.Default
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
 import markmann.dennis.groupBuilder.gui.menu.listener.EmailFrameListener;
+import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.storage.Group;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
@@ -46,7 +47,7 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
 
         int x = 0;
         int y = 0;
-        final ArrayList<JCheckBox> checkBoxList = new ArrayList<JCheckBox>();
+        final ArrayList<JCheckBox> checkBoxList = new ArrayList<>();
         for (final Group group : pojo.getGroupList()) {
             if (x == 3) {
                 y++;
@@ -75,11 +76,6 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
         closeButton.addActionListener(listener);
     }
 
-    // @Override
-    // public void openClosingDialog(final String text) {
-    // ConfirmationFrame.getInstance(this.pojo, text, this);
-    // }
-
     @Override
     public void closeWindow() {
         this.dispose();
@@ -92,7 +88,7 @@ public final class EmailFrame extends JFrame implements DefaultFrame {
 
     @Override
     public void openClosingDialog(WindowCloseDialogOptions request) {
-        // TODO implement + remove old one
+        ConfirmationFrame.getInstance(this.pojo, request, this);
     }
 
     public void setSelected(final boolean selected) {

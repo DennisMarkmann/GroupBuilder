@@ -7,11 +7,13 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.WindowConstants;
 
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.DefaultFrame;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.MyWindowAdapter;
 import dennis.markmann.MyLibraries.GuiJobs.DefaultFrames.Implementations.WindowCloseDialogOptions;
 import markmann.dennis.groupBuilder.gui.mainFrame.listener.MainFrameListener;
+import markmann.dennis.groupBuilder.gui.popups.ConfirmationFrame;
 import markmann.dennis.groupBuilder.storage.Pojo;
 
 /**
@@ -69,7 +71,7 @@ public class MainFrame extends JFrame implements DefaultFrame {
         this.setSize(800, 680);
         this.setLocationRelativeTo(null);
         this.addWindowListener(new MyWindowAdapter(this));
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
         // adds menuItems
         this.addMenuItem(pojo.getTranslation("Settings"));
@@ -91,14 +93,9 @@ public class MainFrame extends JFrame implements DefaultFrame {
 
     }
 
-    // @Override
-    // public final void openClosingDialog(final String text) {
-    // ConfirmationFrame.getInstance(this.pojo, text, this);
-    // }
-
     @Override
     public void openClosingDialog(WindowCloseDialogOptions request) {
-        // TODO implement + remove old one
+        ConfirmationFrame.getInstance(this.pojo, request, this);
     }
 
     public final void reload() {
