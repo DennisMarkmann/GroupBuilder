@@ -78,10 +78,12 @@ public class Settings { // NO_UCD
         if (!path.endsWith("GroupBuilder")) {
             path = path + "GroupBuilder\\";
         }
-        if (new File(this.path).listFiles() != null) {
+        File source = new File(this.path);
+        if (source.listFiles() != null) {
             try {
-                new FileCopy().copyFolder(this.path, path, true);
-            } catch (final CopyOperationException e) {
+                new FileCopy().copyFolder(source, new File(path), true);
+            }
+            catch (final CopyOperationException e) {
                 new CopyException(e).showDialog();
             }
             new FileCleaner().cleanFolder(this.path);

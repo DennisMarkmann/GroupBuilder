@@ -26,14 +26,15 @@ public class GroupFileArchiver {
 
         LOGGER.info("Archiving group files.");
 
-        final String archivPath = this.createArchivFolder(pojo.getSettings().getPath());
+        final String archivePath = this.createArchivFolder(pojo.getSettings().getPath());
 
         final File[] files = new File(pojo.getSettings().getPath() + "Groups//").listFiles();
 
         for (final File file : files) {
             try {
-                new FileCopy().copy(file.getAbsolutePath(), archivPath + file.getName());
-            } catch (final CopyOperationException e) {
+                new FileCopy().copy(file, new File(archivePath + file.getName()));
+            }
+            catch (final CopyOperationException e) {
                 new CopyException(e).showDialog();
             }
         }
