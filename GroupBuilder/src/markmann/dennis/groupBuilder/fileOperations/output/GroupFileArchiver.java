@@ -32,7 +32,7 @@ public class GroupFileArchiver {
 
         for (final File file : files) {
             try {
-                new FileCopy().copy(file, new File(archivePath + file.getName()));
+                new FileCopy().copy(file, new File(archivePath), true);
             }
             catch (final CopyOperationException e) {
                 new CopyException(e).showDialog();

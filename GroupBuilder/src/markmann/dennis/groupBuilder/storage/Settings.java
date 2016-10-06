@@ -81,7 +81,7 @@ public class Settings { // NO_UCD
         File source = new File(this.path);
         if (source.listFiles() != null) {
             try {
-                new FileCopy().copyFolder(source, new File(path), true);
+                new FileCopy().copy(source, new File(path), true);
             }
             catch (final CopyOperationException e) {
                 new CopyException(e).showDialog();
