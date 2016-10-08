@@ -2,19 +2,19 @@ package markmann.dennis.groupBuilder.fileOperations.reader;
 
 import java.io.File;
 
-import markmann.dennis.groupBuilder.jobs.GroupCreator;
-import markmann.dennis.groupBuilder.logging.LogHandler;
-import markmann.dennis.groupBuilder.storage.Pojo;
-
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import markmann.dennis.groupBuilder.jobs.GroupCreator;
+import markmann.dennis.groupBuilder.logging.LogHandler;
+import markmann.dennis.groupBuilder.storage.Pojo;
+
 /**
  * Used to get and store the values of the groupList.xml in the pojo.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */

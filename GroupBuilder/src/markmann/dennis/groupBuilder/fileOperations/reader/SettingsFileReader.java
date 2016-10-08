@@ -2,18 +2,18 @@ package markmann.dennis.groupBuilder.fileOperations.reader;
 
 import java.io.File;
 
-import markmann.dennis.groupBuilder.logging.LogHandler;
-import markmann.dennis.groupBuilder.storage.Pojo;
-import markmann.dennis.groupBuilder.storage.Settings;
-
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
+import markmann.dennis.groupBuilder.logging.LogHandler;
+import markmann.dennis.groupBuilder.storage.Pojo;
+import markmann.dennis.groupBuilder.storage.Settings;
+
 /**
  * Used to get and store the values of the settings.xml in the pojo.
- * 
+ *
  * @author dennis.markmann
  * @version 1.0
  */
