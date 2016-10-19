@@ -1,6 +1,7 @@
 package markmann.dennis.groupBuilder.fileOperations.reader;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -33,7 +34,7 @@ public class FileReaderHelper {
             doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(file);
 
         }
-        catch (final java.io.FileNotFoundException e) {
+        catch (final FileNotFoundException e) {
             new NotToHandleException();
             return null;
         }
