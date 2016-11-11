@@ -67,7 +67,7 @@ Prio:
 	
 	3.6. GUI Umbau auf JavaFX
 	
-4. Minor GUI changes:
+4. Minor GUI Changes:
 
 	4.0. Archiving duration as comboBox with options: 1d, 3d, 7d, 14d, 1month (prob some changes required for months), forever
 	4.1. Group Settings in categories (Still the same page, just use boxes and stuff)
